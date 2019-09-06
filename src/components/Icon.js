@@ -9,11 +9,14 @@ const ICON_TYPES = {
   stackOverflow: faStackOverflow, 
   github: faGithub,
 }
-const Icon = ({ icon }) =>
-  <FontAwesomeIcon color="#FFFFFF" icon={ICON_TYPES[icon]} />;
+const Icon = ({ icon, href }) =>
+  <a href={href}target="_blank" rel="noopener noreferrer">
+    <FontAwesomeIcon color="#FFFFFF" icon={ICON_TYPES[icon]} />
+  </a>;
 
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
 };
 
 export default Icon;
