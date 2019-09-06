@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Router, browserHistory, Route, Link } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter, faLinkedin, faStackOverflow, faGithub } from '@fortawesome/free-brands-svg-icons';
 import logo from './profilepic.jpg';
 import './App.css';
 
@@ -11,26 +12,31 @@ const Page = ({ title }) => (
         <h2>{title}</h2>
             <div>
                 <h1>Peter Watters</h1>
-                <FontAwesomeIcon icon="adjust"/>
                 <h3>
                   <span>Full stack developer</span>, <span>UX specialist</span> and <span> Javascript enthusiast</span>.
                 </h3>
                 <ul>
-                  <li><a href="https://twitter.com/Peter_J_W" target="_blank" rel="noopener noreferrer">
-                    <i className="fa fa-twitter"></i></a>
+                  <li>
+                    <a href="https://twitter.com/Peter_J_W" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon color="#FFFFFF" icon={faTwitter} />
+                    <FontAwesomeIcon color="#FFFFFF" icon="Twitter" />
+                    </a>
                   </li>
                   <li>
                     <a href="https://www.linkedin.com/in/peter-watters/" target="_blank" rel="noopener noreferrer">
-                    <i className="fa fa-linkedin"></i></a>
+                    <FontAwesomeIcon  color="#FFFFFF" icon={faLinkedin} />
+                    </a>
                   </li>
                   <li>
                     <a href="https://github.com/peter-watters" target="_blank" rel="noopener noreferrer">
-                      <i className="fa fa-github"></i>
+                      <FontAwesomeIcon color="#FFFFFF" icon={faGithub} />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://stackoverflow.com/users/1365580/peadar" target="_blank" rel="noopener noreferrer">
+                      <FontAwesomeIcon  color="#FFFFFF" icon={faStackOverflow} />
                     </a>
                     </li>
-                  <li><a href="https://stackoverflow.com/users/1365580/peadar" target="_blank" rel="noopener noreferrer">
-                    <i className="fa fa-stack-overflow"></i></a>
-                  </li>
                 </ul>
           </div>
       </header>
