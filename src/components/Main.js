@@ -5,8 +5,8 @@ import Section from './Section';
 
 const Main = ({ title }) =>
   <main>
-    <Header title={title} />
-    <Section />
+    <Header />
+    <Section title={title} />
   </main>;
 
 Main.propTypes = {
