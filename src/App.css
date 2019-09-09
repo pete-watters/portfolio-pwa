@@ -44,44 +44,48 @@ body {
       section/
               article/
 
+  // Move name into logo, under picture
+  // main menu in middle social on left
 */
 main {
   text-align: center;
+  display: grid;
+  grid-template-columns: auto;
+  /* grid-template-rows: 2fr auto; */
+  grid-template-areas:
+  "header"
+  "main"
 }
 
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-areas:
+    "logo title nav";
+  padding: 1rem;
+  background-color: #2B2B2B;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
 .logo {
+  grid-area: logo;
   pointer-events: none;
   position: relative;
   width: 120px;
   height: 120px;
   border-radius: 100%;
 }
-
-header {
-  background-color: #2B2B2B;
-  min-height: 100vh;
+h1{
+  grid-area: title;
+}
+nav{
+  grid-area: nav;
   display: flex;
+}
+
+nav a{
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-header h1 {
-  /* font: 90px/1.1em 'opensans-bold', sans-serif;
-  font-family: 'Press Start 2P', cursive; */
-  color: #fff;
-  letter-spacing: -2px;
-  margin: 0 auto 18px auto;
-  text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
-}
-
-
-header p {
-  font-size: 90px;
-}
-
-.App-link {
-  color: #61dafb;
 }
