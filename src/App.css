@@ -7,15 +7,19 @@ a, span{
 a {
   opacity: 0.75;
   text-decoration: none;
-  color: #fff;
+  color: black;
 }
-a:hover{
+a.active, a:hover{
   opacity: 1;
 }
+header a{
+   color: #fff;
+}
+
 code{
   font-family: 'Press Start 2P', cursive;
 }
-h1{
+h1 > *{
   font-family: 'Monoton', cursive;
 }
 h2{
@@ -51,7 +55,7 @@ main {
   text-align: center;
   display: grid;
   grid-template-columns: auto;
-  /* grid-template-rows: 2fr auto; */
+  grid-template-rows: 2fr auto;
   grid-template-areas:
   "header"
   "main"
@@ -60,32 +64,38 @@ main {
 header {
   grid-area: header;
   display: grid;
-  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-columns: auto;
   grid-template-areas:
-    "logo title nav";
+    "logo nav";
   padding: 1rem;
   background-color: #2B2B2B;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
-
-.logo {
+header h1{
   grid-area: logo;
+  margin: 0;
+  text-align: left;
+  font-size: 3rem;
+}
+nav{
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  vertical-align: middle;
+  align-items: center;
+}
+
+nav a{
+  font-size: 2rem;
+}
+
+.profile {
   pointer-events: none;
   position: relative;
   width: 120px;
   height: 120px;
   border-radius: 100%;
-}
-h1{
-  grid-area: title;
-}
-nav{
-  grid-area: nav;
-  display: flex;
-}
-
-nav a{
-  flex-direction: column;
 }
