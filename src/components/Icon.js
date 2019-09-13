@@ -11,7 +11,7 @@ const ICON_TYPES = {
 }
 const Icon = ({ icon, href }) =>
   <a href={href}target="_blank" rel="noopener noreferrer">
-    <FontAwesomeIcon color="#FFFFFF" icon={ICON_TYPES[icon]} />
+    <FontAwesomeIcon icon={ICON_TYPES[icon]} />
   </a>;
 
 Icon.propTypes = {
