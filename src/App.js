@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Router, browserHistory, Route } from 'react-router';
+import { browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from './components/Header';
 import Page from './components/Page';
 import './App.css';
 import logo from './profilepic.jpg';
@@ -60,34 +62,15 @@ const Projects = (props) =>
 class App extends Component {
   render() {
     return (
-      <main>
       <Router history={browserHistory}>
-        <Route exact path={CONFIG.ROUTES.HOME} component={Home}/>
-        <Route exact path={CONFIG.ROUTES.ABOUT} component={About}/>
-        <Route exact path={CONFIG.ROUTES.BLOG} component={Blog}/>
-        <Route exact path={CONFIG.ROUTES.PROJECTS} component={Projects}/>
+        <Header />
+        <main>
+          <Route exact path={CONFIG.ROUTES.HOME} component={Home}/>
+          <Route exact path={CONFIG.ROUTES.ABOUT} component={About}/>
+          <Route exact path={CONFIG.ROUTES.BLOG} component={Blog}/>
+          <Route exact path={CONFIG.ROUTES.PROJECTS} component={Projects}/>
+        </main>
       </Router>
-      </main>
-
-
-      // <div id="dashboard">
-      // <div className="menu">
-      //   <NavLink exact to="/">
-      //     Home
-      //   </NavLink>
-      //   <NavLink exact to="/marketing" >
-      //     Marketing
-      //   </NavLink>
-      //   <NavLink exact to="/automation">
-      //     Automation
-      //   </NavLink>
-      // </div>
-      // <div className="content">
-      //   <Route exact path="/" component={Home} />
-      //   <Route exact path="/marketing" component={Marketing} />
-      //   <Route exact path="/automation" component={Automation} />
-      // </div>
-      // </div>
     );
   }
 }
