@@ -1,5 +1,6 @@
 p{
-  font-family: 'Monoton', cursive;
+  font-family: 'Orbitron', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 a, span{
   font-family: 'Bangers', cursive;
@@ -13,14 +14,17 @@ a.active, a:hover{
   opacity: 1;
 }
 header a{
-   color: #fff;
+   color: white;
 }
 
 code{
   font-family: 'Press Start 2P', cursive;
+  color: white;
+  background-color: grey;
 }
-h1 > *{
-  font-family: 'Monoton', cursive;
+h1 {
+  /* font-family: 'Permanent Marker', cursive; */
+  font-family: 'Orbitron', sans-serif;
 }
 h2{
   font-family: 'Roboto Mono', monospace;
@@ -36,6 +40,10 @@ h5{
   font-family: 'Orbitron', sans-serif;
 }
 
+h1 a {
+  font-family: 'Monoton', cursive;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -47,8 +55,6 @@ body {
       header/
       section/
               article/
-
-  // Move name into logo, under picture
   // main menu in middle social on left
 */
 main {
@@ -90,6 +96,11 @@ nav{
 
 nav a{
   font-size: 2rem;
+}
+
+article{
+  margin: 2rem auto;
+  max-width: 50rem;
 }
 
 .profile {
