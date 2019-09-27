@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Section from './Section';
 
-const Page = ({ title, children }) =>
-    <Section title={title}>
-        <h2>{title}</h2>
+const Page = ({ children }) =>
+    <Section>
+      <article>
         {children}
+      </article>
     </Section>;
 
 Page.propTypes = {
-  title: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };
 
