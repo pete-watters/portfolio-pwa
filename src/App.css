@@ -1,4 +1,4 @@
-p{
+p {
   font-family: 'Orbitron', sans-serif;
   font-family: 'Roboto Mono', monospace;
 }
@@ -49,14 +49,7 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-/* 
-  TODO build a nice grid layout
-  main/
-      header/
-      section/
-              article/
-  // main menu in middle social on left
-*/
+
 main {
   text-align: center;
   display: grid;
@@ -75,7 +68,6 @@ header {
     "logo nav";
   padding: 1rem;
   background-color: #2B2B2B;
-  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -101,6 +93,9 @@ nav a{
 article{
   margin: 2rem auto;
   max-width: 50rem;
+}
+article a{
+  margin: 0 0.5rem;
 }
 
 .profile {
