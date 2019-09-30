@@ -1,16 +1,11 @@
-import React, { PureComponent } from 'react';
-import { browserHistory } from 'react-router';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
 import { About, Blog, Home, Projects } from './pages';
 import './App.css';
 import CONFIG from './constants';
-
-// Maybe install express here and keep this simple without Next.js? Could be a lot easier
-class App extends PureComponent {
-  render() {
-    return (
-      <Router history={browserHistory}>
+const App = () => 
+      <Router>
         <Header />
         <main>
           <Route exact path={CONFIG.ROUTES.HOME} component={Home}/>
@@ -18,9 +13,6 @@ class App extends PureComponent {
           <Route exact path={CONFIG.ROUTES.BLOG} component={Blog}/>
           <Route exact path={CONFIG.ROUTES.PROJECTS} component={Projects}/>
         </main>
-      </Router>
-    );
-  }
-}
+      </Router>;
 
 export default App;

@@ -8,9 +8,9 @@ export const Home = () =>
   <Page>
       <img src={logo} className="profile" alt="" />
       <p>Full stack developer, UX specialist and JavaScript enthusiast.</p>
-      <p>A hobbyist coder turned craftsman with a focus on clean scalable code and elegant but intuitive UX.</p>
-      <p>My preferred method of contact is email and you can reach me at: <a href="mailto:peter@peterjwatters.com" target="_top">peter@peterjwatters.com</a></p>
-      <p>Or else at the social channels below:</p>
+      <p>A qualified engineer and hobbyist coder turned craftsman.</p>
+      <p> Specialist in clean scalable code with elegant and intuitive UX.</p>
+      <p>Reach me at:<a href="mailto:peter@peterjwatters.com" target="_top">peter@peterjwatters.com</a></p>
       <Icon icon="twitter" href={CONFIG.SOCIAL.TWITTER} />
       <Icon icon="github" href={CONFIG.SOCIAL.GITHUB} />
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
