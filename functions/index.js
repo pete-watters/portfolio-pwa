@@ -2,6 +2,12 @@ const functions = require('firebase-functions');
 var request = require('request');
 // const myUser = '@peter.j.watters';
 
+// Add CORS to your index.js
+const cors = require('cors')({origin: true});
+// Put this line to your function
+// Automatically allow cross-origin requests
+cors(req, res, () => {});
+
 exports.medium = functions.https.onRequest((req, res) => {
   if(!req.query.username) {
     return res.status(400).send('Error: You need to include query param ?username=@yourUsername');
