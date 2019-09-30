@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import Page from '../components/Page';
 
-export const Projects = (props) =>
+const Projects = () =>
   <Page> 
     <p>Projects</p>
     <p>Bangers: Lorem imspium mdifwmciwmcwi</p>
@@ -12,3 +12,5 @@ export const Projects = (props) =>
     <h4>Permanent Marker: Lorem imspium mdifwmciwmcwi</h4>
     <h5>Orbitron: Lorem imspium mdifwmciwmcwi</h5>
   </Page>;
+
+export default memo(Projects);

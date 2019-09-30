@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 import logo from '../profilepic.jpg';
 import CONFIG from '../constants';
 import Icon from '../components/Icon';
 import Page from '../components/Page';
 
-export const Home = () =>
+const Home = () =>
   <Page>
       <img src={logo} className="profile" alt="" />
       <p>Full stack developer, UX specialist and JavaScript enthusiast.</p>
@@ -16,3 +16,5 @@ export const Home = () =>
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
       <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
   </Page>;
+  
+export default memo(Home);

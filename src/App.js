@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
 import { About, Blog, Home, Projects } from './pages';
@@ -15,4 +15,4 @@ const App = () =>
         </main>
       </Router>;
 
-export default App;
+export default memo(App);
