@@ -8,8 +8,10 @@ exports.medium = functions.https.onRequest((req, res) => {
   }  
     const url = `https://medium.com/@peter.j.watters/latest?format=json`;  
     return request(url,(error, response, body) => {
-    const prefix = `])}while(1);</x>`
-    const strip = payload => payload.replace(prefix, ``)
+    const prefix = `])}while(1);</x>`;
+    const strip = payload => payload.replace(prefix, ``);
+    res.headers.set('Access-Control-Allow-Origin', '*');
+    res.headers.set('Access-Control-Allow-Methods', 'GET, POST');
     res.send(JSON.parse(strip(body)));
   });
 })
