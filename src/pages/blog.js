@@ -19,4 +19,4 @@ class Blog extends PureComponent {
   }
 }
 
-export { Blog };
+export default Blog;

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import CONFIG from '../constants';
 import Icon from '../components/Icon';
 import Page from '../components/Page';
 
-export const About = () =>
+const About = () =>
   <Page> 
       <p>Full stack developer, UX specialist and JavaScript enthusiast. I am a hobbyist coder who loves what I do and consider myself a true craftsman with a focus on clean scalable code and elegant but intuitive UX. </p> 
       <p>I've been an engineer since birth but have the academic credentials to back it up with B.Eng and M.Eng and am a member of Engineers Ireland.</p>
@@ -16,3 +16,5 @@ export const About = () =>
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
       <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
   </Page>;
+
+export default memo(About);
