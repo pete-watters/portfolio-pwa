@@ -6,6 +6,7 @@ import { About, Blog, Home, Projects } from './pages';
 import './App.css';
 import CONFIG from './constants';
 
+// Maybe install express here and keep this simple without Next.js? Could be a lot easier
 class App extends PureComponent {
   render() {
     return (
