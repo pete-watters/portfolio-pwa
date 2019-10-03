@@ -8,7 +8,7 @@ class Blog extends PureComponent {
   componentDidMount() {
     this.fetchPosts().then(this.setPosts);
   }
-  fetchPosts = () => axios.get(`https://us-central1-portfolio-8db27.cloudfunctions.net/medium`);
+  fetchPosts = () => axios.get(`https://us-central1-portfolio-8db27.cloudfunctions.net/api/medium`);
   setPosts = response => {
     this.setState({
       posts: response
