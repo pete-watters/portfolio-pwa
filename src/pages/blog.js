@@ -13,6 +13,7 @@ class Blog extends PureComponent {
     this.setState({
       posts: response
     });
+    console.log(response);
   } 
   render(){
     return(
