@@ -10,7 +10,7 @@ app.use(cors);
 app.get('/medium', async (req, res) => {
   try {
     let parser = new Parser();
-    let feed = await parser.parseURL('https://medium.com/feed/@peter.j.watters/');
+    let feed = await parser.parseURL('https://medium.com/feed/@pete_watters/');
     return res.status(200).send(feed);
   } catch (error) {
     return res.status(400).send({message: `Bad news :( ${error}`});
