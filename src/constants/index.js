@@ -9,6 +9,7 @@ export default {
     GITHUB: 'https://github.com/peter-watters',
     LINKEDIN: 'https://www.linkedin.com/in/peter-watters/',
     STACKOVERFLOW: 'https://stackoverflow.com/users/1365580/peadar',
-    TWITTER: 'https://twitter.com/Peter_J_W'
+    TWITTER: 'https://twitter.com/watters_pete',
+    MEDIUM: 'https://medium.com/@pete_watters'
   }
 }

@@ -5,7 +5,7 @@ import CONFIG from '../constants';
 // TODO fix this to highlight when on /
 const Header = () =>
   <header>
-    <h1><NavLink to={CONFIG.ROUTES.HOME}>Peter Watters</NavLink></h1>
+    <h1><NavLink to={CONFIG.ROUTES.HOME}>Pete Watters</NavLink></h1>
     <Nav />
   </header>;
 
