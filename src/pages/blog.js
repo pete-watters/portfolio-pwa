@@ -11,7 +11,7 @@ class Blog extends PureComponent {
   fetchPosts = () => axios.get(`https://us-central1-portfolio-8db27.cloudfunctions.net/api/medium`);
   setPosts = response => {
     this.setState({
-      posts: response
+      posts: response.data.items
     });
     console.log(response);
   } 
@@ -22,7 +22,13 @@ class Blog extends PureComponent {
             View My Medium
           </a>
               <Icon icon="medium" href="https://medium.com/@pete_watters" />
-          <pre>{JSON.stringify(this.state.posts, null, 2)}</pre>
+          {/* <pre>{JSON.stringify(this.state.posts, null, 2)}</pre> */}
+          {this.props.posts.map((post, index) => (
+              <article key={index}>
+                <h2><a aria-label="blog-post" href={post.link}>{post.title}</a></h2>
+                <div>{post["content:encoded"]}</div>
+              </article>
+            ))}
       </Page>)
   }
 }
