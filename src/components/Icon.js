@@ -11,7 +11,7 @@ const ICON_TYPES = {
   medium: faMedium,
 }
 const Icon = ({ icon, href }) =>
-  <a href={href}target="_blank" rel="noopener noreferrer">
+  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={icon}>
     <FontAwesomeIcon icon={ICON_TYPES[icon]} />
   </a>;
 
