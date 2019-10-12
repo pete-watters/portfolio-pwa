@@ -1,35 +1,35 @@
 import React, { PureComponent } from 'react';
+import ReactHtmlParser from 'react-html-parser';
 import axios from 'axios';
-import Icon from '../components/Icon';
+import CONFIG from '../constants';
 import Page from '../components/Page';
 
 class Blog extends PureComponent {
-  state = { posts: [] } 
+  state = { feed: {} } 
   componentDidMount() {
-    this.fetchPosts().then(this.setPosts);
+    this.fetchFeed().then(this.setFeed);
   }
-  fetchPosts = () => axios.get(`https://us-central1-portfolio-8db27.cloudfunctions.net/api/medium`);
-  setPosts = response => {
-    this.setState({
-      posts: response.data.items
-    });
-    console.log(response);
+  fetchFeed = () => axios.get(`https://us-central1-portfolio-8db27.cloudfunctions.net/api/medium`);
+  setFeed = response => {
+    this.setState({feed: response});
   } 
   render(){
-    return(
-    <Page>
-          <a href="https://medium.com/@pete_watters" target="_blank" rel="noopener noreferrer">
-            View My Medium
-          </a>
-              <Icon icon="medium" href="https://medium.com/@pete_watters" />
-          {/* <pre>{JSON.stringify(this.state.posts, null, 2)}</pre> */}
-          {this.props.posts.map((post, index) => (
-              <article key={index}>
-                <h2><a aria-label="blog-post" href={post.link}>{post.title}</a></h2>
-                <div>{post["content:encoded"]}</div>
+    const { data } = this.state.feed;
+      return(
+      <Page>
+          {data && data.items.map((post, index) => (
+              <article key={index} onClick={() => window.open(post.link, "_blank")} aria-label="blog-post">
+                <h1>{post.title}</h1>
+                <summary>{ReactHtmlParser(post["content:encoded"])}</summary>
               </article>
-            ))}
-      </Page>)
+            ))
+            }
+            <footer>
+              <a href={CONFIG.SOCIAL.MEDIUM} target="_blank" rel="noopener noreferrer">
+                {data && data.description}
+              </a>
+            </footer>
+        </Page>);
   }
 }
 

@@ -63,7 +63,7 @@ main {
 header {
   grid-area: header;
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 2fr 1fr;
   grid-template-areas:
     "logo nav";
   padding: 1rem;
@@ -96,6 +96,12 @@ article{
 }
 article a{
   margin: 0 0.5rem;
+}
+
+summary{
+  max-height: 15rem;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .profile {

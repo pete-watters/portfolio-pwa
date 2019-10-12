@@ -6,12 +6,12 @@ import CONFIG from '../constants';
 const Nav = () =>
     <nav>
       <NavLink to={CONFIG.ROUTES.ABOUT}>About</NavLink>
-      {/* <NavLink to={CONFIG.ROUTES.BLOG}>Blog</NavLink> */}
-      {/* <NavLink to={CONFIG.ROUTES.PROJECTS}>Projects</NavLink> */}
+      <NavLink to={CONFIG.ROUTES.BLOG}>Blog</NavLink>
       <Icon icon="twitter" href={CONFIG.SOCIAL.TWITTER} />
       <Icon icon="github" href={CONFIG.SOCIAL.GITHUB} />
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
       <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
+      <Icon icon="medium" href={CONFIG.SOCIAL.MEDIUM} />
     </nav>;
 
 export default Nav;

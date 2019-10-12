@@ -3,11 +3,10 @@ export default {
     HOME: '/',
     ABOUT: '/about',
     BLOG: '/blog',
-    PROJECTS: '/projects',
   },
   SOCIAL:{
-    GITHUB: 'https://github.com/peter-watters',
-    LINKEDIN: 'https://www.linkedin.com/in/peter-watters/',
+    GITHUB: 'https://github.com/pete-watters',
+    LINKEDIN: 'https://www.linkedin.com/in/pete-watters/',
     STACKOVERFLOW: 'https://stackoverflow.com/users/1365580/peadar',
     TWITTER: 'https://twitter.com/watters_pete',
     MEDIUM: 'https://medium.com/@pete_watters'
