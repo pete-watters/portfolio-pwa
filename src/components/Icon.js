@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter, faLinkedin, faStackOverflow, faGithub, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter, faLinkedin, faStackOverflow, faGithub, faMedium, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const ICON_TYPES = {
   twitter: faTwitter, 
@@ -9,6 +9,7 @@ const ICON_TYPES = {
   stackOverflow: faStackOverflow, 
   github: faGithub,
   medium: faMedium,
+  instagram: faInstagram,
 }
 const Icon = ({ icon, href }) =>
   <a href={href} target="_blank" rel="noopener noreferrer" aria-label={icon}>
