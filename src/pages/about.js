@@ -1,7 +1,12 @@
 import React, { memo } from 'react';
+import ReactSiema from 'react-siema';
 import CONFIG from '../constants';
 import Icon from '../components/Icon';
 import Page from '../components/Page';
+
+const Slide = props => <img {...props} alt="slide" />;
+
+let slider; 
 
 const About = () =>
   <Page> 
@@ -15,6 +20,14 @@ const About = () =>
       <Icon icon="github" href={CONFIG.SOCIAL.GITHUB} />
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
       <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
+
+    <ReactSiema ref={siema => slider = siema}>
+        <Slide src="https://picsum.photos/200/300" />
+        <Slide src="https://picsum.photos/200/300" />
+        <Slide src="https://picsum.photos/200/300" />
+   </ReactSiema>
+            <button onClick={() => slider.prev()}>prev</button>
+            <button onClick={() => slider.next()}>next</button>
   </Page>;
 
 export default memo(About);

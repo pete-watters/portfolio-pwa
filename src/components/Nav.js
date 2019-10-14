@@ -12,6 +12,7 @@ const Nav = () =>
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
       <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
       <Icon icon="medium" href={CONFIG.SOCIAL.MEDIUM} />
+      <Icon icon="instagram" href={CONFIG.SOCIAL.INSTAGRAM} />
     </nav>;
 
 export default Nav;
