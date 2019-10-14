@@ -1,12 +1,9 @@
 import React, { memo } from 'react';
-import ReactSiema from 'react-siema';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import CONFIG from '../constants';
 import Icon from '../components/Icon';
 import Page from '../components/Page';
-
-const Slide = props => <img {...props} alt="slide" />;
-
-let slider; 
 
 const About = () =>
   <Page> 
@@ -20,14 +17,22 @@ const About = () =>
       <Icon icon="github" href={CONFIG.SOCIAL.GITHUB} />
       <Icon icon="linkedIn" href={CONFIG.SOCIAL.LINKEDIN} />
       <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
+  
+      <Carousel>
+            <div>
+                <img src="img/about/sled.jpg"  alt=''/>
+                <p className="legend">Legend 1</p>
+            </div>
+            <div>
+                <img src="img/about/yosemite.jpg" alt='' />
+                <p className="legend">Legend 2</p>
+            </div>
+            <div>
+                <img src="img/about/hawaii.jpg"  alt='' />
+                <p className="legend">Legend 3</p>
+            </div>
+        </Carousel>
 
-    <ReactSiema ref={siema => slider = siema}>
-        <Slide src="https://picsum.photos/200/300" />
-        <Slide src="https://picsum.photos/200/300" />
-        <Slide src="https://picsum.photos/200/300" />
-   </ReactSiema>
-            <button onClick={() => slider.prev()}>prev</button>
-            <button onClick={() => slider.next()}>next</button>
   </Page>;
 
 export default memo(About);
