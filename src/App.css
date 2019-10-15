@@ -84,6 +84,7 @@ nav{
   justify-content: space-evenly;
   vertical-align: middle;
   align-items: center;
+  cursor: pointer;
 }
 
 nav a{
