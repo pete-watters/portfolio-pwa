@@ -1,66 +1,52 @@
 import React, { PureComponent } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
 import Page from '../components/Page';
 import { Adventures, Contact, Story, Work } from '../components/about';
 
-const createCarouselItemImage = (index) => (
-  <div key={index}>
-      <img src={`img/about/${index}.jpg`} alt='' />
-  </div>
-);
+const VIEWS = {
+    ADVENTURES: 'Adventures',
+    CONTACT: 'Contact',
+    STORY: 'Story',
+    WORK: 'Work'
+}
 
-const imageArray = [
- 'sled',
- 'whistler',
- 'yosemite',
- 'yosemite1',
- 'hawaii',
- 'kayak',
- 'benbulben',
- 'muckish',
- 'moher',
-];
-
-const baseChildren = <div>{ imageArray.map(createCarouselItemImage) }</div>;
+const getAboutComponent = view => {
+    switch(view) {
+    case VIEWS.ADVENTURES:
+        return <Adventures />;
+    case VIEWS.CONTACT:
+        return <Contact />;
+    case VIEWS.STORY:
+    default:
+        return <Story />;
+    case VIEWS.WORK:
+        return <Work />;
+    }
+  };
 
 class About extends PureComponent {
   constructor (props) {
       super(props);
-
       this.state = {
-          slides: null
+          view: null,
       };
 
-      this.loadSlides = this.loadSlides.bind(this);
+      this.switchView = this.switchView.bind(this);
   }
 
-  loadSlides() {
-      this.setState({
-          slides: baseChildren.props.children
-      });
+  switchView(view) {
+    this.setState({ view: view });
   }
-
-  render(){
+  render(){      
     return (
     <Page> 
     <nav>
-        <h4>Story</h4>
-        <h4 onClick={this.loadSlides}>Adventures</h4>
-        <h4>Work</h4>
-        <h4>Contact</h4>
+        <h4 onClick={() => this.switchView(VIEWS.STORY)}>{VIEWS.STORY}</h4>
+        <h4 onClick={() => this.switchView(VIEWS.WORK)}>{VIEWS.WORK}</h4>
+        <h4 onClick={() => this.switchView(VIEWS.CONTACT)}>{VIEWS.CONTACT}</h4>
+        <h4 onClick={() => this.switchView(VIEWS.ADVENTURES)}>{VIEWS.ADVENTURES}</h4>
     </nav>
-    <Adventures />
-    <Contact />
-    <Story />
-    <Work />
-    
-    <div>
-        <Carousel showArrows={false} showThumbs={false} showStatus={false} showIndicators={false} infiniteLoop autoPlay>
-            { this.state.slides }
-        </Carousel>
-    </div>
-
+     {getAboutComponent(this.state.view)}
   </Page>);
   }
 }
