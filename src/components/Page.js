@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import Section from './Section';
 
@@ -13,4 +13,4 @@ Page.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default Page;
+export default memo(Page);
