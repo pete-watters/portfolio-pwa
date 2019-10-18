@@ -1,7 +1,7 @@
-p {
-  font-family: 'Orbitron', sans-serif;
+p, p > a {
   font-family: 'Roboto Mono', monospace;
 }
+
 a, span{
   font-family: 'Bangers', cursive;
 }

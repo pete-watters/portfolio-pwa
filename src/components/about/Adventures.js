@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 const createCarouselItemImage = index => (
   <div key={index}>
-      <img src={`img/about/${index}.jpg`} alt='' />
+      <img src={`img/about/bw/${index}.jpg`} alt='' height="920px"/>
   </div>
 );
 
