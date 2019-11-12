@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 
 const createCarouselItemImage = index => (
   <div key={index}>
-      <img src={`img/about/bw/${index}.jpg`} alt='' height="920px"/>
+      <img src={`img/about/${index}.jpg`} alt='' height="920px"/>
   </div>
 );
 
@@ -23,8 +23,13 @@ const imageArray = [
 const baseChildren = <div>{ imageArray.map(createCarouselItemImage) }</div>;
 
 const Adventures = () => 
-            <Carousel showThumbs={false} showStatus={false} showIndicators={false} infiniteLoop autoPlay>
-                {baseChildren.props.children}
-            </Carousel>;
+  <article>
+    <div>
+      <p>I love travelling and have been all over the world, visiting 5 continents, with just 2 to go! </p>
+      <Carousel showThumbs={false} showStatus={false} showIndicators={false} infiniteLoop autoPlay>
+          {baseChildren.props.children}
+      </Carousel>
+    </div>
+  </article>;
 
 export default memo(Adventures);
