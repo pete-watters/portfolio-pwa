@@ -1,7 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the source code for my portfolio [https://petewatters.ie/](https://petewatters.ie/)
 
-## Available Scripts
+## Code
+The app is a PWA designed to be as simple as possible. The UI is built using semantic HTML tags and CSS and some React to organise everything
 
+## Scripts
 In the project directory, you can run:
 
 ### `yarn start`
@@ -12,15 +14,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br>
 You will also see any lint errors in the console.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `yarn build`
-
 Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
 ### Deployment
-This app is hosted on Google Firebase. It will deploy the `build` folder if you run `firebase deploy`
+This app is hosted on Google Firebase. It will deploy the `build` folder if you run `firebase deploy`. You will need to configure your own project there
