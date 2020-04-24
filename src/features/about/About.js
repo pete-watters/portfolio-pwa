@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import Page from '../../components/Page';
+import Page from 'components/Page';
 import { VIEWS } from './constants';
 import { getAboutComponent } from './helpers';
 
