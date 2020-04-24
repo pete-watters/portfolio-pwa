@@ -1,0 +1,75 @@
+{
+     "env": {
+         "browser": true,
+         "es6": true,
+         "node": true,
+         "mocha": true
+     },
+     "extends": "airbnb",
+     "parser": "babel-eslint",
+     "parserOptions": {
+         "ecmaFeatures": {
+             "experimentalObjectRestSpread": true,
+             "jsx": true
+         },
+         "sourceType": "module"
+     },
+   "settings": {
+     "import/resolver": {
+       "node": {
+         "paths": ["src", "server"]
+       }
+     }
+   },
+     "plugins": [
+         "react"
+     ],
+     "globals": {
+       "document": true,
+       "console": true,
+       "process": true,
+       "window": true,
+       "fetch": true,
+       "describe": true,
+       "expect": true,
+       "fail": true,
+       "it": true
+     },
+     "rules": {
+         "arrow-parens": [2, "as-needed", { "requireForBlockBody": false }],
+         "linebreak-style": ["error", "unix"],
+         "semi": ["error", "always"],
+         "no-shadow": 2,
+         "no-unused-vars": 2,
+         "object-property-newline": ["error", { "allowMultiplePropertiesPerLine": true }],
+         "no-trailing-spaces": 2,
+         "space-before-blocks": ["error"],
+         "keyword-spacing": ["error"],
+         "no-magic-numbers": ["error", { "ignore": [-1, 0, 1] }],
+         "no-restricted-globals": [0, "error", "event", "fdescribe"],
+         "react/button-has-type": 0,
+         "react/forbid-prop-types": 0,
+         "react/jsx-uses-vars": 2,
+         "react/jsx-uses-react": 1,
+         "react/jsx-filename-extension": 0,
+         "react/prop-types": 2,
+         "react/jsx-one-expression-per-line": 0,
+         "react/jsx-wrap-multilines": 0,
+         "import/prefer-default-export": 0,
+         "comma-dangle": ["error", "always-multiline"],
+         "no-cond-assign": ["error", "always"],
+         "jsx-a11y/anchor-is-valid": [
+           "error",
+           {
+             "components": ["Link"],
+             "specialLink": ["hrefLeft", "hrefRight", "to"],
+             "aspects": ["noHref", "invalidHref", "preferButton"]
+           }
+         ],
+         "jsx-quotes": ["error", "prefer-double"],
+         "no-multiple-empty-lines": [2, { "max": 1, "maxEOF": 1, "maxBOF": 0 }],
+         "quote-props": [1, "as-needed"],
+         "implicit-arrow-linebreak": 0,
+         "object-curly-newline": 0
+       }    
+ }
