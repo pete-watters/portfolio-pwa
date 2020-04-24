@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Link from '../../../components/Link';
+import Link from 'components/Link';
 
 const Work = () =>
   <article>

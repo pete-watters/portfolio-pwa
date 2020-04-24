@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import CONFIG from 'constants/';
 import SocialMedia from './SocialMedia';
-import CONFIG from '../constants';
 
 const Nav = () =>
     <nav>

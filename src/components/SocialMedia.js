@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
+import CONFIG from 'constants/';
 import Icon from './Icon';
-import CONFIG from '../constants';
 
 const SocialMedia = () =>
     <>
