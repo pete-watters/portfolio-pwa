@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
-import SocialMedia from '../SocialMedia';
-import Link from '../Link';
+import SocialMedia from '../../../components/SocialMedia';
+import Link from '../../../components/Link';
 
 const Contact = () =>
   <article>

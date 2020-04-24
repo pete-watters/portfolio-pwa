@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import Link from '../Link';
+import Link from '../../../components/Link';
 
 const Story = () =>
   <article>
