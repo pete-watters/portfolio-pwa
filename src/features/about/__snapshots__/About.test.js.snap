@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About should render the component correctly 1`] = `
+<Memo(Page)>
+  <nav>
+    <h4
+      onClick={[Function]}
+    >
+      Story
+    </h4>
+    <h4
+      onClick={[Function]}
+    >
+      Work
+    </h4>
+    <h4
+      onClick={[Function]}
+    >
+      Contact
+    </h4>
+    <h4
+      onClick={[Function]}
+    >
+      Adventures
+    </h4>
+  </nav>
+  <Memo(Story) />
+</Memo(Page)>
+`;
