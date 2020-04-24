@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import logo from '../../styles/img/profilepic.jpg';
-import Page from '../../components/Page';
-import SocialMedia from '../../components/SocialMedia';
-import Link from '../../components/Link';
+import logo from 'styles/img/profilepic.jpg';
+import Page from 'components/Page';
+import SocialMedia from 'components/SocialMedia';
+import Link from 'components/Link';
 
 const Home = () =>
   <Page>
