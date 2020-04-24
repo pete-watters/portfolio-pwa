@@ -10,6 +10,8 @@ describe('Home', () => {
     expect(component).toMatchSnapshot();
   });
   it('renders the correct text', () => { 
-    expect(component.find('p:first-child').text()).toEqual("Full stack developer, UX specialist and JavaScript enthusiast.");
+    expect(component.find('p').at(0).text()).toEqual("Full stack developer, UX specialist and JavaScript enthusiast.");
+    expect(component.find('p').at(1).text()).toEqual("Academically qualified engineer and hobbyist coder turned craftsman.");
+    expect(component.find('p').at(2).text()).toEqual("I specialise in well tested, clean scalable code with an elegant and intuitive UX.");
   });
 });

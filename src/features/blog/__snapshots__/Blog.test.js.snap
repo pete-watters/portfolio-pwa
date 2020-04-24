@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog should render the component correctly 1`] = `
+<Memo(Page)>
+  <footer>
+    <a
+      href="https://medium.com/@pete_watters"
+      rel="noopener noreferrer"
+      target="_blank"
+    />
+  </footer>
+</Memo(Page)>
+`;
