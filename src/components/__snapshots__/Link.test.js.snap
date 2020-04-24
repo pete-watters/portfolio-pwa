@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title should render the Link Component correctly 1`] = `
+<a
+  href="https://pete.com"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Test
+</a>
+`;
