@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render the component correctly 1`] = `
+<Memo(Page)>
+  <img
+    alt=""
+    className="profile"
+    src="profilepic.jpg"
+  />
+  <p>
+    Full stack developer, UX specialist and JavaScript enthusiast.
+  </p>
+  <p>
+    Academically qualified engineer and hobbyist coder turned craftsman.
+  </p>
+  <p>
+    I specialise in well tested, clean scalable code with an elegant and intuitive UX.
+  </p>
+  <p>
+    Available for hire as a software developer, coach and speaker.
+  </p>
+  <p>
+    Reach me at: 
+    <Memo(Link)
+      href="mailto:pete@cteic.ie"
+      text="pete@cteic.ie"
+    />
+  </p>
+  <footer>
+    <Memo(SocialMedia) />
+  </footer>
+</Memo(Page)>
+`;
