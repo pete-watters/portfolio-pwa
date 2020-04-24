@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import CONFIG from 'constants/';
 import Nav from './Nav';
-import CONFIG from '../constants';
 
 const Header = () =>
   <header>
