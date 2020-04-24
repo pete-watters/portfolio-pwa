@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import axios from 'axios';
 import CONFIG from 'constants/';
-import Page from '../../components/Page';
+import Page from 'components/Page';
 
 class Blog extends PureComponent {
   state = { feed: {} } 
