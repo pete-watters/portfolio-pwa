@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
+import './styles/App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header';
-import { About, Blog, Home } from './pages';
-import './App.css';
+import { About, Blog, Home } from './features';
 import CONFIG from './constants';
 
 const App = () => 
