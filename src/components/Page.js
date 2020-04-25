@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Section from './Section';
 
 const Page = ({ children }) =>
-    <Section>
-      <article>
-        {children}
-      </article>
-    </Section>;
+  <Section>
+    <article>
+      {children}
+    </article>
+  </Section>;
 
 Page.propTypes = {
   children: PropTypes.node.isRequired,
