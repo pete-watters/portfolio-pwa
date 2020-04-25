@@ -6,7 +6,7 @@ import { VIEWS } from './constants';
 const component = shallow(<About />);
 
 describe('About', () => {
-  it('should render the component correctly', () => {   
+  it('should render the component correctly', () => {
     expect(component).toMatchSnapshot();
   });
   it('renders the correct text', () => { 

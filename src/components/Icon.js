@@ -4,16 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faLinkedin, faStackOverflow, faGithub, faMedium, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const ICON_TYPES = {
-  twitter: faTwitter, 
-  linkedIn: faLinkedin, 
-  stackOverflow: faStackOverflow, 
+  twitter: faTwitter,
+  linkedIn: faLinkedin,
+  stackOverflow: faStackOverflow,
   github: faGithub,
   medium: faMedium,
   instagram: faInstagram,
-}
+};
 
 const capitalizeTitle = iconTitle =>
-  iconTitle[0].toUpperCase()+ iconTitle.slice(1);
+  iconTitle[0].toUpperCase() + iconTitle.slice(1);
 
 const Icon = ({ icon, href, onClick }) =>
   <a href={href} target="_blank" rel="noopener noreferrer" aria-label={icon} onClick={onClick} title={capitalizeTitle(icon)}>
@@ -23,7 +23,7 @@ const Icon = ({ icon, href, onClick }) =>
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
+  onClick: PropTypes.string.isRequired,
 };
-
 
 export default memo(Icon);

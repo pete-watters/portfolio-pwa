@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const Section = ({children}) =>
+const Section = ({ children }) =>
   <section>
     {children}
   </section>;
