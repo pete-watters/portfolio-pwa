@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import './styles/App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CONFIG from 'constants/';
@@ -15,4 +15,4 @@ const App = () =>
         </main>
       </Router>;
 
-export default memo(App);
+export default App;
