@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CONFIG from 'constants/';
 import Nav from './Nav';
@@ -9,4 +9,4 @@ const Header = () =>
     <Nav />
   </header>;
 
-export default memo(Header);
+export default Header;
