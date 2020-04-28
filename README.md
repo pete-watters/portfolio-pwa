@@ -5,7 +5,7 @@ The app is a PWA designed to be as simple as possible. The UI is built using HTM
 
 The project is designed to be as light and performant as possible - using basic CSS and semantic HTML to achive an elegant style. 
 
-![Lighthouse score](img/work/lighthouse.jpg)
+![Lighthouse score](https://petewatters.ie/img/work/lighthouse.jpg)
 
 ## Scripts
 In the project directory, you can run:
