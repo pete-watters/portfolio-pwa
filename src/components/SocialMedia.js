@@ -1,5 +1,5 @@
 import React from 'react';
-import CONFIG from 'constants/';
+import CONFIG from '../constants';
 import Icon from './Icon';
 
 const SocialMedia = () =>
