@@ -1,11 +1,14 @@
 import React, { PureComponent } from 'react';
 import ReactHtmlParser from 'react-html-parser';
 import axios from 'axios';
-import CONFIG from 'constants/';
 import Page from 'components/Page';
+import CONFIG from '../../constants';
 
 class Blog extends PureComponent {
-  state = { feed: {} }
+  constructor(props) {
+    super(props);
+    this.state = { feed: {} };
+  }
 
   componentDidMount() {
     this.fetchFeed().then(this.setFeed);
@@ -18,14 +21,17 @@ class Blog extends PureComponent {
   }
 
   render() {
-    const { data } = this.state.feed;
+    const { feed: { data } } = this.state;
     return (
       <Page>
-        {data && data.items.map((post, index) => (
-          <article key={index} onClick={() => window.open(post.link, '_blank')} aria-label="blog-post">
-            <h1>{post.title}</h1>
-            <summary>{ReactHtmlParser(post['content:encoded'])}</summary>
-          </article>
+        {/* FIXME refactor this - abstract to clickable div element component */}
+        {data && data.items.map(post => (
+          <div role="button" tabIndex="0" key={post.link} onClick={() => window.open(post.link, '_blank')} onKeyPress={() => window.open(post.link, '_blank')} aria-label="blog-post">
+            <article>
+              <h1>{post.title}</h1>
+              <summary>{ReactHtmlParser(post['content:encoded'])}</summary>
+            </article>
+          </div>
         ))}
         <footer>
           <a href={CONFIG.SOCIAL.MEDIUM} target="_blank" rel="noopener noreferrer">
