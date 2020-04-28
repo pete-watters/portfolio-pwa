@@ -27,7 +27,7 @@ exports[`Home should render the component correctly 1`] = `
     />
   </p>
   <footer>
-    <Memo(SocialMedia) />
+    <SocialMedia />
   </footer>
 </Memo(Page)>
 `;
