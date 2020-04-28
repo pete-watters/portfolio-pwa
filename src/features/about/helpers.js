@@ -2,6 +2,7 @@ import React from 'react';
 import { Adventures, Contact, Story, Work } from './components';
 import { VIEWS } from './constants';
 
+// TODO add a unit test here
 export const getAboutComponent = view => {
   switch (view) {
     case VIEWS.ADVENTURES:

@@ -23,7 +23,11 @@ const Icon = ({ icon, href, onClick }) =>
 Icon.propTypes = {
   icon: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-  onClick: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+};
+
+Icon.defaultProps = {
+  onClick: null,
 };
 
 export default memo(Icon);

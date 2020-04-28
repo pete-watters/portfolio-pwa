@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav should render the component correctly 1`] = `
+<nav>
+  <NavLink
+    to="/about"
+  >
+    About
+  </NavLink>
+  <NavLink
+    to="/blog"
+  >
+    Blog
+  </NavLink>
+  <SocialMedia />
+</nav>
+`;
