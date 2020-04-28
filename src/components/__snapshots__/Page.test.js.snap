@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page should render the component correctly 1`] = `
+<Memo(Section)>
+  <article />
+</Memo(Section)>
+`;

@@ -25,6 +25,7 @@ class About extends PureComponent {
       <Page>
         <nav>
           <ul>
+            {/* FIXME refactor this - abstract to clickable div element component */}
             <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.STORY)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.STORY}</h4></div></li>
             <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.WORK)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.WORK}</h4></div></li>
             <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.CONTACT)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.CONTACT}</h4></div></li>
