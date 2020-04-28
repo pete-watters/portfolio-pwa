@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SocialMedia should render the component correctly 1`] = `
+<Fragment>
+  <Memo(Icon)
+    href="https://github.com/pete-watters"
+    icon="github"
+  />
+  <Memo(Icon)
+    href="https://www.linkedin.com/in/pete-watters/"
+    icon="linkedIn"
+  />
+  <Memo(Icon)
+    href="https://stackoverflow.com/users/1365580/peadar"
+    icon="stackOverflow"
+  />
+  <Memo(Icon)
+    href="https://medium.com/@pete_watters"
+    icon="medium"
+  />
+  <Memo(Icon)
+    href="https://www.instagram.com/watterspete/"
+    icon="instagram"
+  />
+  <Memo(Icon)
+    href="https://twitter.com/watters_pete"
+    icon="twitter"
+  />
+</Fragment>
+`;
