@@ -25,7 +25,7 @@ const baseChildren = <div>{ imageArray.map(createCarouselItemImage) }</div>;
 const Adventures = () =>
   <article>
     <div>
-      <p>I love travelling and have been all over the world, visiting 5 continents, with just 2 to go! </p>
+      <p>I love travelling and have been all over the world. </p>
       <Carousel showThumbs={false} showStatus={false} showIndicators={false} infiniteLoop autoPlay>
         {baseChildren.props.children}
       </Carousel>

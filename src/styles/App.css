@@ -91,6 +91,15 @@ nav a{
   font-size: 1.5rem;
 }
 
+nav ul{
+ list-style-type: none;
+ display: inline-flex;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
 article{
   margin: 2rem auto;
   max-width: 50rem;

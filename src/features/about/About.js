@@ -19,15 +19,19 @@ class About extends PureComponent {
   }
 
   render() {
+    const { view } = this.state;
+    const ENTER_KEY_CODE = 13;
     return (
       <Page>
         <nav>
-          <h4><button onClick={() => this.switchView(VIEWS.STORY)}>{VIEWS.STORY}</button></h4>
-          <h4 onClick={() => this.switchView(VIEWS.WORK)}>{VIEWS.WORK}</h4>
-          <h4 onClick={() => this.switchView(VIEWS.CONTACT)}>{VIEWS.CONTACT}</h4>
-          <h4 onClick={() => this.switchView(VIEWS.ADVENTURES)}>{VIEWS.ADVENTURES}</h4>
+          <ul>
+            <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.STORY)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.STORY}</h4></div></li>
+            <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.WORK)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.WORK}</h4></div></li>
+            <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.CONTACT)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.CONTACT}</h4></div></li>
+            <li><div tabIndex="0" role="button" onClick={() => this.switchView(VIEWS.ADVENTURES)} onKeyPress={e => e.keyCode === ENTER_KEY_CODE && this.switchView(VIEWS.STORY)}><h4>{VIEWS.ADVENTURES}</h4></div></li>
+          </ul>
         </nav>
-        {getAboutComponent(this.state.view)}
+        {getAboutComponent(view)}
       </Page>);
   }
 }
