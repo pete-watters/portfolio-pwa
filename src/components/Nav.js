@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import CONFIG from 'constants/';
+import CONFIG from '../constants';
 import SocialMedia from './SocialMedia';
 
 const Nav = () =>

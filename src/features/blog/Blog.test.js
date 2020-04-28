@@ -5,7 +5,7 @@ import Blog from './Blog';
 const component = shallow(<Blog />);
 
 describe('Blog', () => {
-  it('should render the component correctly', () => {   
+  it('should render the component correctly', () => {
     expect(component).toMatchSnapshot();
   });
 });

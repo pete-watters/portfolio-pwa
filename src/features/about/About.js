@@ -5,29 +5,30 @@ import { VIEWS } from './constants';
 import { getAboutComponent } from './helpers';
 
 class About extends PureComponent {
-  constructor (props) {
-      super(props);
-      this.state = {
-          view: null,
-      };
+  constructor(props) {
+    super(props);
+    this.state = {
+      view: null,
+    };
 
-      this.switchView = this.switchView.bind(this);
+    this.switchView = this.switchView.bind(this);
   }
 
   switchView(view) {
-    this.setState({ view: view });
+    this.setState({ view });
   }
-  render(){      
+
+  render() {
     return (
-    <Page> 
-    <nav>
-        <h4 onClick={() => this.switchView(VIEWS.STORY)}>{VIEWS.STORY}</h4>
-        <h4 onClick={() => this.switchView(VIEWS.WORK)}>{VIEWS.WORK}</h4>
-        <h4 onClick={() => this.switchView(VIEWS.CONTACT)}>{VIEWS.CONTACT}</h4>
-        <h4 onClick={() => this.switchView(VIEWS.ADVENTURES)}>{VIEWS.ADVENTURES}</h4>
-    </nav>
-     {getAboutComponent(this.state.view)}
-  </Page>);
+      <Page>
+        <nav>
+          <h4><button onClick={() => this.switchView(VIEWS.STORY)}>{VIEWS.STORY}</button></h4>
+          <h4 onClick={() => this.switchView(VIEWS.WORK)}>{VIEWS.WORK}</h4>
+          <h4 onClick={() => this.switchView(VIEWS.CONTACT)}>{VIEWS.CONTACT}</h4>
+          <h4 onClick={() => this.switchView(VIEWS.ADVENTURES)}>{VIEWS.ADVENTURES}</h4>
+        </nav>
+        {getAboutComponent(this.state.view)}
+      </Page>);
   }
 }
 

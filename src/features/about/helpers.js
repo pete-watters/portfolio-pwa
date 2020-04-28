@@ -3,15 +3,15 @@ import { Adventures, Contact, Story, Work } from './components';
 import { VIEWS } from './constants';
 
 export const getAboutComponent = view => {
-  switch(view) {
-  case VIEWS.ADVENTURES:
+  switch (view) {
+    case VIEWS.ADVENTURES:
       return <Adventures />;
-  case VIEWS.CONTACT:
+    case VIEWS.CONTACT:
       return <Contact />;
-  case VIEWS.STORY:
-  default:
+    case VIEWS.STORY:
+    default:
       return <Story />;
-  case VIEWS.WORK:
+    case VIEWS.WORK:
       return <Work />;
   }
 };
