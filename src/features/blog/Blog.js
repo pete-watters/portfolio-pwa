@@ -14,7 +14,8 @@ class Blog extends PureComponent {
     this.fetchFeed().then(this.setFeed);
   }
 
-  fetchFeed = () => axios.get('https://us-central1-portfolio-8db27.cloudfunctions.net/api/medium');
+  // fetchFeed = () => axios.get('https://us-central1-portfolio-8db27.cloudfunctions.net/api/medium');
+  fetchFeed = () => axios.get('https://medium.com/feed/@pete_watters/');
 
   setFeed = response => {
     this.setState({ feed: response });
