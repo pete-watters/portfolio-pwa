@@ -9,7 +9,6 @@ const SocialMedia = () =>
     <Icon icon="stackOverflow" href={CONFIG.SOCIAL.STACKOVERFLOW} />
     <Icon icon="medium" href={CONFIG.SOCIAL.MEDIUM} />
     <Icon icon="instagram" href={CONFIG.SOCIAL.INSTAGRAM} />
-    <Icon icon="twitter" href={CONFIG.SOCIAL.TWITTER} />
   </>;
 
 export default SocialMedia;

@@ -9,6 +9,5 @@ exports[`Header should render the component correctly 1`] = `
       Pete Watters
     </NavLink>
   </h1>
-  <Nav />
 </header>
 `;
