@@ -22,9 +22,5 @@ exports[`SocialMedia should render the component correctly 1`] = `
     href="https://www.instagram.com/watterspete/"
     icon="instagram"
   />
-  <Memo(Icon)
-    href="https://twitter.com/watters_pete"
-    icon="twitter"
-  />
 </Fragment>
 `;
