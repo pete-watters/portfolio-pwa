@@ -1,0 +1,46 @@
+---
+interface Props {
+  images: { src: string; alt: string }[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="carousel" data-carousel>
+  <div class="carousel-track" data-carousel-track>
+    {images.map((img) => (
+      <img src={img.src} alt={img.alt} loading="lazy" />
+    ))}
+  </div>
+  <button class="carousel-btn carousel-btn--prev" data-carousel-prev aria-label="Previous image">&lsaquo;</button>
+  <button class="carousel-btn carousel-btn--next" data-carousel-next aria-label="Next image">&rsaquo;</button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector<HTMLElement>('[data-carousel-track]')!;
+    const images = track.querySelectorAll('img');
+    const prevBtn = carousel.querySelector('[data-carousel-prev]')!;
+    const nextBtn = carousel.querySelector('[data-carousel-next]')!;
+    let current = 0;
+
+    function update() {
+      track.style.transform = `translateX(-${current * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      current = (current - 1 + images.length) % images.length;
+      update();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      current = (current + 1) % images.length;
+      update();
+    });
+
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      update();
+    }, 4000);
+  });
+</script>
