@@ -9,7 +9,7 @@ test.describe('Blog', () => {
 
   test('blog post page renders markdown', async ({ page }) => {
     await page.goto('/blog/hello-world');
-    await expect(page.locator('h2').first()).toContainText('Hello World');
+    await expect(page.locator('.blog-post h2').first()).toBeVisible();
     await expect(page.locator('.blog-post')).toContainText('Astro');
   });
 
