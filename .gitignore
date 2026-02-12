@@ -1,16 +1,19 @@
 TODOs.txt
-/.firebase/*
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 
+# astro
+dist/
+.astro/
+
 # testing
 /coverage
-
-# production
-/build
+/playwright-report/
+/blob-report/
+/test-results/
 
 # misc
 .DS_Store

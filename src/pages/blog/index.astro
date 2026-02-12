@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft))
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<BaseLayout title="Blog" description="Blog posts by Pete Watters">
+  <article>
+    <h2>Blog</h2>
+    <ul class="blog-list">
+      {posts.map((post: CollectionEntry<'blog'>) => (
+        <BlogPostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          slug={post.id.replace(/\.md$/, '')}
+          tags={post.data.tags}
+        />
+      ))}
+    </ul>
+  </article>
+</BaseLayout>

@@ -1,0 +1,12 @@
+---
+import SocialMedia from './SocialMedia.astro';
+import { ROUTES } from '../consts';
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<nav>
+  <a href={ROUTES.ABOUT} class={pathname === ROUTES.ABOUT ? 'active' : ''}>About</a>
+  <a href={ROUTES.BLOG} class={pathname.startsWith(ROUTES.BLOG) ? 'active' : ''}>Blog</a>
+  <SocialMedia />
+</nav>
