@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+import SocialMedia from '../components/SocialMedia.astro';
+import ImageCarousel from '../components/ImageCarousel.astro';
+
+const adventureImages = [
+  { src: '/img/about/sled.jpg', alt: 'Dog sledding' },
+  { src: '/img/about/whistler.jpg', alt: 'Whistler' },
+  { src: '/img/about/yosemite.jpg', alt: 'Yosemite' },
+  { src: '/img/about/yosemite1.jpg', alt: 'Yosemite valley' },
+  { src: '/img/about/hawaii.jpg', alt: 'Hawaii' },
+  { src: '/img/about/kayak.jpg', alt: 'Kayaking' },
+  { src: '/img/about/benbulben.jpg', alt: 'Benbulben' },
+  { src: '/img/about/muckish.jpg', alt: 'Muckish' },
+  { src: '/img/about/moher.jpg', alt: 'Cliffs of Moher' },
+];
+---
+
+<BaseLayout title="About">
+  <article>
+    <nav>
+      <ul class="about-tabs" role="tablist">
+        <li><button role="tab" aria-selected="true" aria-controls="panel-story" data-tab="story">Story</button></li>
+        <li><button role="tab" aria-selected="false" aria-controls="panel-work" data-tab="work">Work</button></li>
+        <li><button role="tab" aria-selected="false" aria-controls="panel-contact" data-tab="contact">Contact</button></li>
+        <li><button role="tab" aria-selected="false" aria-controls="panel-adventures" data-tab="adventures">Adventures</button></li>
+      </ul>
+    </nav>
+
+    <div id="panel-story" class="tab-panel active" role="tabpanel" data-panel="story">
+      <p>
+        Full stack developer, JavaScript enthusiast and UX specialist.
+        I have been developing browser based applications since 2005.
+        I am a hobbyist coder who loves what I do and consider myself
+        a true craftsman with a focus on clean scalable code and elegant but intuitive UX.
+      </p>
+      <p>
+        An engineer since birth and have the academic credentials to back it up
+        with B.Eng and M.Eng from <ExternalLink href="https://dcu.ie" text="DCU" />.
+        I am also a member of <ExternalLink href="https://www.engineersireland.ie/" text="Engineers Ireland" />.
+      </p>
+      <p>
+        I have a passion for technology especially cryptocurrencies, IoT and renewable energy.
+      </p>
+      <p>
+        Outside of work I am very interested in health and fitness.
+        I love strength training and play 11 a side football.
+        I also like to surf and snowboard whenever I can.
+      </p>
+    </div>
+
+    <div id="panel-work" class="tab-panel" role="tabpanel" data-panel="work">
+      <p>
+        This website is a lightweight <ExternalLink href="https://developers.google.com/web/progressive-web-apps" text="PWA" /> built with
+        <ExternalLink href="https://astro.build" text="Astro" />, deployed to
+        <ExternalLink href="https://pages.cloudflare.com" text="Cloudflare Pages" /> via
+        <ExternalLink href="https://github.com/features/actions" text="GitHub Actions" /> CI/CD.
+      </p>
+      <p>
+        The stack includes Vitest and Playwright for testing, content collections for the blog,
+        and @vite-pwa/astro for service worker generation.
+      </p>
+      <figure>
+        <figcaption><p>The proof is in the lighthouse score</p></figcaption>
+        <img src="/img/work/lighthouse.jpg" alt="Lighthouse score - 100%" />
+      </figure>
+      <p>
+        The code is open source and available to view on
+        <ExternalLink href="https://github.com/pete-watters/portfolio-pwa" text="GitHub" />.
+      </p>
+    </div>
+
+    <div id="panel-contact" class="tab-panel" role="tabpanel" data-panel="contact">
+      <p>Reach me at: <ExternalLink href="mailto:pete@cteic.ie" text="pete@cteic.ie" /></p>
+      <SocialMedia />
+    </div>
+
+    <div id="panel-adventures" class="tab-panel" role="tabpanel" data-panel="adventures">
+      <p>I love travelling and have been all over the world.</p>
+      <ImageCarousel images={adventureImages} />
+    </div>
+  </article>
+</BaseLayout>
+
+<script>
+  function initTabs() {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
+    const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
+
+    function activate(name: string) {
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === name)));
+      panels.forEach((p) => p.classList.toggle('active', p.dataset.panel === name));
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => activate(tab.dataset.tab!));
+    });
+
+    const hash = window.location.hash.slice(1);
+    if (hash && document.querySelector(`[data-panel="${hash}"]`)) {
+      activate(hash);
+    }
+  }
+
+  initTabs();
+</script>
