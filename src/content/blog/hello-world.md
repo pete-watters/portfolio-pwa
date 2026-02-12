@@ -2,7 +2,7 @@
 title: "Migrating My PWA Portfolio from React + Firebase to Astro + Cloudflare Pages"
 description: "How I rebuilt my lightweight Progressive Web App portfolio — from a broken CRA build to a modern Astro static site with CI/CD, testing, and edge hosting."
 pubDate: 2026-02-11
-tags: ["work", "astro", "cloudflare", "devops", "pwa", "github-actions"]
+tags: ["code", "astro", "cloudflare", "devops", "pwa", "github-actions"]
 ---
 
 This site has been a Progressive Web App since day one. The original README said it best:

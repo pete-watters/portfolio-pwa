@@ -2,7 +2,7 @@
 title: "Building My PWA Portfolio"
 description: "How I built a lightweight Progressive Web App portfolio from scratch — focusing on clean, scalable code and intuitive UX."
 pubDate: 2019-03-22
-tags: ["work", "pwa"]
+tags: ["code", "pwa"]
 ---
 
 I'm a full stack developer, JavaScript enthusiast and UX specialist. I've been developing browser-based applications since 2005. I'm a hobbyist coder who loves what I do and consider myself a true craftsman with a focus on clean scalable code and elegant but intuitive UX.
