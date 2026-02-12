@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Bangers|Monoton|Orbitron|Permanent+Marker|Press+Start+2P|Roboto+Mono&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p, p > a {
+  font-family: 'Roboto Mono', monospace;
+}
+
+a, span {
+  font-family: 'Bangers', cursive;
+}
+
+a {
+  opacity: 0.75;
+  text-decoration: none;
+  color: black;
+}
+
+a.active, a:hover {
+  opacity: 1;
+}
+
+header a {
+  color: white;
+}
+
+code {
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  background-color: grey;
+}
+
+h1 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h2 {
+  font-family: 'Roboto Mono', monospace;
+}
+
+h3 {
+  font-family: 'Anton', sans-serif;
+}
+
+h4 {
+  font-family: 'Permanent Marker', cursive;
+}
+
+h5 {
+  font-family: 'Orbitron', sans-serif;
+}
+
+h1 a {
+  font-family: 'Monoton', cursive;
+}
+
+main {
+  margin: 0 2rem;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 2fr auto;
+  grid-template-areas:
+    "header"
+    "main";
+}
+
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "logo nav";
+  padding: 1rem;
+  background-color: #2B2B2B;
+  color: white;
+}
+
+header h1 {
+  grid-area: logo;
+  margin: 0;
+  text-align: left;
+  font-size: 3rem;
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  vertical-align: middle;
+  align-items: center;
+  cursor: pointer;
+}
+
+nav a {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style-type: none;
+  display: inline-flex;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+article {
+  margin: 2rem auto;
+  max-width: 50rem;
+}
+
+article footer a {
+  margin: 0 0.5rem;
+}
+
+summary {
+  max-height: 15rem;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.profile {
+  pointer-events: none;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+}
+
+/* About page tabs */
+.about-tabs {
+  list-style-type: none;
+  display: inline-flex;
+  padding: 0;
+}
+
+.about-tabs li {
+  margin: 0 1rem;
+}
+
+.about-tabs button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.about-tabs button:hover,
+.about-tabs button[aria-selected="true"] {
+  opacity: 1;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Image carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-track img {
+  width: 100%;
+  max-height: 920px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 1;
+}
+
+.carousel-btn--prev {
+  left: 0.5rem;
+}
+
+.carousel-btn--next {
+  right: 0.5rem;
+}
+
+/* Blog */
+.blog-list {
+  list-style: none;
+  padding: 0;
+}
+
+.blog-card {
+  margin: 1.5rem 0;
+  text-align: left;
+}
+
+.blog-card time {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.blog-card h3 a {
+  font-family: 'Anton', sans-serif;
+  color: black;
+}
+
+.blog-card p {
+  margin-top: 0.25rem;
+}
+
+.blog-post {
+  text-align: left;
+}
+
+.blog-post time {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.tags li {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+  background: #2B2B2B;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.25rem;
+}
+
+@media screen and (max-width: 42.5rem) {
+  header h1 {
+    font-size: 1rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+}
