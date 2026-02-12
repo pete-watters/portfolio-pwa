@@ -11,6 +11,14 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
 <BaseLayout title="Blog" description="Blog posts by Pete Watters">
   <article>
     <h2>Blog</h2>
+    <nav>
+      <ul class="blog-tabs" role="tablist">
+        <li><button role="tab" aria-selected="true" data-filter="all">All</button></li>
+        <li><button role="tab" aria-selected="false" data-filter="work">Work</button></li>
+        <li><button role="tab" aria-selected="false" data-filter="travel">Travel</button></li>
+        <li><button role="tab" aria-selected="false" data-filter="sport">Sport</button></li>
+      </ul>
+    </nav>
     <ul class="blog-list">
       {posts.map((post: CollectionEntry<'blog'>) => (
         <BlogPostCard
@@ -24,3 +32,21 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
     </ul>
   </article>
 </BaseLayout>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const cards = document.querySelectorAll<HTMLElement>('.blog-card');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter!;
+
+      tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+
+      cards.forEach((card) => {
+        const tags = card.dataset.tags?.split(',') ?? [];
+        card.style.display = filter === 'all' || tags.includes(filter) ? '' : 'none';
+      });
+    });
+  });
+</script>

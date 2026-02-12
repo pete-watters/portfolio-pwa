@@ -10,7 +10,7 @@ interface Props {
 const { title, description, pubDate, slug, tags } = Astro.props;
 ---
 
-<li class="blog-card">
+<li class="blog-card" data-tags={tags?.join(',') ?? ''}>
   <time datetime={pubDate.toISOString()}>
     {pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' })}
   </time>

@@ -244,6 +244,25 @@ summary {
   opacity: 0.7;
 }
 
+.blog-post img {
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+  max-width: 100%;
+  border-radius: 0.25rem;
+}
+
+.blog-post img:hover {
+  filter: grayscale(0%);
+}
+
+.blog-tabs {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
 .tags {
   display: flex;
   gap: 0.5rem;

@@ -3,7 +3,6 @@ export const SITE_DESCRIPTION = 'Pete Watters Portfolio';
 
 export const ROUTES = {
   HOME: '/',
-  ABOUT: '/about',
   BLOG: '/blog',
 } as const;
 
