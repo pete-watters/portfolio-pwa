@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { marked } from 'marked';
+import { SOCIAL } from '../consts';
+
+let html = '';
+let fetchError = false;
+
+try {
+  const res = await fetch('https://raw.githubusercontent.com/pete-watters/pete-watters/main/README.md');
+  if (res.ok) {
+    const markdown = await res.text();
+    html = await marked(markdown);
+  } else {
+    fetchError = true;
+  }
+} catch {
+  fetchError = true;
+}
+---
+
+<BaseLayout title="About" description="About Pete Watters">
+  <article class="about-content">
+    {html ? (
+      <div set:html={html} />
+    ) : (
+      <p>
+        Learn more about me on <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>.
+      </p>
+    )}
+  </article>
+</BaseLayout>

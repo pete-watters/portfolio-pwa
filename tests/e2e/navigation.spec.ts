@@ -10,8 +10,14 @@ test.describe('Navigation', () => {
   test('nav links work', async ({ page }) => {
     await page.goto('/');
 
+    await page.click('nav a[href="/work"]');
+    await expect(page).toHaveURL('/work');
+
     await page.click('nav a[href="/blog"]');
     await expect(page).toHaveURL('/blog');
+
+    await page.click('nav a[href="/about"]');
+    await expect(page).toHaveURL('/about');
   });
 
   test('404 page renders for unknown routes', async ({ page }) => {
@@ -24,5 +30,11 @@ test.describe('Navigation', () => {
   test('nav shows active state', async ({ page }) => {
     await page.goto('/blog');
     await expect(page.locator('nav a[href="/blog"]')).toHaveClass('active');
+
+    await page.goto('/work');
+    await expect(page.locator('nav a[href="/work"]')).toHaveClass('active');
+
+    await page.goto('/about');
+    await expect(page.locator('nav a[href="/about"]')).toHaveClass('active');
   });
 });

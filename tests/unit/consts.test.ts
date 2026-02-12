@@ -9,7 +9,9 @@ describe('consts', () => {
 
   it('exports routes', () => {
     expect(ROUTES.HOME).toBe('/');
+    expect(ROUTES.WORK).toBe('/work');
     expect(ROUTES.BLOG).toBe('/blog');
+    expect(ROUTES.ABOUT).toBe('/about');
   });
 
   it('exports valid social URLs', () => {
