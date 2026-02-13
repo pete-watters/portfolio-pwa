@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
 
 jobs:
   deploy:
@@ -22,5 +22,5 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Create Pages project if needed
-        run: npx wrangler pages project create portfolio --production-branch master 2>/dev/null || true
+        run: npx wrangler pages project create portfolio --production-branch main 2>/dev/null || true
       - run: npx wrangler pages deploy dist --project-name=portfolio --commit-dirty=true
