@@ -76,7 +76,7 @@ header {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "logo nav";
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: #2B2B2B;
   color: white;
 }
