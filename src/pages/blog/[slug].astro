@@ -17,7 +17,7 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="blog-post">
+  <article class="blog-post" data-pagefind-body>
     <h2>{post.data.title}</h2>
     <time datetime={post.data.pubDate.toISOString()}>
       {post.data.pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' })}

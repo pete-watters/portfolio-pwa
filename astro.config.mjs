@@ -4,6 +4,12 @@ import AstroPWA from '@vite-pwa/astro';
 export default defineConfig({
   output: 'static',
   site: 'https://petewatters.ie',
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true,
+    },
+  },
   integrations: [
     AstroPWA({
       registerType: 'autoUpdate',
