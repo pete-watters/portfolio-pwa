@@ -5,6 +5,7 @@ export const ROUTES = {
   HOME: '/',
   ABOUT: '/about',
   BLOG: '/blog',
+  CV: '/cv',
 } as const;
 
 export const SOCIAL = {
