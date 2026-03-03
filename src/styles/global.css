@@ -30,10 +30,28 @@ header a {
   color: white;
 }
 
-code {
-  font-family: 'Press Start 2P', cursive;
+:not(pre) > code {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9em;
   color: white;
-  background-color: grey;
+  background-color: #2B2B2B;
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+}
+
+pre.astro-code {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+pre.astro-code code,
+pre.astro-code span {
+  font-family: 'Roboto Mono', monospace;
+  background: none;
+  color: inherit;
 }
 
 h1 {
@@ -236,6 +254,17 @@ summary {
 
 .blog-post {
   text-align: left;
+}
+
+.blog-post blockquote {
+  border-left: 3px solid #2B2B2B;
+  margin: 1.5rem 0;
+  padding: 0.5rem 1rem;
+  opacity: 0.85;
+}
+
+.blog-post blockquote p {
+  margin: 0;
 }
 
 .blog-post time {

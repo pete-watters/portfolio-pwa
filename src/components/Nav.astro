@@ -8,5 +8,6 @@ const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
 <nav>
   <a href={ROUTES.ABOUT} class={pathname === ROUTES.ABOUT ? 'active' : ''}>About</a>
   <a href={ROUTES.BLOG} class={pathname.startsWith(ROUTES.BLOG) ? 'active' : ''}>Blog</a>
+  <a href={ROUTES.CV} target="_blank" rel="noopener noreferrer">CV</a>
   <SocialMedia />
 </nav>
