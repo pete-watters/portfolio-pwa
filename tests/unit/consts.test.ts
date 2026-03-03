@@ -9,7 +9,6 @@ describe('consts', () => {
 
   it('exports routes', () => {
     expect(ROUTES.HOME).toBe('/');
-    expect(ROUTES.ABOUT).toBe('/about');
     expect(ROUTES.BLOG).toBe('/blog');
   });
 

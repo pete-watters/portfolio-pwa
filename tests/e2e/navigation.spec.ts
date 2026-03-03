@@ -2,16 +2,13 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
   test('header links to home', async ({ page }) => {
-    await page.goto('/about');
+    await page.goto('/blog');
     await page.click('header h1 a');
     await expect(page).toHaveURL('/');
   });
 
   test('nav links work', async ({ page }) => {
     await page.goto('/');
-
-    await page.click('nav a[href="/about"]');
-    await expect(page).toHaveURL('/about');
 
     await page.click('nav a[href="/blog"]');
     await expect(page).toHaveURL('/blog');
@@ -25,7 +22,7 @@ test.describe('Navigation', () => {
   });
 
   test('nav shows active state', async ({ page }) => {
-    await page.goto('/about');
-    await expect(page.locator('nav a[href="/about"]')).toHaveClass('active');
+    await page.goto('/blog');
+    await expect(page.locator('nav a[href="/blog"]')).toHaveClass('active');
   });
 });

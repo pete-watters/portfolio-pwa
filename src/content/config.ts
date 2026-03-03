@@ -15,14 +15,6 @@ const cv = defineCollection({
   type: 'content',
   schema: z.object({
     tagline: z.string(),
-    contact: z.object({
-      website: z.string(),
-      email: z.string(),
-      linkedin: z.string(),
-      github: z.string(),
-      stackoverflow: z.string(),
-      location: z.string(),
-    }),
   }),
 });
 

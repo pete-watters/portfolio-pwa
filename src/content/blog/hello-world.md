@@ -5,6 +5,10 @@ pubDate: 2026-02-11
 tags: ["astro", "cloudflare", "devops", "pwa", "github-actions"]
 ---
 
+I'm Pete Watters — full stack developer, UX specialist, and JavaScript enthusiast. I hold a B.Eng and M.Eng from [DCU](https://dcu.ie) and have been building browser-based applications since 2005. This site is a lightweight [PWA](https://developers.google.com/web/progressive-web-apps) built with [Astro](https://astro.build), deployed to [Cloudflare Pages](https://pages.cloudflare.com) via [GitHub Actions](https://github.com/features/actions) CI/CD. The code is open source on [GitHub](https://github.com/pete-watters/portfolio-pwa).
+
+---
+
 This site has been a Progressive Web App since day one. The original README said it best:
 
 > The app is a PWA designed to be as simple as possible. The UI is built using HTML, CSS and some React. The project is designed to be as light and performant as possible — using basic CSS and semantic HTML to achieve an elegant style.
