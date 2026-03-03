@@ -116,12 +116,8 @@ Awarded a master's scholarship for academic performance and completed it remotel
 
 Graduated in the top three of the class, earning a master's scholarship.
 
-## Certifications & Recognition
+## Certifications
 
 ### [C4 Certified Bitcoin Professional](/docs/bitcoin-certified-professional.pdf)
 
 Bitcoin protocol, cryptographic security, wallets and ecosystem.
-
-### Kraken / Cryptowatch Codebashing Champion (2020)
-
-First company-wide security challenge on client-side vulnerabilities and OWASP principles.

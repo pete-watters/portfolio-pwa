@@ -70,6 +70,15 @@ const pageDescription = description ?? SITE_DESCRIPTION;
         <slot />
       </div>
     </main>
+    <script>
+      document.querySelectorAll('.cv a[href]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (href && (href.startsWith('http') || href.startsWith('//'))) {
+          a.setAttribute('target', '_blank');
+          a.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    </script>
   </body>
 </html>
 
