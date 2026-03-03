@@ -7,22 +7,10 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL('/');
   });
 
-  test('nav links work', async ({ page }) => {
-    await page.goto('/');
-
-    await page.click('nav a[href="/blog"]');
-    await expect(page).toHaveURL('/blog');
-  });
-
   test('404 page renders for unknown routes', async ({ page }) => {
     const response = await page.goto('/nonexistent-page');
     expect(response?.status()).toBe(404);
     await expect(page.locator('h2')).toContainText('404');
     await expect(page.getByRole('link', { name: 'Go home' })).toBeVisible();
-  });
-
-  test('nav shows active state', async ({ page }) => {
-    await page.goto('/blog');
-    await expect(page.locator('nav a[href="/blog"]')).toHaveClass('active');
   });
 });

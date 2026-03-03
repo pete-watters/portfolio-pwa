@@ -3,8 +3,6 @@ export const SITE_DESCRIPTION = 'Pete Watters Portfolio';
 
 export const ROUTES = {
   HOME: '/',
-  BLOG: '/blog',
-  CV: '/cv',
 } as const;
 
 export const SOCIAL = {

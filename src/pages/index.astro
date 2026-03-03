@@ -1,13 +1,27 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SocialMedia from '../components/SocialMedia.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft))
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 5);
 ---
 
 <BaseLayout>
   <article>
-    <p>Full stack developer, UX specialist and JavaScript enthusiast.</p>
-    <footer>
-      <SocialMedia />
-    </footer>
+    <ul class="blog-list">
+      {posts.map((post: CollectionEntry<'blog'>) => (
+        <BlogPostCard
+          title={post.data.title}
+          description={post.data.description}
+          pubDate={post.data.pubDate}
+          slug={post.id.replace(/\.md$/, '')}
+          tags={post.data.tags}
+        />
+      ))}
+    </ul>
+    <a href="/blog">View all posts →</a>
   </article>
 </BaseLayout>
