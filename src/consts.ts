@@ -7,6 +7,11 @@ export const ROUTES = {
   CV: '/cv',
 } as const;
 
+export const GITHUB = {
+  USERNAME: 'pete-watters',
+  REPOS: ['leather-io/extension', 'leather-io/mono'],
+} as const;
+
 export const SOCIAL = {
   GITHUB: 'https://github.com/pete-watters',
   LINKEDIN: 'https://www.linkedin.com/in/pete-watters/',
