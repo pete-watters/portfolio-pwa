@@ -1,23 +1,15 @@
 ---
 import Icon from '../components/Icon.astro';
 import '../styles/global.css';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, SOCIAL } from '../consts';
 
 interface Props {
   title?: string;
   description?: string;
   tagline: string;
-  contact: {
-    website: string;
-    email: string;
-    linkedin: string;
-    github: string;
-    stackoverflow: string;
-    location: string;
-  };
 }
 
-const { title, description, tagline, contact } = Astro.props;
+const { title, description, tagline } = Astro.props;
 const pageTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 const pageDescription = description ?? SITE_DESCRIPTION;
 ---
@@ -41,31 +33,23 @@ const pageDescription = description ?? SITE_DESCRIPTION;
     <header>
       <div class="header-inner">
         <h1><a href="https://petewatters.ie">Pete Watters</a></h1>
+        <nav class="cv-nav">
+          <a href={SOCIAL.LINKEDIN} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+            <Icon name="linkedin" />
+          </a>
+          <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+            <Icon name="github" />
+          </a>
+          <a href={SOCIAL.STACKOVERFLOW} target="_blank" rel="noopener noreferrer" aria-label="StackOverflow" title="StackOverflow">
+            <Icon name="stackoverflow" />
+          </a>
+        </nav>
       </div>
     </header>
     <main>
       <div class="cv">
         <div class="cv-intro">
           <p class="tagline">{tagline}</p>
-          <div class="contact">
-            <a href={contact.website}>{contact.website.replace('https://', '')}</a>
-            <span class="sep">·</span>
-            <a href={`mailto:${contact.email}`}>{contact.email}</a>
-            <span class="sep">·</span>
-            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">
-              <Icon name="linkedin" /> LinkedIn
-            </a>
-            <span class="sep">·</span>
-            <a href={contact.github} target="_blank" rel="noopener noreferrer">
-              <Icon name="github" /> GitHub
-            </a>
-            <span class="sep">·</span>
-            <a href={contact.stackoverflow} target="_blank" rel="noopener noreferrer">
-              <Icon name="stackoverflow" /> StackOverflow
-            </a>
-            <span class="sep">·</span>
-            <span class="location">{contact.location}</span>
-          </div>
         </div>
         <slot />
       </div>
@@ -86,17 +70,39 @@ const pageDescription = description ?? SITE_DESCRIPTION;
   header {
     display: block;
     padding: 1rem 2rem;
+    background-color: #2B2B2B;
+    color: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  header :global(a) {
+    color: white;
   }
 
   .header-inner {
     max-width: 52rem;
     margin: 0 auto;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .header-inner :global(h1) {
     margin: 0;
     text-align: left;
+  }
+
+  .cv-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cv-nav :global(svg) {
+    width: 18px;
+    height: 18px;
   }
 
   main {
@@ -108,48 +114,16 @@ const pageDescription = description ?? SITE_DESCRIPTION;
   }
 
   .cv-intro {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     border-bottom: 2px solid #cccccc;
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
   }
 
   .tagline {
     font-family: 'Roboto Mono', monospace;
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #555555;
-    margin: 0 0 0.75rem 0;
-  }
-
-  .contact {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.8rem;
-  }
-
-  .contact a {
-    font-family: 'Roboto Mono', monospace;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.2rem;
-    color: #111111;
-  }
-
-  .contact :global(svg) {
-    width: 14px;
-    height: 14px;
-  }
-
-  .sep {
-    font-family: 'Roboto Mono', monospace;
-    color: #cccccc;
-  }
-
-  .location {
-    font-family: 'Roboto Mono', monospace;
-    color: #555555;
+    margin: 0;
   }
 
   /* Section headings: Skills, Work Experience, Education, etc. */
@@ -161,7 +135,7 @@ const pageDescription = description ?? SITE_DESCRIPTION;
     font-weight: 700;
     border-bottom: 2px solid #111111;
     padding-bottom: 0.25rem;
-    margin: 2rem 0 1rem;
+    margin: 1.5rem 0 0.75rem;
   }
 
   /* Job company + title lines */
@@ -169,7 +143,7 @@ const pageDescription = description ?? SITE_DESCRIPTION;
     font-family: 'Roboto Mono', monospace;
     font-size: 0.95rem;
     font-weight: 700;
-    margin: 1.5rem 0 0.25rem;
+    margin: 1.25rem 0 0.25rem;
   }
 
   .cv :global(h3 a) {
@@ -179,20 +153,18 @@ const pageDescription = description ?? SITE_DESCRIPTION;
     text-decoration: underline;
   }
 
-  /* Date/location metadata lines (paragraphs containing only em) */
-  .cv :global(p:has(> em:only-child)) {
-    margin: 0 0 0.25rem;
-  }
-
-  .cv :global(p > em:only-child) {
+  /* Inline dates floated right within h3 */
+  .cv :global(h3 em) {
+    float: right;
     font-family: 'Roboto Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 400;
     color: #888888;
   }
 
   /* Job context blockquotes */
   .cv :global(blockquote) {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
     padding: 0 0 0 1rem;
     border-left: 3px solid #cccccc;
     color: #555555;
@@ -202,20 +174,20 @@ const pageDescription = description ?? SITE_DESCRIPTION;
     font-family: 'Roboto Mono', monospace;
     font-size: 0.8rem;
     margin: 0;
-    line-height: 1.5;
+    line-height: 1.4;
   }
 
   /* Bullet points */
   .cv :global(ul) {
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
     padding-left: 1.25rem;
   }
 
   .cv :global(li) {
     font-family: 'Roboto Mono', monospace;
     font-size: 0.8rem;
-    line-height: 1.6;
-    margin-bottom: 0.4rem;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
     color: #111111;
   }
 
@@ -223,13 +195,14 @@ const pageDescription = description ?? SITE_DESCRIPTION;
   .cv :global(p) {
     font-family: 'Roboto Mono', monospace;
     font-size: 0.85rem;
-    line-height: 1.6;
+    line-height: 1.5;
     color: #111111;
   }
 
   /* Links in body */
   .cv :global(a) {
     color: #111111;
+    text-decoration: underline;
   }
 
   /* Skills grid (dl/dt/dd) */
@@ -256,60 +229,79 @@ const pageDescription = description ?? SITE_DESCRIPTION;
   @media print {
     header {
       padding: 0.5rem 1rem;
+      background-color: #2B2B2B !important;
+      color: white !important;
+    }
+
+    header :global(a) {
+      color: white !important;
     }
 
     header :global(h1) {
       font-size: 1.5rem;
     }
 
+    .cv-nav :global(svg) {
+      width: 14px;
+      height: 14px;
+    }
+
     main {
-      padding: 0 1rem;
+      padding: 0.5rem 1rem;
     }
 
     .cv-intro {
-      margin-bottom: 1rem;
-      padding-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
     }
 
     .tagline {
-      font-size: 0.85rem;
-    }
-
-    .contact {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
     }
 
     .cv :global(h2) {
-      margin: 1.25rem 0 0.5rem;
-      font-size: 0.9rem;
+      margin: 0.75rem 0 0.35rem;
+      font-size: 0.85rem;
     }
 
     .cv :global(h3) {
-      margin: 1rem 0 0.15rem;
-      font-size: 0.8rem;
+      margin: 0.6rem 0 0.1rem;
+      font-size: 0.75rem;
     }
 
     .cv :global(p) {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
+      line-height: 1.4;
     }
 
     .cv :global(li) {
-      margin-bottom: 0.2rem;
-      font-size: 0.75rem;
+      margin-bottom: 0.1rem;
+      font-size: 0.7rem;
+      line-height: 1.35;
+    }
+
+    .cv :global(ul) {
+      margin: 0.15rem 0;
     }
 
     .cv :global(blockquote) {
-      margin: 0.25rem 0;
+      margin: 0.15rem 0;
     }
 
     .cv :global(blockquote p) {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
+      line-height: 1.35;
+    }
+
+    .cv :global(h3 em) {
+      font-size: 0.6rem;
     }
 
     .cv :global(dl) {
-      font-size: 0.75rem;
-      gap: 0.15rem 0.5rem;
+      font-size: 0.7rem;
+      gap: 0.1rem 0.5rem;
       grid-template-columns: 5.5rem 1fr;
+      margin-bottom: 0.5rem;
     }
 
     .cv :global(a) {
