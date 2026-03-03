@@ -221,3 +221,48 @@ summary {
   padding: 0.2rem 0.6rem;
   border-radius: 0.25rem;
 }
+
+/* OSS Contributions */
+.oss-section {
+  text-align: left;
+  margin-top: 2rem;
+}
+
+.oss-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.oss-card {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+}
+
+.oss-repo-name {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  background: #2B2B2B;
+  color: white;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.25rem;
+  opacity: 1;
+}
+
+.oss-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.75rem;
+}
+
+.oss-stat {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+}
+
+.oss-number {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+}
