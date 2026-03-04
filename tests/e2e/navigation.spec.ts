@@ -7,11 +7,12 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL('/');
   });
 
-  test('nav links work', async ({ page }) => {
+  test('nav shows social icons only', async ({ page }) => {
     await page.goto('/');
-
-    await page.click('nav a[href="/blog"]');
-    await expect(page).toHaveURL('/blog');
+    await expect(page.locator('nav a[href="/blog"]')).toHaveCount(0);
+    await expect(page.locator('nav a[href="/cv"]')).toHaveCount(0);
+    await expect(page.locator('nav a[aria-label="GitHub"]')).toBeVisible();
+    await expect(page.locator('nav a[aria-label="LinkedIn"]')).toBeVisible();
   });
 
   test('404 page renders for unknown routes', async ({ page }) => {
@@ -21,8 +22,19 @@ test.describe('Navigation', () => {
     await expect(page.getByRole('link', { name: 'Go home' })).toBeVisible();
   });
 
-  test('nav shows active state', async ({ page }) => {
+  test('blog index has back arrow to home', async ({ page }) => {
     await page.goto('/blog');
-    await expect(page.locator('nav a[href="/blog"]')).toHaveClass('active');
+    const backLink = page.locator('.back-link');
+    await expect(backLink).toBeVisible();
+    await backLink.click();
+    await expect(page).toHaveURL('/');
+  });
+
+  test('blog post has back arrow to blog', async ({ page }) => {
+    await page.goto('/blog/hello-world');
+    const backLink = page.locator('.back-link');
+    await expect(backLink).toBeVisible();
+    await backLink.click();
+    await expect(page).toHaveURL('/blog');
   });
 });

@@ -24,4 +24,22 @@ test.describe('Blog', () => {
     await page.goto('/blog');
     await expect(page).toHaveTitle('Blog | Pete Watters');
   });
+
+  test('has search element', async ({ page }) => {
+    await page.goto('/blog');
+    await expect(page.locator('#search')).toBeVisible();
+  });
+
+  test('has tag filter pills', async ({ page }) => {
+    await page.goto('/blog');
+    await expect(page.locator('.tag-filters')).toBeVisible();
+    await expect(page.locator('.tag-filters button[data-tag="all"]')).toBeVisible();
+  });
+
+  test('has back arrow linking to home', async ({ page }) => {
+    await page.goto('/blog');
+    const backLink = page.locator('.back-link');
+    await expect(backLink).toBeVisible();
+    await expect(backLink).toHaveAttribute('href', '/');
+  });
 });
