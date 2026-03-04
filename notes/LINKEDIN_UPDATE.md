@@ -56,7 +56,7 @@ Layer 2 decentralised custodian protocol for institutional private key managemen
 Aug 2020 — Nov 2022 · Remote
 
 ```
-Cryptowatch is a widely used real-time charting and trading terminal in the crypto community, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and over 4,000 markets.
+Cryptowatch was a widely used real-time charting and trading terminal in the crypto community, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and over 4,000 markets.
 
 • Developed the multi-exchange trading form, cockpit redesign, and custom trade table and leverage slider components for the Cryptowatch trading team. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
 • Served as the sole frontend engineer on Coderunner, a greenfield trading automation tool. Delivered the complete frontend in eight months using React, TypeScript, and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input, and precision-aware currency handling.
