@@ -1,0 +1,74 @@
+---
+import { GITHUB } from '../consts';
+
+const repoData = [
+  { repo: GITHUB.REPOS[0], label: 'extension', prs: 175, commits: 340 },
+  { repo: GITHUB.REPOS[1], label: 'mono', prs: 229, commits: 450 },
+];
+---
+
+<section class="oss-section">
+  <h3>Open Source</h3>
+  <div class="oss-grid">
+    {repoData.map(({ repo, label, prs, commits }) => (
+      <div class="oss-card">
+        <a
+          class="oss-repo-name"
+          href={`https://github.com/${repo}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {label}
+        </a>
+        <div class="oss-stats">
+          <span class="oss-stat">
+            <span class="oss-number" data-repo={repo} data-type="prs">{prs}</span> PRs merged
+          </span>
+          <span class="oss-stat">
+            <span class="oss-number" data-repo={repo} data-type="commits">{commits}</span> commits
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script define:vars={{ username: GITHUB.USERNAME, repos: GITHUB.REPOS }}>
+  async function fetchOssStats() {
+    try {
+      const headers = { Accept: 'application/vnd.github.cloak-preview+json' };
+      const requests = repos.flatMap((repo) => [
+        fetch(
+          `https://api.github.com/search/issues?q=is:pr+is:merged+author:${username}+repo:${repo}`,
+          { headers }
+        ),
+        fetch(
+          `https://api.github.com/search/commits?q=author:${username}+repo:${repo}`,
+          { headers }
+        ),
+      ]);
+
+      const responses = await Promise.all(requests);
+      const results = await Promise.all(responses.map((r) => r.json()));
+
+      for (let i = 0; i < repos.length; i++) {
+        const repo = repos[i];
+        const prCount = results[i * 2]?.total_count;
+        const commitCount = results[i * 2 + 1]?.total_count;
+
+        if (prCount != null) {
+          const prEl = document.querySelector(`[data-repo="${repo}"][data-type="prs"]`);
+          if (prEl) prEl.textContent = prCount.toLocaleString();
+        }
+        if (commitCount != null) {
+          const commitEl = document.querySelector(`[data-repo="${repo}"][data-type="commits"]`);
+          if (commitEl) commitEl.textContent = commitCount.toLocaleString();
+        }
+      }
+    } catch {
+      // Fallback numbers stay visible
+    }
+  }
+
+  fetchOssStats();
+</script>
