@@ -116,10 +116,10 @@ nav {
   grid-area: nav;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   vertical-align: middle;
   align-items: center;
-  cursor: pointer;
+  gap: 0.5rem;
 }
 
 nav a {
@@ -156,6 +156,53 @@ summary {
   width: 120px;
   height: 120px;
   border-radius: 100%;
+}
+
+/* Back link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+/* Homepage */
+.homepage {
+  text-align: left;
+}
+
+.homepage section {
+  margin-bottom: 2rem;
+}
+
+.homepage ul {
+  padding-left: 1.2rem;
+}
+
+.homepage li {
+  margin-bottom: 0.5rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.homepage .intro p:first-child {
+  font-size: 1.1em;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.view-all {
+  text-align: center;
+}
+
+.view-all a {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
 }
 
 /* Blog */
@@ -222,6 +269,73 @@ summary {
   border-radius: 0.25rem;
 }
 
+.tags li a {
+  color: white;
+  opacity: 1;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.75rem;
+}
+
+/* Featured section */
+.featured-section {
+  border-bottom: 2px solid #2B2B2B;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.featured-heading {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+/* Tag filter pills */
+.tag-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.tag-filters button {
+  background: none;
+  border: 2px solid #2B2B2B;
+  cursor: pointer;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 1rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.tag-filters button:hover,
+.tag-filters button[aria-selected="true"] {
+  opacity: 1;
+  background: #2B2B2B;
+  color: white;
+}
+
+.blog-card[hidden] {
+  display: none;
+}
+
+.featured-section[hidden] {
+  display: none;
+}
+
+/* Pagefind search overrides */
+.pagefind-ui {
+  --pagefind-ui-font: 'Roboto Mono', monospace;
+  --pagefind-ui-primary: #2B2B2B;
+  --pagefind-ui-background: #fff;
+  --pagefind-ui-border: #2B2B2B;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
 /* OSS Contributions */
 .oss-section {
   text-align: left;
@@ -262,7 +376,30 @@ summary {
   font-size: 0.85rem;
 }
 
+.oss-stat a {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85rem;
+}
+
 .oss-number {
   font-family: 'Roboto Mono', monospace;
   font-weight: bold;
+}
+
+@media screen and (max-width: 42.5rem) {
+  header h1 {
+    font-size: 1rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  .oss-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
 }

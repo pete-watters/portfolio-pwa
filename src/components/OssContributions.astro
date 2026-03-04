@@ -2,8 +2,8 @@
 import { GITHUB } from '../consts';
 
 const repoData = [
-  { repo: GITHUB.REPOS[0], label: 'extension', prs: 175, commits: 340 },
-  { repo: GITHUB.REPOS[1], label: 'mono', prs: 229, commits: 450 },
+  { repo: GITHUB.REPOS[0], label: 'leather-io/extension', prs: 175, commits: 340 },
+  { repo: GITHUB.REPOS[1], label: 'leather-io/mono', prs: 229, commits: 450 },
 ];
 ---
 
@@ -22,10 +22,14 @@ const repoData = [
         </a>
         <div class="oss-stats">
           <span class="oss-stat">
-            <span class="oss-number" data-repo={repo} data-type="prs">{prs}</span> PRs merged
+            <a href={`https://github.com/${repo}/pulls?q=is:pr+is:merged+author:${GITHUB.USERNAME}`} target="_blank" rel="noopener noreferrer">
+              <span class="oss-number" data-repo={repo} data-type="prs">{prs}</span> PRs merged
+            </a>
           </span>
           <span class="oss-stat">
-            <span class="oss-number" data-repo={repo} data-type="commits">{commits}</span> commits
+            <a href={`https://github.com/${repo}/commits?author=${GITHUB.USERNAME}`} target="_blank" rel="noopener noreferrer">
+              <span class="oss-number" data-repo={repo} data-type="commits">{commits}</span> commits
+            </a>
           </span>
         </div>
       </div>
