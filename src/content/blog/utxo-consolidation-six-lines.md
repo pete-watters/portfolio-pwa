@@ -3,7 +3,7 @@ title: "The Six-Line Fix: UTXO Consolidation at the Barcelona Offsite"
 description: "Sometimes the best code is the code you delete. +6/-10 lines, merged same day."
 pubDate: 2025-01-20
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 During the team offsite in Barcelona (Jan 2025), I shipped [#6085](https://github.com/leather-io/extension/pull/6085) -- enabling UTXO consolidation by removing validation that blocked users from sending BTC to themselves.

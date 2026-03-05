@@ -3,7 +3,7 @@ title: "Secure Storage & Biometrics in a Crypto Wallet"
 description: "How we protect seed phrases with expo-secure-store and expo-local-authentication"
 pubDate: 2025-06-15
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 *This is Part 2 of the "Building a Crypto Wallet with Expo" series.*

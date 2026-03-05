@@ -3,7 +3,7 @@ title: "Building a Multi-Protocol NFT Gallery for a Bitcoin Wallet"
 description: "Supporting Ordinal Inscriptions, SIP-9 NFTs, Bitcoin Stamps, and BNS Names in a single collectibles experience"
 pubDate: 2025-11-15
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 Bitcoin and Stacks have multiple, completely different standards for digital collectibles. Ordinal Inscriptions live on Bitcoin's base layer. SIP-9 NFTs are smart contract tokens on Stacks. Bitcoin Stamps use a different encoding method entirely. BNS Names are Stacks' naming system. Each has different APIs, different metadata formats, and different rendering requirements.
