@@ -3,7 +3,7 @@ title: "Sharing Features Between React Native and a Browser Extension in a Monor
 description: "My first monorepo, two rendering targets, one shared feature layer"
 pubDate: 2025-12-01
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 <!-- ADD: This was your first monorepo. What was your experience before? What did you expect? What surprised you? -->

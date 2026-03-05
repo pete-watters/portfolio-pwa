@@ -3,7 +3,7 @@ title: "Personalising Your App with Alternate Icons"
 description: "How we implemented 11 app icon options using expo-alternate-app-icons"
 pubDate: 2025-08-01
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 *This is Part 5 of the "Building a Crypto Wallet with Expo" series.*

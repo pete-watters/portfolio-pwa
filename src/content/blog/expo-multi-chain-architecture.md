@@ -3,7 +3,7 @@ title: "Building a Multi-Chain Wallet UI with React Native"
 description: "Managing Bitcoin and Stacks in a unified interface with chain-specific balance, send, and receive flows"
 pubDate: 2025-07-01
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 *This is Part 3 of the "Building a Crypto Wallet with Expo" series.*

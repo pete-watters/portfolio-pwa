@@ -3,7 +3,7 @@ title: "Making Ethereum Transactions Human-Readable"
 description: "Raw blockchain transactions are incomprehensible to most users. Here's how you decode them into something meaningful — and why it matters for crypto UX."
 pubDate: 2026-02-13
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 If you've ever looked at a raw Ethereum transaction, you know the problem. A wall of hexadecimal data, an ABI-encoded function call, token transfers buried in event logs, and no obvious indication of what actually happened. Did the user swap tokens? Stake ETH? Approve a spending limit? The blockchain knows, but it doesn't make it easy to find out.

@@ -3,7 +3,7 @@ title: "Shipping a Crypto Wallet Mobile App From Scratch (As a React Native Newc
 description: "From zero React Native experience to App Store in 3 months, launching at BTC Vegas"
 pubDate: 2024-12-15
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 <!-- ADD: What were you working on before this? What made you want to take on the mobile app? -->

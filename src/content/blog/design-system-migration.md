@@ -3,7 +3,7 @@ title: "Migrating a Design System: Stacks UI to Panda CSS"
 description: "Incrementally removing a design system across 500+ files in a production crypto wallet"
 pubDate: 2023-11-15
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 The Leather extension was built with `@stacks/ui`. When the wallet rebranded from Hiro to Leather and expanded to Bitcoin, the Stacks-branded design system had to go. The migration to Panda CSS touched 500+ files.

@@ -3,7 +3,7 @@ title: "How We Cut Our Mobile CI Time by 70% with Expo and EAS"
 description: "Fingerprinting, EAS Workflows, and Maestro E2E tests for a production crypto wallet"
 pubDate: 2025-06-01
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 *This is Part 1 of the "Building a Crypto Wallet with Expo" series.*

@@ -3,7 +3,7 @@ title: "OTA Updates for Financial Apps"
 description: "Balancing speed with security using EAS Update for a production crypto wallet"
 pubDate: 2025-07-15
 tags: ["code"]
-draft: false
+draft: true
 ---
 
 *This is Part 4 of the "Building a Crypto Wallet with Expo" series.*
