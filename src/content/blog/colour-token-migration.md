@@ -3,7 +3,7 @@ title: "Migrating Colour Tokens from Brown to Ink"
 description: "How we renamed an entire design token vocabulary during Leather's rebrand — and why semantic naming matters more than you think."
 pubDate: 2026-03-03
 tags: ["design-systems", "css", "leather"]
-draft: true
+draft: false
 ---
 
 When Hiro rebranded its wallet to Leather, we didn't just change a logo. The entire colour system needed to change. The old design tokens were named after literal colours — `brown.100`, `brown.200`, `brown.900` — because the Hiro brand was brown. Leather's brand is black and white. We couldn't just swap hex values and call it done.

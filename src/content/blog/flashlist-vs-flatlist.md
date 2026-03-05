@@ -3,7 +3,7 @@ title: "FlashList vs FlatList in a Crypto Wallet"
 description: "How switching from FlatList to FlashList cut dropped frames and improved scroll performance in Leather's React Native token list."
 pubDate: 2026-03-03
 tags: ["react-native", "performance", "mobile", "leather"]
-draft: true
+draft: false
 ---
 
 The token list in Leather's mobile wallet is the first thing you see when you open the app. It shows every token across multiple chains — BTC, STX, SIP-10 tokens, Runes — sorted by value. When a user has dozens of tokens, that list needs to scroll smoothly.

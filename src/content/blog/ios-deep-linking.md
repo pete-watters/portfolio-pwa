@@ -3,7 +3,7 @@ title: "Designing a Mobile Deep Link Flow for iOS"
 description: "Setting up Apple Universal Links for a React Native crypto wallet — associated domains, entitlements, and the apple-app-site-association file."
 pubDate: 2026-03-03
 tags: ["react-native", "ios", "mobile", "leather"]
-draft: true
+draft: false
 ---
 
 Deep linking in a mobile app sounds simple. User taps a link, app opens to the right screen. In practice — especially on iOS — it's a minefield of configuration files, entitlements, and Apple-specific behaviour that's poorly documented and painful to debug.
