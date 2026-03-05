@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Icon from '../../components/Icon.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -17,9 +16,15 @@ const { post } = Astro.props as Props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  breadcrumbs={[
+    { label: 'blog', href: '/blog' },
+    { label: post.data.pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'short' }) },
+  ]}
+>
   <article class="blog-post">
-    <a href="/blog" class="back-link"><Icon name="arrow-left" /> Blog</a>
     <h2>{post.data.title}</h2>
     <time datetime={post.data.pubDate.toISOString()}>
       {post.data.pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' })}

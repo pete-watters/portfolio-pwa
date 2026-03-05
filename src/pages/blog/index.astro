@@ -2,7 +2,6 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPostCard from '../../components/BlogPostCard.astro';
-import Icon from '../../components/Icon.astro';
 import Search from '../../components/Search.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,11 +14,8 @@ const remainingPosts = allPosts.filter((post: CollectionEntry<'blog'>) => !post.
 const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => post.data.tags))].sort();
 ---
 
-<BaseLayout title="Blog" description="Blog posts by Pete Watters">
+<BaseLayout title="Blog" description="Blog posts by Pete Watters" breadcrumbs={[{ label: 'blog' }]}>
   <article>
-    <a href="/" class="back-link"><Icon name="arrow-left" /> Home</a>
-    <h2>Blog</h2>
-
     <Search />
 
     <div class="tag-filters" role="toolbar" aria-label="Filter by tag">

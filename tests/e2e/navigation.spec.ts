@@ -40,20 +40,24 @@ test.describe('Navigation', () => {
     await expect(page.getByRole('link', { name: 'Go home' })).toBeVisible();
   });
 
-  test('blog index has back arrow to home', async ({ page }) => {
+  test('blog index shows breadcrumb', async ({ page }) => {
     await page.goto('/blog');
-    const backLink = page.locator('.back-link');
-    await expect(backLink).toBeVisible();
-    await backLink.click();
+    await expect(page.locator('.breadcrumb-current')).toHaveText('blog');
+    await page.click('header h1 a');
     await expect(page).toHaveURL('/');
   });
 
-  test('blog post has back arrow to blog', async ({ page }) => {
+  test('blog post shows breadcrumbs with link to blog', async ({ page }) => {
     await page.goto('/blog/hello-world');
-    const backLink = page.locator('.back-link');
-    await expect(backLink).toBeVisible();
-    await backLink.click();
+    const blogLink = page.locator('.breadcrumb-link');
+    await expect(blogLink).toHaveText('blog');
+    await blogLink.click();
     await expect(page).toHaveURL('/blog');
+  });
+
+  test('profile avatar is visible in header', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.profile-avatar')).toBeVisible();
   });
 
   test('header is visible on all pages', async ({ page }) => {
