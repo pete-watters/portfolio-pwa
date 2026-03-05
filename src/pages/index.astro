@@ -13,7 +13,7 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
 <BaseLayout>
   <article class="homepage">
     <section class="intro">
-      <p><strong>Senior Frontend Engineer — Bitcoin, Web3, and high-stakes fintech.</strong></p>
+      <p class="tagline">Senior Frontend Engineer — Bitcoin, Web3, and high-stakes fintech.</p>
       <p>
         At <a href="https://trustmachines.co" target="_blank" rel="noopener noreferrer">Trust Machines</a>,
         I build <a href="https://leather.io" target="_blank" rel="noopener noreferrer">Leather</a> —
@@ -21,6 +21,7 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
         and React Native mobile app, serving hundreds of thousands of users across multiple
         Bitcoin layers.
       </p>
+      <p class="tech-stack">React Native · TypeScript · Bitcoin / Stacks · Web Extensions · sBTC</p>
     </section>
 
     <OssContributions />
