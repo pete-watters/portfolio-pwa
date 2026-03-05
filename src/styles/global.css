@@ -190,12 +190,6 @@ summary {
   font-size: 1.1em;
 }
 
-.tech-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1rem;
-}
-
 .view-all {
   text-align: center;
 }
@@ -396,10 +390,6 @@ summary {
   }
 
   .oss-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .tech-grid {
     grid-template-columns: 1fr;
   }
 }

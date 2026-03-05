@@ -23,56 +23,7 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
       </p>
     </section>
 
-    <section class="working-on">
-      <h3>What I'm working on</h3>
-      <ul>
-        <li>Led the Hiro &rarr; Leather rebrand across extension and mobile</li>
-        <li>Shipped the React Native mobile app from zero to App Store / Play Store</li>
-        <li>Building the DeFi Portfolio — multi-chain token balances, staking positions, and LP tracking</li>
-      </ul>
-    </section>
-
-    <section class="oss-prs">
-      <h3>Notable OSS contributions</h3>
-      <ul>
-        <li><a href="https://github.com/leather-io/mono/pull/200" target="_blank" rel="noopener noreferrer">Container architecture iteration</a> — modular feature containers across web and mobile</li>
-        <li><a href="https://github.com/leather-io/mono/pull/150" target="_blank" rel="noopener noreferrer">Mobile app launch</a> — React Native + Expo from zero to production</li>
-        <li><a href="https://github.com/leather-io/extension/pull/5765" target="_blank" rel="noopener noreferrer">Transaction validation</a> — branded types for Bitcoin security</li>
-        <li><a href="https://github.com/leather-io/extension/pull/5500" target="_blank" rel="noopener noreferrer">Ledger nonce fix</a> — critical Ledger signing bug affecting real transactions</li>
-        <li><a href="https://github.com/leather-io/mono/pull/100" target="_blank" rel="noopener noreferrer">Panda CSS preset</a> — design token package for the UI library</li>
-      </ul>
-    </section>
-
     <OssContributions />
-
-    <section class="tech">
-      <h3>Tech</h3>
-      <div class="tech-grid">
-        <div>
-          <h4>Frontend</h4>
-          <p>React, React Native, TypeScript, Next.js, Astro, Expo, Panda CSS, Radix UI</p>
-        </div>
-        <div>
-          <h4>Tooling</h4>
-          <p>Vitest, Playwright, Storybook, GitHub Actions, Turborepo, EAS Build</p>
-        </div>
-        <div>
-          <h4>Server-side</h4>
-          <p>Node.js, Express, Cloudflare Workers, Firebase, PostgreSQL</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="previously">
-      <h3>Previously</h3>
-      <p>
-        <a href="https://www.qredo.com" target="_blank" rel="noopener noreferrer">Qredo</a> (DeFi custody),
-        <a href="https://www.kraken.com" target="_blank" rel="noopener noreferrer">Kraken</a> / Cryptowatch (real-time trading),
-        <a href="https://www.xapo.com" target="_blank" rel="noopener noreferrer">Xapo</a> (Bitcoin banking),
-        <a href="https://www.bankofamerica.com" target="_blank" rel="noopener noreferrer">Bank of America Merrill Lynch</a> (rates trading),
-        <a href="https://www.fidelity.com" target="_blank" rel="noopener noreferrer">Fidelity Investments</a> (fund management).
-      </p>
-    </section>
 
     {posts.length > 0 && (
       <section class="recent-posts">

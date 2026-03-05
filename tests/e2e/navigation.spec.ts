@@ -15,6 +15,24 @@ test.describe('Navigation', () => {
     await expect(page.locator('nav a[aria-label="LinkedIn"]')).toBeVisible();
   });
 
+  test('nav shows all five social icons', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('nav a[aria-label="GitHub"]')).toBeVisible();
+    await expect(page.locator('nav a[aria-label="LinkedIn"]')).toBeVisible();
+    await expect(page.locator('nav a[aria-label="StackOverflow"]')).toBeVisible();
+    await expect(page.locator('nav a[aria-label="Medium"]')).toBeVisible();
+    await expect(page.locator('nav a[aria-label="Instagram"]')).toBeVisible();
+  });
+
+  test('social links open in new tab', async ({ page }) => {
+    await page.goto('/');
+    const socialLinks = page.locator('nav a[target="_blank"]');
+    expect(await socialLinks.count()).toBe(5);
+    for (const link of await socialLinks.all()) {
+      await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    }
+  });
+
   test('404 page renders for unknown routes', async ({ page }) => {
     const response = await page.goto('/nonexistent-page');
     expect(response?.status()).toBe(404);
@@ -36,5 +54,13 @@ test.describe('Navigation', () => {
     await expect(backLink).toBeVisible();
     await backLink.click();
     await expect(page).toHaveURL('/blog');
+  });
+
+  test('header is visible on all pages', async ({ page }) => {
+    for (const path of ['/', '/blog', '/cv']) {
+      await page.goto(path);
+      await expect(page.locator('header h1 a')).toBeVisible();
+      await expect(page.locator('nav')).toBeVisible();
+    }
   });
 });
