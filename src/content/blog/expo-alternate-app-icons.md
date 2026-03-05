@@ -1,5 +1,5 @@
 ---
-title: "Personalizing Your App with Alternate Icons"
+title: "Personalising Your App with Alternate Icons"
 description: "How we implemented 11 app icon options using expo-alternate-app-icons"
 pubDate: 2025-08-01
 tags: ["code"]
@@ -17,7 +17,7 @@ We ship 11 different app icon options in Leather, and users love it.
 ## Why Alternate Icons?
 
 1. **Privacy** -- Some users prefer an icon that doesn't scream "I have crypto"
-2. **Personalization** -- Crypto users often identify strongly with specific aesthetics
+2. **Personalisation** -- Crypto users often identify strongly with specific aesthetics
 3. **Delight** -- In a sea of serious financial apps, a bit of personality goes a long way
 4. **Low effort, high reward** -- Once set up, adding new icons is just dropping in assets
 
@@ -65,7 +65,7 @@ We store the user's preference separately from the actual icon state for instant
 
 ## The iOS Alert
 
-On iOS, changing the app icon shows a system alert: "You have changed the icon for Leather." This is an Apple requirement. To make it less jarring: show a preview before the user taps, use clear labeling, and don't show the picker on first launch.
+On iOS, changing the app icon shows a system alert: "You have changed the icon for Leather." This is an Apple requirement. To make it less jarring: show a preview before the user taps, use clear labelling and don't show the picker on first launch.
 
 ## Adding New Icons
 
@@ -83,7 +83,7 @@ Over these five posts, we've covered:
 2. **Security**: expo-secure-store + expo-local-authentication protect seed phrases
 3. **Multi-chain**: Unified UI for Bitcoin and Stacks
 4. **Updates**: Safe OTA updates for a financial app
-5. **Personalization**: 11 app icons with expo-alternate-app-icons
+5. **Personalisation**: 11 app icons with expo-alternate-app-icons
 
 Expo and EAS have been transformative for our development velocity. We ship faster, test more thoroughly, and spend less time fighting native build issues.
 

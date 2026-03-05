@@ -24,9 +24,9 @@ TNFMON DRE (the "DCV Replacement Engine") was a web application with three main 
 
 **Statistical Analysis Tool** — The core of the application. Engineers could select a customer site and a date range, and the system would generate interactive performance charts showing NIC speeds, packet drop rates, TDR production, GTP context lifecycle, protocol ratios, and IP fragmentation. All the metrics that mattered for understanding whether a probe was healthy or struggling.
 
-**Customer Inventory** — A centralised view of every probe's configuration: software versions, hardware specs, NIC card details, configuration file backups, scripts, and health check outputs. Before this, there was no single place at headquarters where you could look up what was running at a customer site.
+**Customer Inventory** — A centralised view of every probe's configuration: software versions, hardware specs, NIC card details, configuration file backups, scripts and health check outputs. Before this, there was no single place at headquarters where you could look up what was running at a customer site.
 
-**Customer Matrix** — A global view across all customers, with searchable tables, dashboards, geographic coverage maps, revenue-by-customer charts, and a motion chart for trending data over time. This was aimed at giving management and sales a bird's-eye view of the entire deployment footprint.
+**Customer Matrix** — A global view across all customers, with searchable tables, dashboards, geographic coverage maps, revenue-by-customer charts and a motion chart for trending data over time. This was aimed at giving management and sales a bird's-eye view of the entire deployment footprint.
 
 ## The Tech Stack (Vintage 2012)
 
@@ -43,7 +43,7 @@ No npm. No bundler. No package.json. Just JavaScript files referenced in HTML pa
 
 ## The Parts I'm Still Proud Of
 
-**The charting.** Each chart was interactive with legend toggling, tooltips, zoom-by-drag, adjustable date ranges, print functionality, and image export. The "All in one" view plotted every metric on a single chart with multiple axes, and engineers could toggle individual series on and off to isolate what they cared about. There was also a one-click export that rendered all charts to a single image — replacing what had been a manual, hour-long report-building process.
+**The charting.** Each chart was interactive with legend toggling, tooltips, zoom-by-drag, adjustable date ranges, print functionality and image export. The "All in one" view plotted every metric on a single chart with multiple axes, and engineers could toggle individual series on and off to isolate what they cared about. There was also a one-click export that rendered all charts to a single image — replacing what had been a manual, hour-long report-building process.
 
 I wrote a custom HighCharts configuration specifically for this project. The key insight was that once you had a JSON data series for any metric, you could plot it on any chart against any other metric. That extensibility meant new charts could be added without touching the data layer. Compare that to Excel, where engineers were limited to two axes and had to rebuild the workbook every time.
 

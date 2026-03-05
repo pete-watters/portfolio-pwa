@@ -16,9 +16,9 @@ Here's how it works.
 
 Ethereum transactions are opaque by design. A transaction's `input` field contains ABI-encoded data — the function signature and its parameters packed into a hex string. Unless you have the contract's ABI and know how to decode it, this data is meaningless.
 
-It gets worse with DeFi. A single Uniswap swap might involve multiple internal transactions, token approvals, liquidity pool interactions, and fee calculations — all compressed into one transaction hash. Token transfers don't even appear in the transaction's value field; they're emitted as ERC-20 `Transfer` events in the transaction receipt's logs.
+It gets worse with DeFi. A single Uniswap swap might involve multiple internal transactions, token approvals, liquidity pool interactions and fee calculations — all compressed into one transaction hash. Token transfers don't even appear in the transaction's value field; they're emitted as ERC-20 `Transfer` events in the transaction receipt's logs.
 
-For wallets, explorers, and compliance tools, turning this raw data into something a human can understand is essential. Users need to know what happened. Compliance teams need audit trails. Portfolio trackers need accurate records.
+For wallets, explorers and compliance tools, turning this raw data into something a human can understand is essential. Users need to know what happened. Compliance teams need audit trails. Portfolio trackers need accurate records.
 
 ## Step 1: Simulate the Transaction
 

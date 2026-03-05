@@ -25,7 +25,7 @@ Leather's seed phrase input had no word-level validation. You'd type all 12 or 2
 
 The codebase had two different BIP39 libraries doing the same thing. [PR #4294](https://github.com/leather-io/extension/pull/4294) consolidated them down to `@scure/bip39` — the same library used by most of the Bitcoin ecosystem. 29 additions, 35 deletions, 4 files.
 
-`@scure/bip39` is part of the `@noble` / `@scure` family of cryptographic libraries by Paul Miller. They're audited, have zero dependencies, and use modern JavaScript. The word list validation is straightforward:
+`@scure/bip39` is part of the `@noble` / `@scure` family of cryptographic libraries by Paul Miller. They're audited, have zero dependencies and use modern JavaScript. The word list validation is straightforward:
 
 ```typescript
 import { wordlist } from '@scure/bip39/wordlists/english';

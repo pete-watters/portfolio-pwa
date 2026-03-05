@@ -6,7 +6,7 @@ tags: ["react-native", "performance", "mobile", "leather"]
 draft: false
 ---
 
-The token list in Leather's mobile wallet is the first thing you see when you open the app. It shows every token across multiple chains — BTC, STX, SIP-10 tokens, Runes — sorted by value. When a user has dozens of tokens, that list needs to scroll smoothly.
+The token list in Leather's mobile wallet is the first thing you see when you open the app. It shows every token across multiple chains — BTC, STX, SIP-10 tokens and Runes — sorted by value. When a user has dozens of tokens, that list needs to scroll smoothly.
 
 It didn't.
 

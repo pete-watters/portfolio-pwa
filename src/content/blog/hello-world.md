@@ -83,13 +83,13 @@ The old Enzyme snapshot tests were brittle — they'd break on any markup change
 - **Vitest** for unit tests (constants validation, etc.)
 - **Playwright** for end-to-end tests across Chromium, Firefox, and WebKit
 
-The Playwright tests cover real user flows: navigating between pages, switching about page tabs, deep-linking via hash, verifying the blog renders markdown, and checking that PWA assets (manifest, service worker) are served correctly.
+The Playwright tests cover real user flows: navigating between pages, switching about page tabs, deep-linking via hash, verifying the blog renders markdown and checking that PWA assets (manifest, service worker) are served correctly.
 
 ### CI/CD
 
 The old deploy was `firebase deploy` from my laptop. Now there are three GitHub Actions workflows:
 
-1. **Code Checks** (on every push) — runs lint, typecheck, unit tests, and build in parallel
+1. **Code Checks** (on every push) — runs lint, typecheck, unit tests and build in parallel
 2. **Integration Tests** (on PR) — runs Playwright across 2 shards with report merging
 3. **Deploy** (on merge to master) — builds and uploads to Cloudflare Pages via `wrangler`
 

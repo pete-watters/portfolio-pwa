@@ -15,7 +15,7 @@ If you're checking your wallet on a train, at a cafe, or in a meeting you probab
 The feature is a toggle in Settings that replaces all balance displays with a masked value. Sounds simple. The catch is that "all balance displays" means:
 
 - Total account balance on the home screen
-- Individual BTC, STX, BRC-20, SRC-20, STX-20, and Rune token balances
+- Individual BTC, STX, BRC-20, SRC-20, STX-20 and Rune token balances
 - Transaction amounts in the activity list
 - Available balance in the send form footer
 - Fee selection amounts
