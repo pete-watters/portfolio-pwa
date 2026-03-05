@@ -1,7 +1,7 @@
 ---
 title: "From Web Components to Native: Shipping a Cross-Platform UI Library"
 description: "How we extended a web-first React UI library to support React Native, built components bottom-up, and shipped the first production mobile screen from shared packages."
-pubDate: 2026-03-05
+pubDate: 2024-09-18
 tags: ["react-native", "typescript", "design-systems", "monorepo", "mobile"]
 draft: false
 featured: true

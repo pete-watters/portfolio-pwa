@@ -19,11 +19,10 @@ const { Content } = await render(post);
 <BaseLayout
   title={post.data.title}
   description={post.data.description}
-  breadcrumbs={[
-    { label: 'blog', href: '/blog' },
-    { label: post.data.pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'short' }) },
-  ]}
 >
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> <span class="breadcrumb-sep">&rsaquo;</span> <a href="/blog">Blog</a> <span class="breadcrumb-sep">&rsaquo;</span> <span class="breadcrumb-current">{post.data.title}</span>
+  </nav>
   <article class="blog-post">
     <h2>{post.data.title}</h2>
     <time datetime={post.data.pubDate.toISOString()}>

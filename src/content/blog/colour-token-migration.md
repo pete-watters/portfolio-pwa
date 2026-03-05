@@ -1,7 +1,7 @@
 ---
 title: "Migrating Colour Tokens from Brown to Ink"
 description: "How we renamed an entire design token vocabulary during Leather's rebrand — and why semantic naming matters more than you think."
-pubDate: 2026-03-03
+pubDate: 2023-06-15
 tags: ["design-systems", "css", "leather"]
 draft: false
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Three Iterations to Get Container Architecture Right"
 description: "How Leather's browser extension went from a global container system to composable page-level headers — across 468 files and two major refactors."
-pubDate: 2026-03-05
+pubDate: 2024-08-19
 tags: ["typescript", "architecture", "browser-extensions", "leather"]
 draft: false
 featured: true

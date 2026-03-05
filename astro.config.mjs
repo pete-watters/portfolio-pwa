@@ -17,8 +17,8 @@ export default defineConfig({
             type: 'image/png',
           },
           {
-            src: 'img/android-chrome-192x192.png',
-            sizes: '192x192',
+            src: 'img/apple-touch-icon.png',
+            sizes: '180x180',
             type: 'image/png',
           },
         ],

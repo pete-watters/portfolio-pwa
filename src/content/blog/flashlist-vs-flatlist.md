@@ -1,7 +1,7 @@
 ---
 title: "FlashList vs FlatList in a Crypto Wallet"
 description: "How switching from FlatList to FlashList cut dropped frames and improved scroll performance in Leather's React Native token list."
-pubDate: 2026-03-03
+pubDate: 2024-11-15
 tags: ["react-native", "performance", "mobile", "leather"]
 draft: false
 ---

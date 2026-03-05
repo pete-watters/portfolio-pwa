@@ -5,9 +5,8 @@ import OssContributions from '../components/OssContributions.astro';
 import BlogPostCard from '../components/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft))
-  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5);
+const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft && data.featured))
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout>
@@ -21,16 +20,15 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
         and React Native mobile app, serving hundreds of thousands of users across multiple
         Bitcoin layers.
       </p>
-      <p class="tech-stack">React Native · TypeScript · Bitcoin / Stacks · Web Extensions · sBTC</p>
     </section>
 
     <OssContributions />
 
-    {posts.length > 0 && (
+    {featuredPosts.length > 0 && (
       <section class="recent-posts">
-        <h3>Writing</h3>
+        <h3>Start Here</h3>
         <ul class="blog-list">
-          {posts.map((post: CollectionEntry<'blog'>) => (
+          {featuredPosts.map((post: CollectionEntry<'blog'>) => (
             <BlogPostCard
               title={post.data.title}
               description={post.data.description}

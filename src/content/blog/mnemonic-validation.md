@@ -1,7 +1,7 @@
 ---
 title: "Mnemonic Validation with @scure/bip39"
 description: "Adding real-time word validation to a 12/24-word seed phrase input — consolidating BIP39 libraries and catching typos before they cost someone their wallet."
-pubDate: 2026-03-05
+pubDate: 2023-10-13
 tags: ["typescript", "bitcoin", "security", "leather"]
 draft: false
 featured: true

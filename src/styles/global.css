@@ -106,7 +106,7 @@ h1 a {
 /* Layout */
 main {
   margin: 0 auto;
-  padding: 56px 1.5rem 0;
+  padding: 32px 1.5rem 0;
   max-width: 680px;
   text-align: center;
 }
@@ -118,31 +118,85 @@ header {
 }
 
 .header-inner {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-areas: "logo nav";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: 680px;
   margin: 0 auto;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
 header h1 {
-  grid-area: logo;
   margin: 0;
   text-align: left;
-  font-size: clamp(1.2rem, 4vw, 3rem);
+  font-size: clamp(1.2rem, 4vw, 2.2rem);
+  white-space: nowrap;
+}
+
+/* Breadcrumbs — standalone nav on blog pages */
+.breadcrumbs {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-faint);
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbs a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--color-text);
+}
+
+.breadcrumb-sep {
+  margin: 0 0.3em;
+  color: var(--color-faint);
+}
+
+.breadcrumb-current {
+  color: var(--color-faint);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-link {
+  text-decoration: none;
+  line-height: 0;
+}
+
+.profile-link:hover {
+  text-decoration: none;
 }
 
 nav {
-  grid-area: nav;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
   align-items: center;
   gap: 0.5rem;
 }
 
 nav a {
-  font-size: clamp(0.9rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
   text-decoration: none;
 }
 
@@ -199,7 +253,7 @@ summary {
 }
 
 .homepage section {
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .homepage ul {
@@ -218,12 +272,6 @@ summary {
 .homepage .intro p {
   font-size: 16px;
   line-height: 1.6;
-}
-
-.tech-stack {
-  font-size: 14px;
-  color: var(--color-faint);
-  margin-top: 0.5rem;
 }
 
 .view-all {
@@ -460,7 +508,7 @@ summary {
 
 @media screen and (max-width: 42.5rem) {
   header h1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   nav a {
