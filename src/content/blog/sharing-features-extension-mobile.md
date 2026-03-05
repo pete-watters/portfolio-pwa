@@ -4,6 +4,7 @@ description: "How we refactored Leather's activity feed into a platform-agnostic
 pubDate: 2026-03-05
 tags: ["typescript", "react-native", "monorepo", "architecture", "leather"]
 draft: false
+featured: true
 ---
 
 Leather ships two apps from one monorepo: a browser extension (React, Panda CSS) and a mobile app (React Native, Expo). They share a Bitcoin and Stacks wallet backend, the same account model, and — increasingly — the same UI components. But for a long time, each app had its own copy of core features like the activity feed, token balances, and collectibles.

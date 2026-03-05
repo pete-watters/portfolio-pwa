@@ -4,6 +4,7 @@ description: "How we extended a web-first React UI library to support React Nati
 pubDate: 2026-03-05
 tags: ["react-native", "typescript", "design-systems", "monorepo", "mobile"]
 draft: false
+featured: true
 ---
 
 When we started building Leather's mobile app, we already had a UI library. `@leather-wallet/ui` lived in our monorepo and gave the browser extension a shared set of components — Button, Link, Avatar, and a handful of others. The extension imported them via `link:/` from `packages/ui/`, and it worked well.

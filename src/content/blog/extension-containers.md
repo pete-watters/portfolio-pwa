@@ -4,6 +4,7 @@ description: "How Leather's browser extension went from a global container syste
 pubDate: 2026-03-05
 tags: ["typescript", "architecture", "browser-extensions", "leather"]
 draft: false
+featured: true
 ---
 
 Browser extensions have a constraint that most web apps don't: the same codebase renders in at least three different contexts. There's the popup (the small window from the toolbar icon), the full-page tab view, and approval popups (centred windows that open when a dApp requests a signature). Each context has different viewport sizes, different navigation patterns, and different header requirements.
