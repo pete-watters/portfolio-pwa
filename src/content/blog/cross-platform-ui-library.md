@@ -13,7 +13,7 @@ The question was whether that same library could serve React Native. We had two 
 
 ## The starting point
 
-PR [#161](https://github.com/leather-io/mono/pull/161) in May 2024 proved the concept. It migrated web components into `packages/ui/` and set up the package structure. Button, Link, and Avatar moved out of the extension's source tree and into the shared library. The extension imported them like any other package. 31 files changed, 551 additions.
+PR [#161](https://github.com/leather-io/mono/pull/161) in May 2024 proved the concept. It migrated web components into `packages/ui/` and set up the package structure. Button, Link and Avatar moved out of the extension's source tree and into the shared library. The extension imported them like any other package. 31 files changed, 551 additions.
 
 That PR also introduced Storybook stories for each component. This turned out to be more important than we expected — Storybook became our cross-platform visual testing tool later on.
 

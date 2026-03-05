@@ -8,7 +8,7 @@ draft: false
 
 <!-- ADD: What were you working on before this? What made you want to take on the mobile app? -->
 
-I'd never used React Native or Expo before. I'd been working on the browser extension -- design system migration, containers, routing -- and was about to tackle something completely new. The monorepo (`leather-io/mono`) was set up by the team, with the foundational packages and architecture already in place. Other team members were building the data layer, queries, and API integrations. My focus would be the mobile UI and features. My first PR was [#417](https://github.com/leather-io/mono/pull/417) -- adding a native Skeleton Loader to the UI library. In September 2024.
+I'd never used React Native or Expo before. I'd been working on the browser extension -- design system migration, containers, routing -- and was about to tackle something completely new. The monorepo (`leather-io/mono`) was set up by the team, with the foundational packages and architecture already in place. Other team members were building the data layer, queries, and API integrations. My focus would be the mobile UI and features. My first PR was [#417](https://github.com/leather-io/mono/pull/417) -- adding a native Skeleton Loader to the UI library in September 2024.
 
 By December 2024, the team shipped to the App Store. At BTC Vegas.
 

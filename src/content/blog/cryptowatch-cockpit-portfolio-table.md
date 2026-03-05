@@ -6,13 +6,13 @@ tags: ["code"]
 draft: false
 ---
 
-Cryptowatch's Cockpit was the main trading interface -- a dense, real-time dashboard where users managed their positions across multiple exchanges. Think Bloomberg Terminal aesthetics but for crypto: live charts, order books, trade history, and portfolio data all on one screen. I joined the frontend team working on this before moving to Coderunner, and was pulled back in for three months when the Cockpit needed attention.
+Cryptowatch's Cockpit was the main trading interface -- a dense, real-time dashboard where users managed their positions across multiple exchanges. Think Bloomberg Terminal aesthetics but for crypto: live charts, order books, trade history and portfolio data all on one screen. I joined the frontend team working on this before moving to Coderunner, and was pulled back in for three months when the Cockpit needed attention.
 
 ## The Portfolio Table
 
 The main piece I built was a portfolio management HTML data table for the new chart view. This sat in the bottom panel of the Cockpit alongside tabs for open orders, holdings, margin positions, order history, and trade history.
 
-The table needed to handle the realities of a trading interface: real-time price updates flowing in via the ticker bar, sortable columns, and the ability to filter by trading pair. Users could link their exchange API keys and see their actual positions, balances, and order status. Each row showed market, side, type, date, price, quantity, fill percentage, and current market price with a percentage-to-market comparison.
+The table needed to handle the realities of a trading interface: real-time price updates flowing in via the ticker bar, sortable columns and the ability to filter by trading pair. Users could link their exchange API keys and see their actual positions, balances, and order status. Each row showed market, side, type, date, price, quantity, fill percentage and current market price with a percentage-to-market comparison.
 
 This was a pure HTML data table rather than reaching for a heavy table library. For a trading UI, rendering performance matters -- when prices are updating constantly, you don't want a table library's abstraction layer adding overhead.
 

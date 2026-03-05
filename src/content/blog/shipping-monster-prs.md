@@ -36,6 +36,6 @@ PR #2004 was the gated follow-up — new collectible components behind a feature
 
 ## The reality
 
-Large PRs are sometimes unavoidable. The goal isn't to never ship them — it's to make them reviewable despite their size. A clear description, a working demo, logical structure, and proactive communication go a long way.
+Large PRs are sometimes unavoidable. The goal isn't to never ship them — it's to make them reviewable despite their size. A clear description, a working demo, logical structure and proactive communication go a long way.
 
 And if your teammate has a meltdown during review, that's just part of the process.

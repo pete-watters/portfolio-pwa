@@ -41,7 +41,7 @@ We validate once — at the boundary where user input enters the system — and 
 
 ## Where it caught bugs
 
-The send flow was the biggest win. Before branded types, the send form collected an address as a `string`, passed it through several layers of validation logic, fee estimation, and PSBT construction. At each layer, the address was just a string. If a refactor shuffled parameters, the compiler couldn't help.
+The send flow was the biggest win. Before branded types, the send form collected an address as a `string`, passed it through several layers of validation logic, fee estimation and PSBT construction. At each layer, the address was just a string. If a refactor shuffled parameters, the compiler couldn't help.
 
 After adding the branded type, we found three places where the wrong address type was being passed:
 

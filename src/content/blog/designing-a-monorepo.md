@@ -12,7 +12,7 @@ I designed and implemented the [monorepo](https://github.com/leather-wallet/mono
 
 ## Why a monorepo
 
-The extension and mobile app shared a significant amount of code — query hooks, crypto utilities, type definitions, and increasingly, UI components. Before the monorepo, changes to shared logic meant:
+The extension and mobile app shared a significant amount of code — query hooks, crypto utilities, type definitions and, increasingly, UI components. Before the monorepo, changes to shared logic meant:
 
 1. Update the package in its own repo
 2. Publish a new version
@@ -59,7 +59,7 @@ The workflow detects which packages have changed using Turborepo's `--filter` fl
 
 **Migrate incrementally.** The extension moved in first, then shared packages were extracted one at a time, then the mobile app joined. Trying to do it all at once would have been a multi-week block on the entire team.
 
-**Invest in DX early.** A monorepo with poor developer experience is worse than separate repos. Fast builds (Turborepo caching), instant linking (pnpm workspaces), and automated publishing make the day-to-day experience better than what it replaced.
+**Invest in DX early.** A monorepo with poor developer experience is worse than separate repos. Fast builds (Turborepo caching), instant linking (pnpm workspaces) and automated publishing make the day-to-day experience better than what it replaced.
 
 ## The result
 

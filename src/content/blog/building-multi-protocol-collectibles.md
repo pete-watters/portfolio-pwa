@@ -16,9 +16,9 @@ We needed to build a gallery that treats them all as first-class citizens -- dis
 
 ### Protocol-Specific Data Layers
 
-Rather than trying to normalize everything into one shape early, we kept each protocol's data layer separate. Each has its own service, its own query hooks, and its own type definitions. This meant adding Stamps support ([#1689](https://github.com/leather-io/mono/pull/1689)) didn't touch the Ordinals code, and integrating the Gamma API for richer SIP-9 metadata ([#1635](https://github.com/leather-io/mono/pull/1635)) didn't affect anything else.
+Rather than trying to normalise everything into one shape early, we kept each protocol's data layer separate. Each has its own service, its own query hooks, and its own type definitions. This meant adding Stamps support ([#1689](https://github.com/leather-io/mono/pull/1689)) didn't touch the Ordinals code, and integrating the Gamma API for richer SIP-9 metadata ([#1635](https://github.com/leather-io/mono/pull/1635)) didn't affect anything else.
 
-The key insight was that normalization should happen at the UI layer, not the data layer. Each protocol maps to a shared `CollectibleView` type that the gallery components consume.
+The key insight was that normalisation should happen at the UI layer, not the data layer. Each protocol maps to a shared `CollectibleView` type that the gallery components consume.
 
 <!-- ADD: How did you arrive at this insight? Was there a version where you tried normalizing early and it got messy? -->
 

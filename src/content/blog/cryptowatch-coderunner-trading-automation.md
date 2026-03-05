@@ -39,7 +39,7 @@ The architecture followed a container/component pattern with composition over in
 
 Instead of showing users a raw market ID input, we built a market search field. Once they selected a market, we fetched their available funds on that pair and displayed the balance in the UI. The `amount` field was a custom numeric input with the asset slug overlaid (e.g. "ETH"), increment/decrement arrows, and proper handling of each currency's decimal precision.
 
-We initially used JSON Forms for form generation, but the level of customisation we needed led to fighting the library more than using it. Early on I decided to write our own form field generation code. This turned out to be the right call -- it kept things consistent with the broader Cryptowatch design system and let us contribute components back to the shared UI library.
+We initially used JSON Forms for form generation, but the level of customisation we needed led to fighting the library more than using it. Early on, I decided to write our own form field generation code. This turned out to be the right call -- it kept things consistent with the broader Cryptowatch design system and let us contribute components back to the shared UI library.
 
 **Simulated logs** were a small but satisfying UX touch. Most script executions completed almost instantly, which made the UI feel broken -- you'd click "Run" and nothing visibly happened before results appeared. I introduced simulated running logs that displayed briefly before transitioning to the real completed output. It gave users confidence that something had actually executed.
 
@@ -49,7 +49,7 @@ AceEditor worked well as the embedded code editor. For testing, we used React Te
 
 ## The Redesigns
 
-We went through three redesigns of the UI before landing on the final MVP. Requirements shifted, release dates came and went, and there were crossed wires between product, design, and engineering -- partly because we hadn't documented requirements formally enough. It caused some tension, but nothing unusual for a prototype-stage product. As the company grew and the design system matured, the final version was something we were genuinely proud of.
+We went through three redesigns of the UI before landing on the final MVP. Requirements shifted, release dates came and went, and there were crossed wires between product, design and engineering -- partly because we hadn't documented requirements formally enough. It caused some tension, but nothing unusual for a prototype-stage product. As the company grew and the design system matured, the final version was something we were genuinely proud of.
 
 ## The Outcome
 

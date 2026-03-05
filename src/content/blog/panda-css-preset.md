@@ -12,7 +12,7 @@ When the monorepo arrived and a mobile app joined the family, this theme needed 
 
 ## What's a Panda CSS preset?
 
-[Panda CSS](https://panda-css.com) is a build-time CSS-in-JS framework. A preset is a shareable configuration bundle — tokens, semantic tokens, recipes, keyframes, and utilities — that any Panda project can install and extend.
+[Panda CSS](https://panda-css.com) is a build-time CSS-in-JS framework. A preset is a shareable configuration bundle — tokens, semantic tokens, recipes, keyframes and utilities — that any Panda project can install and extend.
 
 Think of it like a Tailwind preset or a styled-components theme, but with Panda's type-safe API and zero-runtime approach.
 
@@ -60,7 +60,7 @@ export default defineConfig({
 });
 ```
 
-All theme files deleted from the extension. All tokens, recipes, and keyframes now live in the monorepo's shared packages and are published to npm.
+All theme files deleted from the extension. All tokens, recipes and keyframes now live in the monorepo's shared packages and are published to npm.
 
 ## What the preset includes
 

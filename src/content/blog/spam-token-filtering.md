@@ -1,6 +1,6 @@
 ---
 title: "Filtering Spam Tokens in a Crypto Wallet"
-description: "How we built and evolved a spam filter for token names, symbols, and transactions in Leather — from a URL regex to a generic sanitiser across the whole UI."
+description: "How we built and evolved a spam filter for token names, symbols and transactions in Leather — from a URL regex to a generic sanitiser across the whole UI."
 pubDate: 2024-07-02
 tags: ["typescript", "security", "bitcoin", "leather"]
 draft: false

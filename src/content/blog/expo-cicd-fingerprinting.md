@@ -16,7 +16,7 @@ We went from 20+ minute builds on every PR to under 6 minutes for most changes -
 
 ## The Challenge: Security Meets Speed
 
-Cryptocurrency wallets face a unique challenge: we need the security rigor of a bank with the iteration speed of a startup. Our mobile app handles seed phrase generation, transaction signing, QR code scanning, biometric authentication, and push notifications. Every feature touches sensitive code paths. We can't ship bugs. But we also can't wait 20 minutes to find out if a PR is safe to merge.
+Cryptocurrency wallets face a unique challenge: we need the security rigor of a bank with the iteration speed of a startup. Our mobile app handles seed phrase generation, transaction signing, QR code scanning, biometric authentication and push notifications. Every feature touches sensitive code paths. We can't ship bugs. But we also can't wait 20 minutes to find out if a PR is safe to merge.
 
 <!-- ADD: Relate this to the BTC Vegas launch pressure. When you were shipping multiple PRs a day in the lead-up to launch, slow CI would have been a blocker. Did you set up the CI before or after launch? -->
 
