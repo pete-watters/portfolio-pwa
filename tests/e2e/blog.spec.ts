@@ -87,16 +87,12 @@ test.describe('Blog', () => {
     await expect(page.locator('.blog-post .tags li').first()).toBeVisible();
   });
 
-  test('blog post has breadcrumb link to blog', async ({ page }) => {
+  test('blog post has breadcrumbs with Home and Blog links', async ({ page }) => {
     await page.goto('/blog/hello-world');
-    const blogLink = page.locator('.breadcrumb-link');
-    await expect(blogLink).toHaveText('blog');
-    await expect(blogLink).toHaveAttribute('href', '/blog');
-  });
-
-  test('blog index has blog breadcrumb', async ({ page }) => {
-    await page.goto('/blog');
-    await expect(page.locator('.breadcrumb-current')).toHaveText('blog');
+    const breadcrumbs = page.locator('.breadcrumbs');
+    await expect(breadcrumbs).toBeVisible();
+    await expect(breadcrumbs.locator('a[href="/"]')).toHaveText('Home');
+    await expect(breadcrumbs.locator('a[href="/blog"]')).toHaveText('Blog');
   });
 
   test('blog cards have data-tags attribute', async ({ page }) => {

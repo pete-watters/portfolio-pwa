@@ -14,7 +14,7 @@ const remainingPosts = allPosts.filter((post: CollectionEntry<'blog'>) => !post.
 const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => post.data.tags))].sort();
 ---
 
-<BaseLayout title="Blog" description="Blog posts by Pete Watters" breadcrumbs={[{ label: 'blog' }]}>
+<BaseLayout title="Blog" description="Blog posts by Pete Watters">
   <article>
     <Search />
 

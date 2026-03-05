@@ -1,7 +1,7 @@
 ---
 title: "Branded Types for Bitcoin Addresses"
 description: "How adding a branded type for BTC addresses caught bugs at compile time and made the send flow safer in Leather's mobile wallet."
-pubDate: 2026-03-05
+pubDate: 2025-02-21
 tags: ["typescript", "bitcoin", "mobile", "leather"]
 draft: false
 featured: true

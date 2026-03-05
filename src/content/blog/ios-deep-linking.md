@@ -1,7 +1,7 @@
 ---
 title: "Designing a Mobile Deep Link Flow for iOS"
 description: "Setting up Apple Universal Links for a React Native crypto wallet — associated domains, entitlements, and the apple-app-site-association file."
-pubDate: 2026-03-03
+pubDate: 2025-06-15
 tags: ["react-native", "ios", "mobile", "leather"]
 draft: false
 ---

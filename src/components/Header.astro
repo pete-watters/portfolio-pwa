@@ -1,33 +1,14 @@
 ---
 import Nav from './Nav.astro';
-
-interface Props {
-  breadcrumbs?: { label: string; href?: string }[];
-}
-
-const { breadcrumbs = [] } = Astro.props;
 ---
 
 <header>
   <div class="header-inner">
     <div class="header-left">
       <a href="/" class="profile-link">
-        <img src="/img/android-chrome-192x192.png" alt="Pete Watters" class="profile-avatar" width="40" height="40" />
+        <img src="/img/apple-touch-icon.png" alt="Pete Watters" class="profile-avatar" width="40" height="40" />
       </a>
       <h1><a href="/">Pete Watters</a></h1>
-      {breadcrumbs.length > 0 && (
-        <span class="breadcrumbs">
-          {breadcrumbs.map((crumb) => (
-            <>
-              <span class="breadcrumb-sep">/</span>
-              {crumb.href
-                ? <a href={crumb.href} class="breadcrumb-link">{crumb.label}</a>
-                : <span class="breadcrumb-current">{crumb.label}</span>
-              }
-            </>
-          ))}
-        </span>
-      )}
     </div>
     <div class="header-right">
       <Nav />

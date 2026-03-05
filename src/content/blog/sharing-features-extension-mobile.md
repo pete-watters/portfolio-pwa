@@ -1,7 +1,7 @@
 ---
 title: "Sharing Code Between a Browser Extension and React Native App"
 description: "How we refactored Leather's activity feed into a platform-agnostic features package — sharing queries, types, and business logic across extension and mobile."
-pubDate: 2026-03-05
+pubDate: 2025-12-08
 tags: ["typescript", "react-native", "monorepo", "architecture", "leather"]
 draft: false
 featured: true

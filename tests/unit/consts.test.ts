@@ -20,18 +20,14 @@ describe('consts', () => {
 
   it('includes expected social platforms', () => {
     expect(SOCIAL).toHaveProperty('GITHUB');
-    expect(SOCIAL).toHaveProperty('LINKEDIN');
+    expect(SOCIAL).toHaveProperty('X');
     expect(SOCIAL).toHaveProperty('STACKOVERFLOW');
-    expect(SOCIAL).toHaveProperty('MEDIUM');
-    expect(SOCIAL).toHaveProperty('INSTAGRAM');
   });
 
   it('social URLs point to correct domains', () => {
     expect(SOCIAL.GITHUB).toContain('github.com');
-    expect(SOCIAL.LINKEDIN).toContain('linkedin.com');
+    expect(SOCIAL.X).toContain('x.com');
     expect(SOCIAL.STACKOVERFLOW).toContain('stackoverflow.com');
-    expect(SOCIAL.MEDIUM).toContain('medium.com');
-    expect(SOCIAL.INSTAGRAM).toContain('instagram.com');
   });
 
   it('exports GitHub config with username', () => {
