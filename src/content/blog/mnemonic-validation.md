@@ -4,6 +4,7 @@ description: "Adding real-time word validation to a 12/24-word seed phrase input
 pubDate: 2026-03-05
 tags: ["typescript", "bitcoin", "security", "leather"]
 draft: false
+featured: true
 ---
 
 When you restore a crypto wallet, you type 12 or 24 words from the BIP39 word list. Get one word wrong and you'll derive a completely different set of keys — or no keys at all. The user won't know until they see an empty wallet and wonder where their Bitcoin went.

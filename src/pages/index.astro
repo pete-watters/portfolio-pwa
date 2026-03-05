@@ -27,7 +27,7 @@ const posts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) =
 
     {posts.length > 0 && (
       <section class="recent-posts">
-        <h3>Recent posts</h3>
+        <h3>Writing</h3>
         <ul class="blog-list">
           {posts.map((post: CollectionEntry<'blog'>) => (
             <BlogPostCard

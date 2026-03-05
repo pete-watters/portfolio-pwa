@@ -4,6 +4,7 @@ description: "How adding a branded type for BTC addresses caught bugs at compile
 pubDate: 2026-03-05
 tags: ["typescript", "bitcoin", "mobile", "leather"]
 draft: false
+featured: true
 ---
 
 A Bitcoin address is a string. So is a Stacks address. So is an account name, a transaction ID, and a dozen other things in a wallet codebase. TypeScript doesn't distinguish between them — they're all `string`. That means you can pass a BTC address where a STX address is expected, and the compiler won't complain.
