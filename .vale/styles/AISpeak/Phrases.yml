@@ -1,0 +1,82 @@
+extends: existence
+message: "'%s' sounds AI-generated. Consider rephrasing."
+level: warning
+ignorecase: true
+tokens:
+  - dive into
+  - dive deep
+  - deep dive
+  - delve into
+  - delve deeper
+  - it's worth noting
+  - it's important to note
+  - it is worth mentioning
+  - leverage
+  - leveraging
+  - leveraged
+  - utilize
+  - utilizing
+  - utilized
+  - utilization
+  - without further ado
+  - let's explore
+  - let's take a look
+  - in today's world
+  - in the world of
+  - at the end of the day
+  - it goes without saying
+  - needless to say
+  - a myriad of
+  - a plethora of
+  - in order to
+  - due to the fact that
+  - the fact that
+  - on a daily basis
+  - at this point in time
+  - in the event that
+  - for the purpose of
+  - plays a crucial role
+  - plays a vital role
+  - is a game-changer
+  - game-changer
+  - a testament to
+  - testament to
+  - paradigm shift
+  - robust solution
+  - robust approach
+  - seamless experience
+  - seamlessly
+  - cutting-edge
+  - state-of-the-art
+  - best-in-class
+  - world-class
+  - comprehensive solution
+  - holistic approach
+  - synergy
+  - synergies
+  - empower
+  - empowering
+  - empowers
+  - unlock the
+  - unlocking the
+  - unleash
+  - unleashing
+  - elevate your
+  - revolutionize
+  - revolutionise
+  - transform the way
+  - reimagine
+  - reimagining
+  - supercharge
+  - turbocharge
+  - streamline your
+  - take it to the next level
+  - level up your
+  - landscape
+  - ecosystem play
+  - north star
+  - low-hanging fruit
+  - move the needle
+  - circle back
+  - double down
+  - lean into

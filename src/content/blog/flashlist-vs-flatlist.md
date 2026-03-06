@@ -57,7 +57,7 @@ const sortedTokens = tokens.sort((a, b) => {
 });
 ```
 
-Simple, but it matters for UX. Nobody wants to scroll past dust tokens to find their BTC balance.
+Straightforward, but it matters for UX. Nobody wants to scroll past dust tokens to find their BTC balance.
 
 ## The result
 

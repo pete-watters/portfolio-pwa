@@ -12,7 +12,7 @@ When you sign a Bitcoin transaction on a Ledger hardware wallet, the device show
 
 ## SegWit vs legacy UTXOs
 
-Bitcoin transactions consume UTXOs — unspent transaction outputs. There are two flavours:
+Bitcoin transactions consume UTXOs — unspent transaction outputs. Two flavours exist:
 
 **Witness UTXOs (SegWit)** contain the value directly in the transaction input. The signing device can read the amount from the input data itself.
 
