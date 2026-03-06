@@ -2,7 +2,7 @@
 tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland"
 ---
 
-Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto, and Web3 applications. Clean code practitioner, specialised in React, TypeScript, and React Native, with expertise in building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows, and promoting cross-team collaboration.
+Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner, specialised in React, TypeScript and React Native, with expertise in building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
 
 ## Skills
 
@@ -30,22 +30,22 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 > Layer 2 decentralised custodian protocol for institutional private key management on a blockchain network.
 
-- Directed Web3 wallet integration and developed a new institutional trading interface using React, Redux Toolkit, Material UI, and styled-components. Integrated MetaMask, WalletConnect, and WebAPI to support secure client transactions on the Qredo network.
+- Directed Web3 wallet integration and developed a new institutional trading interface using React, Redux Toolkit, Material UI and styled-components. Integrated MetaMask, WalletConnect and WebAPI to support secure client transactions on the Qredo network.
 - Developed a **Node.js ETH transaction parser** to present on-chain history in a human-readable format, improving compliance and operational transparency.
 
 ### [Kraken](https://www.kraken.com) · Cryptowatch · Senior Frontend Engineer *Aug 2020 — Nov 2022 · Remote*
 
 > Cryptowatch was a widely used real-time charting and trading terminal in the crypto community, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and over 4,000 markets.
 
-- Developed the multi-exchange trading form, cockpit redesign, and custom trade table and leverage slider components for the **Cryptowatch trading team**. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
-- Served as the sole frontend engineer on **Coderunner**, a greenfield trading automation tool. Delivered the complete frontend in **eight months** using React, TypeScript, and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input, and precision-aware currency handling.
+- Developed the multi-exchange trading form, cockpit redesign and custom trade table and leverage slider components for the **Cryptowatch trading team**. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
+- Served as the sole frontend engineer on **Coderunner**, a greenfield trading automation tool. Delivered the complete frontend in **eight months** using React, TypeScript and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input and precision-aware currency handling.
 - Initiated a **Cypress E2E testing framework** for Cryptowatch as a side project. Won the company-wide Codebashing security challenge in 2020, placing first for expertise in client-side vulnerabilities and OWASP mitigations.
 
 ### [Xapo](https://www.xapo.com) · Senior Frontend Engineer *Nov 2017 — Apr 2020 · Remote*
 
 > Fully remote global FinTech providing multi-currency digital wallets and Bitcoin custody services, serving over 1.5 million customers worldwide.
 
-- Designed a **full-stack application blueprint** using React, Next.js, and Express, which was adopted across multiple product teams as the company standard.
+- Designed a **full-stack application blueprint** using React, Next.js and Express, which was adopted across multiple product teams as the company standard.
 - Led the core product squad responsible for a comprehensive web platform redesign.
 - Built **CI/CD infrastructure and E2E testing standards** from the ground up, reducing manual QA overhead and accelerating release cycles.
 - Mentored engineers on testing practices and architecture patterns. Served as a technical bar-raiser during hiring across the engineering organisation and developed the hiring process.
@@ -85,7 +85,7 @@ Ad Technology Producer — Yahoo! (2013–2014) · UX Developer — eSpatial (20
 
 ### MEng Telecommunications Engineering · Dublin City University (DCU) · 2010
 
-Awarded a master's scholarship for academic performance and completed it remotely while working full-time. [My thesis](/docs/thesis-pete-watters.pdf) focused on research into academic performance analysis, and I developed a Java web application using HighCharts and the Google Visualisation API to model performance data.
+Awarded a master's scholarship for academic performance and completed it remotely while working full-time. [My thesis](/docs/thesis-pete-watters.pdf) focused on research into academic performance analysis. I developed a Java web application using HighCharts and the Google Visualisation API to model performance data.
 
 ### BEng Digital Media Engineering · Dublin City University (DCU) · 2007
 
