@@ -1,7 +1,7 @@
 ---
 title: "Building the Cryptowatch Cockpit Portfolio Table"
 description: "Creating a real-time portfolio management table and trading UI components for Kraken's Cryptowatch platform"
-pubDate: 2026-02-23
+pubDate: 2021-06-15
 tags: ["code"]
 draft: false
 ---

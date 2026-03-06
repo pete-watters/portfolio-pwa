@@ -1,7 +1,7 @@
 ---
 title: "Adding a Hide Balance Feature to a Crypto Wallet"
 description: "A privacy feature that touches every balance display in the app — and why the implementation is simpler than you'd think."
-pubDate: 2026-03-03
+pubDate: 2024-09-24
 tags: ["open-source", "react", "ux", "leather"]
 draft: false
 ---

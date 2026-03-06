@@ -1,7 +1,7 @@
 ---
 title: "Building Coderunner: A Trading Automation Tool at Cryptowatch"
 description: "Taking over a prototype and shipping an MVP for custom Python trading scripts at Kraken's Cryptowatch"
-pubDate: 2026-02-23
+pubDate: 2022-03-10
 tags: ["code"]
 draft: false
 ---

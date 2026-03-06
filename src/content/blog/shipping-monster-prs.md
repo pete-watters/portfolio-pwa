@@ -1,7 +1,7 @@
 ---
 title: "Shipping a 5,000-Line PR Without Losing Your Mind"
 description: "Lessons from shipping massive pull requests on a crypto wallet — including a 5,783-addition PR that refactored collectibles across a monorepo."
-pubDate: 2026-02-27
+pubDate: 2025-12-09
 tags: ["open-source", "code-review", "process", "leather"]
 draft: false
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Creating a Panda CSS Preset for a Design System"
 description: "How I extracted a wallet extension's theme configuration into a reusable Panda CSS preset package — consolidating tokens, recipes, and semantic styles into a single installable dependency."
-pubDate: 2026-03-03
+pubDate: 2024-05-29
 tags: ["open-source", "css", "design-system", "leather"]
 draft: false
 ---

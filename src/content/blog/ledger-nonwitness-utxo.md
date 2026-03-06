@@ -1,7 +1,7 @@
 ---
 title: "Displaying Correct Amounts for Legacy UTXOs on Ledger"
 description: "A small but critical fix for hardware wallet users — ensuring nonWitnessUtxo transactions display the right amount before signing."
-pubDate: 2026-03-03
+pubDate: 2024-05-14
 tags: ["open-source", "crypto", "bitcoin", "leather"]
 draft: false
 ---
