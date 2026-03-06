@@ -1,7 +1,7 @@
 ---
 title: "Making Ethereum Transactions Human-Readable"
 description: "Raw blockchain transactions are incomprehensible to most users. Here's how you decode them into something meaningful — and why it matters for crypto UX."
-pubDate: 2026-02-13
+pubDate: 2023-04-15
 tags: ["code"]
 draft: false
 ---

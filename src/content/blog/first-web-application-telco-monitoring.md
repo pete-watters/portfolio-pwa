@@ -1,7 +1,7 @@
 ---
 title: "My First Real Web Application: Building a Telco Monitoring Tool in 2012"
 description: "Before React, before frameworks, before crypto — I built an internal monitoring tool at The Now Factory using Java, jQuery, HighCharts, and the Google Visualisation API."
-pubDate: 2026-02-13
+pubDate: 2012-06-01
 tags: ["code"]
 draft: false
 ---

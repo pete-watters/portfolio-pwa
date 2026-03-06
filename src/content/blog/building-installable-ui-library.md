@@ -1,7 +1,7 @@
 ---
 title: "Building an Installable UI Library from a Production App"
 description: "How I extracted 20+ React components from a crypto wallet browser extension into a published, versioned UI library — and then integrated it back."
-pubDate: 2026-03-03
+pubDate: 2024-06-20
 tags: ["open-source", "react", "design-system", "leather"]
 draft: false
 ---

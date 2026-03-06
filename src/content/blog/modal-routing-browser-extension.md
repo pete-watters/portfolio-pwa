@@ -1,7 +1,7 @@
 ---
 title: "Fixing Modal Routing in a React Browser Extension"
 description: "How I refactored overlay modal routing in a browser extension to properly handle background content, direct navigation, and nested route state."
-pubDate: 2026-02-27
+pubDate: 2023-10-16
 tags: ["open-source", "react", "react-router", "leather"]
 draft: false
 ---

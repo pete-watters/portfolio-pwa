@@ -1,7 +1,7 @@
 ---
 title: "Evaluating JavaScript Frameworks at Fidelity Investments in 2014"
 description: "A look back at evaluating Ember.js vs Backbone/Marionette for enterprise financial applications — and what it taught me about making technology decisions that stick."
-pubDate: 2026-02-13
+pubDate: 2014-11-01
 tags: ["code"]
 draft: false
 ---

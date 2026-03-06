@@ -1,7 +1,7 @@
 ---
 title: "Designing a Monorepo for a Browser Extension and Mobile App"
 description: "How I set up and designed the monorepo architecture for Leather wallet — consolidating a browser extension, mobile app, and shared packages into a single repository with automated publishing."
-pubDate: 2026-02-27
+pubDate: 2023-11-02
 tags: ["open-source", "monorepo", "devops", "leather"]
 draft: false
 ---

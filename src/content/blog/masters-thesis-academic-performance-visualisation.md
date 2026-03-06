@@ -1,7 +1,7 @@
 ---
 title: "My Master's Thesis: Building an Academic Performance Analysis Tool in 2010"
 description: "Highlights from my MEng thesis at DCU — a Java web application that used HighCharts, the Google Visualisation API, and linear regression to analyse student academic data."
-pubDate: 2026-02-13
+pubDate: 2010-09-01
 tags: ["code"]
 draft: false
 ---
