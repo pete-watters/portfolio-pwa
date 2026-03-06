@@ -151,6 +151,7 @@ header h1 {
 .breadcrumbs a {
   color: var(--color-muted);
   text-decoration: none;
+  font-size: inherit;
 }
 
 .breadcrumbs a:hover {
