@@ -50,7 +50,7 @@ test.describe('Home page', () => {
 
   test('shows recent blog posts', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.recent-posts > h3')).toHaveText('Start Here');
+    await expect(page.locator('.recent-posts > h3')).toHaveText('Writing');
     await expect(page.locator('.recent-posts .blog-card').first()).toBeVisible();
   });
 
