@@ -442,7 +442,7 @@ summary {
   --pagefind-ui-border: var(--color-border);
   --pagefind-ui-border-width: 1px;
   --pagefind-ui-border-radius: 0.5rem;
-  --pagefind-ui-scale: 1;
+  --pagefind-ui-scale: 0.8;
   margin-bottom: 2rem;
 }
 
@@ -452,6 +452,14 @@ summary {
 
 .pagefind-ui .pagefind-ui__results-area {
   text-align: left;
+}
+
+.pagefind-ui .pagefind-ui__result-thumb {
+  display: none;
+}
+
+.pagefind-ui .pagefind-ui__result-inner {
+  margin-left: 0;
 }
 
 /* OSS Contributions */
