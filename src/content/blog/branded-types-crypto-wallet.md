@@ -13,7 +13,7 @@ We hit real bugs from this. A function expecting a Bitcoin address received a St
 
 ## What's a branded type
 
-A branded type is a TypeScript pattern that creates nominally unique types from structural primitives. The idea is simple: attach a unique symbol to a type so that two `string`-based types are no longer interchangeable.
+A branded type is a TypeScript pattern that creates nominally unique types from structural primitives. The idea is straightforward: attach a unique symbol to a type so that two `string`-based types are no longer interchangeable.
 
 ```typescript
 type Brand<T, B> = T & { readonly __brand: B };
@@ -61,9 +61,9 @@ We also moved the `BitcoinAddress` type to a shared `models` package ([PR #905](
 
 They're worth the effort when:
 - Two values have the same structural type but different semantic meaning
-- Mixing them up causes subtle bugs that tests don't catch easily
+- Mixing them up causes subtle bugs that tests don't reliably catch
 - The value crosses multiple function boundaries before being used
 
-For a crypto wallet, addresses are the obvious candidate. But we also considered branded types for amounts (satoshis vs BTC, microSTX vs STX) where unit confusion can lose users' money. The address type was the starting point. The pattern scales.
+For a crypto wallet, addresses are the clear candidate. But we also considered branded types for amounts (satoshis vs BTC, microSTX vs STX) where unit confusion can lose users' money. The address type was the starting point. The pattern scales.
 
 The total overhead is one type definition, one validation function, and a cast at the boundary. In exchange, the compiler catches an entire category of bugs that would otherwise reach production.

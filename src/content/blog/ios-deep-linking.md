@@ -6,7 +6,7 @@ tags: ["react-native", "ios", "mobile", "leather"]
 draft: false
 ---
 
-Deep linking in a mobile app sounds simple. User taps a link, app opens to the right screen. In practice — especially on iOS — it's a minefield of configuration files, entitlements, and Apple-specific behaviour that's poorly documented and painful to debug.
+Deep linking in a mobile app sounds straightforward. User taps a link, app opens to the right screen. In practice — especially on iOS — it's a minefield of configuration files, entitlements, and Apple-specific behaviour that's poorly documented and painful to debug.
 
 We needed deep links in Leather's mobile wallet so users could tap a payment request URL and land directly on the send screen with the recipient and amount pre-filled. Here's what it took.
 

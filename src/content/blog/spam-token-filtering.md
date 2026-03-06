@@ -12,7 +12,7 @@ In a self-custody wallet, showing these tokens without filtering is a liability.
 
 ## The first filter
 
-[PR #4113](https://github.com/leather-io/extension/pull/4113) was the initial implementation. Simple approach: check token names against a list of patterns. If the name contains a URL-like string or known spam words, replace it with "Unknown Token."
+[PR #4113](https://github.com/leather-io/extension/pull/4113) was the initial implementation. Straightforward approach: check token names against a list of patterns. If the name contains a URL-like string or known spam words, replace it with "Unknown Token."
 
 ```typescript
 const spamPatterns = [
@@ -33,7 +33,7 @@ function spamFilter(name: string): string {
 }
 ```
 
-This caught the obvious cases. But it only ran on the token list — not on the activity feed, not on token symbols, and not on any other surface where token metadata was displayed.
+This caught the clear-cut cases. But it only ran on the token list — not on the activity feed, not on token symbols, and not on any other surface where token metadata was displayed.
 
 ## Expanding coverage
 
@@ -57,6 +57,6 @@ The same PR added explicit test cases for `.fund` and `.com` domain patterns, fo
 
 ## What still gets through
 
-Pattern-based filtering has limits. Attackers adapt — they use unicode lookalikes, split URLs across name and symbol fields, or use names that are suggestive without containing blacklisted words. A more robust approach would use an allowlist of known tokens from a curated registry, showing "Suspicious" for anything not on the list.
+Pattern-based filtering has limits. Attackers adapt — they use unicode lookalikes, split URLs across name and symbol fields, or use names that are suggestive without containing blocked words. A better approach would use an allowlist of known tokens from a curated registry, showing "Suspicious" for anything not on the list.
 
 But for a wallet that supports multiple token standards (BTC, SIP-10, Runes, BRC-20, SRC-20, ordinals), maintaining a comprehensive allowlist is its own challenge. The pattern-based filter catches the bulk of spam with minimal maintenance. Five PRs over a year, each a few lines, progressively tightening coverage until the filter runs everywhere token metadata is displayed.

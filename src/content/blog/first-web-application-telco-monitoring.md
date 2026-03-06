@@ -14,7 +14,7 @@ Reading it back now is equal parts nostalgia and cringe. But it also reminds me 
 
 ## The Problem
 
-The Now Factory had SourceWorks probes deployed at telecoms operators (OPCOs) around the world. When engineers needed to analyse a probe's performance, the process was painful: they'd have to run a DCV (essentially a diagnostic report) on-site, which was time-consuming and required physical or remote access to the customer's infrastructure. When there was a critical issue, there simply wasn't time for this.
+The Now Factory had SourceWorks probes deployed at telecoms operators (OPCOs) around the world. When engineers needed to analyse a probe's performance, the process was painful: they'd have to run a DCV (essentially a diagnostic report) on-site, which was time-consuming and required physical or remote access to the customer's infrastructure. When there was a critical issue, there just wasn't time for this.
 
 Performance data and inventory information were being collected from these probes, but there was no centralised way to view, analyse, or trend. Engineers were manually pulling data into Excel spreadsheets and building reports by hand.
 
@@ -55,7 +55,7 @@ I wrote a custom HighCharts configuration specifically for this project. The key
 
 ## What I'd Do Differently Now
 
-Everything about the architecture, obviously. Java Servlets and JSP were the right tool in 2012 for someone working in a Java shop, but the entire frontend would be a React SPA today with an API backend. jQuery UI's accordion/tabs pattern is essentially what component composition gives you in any modern framework.
+Everything about the architecture. Java Servlets and JSP were the right tool in 2012 for someone working in a Java shop, but the entire frontend would be a React SPA today with an API backend. jQuery UI's accordion/tabs pattern is essentially what component composition gives you in any modern framework.
 
 The biggest thing I'd change is the lack of automated testing. The user guide includes a disclaimer that the application hadn't been through system test and likely had bugs. Today, I'd have unit tests, integration tests, and E2E coverage before writing any user documentation. My obsession with testing at every subsequent role — Cypress at Kraken, Cucumber at BAML, Vitest and Playwright at Trust Machines — probably has roots in shipping this project without a safety net.
 

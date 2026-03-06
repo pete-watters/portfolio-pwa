@@ -21,7 +21,7 @@ That PR also introduced Storybook stories for each component. This turned out to
 
 React Native looks like React, but the layout engine has subtle incompatibilities that only surface once you start porting components.
 
-**`alignItems` doesn't support `start` and `end`.** The CSS spec values work fine on web, but React Native's Yoga layout engine requires `flex-start` and `flex-end`. This broke our `ItemLayout` component immediately. The fix is simple, but it's the kind of thing you only discover at runtime on a device.
+**`alignItems` doesn't support `start` and `end`.** The CSS spec values work fine on web, but React Native's Yoga layout engine requires `flex-start` and `flex-end`. This broke our `ItemLayout` component immediately. The fix is small, but it's the kind of thing you only discover at runtime on a device.
 
 **SVGs don't work the same way.** On web, you inline an SVG or use an `<img>` tag. On native, you need `react-native-svg` and its own component tree (`<Svg>`, `<Path>`, etc.). We hit this in Storybook first — icon components that worked perfectly on web rendered nothing on native. For Cell component stories, we used placeholder images instead of SVG icons until we sorted out the native SVG pipeline.
 
@@ -33,7 +33,7 @@ React Native looks like React, but the layout engine has subtle incompatibilitie
 
 We could have tried to port everything at once. Instead, we started with the smallest primitives and worked up.
 
-**Flag** ([#383](https://github.com/leather-io/mono/pull/383)) was the first native component added to the library. 94 additions across 4 files. A simple layout component, but it proved the workflow: write the `.native.tsx` file, add a Storybook story, test on a device.
+**Flag** ([#383](https://github.com/leather-io/mono/pull/383)) was the first native component added to the library. 94 additions across 4 files. A basic layout component, but it proved the workflow: write the `.native.tsx` file, add a Storybook story, test on a device.
 
 **ItemLayout** ([#389](https://github.com/leather-io/mono/pull/389)) was next, and that's where we hit the `alignItems` issue. 127 additions, 5 files. The web version used `align-items: start`. The native version needed `alignItems: 'flex-start'`. We wrote the platform-specific variant and moved on.
 
@@ -43,7 +43,7 @@ We could have tried to port everything at once. Instead, we started with the sma
 
 **Skeleton Loader** ([#417](https://github.com/leather-io/mono/pull/417)) came from an external contributor, [@adrianocola](https://github.com/adrianocola). We reviewed it, integrated it into the library, and credited them in the PR. Open source working as intended.
 
-**Sheet** ([#426](https://github.com/leather-io/mono/pull/426)) was the biggest single PR: 899 additions, 753 deletions, 70 files. We took the `<Modal>` component from `apps/mobile/`, renamed it to `<Sheet>`, and moved it into `packages/ui/`. The `@gorhom/bottom-sheet` dependency moved with it. Every reference to `Modal` across the codebase became `Sheet`. This was the component that proved the library could handle complex, stateful, platform-specific UI — not just simple layout primitives.
+**Sheet** ([#426](https://github.com/leather-io/mono/pull/426)) was the biggest single PR: 899 additions, 753 deletions, 70 files. We took the `<Modal>` component from `apps/mobile/`, renamed it to `<Sheet>`, and moved it into `packages/ui/`. The `@gorhom/bottom-sheet` dependency moved with it. Every reference to `Modal` across the codebase became `Sheet`. This was the component that proved the library could handle complex, stateful, platform-specific UI — not just basic layout primitives.
 
 ## The tokens widget
 
