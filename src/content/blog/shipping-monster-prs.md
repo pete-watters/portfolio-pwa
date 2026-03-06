@@ -30,7 +30,7 @@ PR #2004 was the gated follow-up — new collectible components behind a feature
 
 ## What I'd do differently
 
-**Ship the type layer first.** The `CollectibleView` type and query hooks could have been a separate PR. It would have been small, easy to review, and established the foundation for the UI work. I underestimated how much easier it is to review large PRs when the data layer is already merged.
+**Ship the type layer first.** The `CollectibleView` type and query hooks could have been a separate PR. It would have been small, quick to review, and established the foundation for the UI work. I underestimated how much easier it is to review large PRs when the data layer is already merged.
 
 **More inline comments on the diff.** For PRs this size, leaving your own review comments on tricky sections saves the reviewer time. "This looks complex but it's just mapping the old Inscription type to the new CollectibleView" is one sentence that saves 10 minutes of confusion.
 

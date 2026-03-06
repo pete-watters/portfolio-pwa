@@ -12,13 +12,13 @@ One of the most impactful things I did during that year wasn't writing code. It 
 
 ## The Problem
 
-By 2014, the jQuery-driven approach to building complex browser applications was showing its age. jQuery had been revolutionary — it made DOM manipulation bearable and smoothed over browser inconsistencies that would otherwise drive you mad. But it also made it very easy to end up with unmaintainable spaghetti code. As application complexity grew, the UX team needed a framework that could impose structure and make codebases sustainable across teams and time.
+By 2014, the jQuery-driven approach to building complex browser applications was showing its age. jQuery had been revolutionary — it made DOM manipulation bearable and smoothed over browser inconsistencies that would otherwise drive you mad. But it also made it very quick to end up with unmaintainable spaghetti code. As application complexity grew, the UX team needed a framework that could impose structure and make codebases sustainable across teams and time.
 
-The question was simple: which one?
+The question was straightforward: which one?
 
 ## The Contenders
 
-In 2014, the JavaScript framework landscape was dominated by three options: Angular.js, Ember.js, and Backbone.js (typically paired with Marionette).
+In 2014, the JavaScript framework space was dominated by three options: Angular.js, Ember.js, and Backbone.js (typically paired with Marionette).
 
 I ruled Angular out relatively early for the specific context of Fidelity's UX work. Angular was best suited for single-page, single-view applications. Our team built applications with multiple views and sub-views — complex, multi-screen workflows typical of financial software. Angular's architecture wasn't the right fit for that pattern.
 
@@ -30,7 +30,7 @@ This was the core tension, and it's a tension that still exists in frontend deve
 
 **Backbone/Marionette** was lightweight and left all architectural decisions to the developer. File structure, state management, how views communicate — all of it was up to you. This offered maximum flexibility but demanded serious upfront planning. If multiple developers were working on the same project, you needed to establish and enforce conventions manually. Without discipline, codebases diverged.
 
-**Ember.js** was the opposite. It was heavily opinionated with strong rules around structure and architecture. It decided your file structure, your naming conventions, your routing patterns. The learning curve was steeper — it took real time before you could get a simple application up and running. But once you were productive, you were very productive. The conventions meant that any Ember developer could pick up any Ember project and immediately understand how it was organised.
+**Ember.js** was the opposite. It was heavily opinionated with strong rules around structure and architecture. It decided your file structure, your naming conventions, your routing patterns. The learning curve was steeper — it took real time before you could get a basic application up and running. But once you were productive, you were very productive. The conventions meant that any Ember developer could pick up any Ember project and immediately understand how it was organised.
 
 ## The Evaluation Framework
 
@@ -46,7 +46,7 @@ I structured the analysis around criteria from Addy Osmani (then a frontend engi
 - How steep is the learning curve for someone new?
 - How quickly can applications be developed in a maintainable way across teams?
 
-Those last two were the ones I added, and they turned out to be the most important for our context. At Fidelity, we weren't building a side project. We were building financial software that would be maintained by rotating teams of developers, including offshore engineers I was training. The framework needed to make the right thing easy and the wrong thing hard.
+Those last two were the ones I added, and they turned out to be the most important for our context. At Fidelity, we weren't building a side project. We were building financial software that would be maintained by rotating teams of developers, including offshore engineers I was training. The framework needed to make the right thing straightforward and the wrong thing hard.
 
 ## What I Found
 

@@ -11,7 +11,7 @@ I'm Pete Watters — full stack developer, UX specialist, and JavaScript enthusi
 
 This site has been a Progressive Web App since day one. The original README said it best:
 
-> The app is a PWA designed to be as simple as possible. The UI is built using HTML, CSS and some React. The project is designed to be as light and performant as possible — using basic CSS and semantic HTML to achieve an elegant style.
+> The app is a PWA designed to be as minimal as possible. The UI is built using HTML, CSS and some React. The project is designed to be as light and performant as possible — using basic CSS and semantic HTML to achieve an elegant style.
 
 That philosophy hasn't changed. What has changed is everything underneath.
 
@@ -35,7 +35,7 @@ The site still worked in production (it was already built and deployed), but I c
 
 ## The new stack
 
-The guiding principle was the same — keep it as simple and performant as possible — but with modern tooling and a proper DevOps pipeline:
+The guiding principle was the same — keep it as minimal and performant as possible — but with modern tooling and a proper DevOps pipeline:
 
 | Concern | Before | After |
 |---|---|---|
@@ -91,17 +91,17 @@ The old deploy was `firebase deploy` from my laptop. Now there are three GitHub 
 
 1. **Code Checks** (on every push) — runs lint, typecheck, unit tests and build in parallel
 2. **Integration Tests** (on PR) — runs Playwright across 2 shards with report merging
-3. **Deploy** (on merge to master) — builds and uploads to Cloudflare Pages via `wrangler`
+3. **Deploy** (on merge to main) — builds and uploads to Cloudflare Pages via `wrangler`
 
 No manual steps. Push code, CI validates it, merge deploys it.
 
 ### Cloudflare Pages
 
-Firebase Hosting worked fine, but Cloudflare Pages gives me edge hosting with zero config. The deploy is a simple `wrangler pages deploy dist` — just upload a static folder. No Firebase project, no Cloud Functions billing, no Node 8 runtime constraints.
+Firebase Hosting worked fine, but Cloudflare Pages gives me edge hosting with zero config. The deploy is a single `wrangler pages deploy dist` — just upload a static folder. No Firebase project, no Cloud Functions billing, no Node 8 runtime constraints.
 
 ## What stayed the same
 
-The design philosophy. Semantic HTML, simple CSS, minimal JavaScript. The site still loads fast, still works offline as a PWA, and still scores well on Lighthouse. The fonts are the same. The layout is the same. The content is the same.
+The design philosophy. Semantic HTML, plain CSS, minimal JavaScript. The site still loads fast, still works offline as a PWA, and still scores well on Lighthouse. The fonts are the same. The layout is the same. The content is the same.
 
 The difference is that now I can actually change it.
 

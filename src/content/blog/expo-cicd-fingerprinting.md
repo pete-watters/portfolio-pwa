@@ -44,7 +44,7 @@ I set up the core CI pipeline before launch, which turned out to be one of the b
 
 ## The Fingerprint Breakthrough
 
-The game-changer was understanding that **most PRs don't change native code**. We're primarily shipping JavaScript -- new features, bug fixes, UI tweaks. Why rebuild the entire native app for a copy change?
+The breakthrough was understanding that **most PRs don't change native code**. We're primarily shipping JavaScript -- new features, bug fixes, UI tweaks. Why rebuild the entire native app for a copy change?
 
 Expo's `@expo/fingerprint` library generates a hash of everything that affects the native runtime: native dependencies, iOS and Android configuration, native modules and their versions, build settings.
 

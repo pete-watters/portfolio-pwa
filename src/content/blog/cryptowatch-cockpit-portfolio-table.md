@@ -20,7 +20,7 @@ This was a pure HTML data table rather than reaching for a heavy table library. 
 
 Beyond the portfolio table, I contributed a few components that were used across the broader platform:
 
-**A cross-browser range slider for leverage selection.** Margin trading requires users to select their leverage multiplier, and the native HTML range input looks different on every browser. Building a custom one that was consistent across Chrome, Firefox, and Safari while handling the precise increments that leverage selection requires was a satisfying problem.
+**A cross-browser range slider for margin multiplier selection.** Margin trading requires users to select their multiplier, and the native HTML range input looks different on every browser. Building a custom one that was consistent across Chrome, Firefox, and Safari while handling the precise increments that multiplier selection requires was a satisfying problem.
 
 **Shared component library contributions.** Cryptowatch was actively building out a library of custom components during this period. Working on both Cockpit and Coderunner meant I had a good view of what was needed across the platform, and components I built for one project often found a home in the shared library.
 
