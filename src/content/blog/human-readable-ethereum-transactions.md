@@ -3,7 +3,7 @@ title: "Making Ethereum Transactions Human-Readable"
 description: "Raw blockchain transactions are incomprehensible to most users. Here's how you decode them into something meaningful — and why it matters for crypto UX."
 pubDate: 2026-02-13
 tags: ["code"]
-draft: true
+draft: false
 ---
 
 If you've ever looked at a raw Ethereum transaction, you know the problem. A wall of hexadecimal data, an ABI-encoded function call, token transfers buried in event logs, and no obvious indication of what actually happened. Did the user swap tokens? Stake ETH? Approve a spending limit? The blockchain knows, but it doesn't make it easy to find out.
@@ -94,4 +94,8 @@ For institutional users and compliance teams, the stakes are higher. Audit trail
 
 The blockchain is a public ledger, but without decoding, it's a public ledger written in a language almost nobody speaks. Making transactions human-readable is how we translate.
 
-<!-- ADD: Can you share your perspective on working on this kind of infrastructure? How did it inform your thinking about crypto UX at Trust Machines / Leather? -->
+Working on transaction decoding at Qredo changed how I think about crypto UX fundamentally. It forced me to confront the gap between what the blockchain stores and what users actually need to understand. The technical challenge was interesting -- ABI decoding, event log parsing, heuristic classification -- but the real lesson was about empathy. Most users don't know what a function selector is. They don't care about event topics. They want to know what happened to their money.
+
+That perspective carried directly into my work at Leather. When I was building the activity feed for the Bitcoin wallet, I kept coming back to the same principle: the raw data is the blockchain's concern, not the user's. The `ActivityView` type I built for Leather's cross-platform activity feed was informed by exactly this experience -- transform on-chain data into something that reads like a sentence, not a hex dump. Different chain, different protocols, but the same core problem.
+
+There's a broader point here about crypto adoption. The industry talks endlessly about scalability and throughput, but the UX layer is where most people bounce. If a user can't understand their own transaction history, the underlying technology doesn't matter. Making blockchain data legible isn't a nice-to-have -- it's infrastructure. Every wallet, every explorer, every compliance tool has to solve this problem, and most of them solve it poorly. Having built one of these systems from scratch, I have a deep appreciation for how much invisible work goes into making a simple transaction summary appear correct.

@@ -3,12 +3,16 @@ title: "Migrating a Design System: Stacks UI to Panda CSS"
 description: "Incrementally removing a design system across 500+ files in a production crypto wallet"
 pubDate: 2023-11-15
 tags: ["code"]
-draft: true
+draft: false
 ---
 
 The Leather extension was built with `@stacks/ui`. When the wallet rebranded from Hiro to Leather and expanded to Bitcoin, the Stacks-branded design system had to go. The migration to Panda CSS touched 500+ files.
 
-<!-- ADD: Why Panda CSS over Tailwind, vanilla-extract, or others? Who made the decision? Was the 6-part removal your idea or was it already planned when you started? What was the most tedious part? -->
+The choice of Panda CSS was made by the team's design systems lead before I joined the migration effort. The reasoning made sense: Panda CSS generates styles at build time (zero runtime overhead), supports design tokens natively, and its API is close enough to styled-components that the migration path from Stacks UI wasn't a complete rewrite of every component. Tailwind was considered but the team wanted something with stronger TypeScript integration for token definitions. Vanilla-extract was another contender, but Panda's recipe and pattern APIs mapped more naturally onto the component variants we already had.
+
+The six-part removal strategy was already loosely planned when I picked it up, but the exact boundaries of each PR were mine to figure out. The approach was simple: group related components, replace their Stacks UI imports with Panda equivalents, verify nothing visually broke, and ship. The most tedious part was the sheer repetitiveness of it. Hundreds of files needed the same kind of mechanical change -- swap a `<Box>` for a `<styled.div>`, replace `color="ink.text-primary"` with the equivalent Panda token, adjust spacing props to the new scale. Each individual change was trivial. Doing it 500 times while keeping the UI pixel-perfect was not.
+
+There were also the inevitable visual regressions. Stacks UI had implicit defaults -- a `<Stack>` component applied both `flexDirection: column` and a default gap, for instance -- that weren't always obvious until they disappeared. I'd remove a Stacks UI component, replace it with a Panda equivalent, and suddenly a settings page had no spacing between its items. These were easy to fix once spotted but hard to catch systematically, especially in less-visited corners of the app.
 
 ## Stacks UI Removal (6-part series, Oct-Nov 2023)
 
