@@ -3,12 +3,14 @@ title: "Sharing Features Between React Native and a Browser Extension in a Monor
 description: "My first monorepo, two rendering targets, one shared feature layer"
 pubDate: 2025-12-01
 tags: ["code"]
-draft: true
+draft: false
 ---
 
-<!-- ADD: This was your first monorepo. What was your experience before? What did you expect? What surprised you? -->
+Before joining Leather, I'd only ever worked in single-app repositories. At Qredo, the frontend was a standalone React app. At Cryptowatch, the same. Each project had its own repo, its own build pipeline, its own dependencies -- clean boundaries, simple mental models. I knew monorepos existed, of course, and I'd read the arguments for and against, but I'd never had to navigate one day-to-day.
 
-I joined Leather coming from <!-- ADD: your previous experience -->. This was my first monorepo, my first time with React Native and Expo, and my first open-source project. The repo (`leather-io/mono`) was set up by the team before I joined -- the structure, tooling decisions, and initial packages were already in place. My role was building features within that structure, and eventually contributing to the cross-platform sharing patterns.
+What surprised me most wasn't the architecture itself -- that part made intuitive sense once you saw it. It was the sheer surface area of things that could go wrong in the tooling layer. A dependency version mismatch in one package could cascade across the entire workspace. Build errors in one app could block CI for all apps. The feedback loops were longer and the debugging was more indirect than anything I was used to.
+
+I joined Leather coming from single-repo React projects at Qredo and Cryptowatch. This was my first monorepo, my first time with React Native and Expo, and my first open-source project. The repo (`leather-io/mono`) was set up by the team before I joined -- the structure, tooling decisions, and initial packages were already in place. My role was building features within that structure, and eventually contributing to the cross-platform sharing patterns.
 
 Both apps needed the same features -- collectibles gallery, transaction activity, token details -- but the implementations were largely separate. Features were being built twice. Bugs were being fixed twice.
 
@@ -38,7 +40,9 @@ Before this PR, we had the concept of `OnChainActivity` in our lists. Afterwards
 
 The PR has a [video demo](https://github.com/leather-io/mono/pull/1837) showing activity working on both mobile and extension simultaneously.
 
-<!-- ADD: How long did this PR take? Was it reviewed in one go or iterated? What was the hardest part? -->
+That PR took about two weeks of focused work, with several rounds of review. A 152-file change isn't something anyone wants to review in one sitting, so I broke the review into logical chunks -- the data layer changes first, then the UI integration, then the cleanup. The hardest part wasn't writing the code; it was untangling the existing activity data flow enough to extract a clean `ActivityView` type that both platforms could consume without platform-specific logic leaking in.
+
+There was a particularly frustrating stretch where the extension's activity list was rendering correctly but the mobile app's was showing stale data after the refactor. It turned out to be a React Query cache key mismatch -- the mobile app was using a slightly different query key structure, so the shared hooks were populating a different cache entry than the mobile UI was reading from. Small bug, but it took longer to find than it should have because the symptoms were subtle.
 
 ### The Collectibles Example
 
@@ -56,7 +60,9 @@ Sharing code across platforms in a monorepo sounds clean in theory. In practice,
 
 As someone new to monorepos, these were the hardest problems. The architecture pattern itself was straightforward -- the tooling to make two different build pipelines work with shared packages was not.
 
-<!-- ADD: What specific monorepo gotcha caught you off guard? Any advice for someone setting up their first monorepo? -->
+The gotcha that caught me most off guard was pnpm's dependency hoisting behaviour. In a single-repo project, if a package is installed, it's available -- simple. In a pnpm workspace, packages are symlinked and hoisted according to rules that aren't always obvious. We had a situation where a shared package imported a dependency that was installed in the mobile app but not declared in the shared package's own `package.json`. It worked locally because pnpm hoisted it, but it broke in CI where the hoisting configuration was stricter. The fix was trivial -- add the missing dependency declaration -- but the debugging was not, because the error message pointed to a completely different package.
+
+My advice for anyone setting up their first monorepo: invest in your CI pipeline early and make it strict. Your local environment will paper over dependency issues that only surface in clean installs. Run `pnpm install --frozen-lockfile` in CI, enable strict peer dependency checks, and treat any "works on my machine" discrepancy as a bug in your workspace configuration, not a CI fluke.
 
 ## The Go-Live Moment
 

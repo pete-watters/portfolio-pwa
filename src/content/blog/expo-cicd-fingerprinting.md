@@ -3,12 +3,14 @@ title: "How We Cut Our Mobile CI Time by 70% with Expo and EAS"
 description: "Fingerprinting, EAS Workflows, and Maestro E2E tests for a production crypto wallet"
 pubDate: 2025-06-01
 tags: ["code"]
-draft: true
+draft: false
 ---
 
 *This is Part 1 of the "Building a Crypto Wallet with Expo" series.*
 
-<!-- ADD: Frame this with your personal context. You'd never used React Native, Expo, or EAS before. Setting up CI for a mobile app was new territory. What was your experience with CI before this? How did you approach learning EAS? -->
+Before joining the Leather mobile project, I'd never touched React Native, Expo or EAS. My CI experience was entirely web-focused -- GitHub Actions running lint, type checks and Playwright tests for the browser extension. Mobile CI was a different beast entirely. You're not just building JavaScript; you're compiling native binaries for two platforms, managing signing certificates, provisioning profiles and dealing with build times that make webpack look instant.
+
+I approached EAS the way I approach most new tooling: read the docs cover to cover, then start breaking things. The Expo documentation is genuinely excellent, and the EAS Workflows feature was still relatively new when we adopted it. I spent the first week just running builds locally, understanding what the different profiles did and getting a feel for what changed the native fingerprint versus what didn't. That investment paid off enormously -- once I understood the fingerprint concept, our entire CI strategy clicked into place.
 
 At [Leather](https://leather.io/), we're building a self-custody Bitcoin and Stacks wallet that millions of users trust with their digital assets. When you're handling people's money, quality isn't optional -- it's everything. That's why we invested heavily in our mobile CI/CD pipeline, and Expo's EAS platform has been transformative.
 
@@ -18,7 +20,9 @@ We went from 20+ minute builds on every PR to under 6 minutes for most changes -
 
 Cryptocurrency wallets face a unique challenge: we need the security rigor of a bank with the iteration speed of a startup. Our mobile app handles seed phrase generation, transaction signing, QR code scanning, biometric authentication and push notifications. Every feature touches sensitive code paths. We can't ship bugs. But we also can't wait 20 minutes to find out if a PR is safe to merge.
 
-<!-- ADD: Relate this to the BTC Vegas launch pressure. When you were shipping multiple PRs a day in the lead-up to launch, slow CI would have been a blocker. Did you set up the CI before or after launch? -->
+This tension was sharpest in the lead-up to our BTC Vegas launch in December 2024. The whole team was shipping multiple PRs per day, each targeting a specific launch blocker. If every PR had required a full 20-minute native build before we could validate it, we'd have been queueing builds all day and merging on faith. That's not acceptable when you're handling people's money.
+
+I set up the core CI pipeline before launch, which turned out to be one of the better decisions we made under pressure. Having fast, reliable feedback on every PR meant we could ship confidently at pace. The fingerprinting strategy came together slightly later as I learned more about EAS, but even the initial setup -- automating builds and running basic checks -- removed a huge amount of friction during the most intense shipping period.
 
 ## Our Expo Stack
 
@@ -154,7 +158,9 @@ appId: io.leather.mobilewallet
 
 Our full test suite covers wallet creation and restoration, settings navigation, send/receive flows, network switching, and wallet removal.
 
-<!-- ADD: Did you set up the Maestro tests? PR #726 was your Maestro E2E setup PR. What was the learning curve? Had you used E2E testing before? -->
+I set up the Maestro E2E test suite in [PR #726](https://github.com/leather-io/mono/pull/726), and it was one of those rare cases where the tooling just works. I'd used Playwright extensively on the browser extension, so the concept of E2E testing wasn't new -- but mobile E2E has its own quirks. You're dealing with app launch times, biometric prompts, system alerts and the general flakiness of emulators.
+
+Maestro's YAML-based approach was a breath of fresh air compared to the JavaScript-heavy alternatives. The learning curve was mostly around understanding which selectors to use (we settled on `testID` for everything critical) and structuring shared flows so tests could compose wallet creation and setup steps without duplication. The biggest lesson was getting `testID` props on every interactive element from the start. Retrofitting them later is painful, and text-based selectors broke immediately once we integrated CrowdIn for localisation.
 
 ## The Results
 

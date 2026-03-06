@@ -3,12 +3,16 @@ title: "Building a Multi-Chain Wallet UI with React Native"
 description: "Managing Bitcoin and Stacks in a unified interface with chain-specific balance, send, and receive flows"
 pubDate: 2025-07-01
 tags: ["code"]
-draft: true
+draft: false
 ---
 
 *This is Part 3 of the "Building a Crypto Wallet with Expo" series.*
 
-<!-- ADD: This is where your crypto experience really matters. You understand WHY Bitcoin has UTXOs, WHY Stacks has locked balances. How did that domain knowledge shape the architecture? -->
+This is where years of working in crypto really pays off. If you don't understand the difference between Bitcoin's UTXO model and Stacks' account model, you'll build the wrong abstractions. Bitcoin doesn't have "balances" in the way most people think -- it has a set of unspent transaction outputs (UTXOs) scattered across the blockchain, and your "balance" is just the sum of all the ones your keys can spend. Stacks, on the other hand, works like a traditional account: you have a balance, and some of it might be locked because you're stacking STX to earn BTC rewards.
+
+These aren't implementation details you can hide behind a generic `getBalance()` function. A Bitcoin user needs to understand UTXOs when they're consolidating dust or managing fee rates. A Stacks user needs to see their locked versus unlocked balance to make informed decisions about stacking. The architecture had to respect these fundamental differences while still presenting a coherent experience.
+
+My approach was to push chain-specific logic as deep into the stack as possible and keep the UI layer as chain-agnostic as we could manage. The shared packages -- built by other team members -- already had chain-specific query hooks. My job was to compose those into UI components that could render Bitcoin and Stacks data side by side without forcing false equivalences.
 
 Leather started as a Stacks wallet, but our users wanted Bitcoin support too. The challenge: Bitcoin and Stacks are fundamentally different blockchains with different address formats, transaction models, and balance concepts. How do you build a UI that feels unified while respecting these differences?
 
@@ -59,7 +63,11 @@ While the entry point is unified ("Send" button), the forms differ by chain. Bit
 
 Bitcoin complicates things with multiple address types. We show both Native Segwit and Taproot addresses because some exchanges only support one type, users may want to consolidate UTXOs, and different address types have different fee characteristics.
 
-<!-- ADD: How do the branded BitcoinAddress types work in the multi-chain context? Does the type system prevent accidentally passing a Stacks address to a Bitcoin send function? -->
+The branded types work ([PR #885](https://github.com/leather-io/mono/pull/885)) was one of my favourite contributions. In TypeScript, a branded type is a string that carries a compile-time tag -- so a `NativeSegwitAddress` and a `TaprootAddress` are both strings at runtime, but the type system treats them as incompatible types. You physically cannot pass a Stacks address to a function expecting a Bitcoin address without an explicit cast.
+
+Before branded types, address validation was entirely a runtime concern. You'd pass a string into a send function and hope the validation layer caught it. With branded types, invalid address usage is a compile error. The refactor touched 47 files because address strings were threaded through the entire codebase -- queries, forms, display components, clipboard handlers -- and every one of them needed to become type-aware. It was tedious work, but the result is that an entire category of bugs (wrong address type on wrong chain) is now impossible to ship.
+
+This matters enormously in a multi-chain wallet. When you have Bitcoin Native Segwit addresses, Bitcoin Taproot addresses and Stacks addresses all living in the same UI, the risk of mixing them up is real. The type system is our first line of defence, and it catches mistakes that no amount of testing would reliably find.
 
 ## State Management
 
