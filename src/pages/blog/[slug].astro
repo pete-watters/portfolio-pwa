@@ -36,3 +36,13 @@ const { Content } = await render(post);
     <Content />
   </article>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll('.blog-post a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && (href.startsWith('http') || href.startsWith('//'))) {
+      a.setAttribute('target', '_blank');
+      a.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
+</script>
