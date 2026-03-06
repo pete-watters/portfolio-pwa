@@ -6,7 +6,7 @@ tags: ["code"]
 draft: true
 ---
 
-If you've ever looked at a raw Ethereum transaction, you know the problem. A wall of hexadecimal data, an ABI-encoded function call, token transfers buried in event logs, and no obvious indication of what actually happened. Did the user swap tokens? Stake ETH? Approve a spending limit? The blockchain knows, but it doesn't make it easy to find out.
+If you've ever looked at a raw Ethereum transaction, you know the problem. A wall of hexadecimal data, an ABI-encoded function call, token transfers buried in event logs, and no clear indication of what actually happened. Did the user swap tokens? Stake ETH? Approve a spending limit? The blockchain knows, but it doesn't make it straightforward to find out.
 
 I worked on a system that solved this problem — decoding raw Ethereum transactions into plain-language summaries. The kind of thing where instead of seeing `0xa9059cbb000000000000000000000000...`, a user sees "Sent 1,500 USDC to 0xAbc...123."
 
@@ -60,7 +60,7 @@ This is where heuristics come in. Based on the decoded events and the transactio
 
 **Swap** — The transaction interacted with a known DEX router (Uniswap, SushiSwap, 1inch, etc.) and the event logs show tokens going in and different tokens coming out. The function selector often confirms this (`swapExactTokensForTokens`, `exactInputSingle`, etc.).
 
-**Send/Receive** — A simple ERC-20 `Transfer` event where the `from` or `to` matches the user's address. No DEX interaction.
+**Send/Receive** — A single ERC-20 `Transfer` event where the `from` or `to` matches the user's address. No DEX interaction.
 
 **Approve** — An `Approval` event, granting a spender permission to move tokens on the user's behalf. The function selector is `approve(address,uint256)`.
 

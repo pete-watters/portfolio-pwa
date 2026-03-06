@@ -12,7 +12,7 @@ If you're checking your wallet on a train, at a cafe, or in a meeting you probab
 
 ## The approach
 
-The feature is a toggle in Settings that replaces all balance displays with a masked value. Sounds simple. The catch is that "all balance displays" means:
+The feature is a toggle in Settings that replaces all balance displays with a masked value. Sounds straightforward. The catch is that "all balance displays" means:
 
 - Total account balance on the home screen
 - Individual BTC, STX, BRC-20, SRC-20, STX-20 and Rune token balances
@@ -49,7 +49,7 @@ function PrivateText({ children }: Props) {
 }
 ```
 
-`<PrivateTextLayout>` renders a fixed-width masked placeholder — consistent across every balance display. The actual value isn't in the DOM when hidden. It's not CSS opacity or a blur — the data simply isn't rendered.
+`<PrivateTextLayout>` renders a fixed-width masked placeholder — consistent across every balance display. The actual value isn't in the DOM when hidden. It's not CSS opacity or a blur — the data just isn't rendered.
 
 ## Why not just blur?
 

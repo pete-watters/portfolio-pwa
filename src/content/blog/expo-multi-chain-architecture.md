@@ -31,7 +31,7 @@ export type Account = {
 
 ## Balance Architecture
 
-Bitcoin has a simple "available balance" (sum of UTXOs). Stacks has unlocked, locked, and total balances due to its stacking mechanism. The aggregate balance for the home screen combines both:
+Bitcoin has a straightforward "available balance" (sum of UTXOs). Stacks has unlocked, locked, and total balances due to its stacking mechanism. The aggregate balance for the home screen combines both:
 
 ```typescript
 export function useAccountTotalBalance({ fingerprint, accountIndex }: AccountId) {

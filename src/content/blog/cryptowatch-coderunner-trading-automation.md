@@ -25,7 +25,7 @@ The core problems were straightforward to describe but tricky to build well:
 - Schedule scripts to run at intervals (essentially a crontab for trades)
 - Show execution logs so users could see what their scripts did
 
-The goal was a polished MVP, fast. I planned the frontend architecture around making it easy to iterate -- clean code, portable state, quick to update when requirements shifted.
+The goal was a polished MVP, fast. I planned the frontend architecture around making it quick to iterate -- clean code, portable state, quick to update when requirements shifted.
 
 ## Architecture Decisions
 
@@ -35,7 +35,7 @@ The architecture followed a container/component pattern with composition over in
 
 ## The Tricky Bits
 
-**Dynamic form generation** was the most interesting challenge. Each Python script had a schema defining its input fields. Simple fields like strings were straightforward, but domain-specific fields like `marketID` and `exchangeID` needed real UX thought.
+**Dynamic form generation** was the most interesting challenge. Each Python script had a schema defining its input fields. Basic fields like strings were straightforward, but domain-specific fields like `marketID` and `exchangeID` needed real UX thought.
 
 Instead of showing users a raw market ID input, we built a market search field. Once they selected a market, we fetched their available funds on that pair and displayed the balance in the UI. The `amount` field was a custom numeric input with the asset slug overlaid (e.g. "ETH"), increment/decrement arrows, and proper handling of each currency's decimal precision.
 
