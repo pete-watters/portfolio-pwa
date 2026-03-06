@@ -4,7 +4,14 @@ import Nav from './Nav.astro';
 
 <header>
   <div class="header-inner">
-    <h1><a href="/">Pete Watters</a></h1>
-    <Nav />
+    <div class="header-left">
+      <a href="/" class="profile-link">
+        <img src="/img/apple-touch-icon.png" alt="Pete Watters" class="profile-avatar" width="40" height="40" />
+      </a>
+      <h1><a href="/">Pete Watters</a></h1>
+    </div>
+    <div class="header-right">
+      <Nav />
+    </div>
   </div>
 </header>

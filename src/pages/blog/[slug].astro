@@ -16,7 +16,13 @@ const { post } = Astro.props as Props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> <span class="breadcrumb-sep">&rsaquo;</span> <a href="/blog">Blog</a> <span class="breadcrumb-sep">&rsaquo;</span> <span class="breadcrumb-current">{post.data.title}</span>
+  </nav>
   <article class="blog-post">
     <h2>{post.data.title}</h2>
     <time datetime={post.data.pubDate.toISOString()}>

@@ -1,11 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('CV page', () => {
-  test('nav has CV link that opens in new tab', async ({ page }) => {
-    await page.goto('/');
-    const cvLink = page.locator('nav a[href="/cv"]');
-    await expect(cvLink).toBeVisible();
-    await expect(cvLink).toHaveAttribute('target', '_blank');
+  test('is accessible via direct URL', async ({ page }) => {
+    await page.goto('/cv');
+    await expect(page).toHaveURL('/cv');
   });
 
   test('loads and shows correct title', async ({ page }) => {

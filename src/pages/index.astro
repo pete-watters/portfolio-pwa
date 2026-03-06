@@ -1,13 +1,45 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SocialMedia from '../components/SocialMedia.astro';
+import OssContributions from '../components/OssContributions.astro';
+import BlogPostCard from '../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft && data.featured))
+  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <BaseLayout>
-  <article>
-    <p>Full stack developer, UX specialist and JavaScript enthusiast.</p>
-    <footer>
-      <SocialMedia />
-    </footer>
+  <article class="homepage">
+    <section class="intro">
+      <p class="tagline">Senior Frontend Engineer — Bitcoin, Web3, and high-stakes fintech.</p>
+      <p>
+        At <a href="https://trustmachines.co" target="_blank" rel="noopener noreferrer">Trust Machines</a>,
+        I build <a href="https://leather.io" target="_blank" rel="noopener noreferrer">Leather</a> —
+        the most popular Bitcoin wallet for DeFi, NFTs, and BRC-20 tokens. Browser extension
+        and React Native mobile app, serving hundreds of thousands of users across multiple
+        Bitcoin layers.
+      </p>
+    </section>
+
+    <OssContributions />
+
+    {featuredPosts.length > 0 && (
+      <section class="recent-posts">
+        <h3>Start Here</h3>
+        <ul class="blog-list">
+          {featuredPosts.map((post: CollectionEntry<'blog'>) => (
+            <BlogPostCard
+              title={post.data.title}
+              description={post.data.description}
+              pubDate={post.data.pubDate}
+              slug={post.id.replace(/\.md$/, '')}
+              tags={post.data.tags}
+            />
+          ))}
+        </ul>
+        <p class="view-all"><a href="/blog">View all posts &rarr;</a></p>
+      </section>
+    )}
   </article>
 </BaseLayout>

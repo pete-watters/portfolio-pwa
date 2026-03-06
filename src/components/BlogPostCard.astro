@@ -10,15 +10,15 @@ interface Props {
 const { title, description, pubDate, slug, tags } = Astro.props;
 ---
 
-<li class="blog-card">
+<li class="blog-card" data-tags={tags?.join(',')}>
   <time datetime={pubDate.toISOString()}>
-    {pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' })}
+    {pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'short' })}
   </time>
   <h3><a href={`/blog/${slug}`}>{title}</a></h3>
   <p>{description}</p>
   {tags && tags.length > 0 && (
     <ul class="tags">
-      {tags.map((tag) => <li>{tag}</li>)}
+      {tags.map((tag) => <li><a href={`/blog#${tag}`} data-filter-tag>{tag}</a></li>)}
     </ul>
   )}
 </li>
