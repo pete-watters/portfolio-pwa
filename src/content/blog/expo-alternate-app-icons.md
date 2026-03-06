@@ -3,12 +3,14 @@ title: "Personalising Your App with Alternate Icons"
 description: "How we implemented 11 app icon options using expo-alternate-app-icons"
 pubDate: 2025-08-01
 tags: ["code"]
-draft: true
+draft: false
 ---
 
 *This is Part 5 of the "Building a Crypto Wallet with Expo" series.*
 
-<!-- ADD: Was this your idea or a team/community request? What's the reaction been like from users? -->
+The alternate icons feature came from the community. Users had been asking for it in Discord -- some wanted a more discreet icon that didn't advertise they had a crypto wallet, others just wanted something that matched their aesthetic. Our design team had already created a set of beautiful icon variants for the brand, so the assets were ready. It was more of a "why haven't we done this yet?" situation than a hard sell.
+
+The reaction has been brilliant. It's one of those features that disproportionately drives engagement on social media. People screenshot their home screens showing off their chosen icon, which is free marketing for us. In the app's settings, the icon picker is one of the most-visited screens -- which says something, given that this is a financial app where you'd expect users to spend most of their time on balances and transactions.
 
 Sometimes the best features are the ones that bring users joy. Alternate app icons don't make your app more secure or more functional -- they just make users smile when they see _their_ icon on _their_ home screen.
 
@@ -87,6 +89,10 @@ Over these five posts, we've covered:
 
 Expo and EAS have been transformative for our development velocity. We ship faster, test more thoroughly, and spend less time fighting native build issues.
 
-<!-- ADD: Wrap the series with a personal reflection. You started with zero React Native experience and built all of this. What would you tell someone about to start their first RN project? -->
+Looking back across this series, I'm still a bit surprised by how far we got. I started with zero React Native experience in September 2024 and by December we'd shipped a production crypto wallet to the App Store. The Expo ecosystem deserves enormous credit for that -- it abstracts away so much of the native complexity that a web developer can be productive within days rather than weeks.
+
+If I had one piece of advice for someone about to start their first React Native project, it would be this: invest in your primitives early, and trust that your web instincts will transfer. The component model, the state management patterns, the debugging mindset -- it's all the same. The differences are real but manageable: learn how `ScrollView` and `FlatList` differ from browser scrolling, understand that animations need to run on the native thread, and accept that you'll spend more time in Xcode than you'd like. But the core skill of building good UIs from composable parts? That translates directly.
+
+The other thing I'd say is don't underestimate Expo. When I started, I half-expected we'd need to eject for a crypto wallet -- surely something this complex would need bare React Native. We never did. Every native feature we needed, from biometrics to secure storage to camera access, had an Expo package that just worked.
 
 For a feature that took about a day to implement, the ROI has been excellent.

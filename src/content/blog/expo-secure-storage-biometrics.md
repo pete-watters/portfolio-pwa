@@ -3,12 +3,16 @@ title: "Secure Storage & Biometrics in a Crypto Wallet"
 description: "How we protect seed phrases with expo-secure-store and expo-local-authentication"
 pubDate: 2025-06-15
 tags: ["code"]
-draft: true
+draft: false
 ---
 
 *This is Part 2 of the "Building a Crypto Wallet with Expo" series.*
 
-<!-- ADD: As a seasoned crypto worker, you understand what happens when seed phrases leak better than most developers. How does that domain knowledge change how you approach the security implementation? -->
+Having worked in crypto for several years, I've seen what happens when seed phrases leak. It's not hypothetical -- I've watched it happen to people in the community. Someone pastes their mnemonic into a dodgy "support" DM and within minutes their funds are gone. No reversal, no chargeback, no recourse. The blockchain doesn't care about intent, only signatures.
+
+That experience changes how you write code. When I'm implementing storage for a seed phrase, I'm not just thinking about "does this work?" -- I'm thinking about every possible way the data could escape. Is it in memory longer than necessary? Could a crash dump expose it? Does the OS back it up somewhere we don't control? Could a malicious app on a jailbroken device read it? You develop a paranoia that's entirely justified. Every design decision gets filtered through "what if this is the thing that loses someone their life savings?"
+
+This mindset extends to the team as well. During code reviews on anything touching secure storage, I pushed hard for defence in depth. No single layer should be trusted completely. If `expo-secure-store` has a bug, the biometric gate should still protect the data. If biometrics are bypassed, the encryption at rest should still hold. Belt and braces, always.
 
 In a cryptocurrency wallet, the seed phrase (mnemonic) is everything. It's the master key that controls all of a user's funds. If it leaks, their money is gone -- permanently and irreversibly. There's no "forgot password" flow, no customer support to call.
 
@@ -98,7 +102,11 @@ export function useAuthentication(): UseAuthenticationResult {
 
 The `callIfEnrolled` wrapper is important: without it, `authenticateAsync` **silently succeeds** on devices with no security configured -- which would defeat the entire purpose.
 
-<!-- ADD: Any war stories about testing secure storage? Did you ever have a bug where the biometric prompt didn't trigger, or where data was lost on migration? -->
+Testing secure storage was one of the more humbling experiences on this project. Early on, we discovered that `authenticateAsync` silently succeeds on devices and simulators with no biometric enrolment. That's the kind of bug that passes every test in development -- where you're using a simulator with Face ID enrolled -- but fails catastrophically in production for users who haven't set up biometrics. The `callIfEnrolled` wrapper above exists because of that discovery.
+
+The versioned migration logic also caused a few headaches. During development of the V2 storage format, we had a bug where the migration would succeed but the old V1 keys wouldn't get deleted. This meant users had their mnemonic stored in two places instead of one -- doubling the attack surface for no reason. We caught it in code review, not in testing, which was a good reminder that secure storage bugs are often logic bugs, not runtime errors. The code runs fine; it just leaves sensitive data lying around.
+
+We also learned the hard way that you absolutely must test on real devices. The iOS Simulator doesn't have a secure enclave, so `expo-secure-store` falls back to different behaviour. We had a bug that only manifested on physical devices where the Keychain access prompt appeared at an unexpected time, interrupting a transaction flow. Simulators never showed it.
 
 ## Lessons Learned
 
