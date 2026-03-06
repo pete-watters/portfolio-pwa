@@ -23,8 +23,8 @@ const { Content } = await render(post);
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href="/">Home</a> <span class="breadcrumb-sep">&rsaquo;</span> <a href="/blog">Blog</a> <span class="breadcrumb-sep">&rsaquo;</span> <span class="breadcrumb-current">{post.data.title}</span>
   </nav>
-  <article class="blog-post">
-    <h2>{post.data.title}</h2>
+  <article class="blog-post" data-pagefind-body>
+    <h2 data-pagefind-meta="title">{post.data.title}</h2>
     <time datetime={post.data.pubDate.toISOString()}>
       {post.data.pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' })}
     </time>
