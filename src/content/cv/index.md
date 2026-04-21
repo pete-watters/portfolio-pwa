@@ -93,6 +93,6 @@ Graduated in the top three of the class, earning a master's scholarship.
 
 ## Certifications
 
-### [C4 Certified Bitcoin Professional](/docs/bitcoin-certified-professional.pdf)
+### C4 Certified Bitcoin Professional
 
 Bitcoin protocol, cryptographic security, wallets and ecosystem.
