@@ -10,7 +10,7 @@ Senior Software Engineer with over 15 years of experience delivering full-stack 
 <dt>Languages & Frameworks</dt>
 <dd>TypeScript, JavaScript, React, React Native, Next.js, Node.js, Express, Redux, Ember.js, Python, Ruby</dd>
 <dt>Web3 & Crypto</dt>
-<dd>Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect, Wagmi</dd>
+<dd>Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect</dd>
 <dt>Tooling & Infrastructure</dt>
 <dd>CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix</dd>
 </dl>
