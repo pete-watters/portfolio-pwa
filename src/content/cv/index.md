@@ -1,18 +1,18 @@
 ---
-tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland"
+tagline: "Senior Software Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
 ---
 
-Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner, specialised in React, TypeScript and React Native, with expertise in building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
+Senior Software Engineer with over 15 years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3. Deep expertise in React, TypeScript and React Native, with hands-on experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
 
 ## Skills
 
 <dl>
-<dt>Front-End</dt>
-<dd>JavaScript, TypeScript, React, React Native, Next.js, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI</dd>
-<dt>Server-side</dt>
-<dd>Node.js, Express, PHP, Python, Java, Ruby, Shell scripting</dd>
-<dt>General</dt>
-<dd>CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix</dd>
+<dt>Languages & Frameworks</dt>
+<dd>TypeScript, JavaScript, React, React Native, Next.js, Node.js, Express, Redux, Ember.js, Python, Ruby</dd>
+<dt>Web3 & Crypto</dt>
+<dd>Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect</dd>
+<dt>Tooling & Infrastructure</dt>
+<dd>CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix</dd>
 </dl>
 
 ## Work Experience
@@ -25,6 +25,7 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 - Architected the mono-repo, developed a shared Panda UI component library package, implemented BIP key validation on the mnemonic login form, added UTXO consolidation support and improved NFT support, including supporting multimedia Stacks NFTs and Bitcoin ordinals.
 - Managed the end-to-end launch of the **Leather mobile app** (React Native and Expo), representing the team at the **Bitcoin Conference 2025 in Las Vegas**. Achieved over **1,850 monthly active users within three months** on iOS and Android.
 - Leather serves as a signer for BTC DeFi protocols and integrates with **Granite and Zest**. Developed the **Leather DeFi Portfolio table UI**, offering users a unified view of their on-chain DeFi positions.
+- Maintained and extended the **Leather wallet provider API**, including RPC method implementation and test coverage for programmatic DApp integrations.
 
 ### [Qredo](https://www.qredo.com) · Senior Frontend Engineer *Jan — Jun 2023 · Remote*
 
@@ -45,7 +46,7 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 > Fully remote global FinTech providing multi-currency digital wallets and Bitcoin custody services, serving over 1.5 million customers worldwide.
 
-- Designed a **full-stack application blueprint** using React, Next.js and Express, which was adopted across multiple product teams as the company standard.
+- Designed a **full-stack application blueprint** — React, Next.js and Express — adopted as the company standard across multiple product teams.
 - Led the core product squad responsible for a comprehensive web platform redesign.
 - Built **CI/CD infrastructure and E2E testing standards** from the ground up, reducing manual QA overhead and accelerating release cycles.
 - Mentored engineers on testing practices and architecture patterns. Served as a technical bar-raiser during hiring across the engineering organisation and developed the hiring process.
