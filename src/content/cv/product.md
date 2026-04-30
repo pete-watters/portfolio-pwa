@@ -1,15 +1,15 @@
 ---
-tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
-description: "Pete Watters — Senior Frontend Engineer CV"
+tagline: "Senior Product Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
+description: "Pete Watters — Senior Product Engineer CV"
 ---
 
-Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner specialised in React, TypeScript and Next.js, with deep React Native experience and a focus on building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
+Senior Product Engineer with over 15 years of experience taking products from inception to scale across fintech, crypto and Web3. Frontend-first by background — deep React, TypeScript, Next.js and React Native — with the full-stack range and product judgment to own features end-to-end, ship quickly and stay close to the user. Track record of leading rebrands, greenfield builds and architecture decisions in environments where speed and quality both matter.
 
 ## Skills
 
 <dl>
 <dt>Front-End</dt>
-<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, HTML5, CSS3, Panda CSS, Radix UI</dd>
+<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux</dd>
 <dt>Server-side</dt>
 <dd>Node.js, Express, Python, Ruby, Shell scripting</dd>
 <dt>Web3 & Crypto</dt>
@@ -24,7 +24,7 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 > Contribute to the largest ecosystem of Bitcoin applications on the Stacks network. Actively maintain and enhance the [Leather](https://leather.io/) Web3 Bitcoin wallet as an open-source contributor.
 
-- Worked on the Hiro Wallet → Leather rebrand as a core team member — architected the mono-repo, built a shared Panda UI component library and implemented BIP key validation on the mnemonic login form — delivering a redesigned experience for over **8,400 monthly active extension users** (62,000+ over six months).
+- Worked on the Hiro Wallet → Leather rebrand end-to-end, delivering a redesigned experience to over **8,400 monthly active extension users** (62,000+ over six months) — owning architecture decisions (first mono-repo, shared Panda UI component library) and security-critical UI work (BIP key validation on mnemonic login).
 - Managed the end-to-end launch of the **Leather mobile app** from scratch using React Native and Expo, growing to over **1,850 monthly active users within three months** on iOS and Android. Represented the team at the **Bitcoin Conference 2025 in Las Vegas**.
 - Shipped the **multi-chain NFT gallery** in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
 - Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
@@ -41,14 +41,14 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 > Cryptowatch was a widely used real-time charting and trading terminal in the crypto community, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and over 4,000 markets.
 
 - Developed the multi-exchange trading form, cockpit redesign and custom trade table and leverage slider components for the **Cryptowatch trading team**. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
-- Served as the sole frontend engineer on **Coderunner**, a greenfield trading automation tool. Delivered the complete frontend in **eight months** using React, TypeScript and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input and precision-aware currency handling.
+- Owned the frontend for **Coderunner**, a greenfield trading automation tool, as sole frontend engineer working directly with product and a backend partner. Delivered to a polished MVP in **eight months** using React, TypeScript and PostCSS — including a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input and precision-aware currency handling.
 - Initiated a **Cypress E2E testing framework** for Cryptowatch as a side project. Won the company-wide Codebashing security challenge in 2020, placing first for expertise in client-side vulnerabilities and OWASP mitigations.
 
 ### [Xapo](https://www.xapo.com) · Senior Frontend Engineer *Nov 2017 — Apr 2020 · Remote*
 
 > Fully remote global FinTech providing multi-currency digital wallets and Bitcoin custody services, serving over 1.5 million customers worldwide.
 
-- Designed a **React, Next.js and Express full-stack application blueprint**, adopted across multiple product teams as the company standard.
+- Designed the **React, Next.js and Express full-stack application blueprint** adopted across multiple product teams as Xapo's engineering standard — making the architectural decisions that shaped how the company shipped product.
 - Led the core product squad responsible for a comprehensive web platform redesign.
 - Built **CI/CD infrastructure and E2E testing standards** from the ground up, reducing manual QA overhead and accelerating release cycles.
 - Mentored engineers on testing practices and architecture patterns. Served as a technical bar-raiser during hiring across the engineering organisation and developed the hiring process.
