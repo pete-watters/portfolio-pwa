@@ -17,11 +17,12 @@ Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Du
 ## About
 
 ```
-Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner specialised in React, TypeScript and Next.js, with deep React Native experience and a focus on building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
+Senior Frontend Engineer with 15+ years of experience across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Specialises in React, TypeScript and Next.js, with deep React Native experience and a track record of leading product launches, design systems and architecture decisions in high-stakes environments where security, performance and user trust matter.
 
-Front-End: TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI
-Server-side: Node.js, Express, PHP, Python, Java, Ruby, Shell scripting
-General: CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix, AI-assisted development (Claude Code, Codex)
+Front-End: TypeScript, React, Next.js, React Native, JavaScript, Redux, HTML5, CSS3, Panda CSS, Radix UI
+Server-side: Node.js, Express, Python, Ruby, Shell scripting
+Web3 & Crypto: Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect
+Tooling: CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix, AI-assisted development (Claude Code, Codex)
 
 petewatters.ie · petewatters.ie/cv/frontend
 ```
@@ -155,4 +156,4 @@ Bitcoin protocol, cryptographic security, wallets and ecosystem.
 
 ## Skills (add these as LinkedIn skills)
 
-TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Claude Code, Codex
+TypeScript, React, Next.js, React Native, JavaScript, Redux, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Claude Code, Codex
