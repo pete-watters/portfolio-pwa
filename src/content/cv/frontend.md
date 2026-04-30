@@ -9,11 +9,13 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 <dl>
 <dt>Front-End</dt>
-<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI</dd>
+<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, HTML5, CSS3, Panda CSS, Radix UI</dd>
 <dt>Server-side</dt>
-<dd>Node.js, Express, PHP, Python, Java, Ruby, Shell scripting</dd>
-<dt>General</dt>
-<dd>CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix, AI-assisted development (Claude Code, Codex)</dd>
+<dd>Node.js, Express, Python, Ruby, Shell scripting</dd>
+<dt>Web3 & Crypto</dt>
+<dd>Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect</dd>
+<dt>Tooling</dt>
+<dd>CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix, AI-assisted development (Claude Code, Codex)</dd>
 </dl>
 
 ## Work Experience

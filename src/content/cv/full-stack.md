@@ -8,12 +8,14 @@ Senior Software Engineer with over 15 years of experience delivering full-stack 
 ## Skills
 
 <dl>
-<dt>Languages & Frameworks</dt>
-<dd>TypeScript, JavaScript, React, React Native, Next.js, Node.js, Express, Redux, Ember.js, Python, Ruby</dd>
+<dt>Front-End</dt>
+<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux</dd>
+<dt>Server-side</dt>
+<dd>Node.js, Express, Python, Ruby, Shell scripting</dd>
 <dt>Web3 & Crypto</dt>
 <dd>Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect</dd>
-<dt>Tooling & Infrastructure</dt>
-<dd>CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix</dd>
+<dt>Tooling</dt>
+<dd>CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix, AI-assisted development (Claude Code, Codex)</dd>
 </dl>
 
 ## Work Experience
