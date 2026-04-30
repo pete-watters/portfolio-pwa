@@ -1,5 +1,6 @@
 ---
 tagline: "Senior Software Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
+description: "Pete Watters — Senior Software Engineer CV"
 ---
 
 Senior Software Engineer with over 15 years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3. Deep expertise in React, TypeScript and React Native, with hands-on experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
