@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import CvLayout from '../../layouts/CvLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('cv');
+  return entries.map((entry: CollectionEntry<'cv'>) => ({
+    params: { variant: entry.id.replace(/\.md$/, '') },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'cv'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<CvLayout
+  title="CV"
+  description={entry.data.description}
+  tagline={entry.data.tagline}
+>
+  <Content />
+</CvLayout>

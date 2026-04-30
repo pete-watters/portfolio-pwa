@@ -16,6 +16,7 @@ const cv = defineCollection({
   type: 'content',
   schema: z.object({
     tagline: z.string(),
+    description: z.string(),
   }),
 });
 
