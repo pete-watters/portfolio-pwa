@@ -3,13 +3,13 @@ tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Nod
 description: "Pete Watters — Senior Frontend Engineer CV"
 ---
 
-Senior Frontend Engineer with 15+ years of experience across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Specialises in React, TypeScript and Next.js, with deep React Native experience and a track record of leading product launches, design systems and architecture decisions in high-stakes environments where security, performance and user trust matter.
+Senior Frontend Engineer with 15+ years of experience across fintech, crypto and Web3. Deep expertise in React, TypeScript, Next.js and React Native, with a track record of leading product launches, design systems and architecture decisions in high-stakes environments where security, performance and user trust matter. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
 
 ## Skills
 
 <dl>
 <dt>Front-End</dt>
-<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, HTML5, CSS3, Panda CSS, Radix UI</dd>
+<dd>TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Panda CSS, Radix UI</dd>
 <dt>Server-side</dt>
 <dd>Node.js, Express, Python, Ruby, Shell scripting</dd>
 <dt>Web3 & Crypto</dt>
@@ -72,13 +72,13 @@ Senior Frontend Engineer with 15+ years of experience across fintech, crypto and
 
 > Ocean freight platform serving major global shipping brands. Later acquired by [Descartes](https://www.descartes.com/resources/news/descartes-acquires-kontainers).
 
-Recruited by the co-founder and CTO to lead the frontend product from inception to production (JavaScript, Ember.js, Ruby, CI/CD), establishing the engineering culture at the seed stage.
+Recruited by the co-founder and CTO to lead the frontend product from inception to production (JavaScript, Ember.js, Ruby, CI/CD).
 
 ### [Fidelity Investments](https://www.fidelity.com) · UX Developer *Jun 2014 — Jun 2015 · On-site*
 
 > Global financial services corporation managing $11+ trillion in assets under management.
 
-Served as technical lead for an offshore development team, providing hands-on direction in the UK and India. Represented the engineering team during Enterprise Ireland R&D accreditation.
+Responsible for building prototype fintech applications. Technical lead for an offshore development team, providing hands-on direction in the UK and India. Represented the engineering team during Enterprise Ireland R&D accreditation.
 
 ### Earlier Career *2006 — 2014*
 
