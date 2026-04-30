@@ -17,10 +17,10 @@ test.describe('CV page', () => {
       await expect(page.locator('.cv')).toContainText('Senior Software Engineer');
     });
 
-    test('displays skills section with full-stack groupings', async ({ page }) => {
+    test('displays skills section with frontend groupings', async ({ page }) => {
       await page.goto('/cv/full-stack');
       await expect(page.locator('dl')).toBeVisible();
-      await expect(page.locator('dt').first()).toContainText('Languages & Frameworks');
+      await expect(page.locator('dt').first()).toContainText('Front-End');
     });
 
     test('displays work experience', async ({ page }) => {
