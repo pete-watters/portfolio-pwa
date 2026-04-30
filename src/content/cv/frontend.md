@@ -9,7 +9,7 @@ Senior Frontend Engineer with 15+ years of experience across fintech, crypto and
 
 <dl>
 <dt>Front-End</dt>
-<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, HTML5, CSS3, Panda CSS, Radix UI</dd>
+<dd>TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Panda CSS, Radix UI</dd>
 <dt>Server-side</dt>
 <dd>Node.js, Express, Python, Ruby, Shell scripting</dd>
 <dt>Web3 & Crypto</dt>
