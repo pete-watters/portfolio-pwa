@@ -17,7 +17,7 @@ Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Du
 ## About
 
 ```
-Senior Frontend Engineer with 15+ years of experience across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Deep expertise in React, TypeScript, Next.js and React Native, with a track record of leading product launches, design systems and architecture decisions in high-stakes environments where security, performance and user trust matter.
+Senior Frontend Engineer with 15+ years of experience across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Deep expertise in React, TypeScript, Next.js and React Native, with a track record of leading product launches, design systems and architecture decisions in high-stakes environments where security, performance and user trust matter. Custodian of engineering quality, with a clear sense of what matters most — shipping products users actually use.
 
 Front-End: TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Panda CSS, Radix UI
 Server-side: Node.js, Express, Python, Ruby, Shell scripting
