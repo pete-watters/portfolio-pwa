@@ -3,7 +3,7 @@ tagline: "Senior Software Engineer · Bitcoin & Web3 · React / TypeScript / Nod
 description: "Pete Watters — Senior Software Engineer CV"
 ---
 
-Senior Software Engineer with 15+ years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Frontend-first by background (React, TypeScript, Next.js, React Native) with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products users actually use.
+Senior Software Engineer with 15+ years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Frontend-first by background (React, TypeScript, Next.js, React Native) with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
 
 ## Skills
 
