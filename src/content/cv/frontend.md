@@ -22,7 +22,7 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 > Contribute to the largest ecosystem of Bitcoin applications on the Stacks network. Actively maintain and enhance the [Leather](https://leather.io/) Web3 Bitcoin wallet as an open-source contributor.
 
-- Led the Hiro Wallet → Leather rebrand as a core team member — architected the mono-repo, built a shared Panda UI component library and implemented BIP key validation on the mnemonic login form — delivering a redesigned experience for over **8,400 monthly active extension users** (62,000+ over six months).
+- Worked on the Hiro Wallet → Leather rebrand as a core team member — architected the mono-repo, built a shared Panda UI component library and implemented BIP key validation on the mnemonic login form — delivering a redesigned experience for over **8,400 monthly active extension users** (62,000+ over six months).
 - Managed the end-to-end launch of the **Leather mobile app** from scratch using React Native and Expo, growing to over **1,850 monthly active users within three months** on iOS and Android. Represented the team at the **Bitcoin Conference 2025 in Las Vegas**.
 - Shipped the **multi-chain NFT gallery** in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
 - Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
