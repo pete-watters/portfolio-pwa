@@ -22,11 +22,9 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 > Contribute to the largest ecosystem of Bitcoin applications on the Stacks network. Actively maintain and enhance the [Leather](https://leather.io/) Web3 Bitcoin wallet as an open-source contributor.
 
-- Worked on the Hiro Wallet to Leather rebrand as a core team member, delivering a redesigned experience for over **8,400 monthly active extension users** (62,000+ over six months).
-- Architected the mono-repo, developed a shared Panda UI component library package, implemented BIP key validation on the mnemonic login form and added UTXO consolidation support.
+- Led the Hiro Wallet → Leather rebrand as a core team member — architected the mono-repo, built a shared Panda UI component library and implemented BIP key validation on the mnemonic login form — delivering a redesigned experience for over **8,400 monthly active extension users** (62,000+ over six months).
+- Managed the end-to-end launch of the **Leather mobile app** from scratch using React Native and Expo, growing to over **1,850 monthly active users within three months** on iOS and Android. Represented the team at the **Bitcoin Conference 2025 in Las Vegas**.
 - Shipped the **multi-chain NFT gallery** in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
-- Managed the end-to-end launch of the **Leather mobile app** (React Native and Expo), representing the team at the **Bitcoin Conference 2025 in Las Vegas**. Achieved over **1,850 monthly active users within three months** on iOS and Android.
-- Leather serves as a signer for BTC DeFi protocols and integrates with **Granite and Zest**. Developed the **Leather DeFi Portfolio table UI**, offering users a unified view of their on-chain DeFi positions.
 - Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
 
 ### [Qredo](https://www.qredo.com) · Senior Frontend Engineer *Jan — Jun 2023 · Remote*
