@@ -2,12 +2,14 @@
 
 LinkedIn uses plain text. Copy each section below directly into the corresponding LinkedIn field.
 
+Mirrors the Senior Frontend Engineer CV variant at `src/content/cv/frontend.md`. When that file changes, update this one too.
+
 ---
 
 ## Headline
 
 ```
-Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland
+Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland
 ```
 
 ---
@@ -15,13 +17,13 @@ Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / React Native 
 ## About
 
 ```
-Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto, and Web3 applications. Clean code practitioner, specialised in React, TypeScript, and React Native, with expertise in building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows, and promoting cross-team collaboration.
+Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner specialised in React, TypeScript and Next.js, with deep React Native experience and a focus on building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
 
-Front-End: JavaScript, TypeScript, React, React Native, Next.js, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI
+Front-End: TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI
 Server-side: Node.js, Express, PHP, Python, Java, Ruby, Shell scripting
-General: CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix
+General: CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix, AI-assisted development (Claude Code, Codex)
 
-petewatters.ie · petewatters.ie/cv
+petewatters.ie · petewatters.ie/cv/frontend
 ```
 
 ---
@@ -36,10 +38,10 @@ July 2023 — Present · Remote
 ```
 Contribute to the largest ecosystem of Bitcoin applications on the Stacks network. Actively maintain and enhance the Leather (leather.io) Web3 Bitcoin wallet as an open-source contributor.
 
-• Worked on the Hiro Wallet to Leather rebrand as a core team member, delivering a redesigned experience for over 8,400 monthly active extension users (62,000+ over six months).
-• Architected the mono-repo, developed a shared Panda UI component library package, implemented BIP key validation on the mnemonic login form, added UTXO consolidation support and improved NFT support, including supporting multimedia Stacks NFTs and Bitcoin ordinals.
-• Managed the end-to-end launch of the Leather mobile app (React Native and Expo), representing the team at the Bitcoin Conference 2025 in Las Vegas. Achieved over 1,850 monthly active users within three months on iOS and Android.
-• Leather serves as a signer for BTC DeFi protocols and integrates with Granite and Zest. Developed the Leather DeFi Portfolio table UI, offering users a unified view of their on-chain DeFi positions.
+• Worked on the Hiro Wallet → Leather rebrand as a core team member — architected the mono-repo, built a shared Panda UI component library and implemented BIP key validation on the mnemonic login form — delivering a redesigned experience for over 8,400 monthly active extension users (62,000+ over six months).
+• Managed the end-to-end launch of the Leather mobile app from scratch using React Native and Expo, growing to over 1,850 monthly active users within three months on iOS and Android. Represented the team at the Bitcoin Conference 2025 in Las Vegas.
+• Shipped the multi-chain NFT gallery in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
+• Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
 ```
 
 ### Qredo — Senior Frontend Engineer
@@ -48,7 +50,7 @@ Jan — Jun 2023 · Remote
 ```
 Layer 2 decentralised custodian protocol for institutional private key management on a blockchain network.
 
-• Directed Web3 wallet integration and developed a new institutional trading interface using React, Redux Toolkit, Material UI, and styled-components. Integrated MetaMask, WalletConnect, and WebAPI to support secure client transactions on the Qredo network.
+• Directed Web3 wallet integration and developed a new institutional trading interface using React, Redux Toolkit, Material UI and styled-components. Integrated MetaMask, WalletConnect and WebAPI to support secure client transactions on the Qredo network.
 • Developed a Node.js ETH transaction parser to present on-chain history in a human-readable format, improving compliance and operational transparency.
 ```
 
@@ -58,8 +60,8 @@ Aug 2020 — Nov 2022 · Remote
 ```
 Cryptowatch was a widely used real-time charting and trading terminal in the crypto community, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and over 4,000 markets.
 
-• Developed the multi-exchange trading form, cockpit redesign, and custom trade table and leverage slider components for the Cryptowatch trading team. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
-• Served as the sole frontend engineer on Coderunner, a greenfield trading automation tool. Delivered the complete frontend in eight months using React, TypeScript, and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input, and precision-aware currency handling.
+• Developed the multi-exchange trading form, cockpit redesign and custom trade table and leverage slider components for the Cryptowatch trading team. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
+• Served as the sole frontend engineer on Coderunner, a greenfield trading automation tool. Delivered the complete frontend in eight months using React, TypeScript and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input and precision-aware currency handling.
 • Initiated a Cypress E2E testing framework for Cryptowatch as a side project. Won the company-wide Codebashing security challenge in 2020, placing first for expertise in client-side vulnerabilities and OWASP mitigations.
 ```
 
@@ -69,7 +71,7 @@ Nov 2017 — Apr 2020 · Remote
 ```
 Fully remote global FinTech providing multi-currency digital wallets and Bitcoin custody services, serving over 1.5 million customers worldwide.
 
-• Designed a full-stack application blueprint using React, Next.js, and Express, which was adopted across multiple product teams as the company standard.
+• Designed a React, Next.js and Express full-stack application blueprint, adopted across multiple product teams as the company standard.
 • Led the core product squad responsible for a comprehensive web platform redesign.
 • Built CI/CD infrastructure and E2E testing standards from the ground up, reducing manual QA overhead and accelerating release cycles.
 • Mentored engineers on testing practices and architecture patterns. Served as a technical bar-raiser during hiring across the engineering organisation and developed the hiring process.
@@ -153,4 +155,4 @@ Bitcoin protocol, cryptographic security, wallets and ecosystem.
 
 ## Skills (add these as LinkedIn skills)
 
-JavaScript, TypeScript, React, React Native, Next.js, Redux, Ember.js, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI
+TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Claude Code, Codex
