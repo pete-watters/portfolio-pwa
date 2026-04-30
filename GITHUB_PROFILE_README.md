@@ -1,6 +1,6 @@
 # Pete Watters
 
-**Senior Frontend Engineer** — Bitcoin, Web3, and high-stakes fintech.
+**Senior Frontend Engineer** — Bitcoin, Web3 and high-stakes fintech.
 
 Currently at [Trust Machines](https://trustmachines.co), building [Leather](https://leather.io) — the leading wallet for Bitcoin and Stacks apps. Open-source contributor to the [Leather mono-repo](https://github.com/leather-io/mono).
 
@@ -8,22 +8,23 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 
 **Leather Wallet** — Bitcoin & Stacks wallet serving 8,400+ monthly active extension users
 
-- Core team on the Hiro Wallet to Leather rebrand — architected the mono-repo, built the shared Panda UI component library, implemented BIP key validation
-- Shipped the first **Leather mobile app** (React Native + Expo), growing to 1,850+ MAU in three months
-- Built the DeFi Portfolio UI for on-chain position tracking across Granite and Zest
+- Core team on the Hiro Wallet → Leather rebrand — architected the mono-repo, built the shared Panda UI component library, implemented BIP key validation on the mnemonic login form
+- Shipped the **Leather mobile app** from scratch (React Native + Expo), growing to 1,850+ MAU in three months on iOS and Android
+- Shipped the **multi-chain NFT gallery** (Stacks SIP-9 + Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow
+- Early AI-tooling adopter on the team — established working patterns with Claude Code and Codex, contributed to CLAUDE.md and reusable skills
 
 ## Notable open-source contributions
 
-**Monorepo architecture for Leather wallet** — Designed the mono-repo that consolidated the browser extension, mobile app, and shared packages into a single repository with automated npm publishing.
+**Monorepo architecture for Leather wallet** — Designed the mono-repo that consolidated the browser extension, mobile app and shared packages into a single repository with automated npm publishing.
 [leather-wallet/mono#8](https://github.com/leather-wallet/mono/pull/8)
 
 **Mnemonic validation on wallet sign-in** — Replaced a single textarea with word-by-word input and real-time BIP-39 validation using `@scure/bip39`. 739 additions across 27 files including new E2E tests.
 [leather-wallet/extension#4243](https://github.com/leather-wallet/extension/pull/4243)
 
-**Full-page container system rebuild** — Replaced the entire drawer and container system with Radix Dialog, unified headers, and standardised viewport widths. ~100 files, 8 bugs fixed.
+**Full-page container system rebuild** — Replaced the entire drawer and container system with Radix Dialog, unified headers and standardised viewport widths. ~100 files, 8 bugs fixed.
 [leather-wallet/extension#4655](https://github.com/leather-wallet/extension/pull/4655)
 
-**Modal routing refactor** — Fixed overlay modal routing to properly handle background content, direct navigation, and nested route state in the browser extension.
+**Modal routing refactor** — Fixed overlay modal routing to properly handle background content, direct navigation and nested route state in the browser extension.
 [leather-wallet/extension#4325](https://github.com/leather-wallet/extension/pull/4325)
 
 **Spam token filtering** — Added detection and filtering of scam token names containing URLs and phishing text in the wallet's asset list.
@@ -34,8 +35,8 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 
 ## Tech
 
-**Frontend:** React, TypeScript, Next.js, React Native, Expo, Redux, Ember.js
-**Tooling:** Panda CSS, Radix UI, Playwright, Cypress, Vitest, CI/CD
+**Frontend:** TypeScript, React, Next.js, React Native, Expo, Redux, Ember.js
+**Tooling:** Panda CSS, Radix UI, Playwright, Cypress, Vitest, CI/CD, AI-assisted development (Claude Code, Codex)
 **Server-side:** Node.js, Express, Python, Ruby
 
 ## Previously
@@ -49,6 +50,6 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 ## Links
 
 - [petewatters.ie](https://petewatters.ie) — Portfolio & blog
-- [petewatters.ie/cv](https://petewatters.ie/cv) — CV
+- [petewatters.ie/cv/frontend](https://petewatters.ie/cv/frontend) — CV
 - [LinkedIn](https://www.linkedin.com/in/pete-watters/)
 - [StackOverflow](https://stackoverflow.com/users/1365580/peadar)
