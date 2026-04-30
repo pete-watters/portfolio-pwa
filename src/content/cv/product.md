@@ -1,5 +1,5 @@
 ---
-tagline: "Senior Product Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland"
+tagline: "Senior Product Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
 description: "Pete Watters — Senior Product Engineer CV"
 ---
 
