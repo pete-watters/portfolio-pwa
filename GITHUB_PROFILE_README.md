@@ -1,6 +1,6 @@
 # Pete Watters
 
-**Senior Frontend Engineer** — Bitcoin, Web3 and high-stakes fintech.
+**Senior Software Engineer** — Bitcoin, Web3 and high-stakes fintech.
 
 Currently at [Trust Machines](https://trustmachines.co), building [Leather](https://leather.io) — the leading wallet for Bitcoin and Stacks apps. Open-source contributor to the [Leather mono-repo](https://github.com/leather-io/mono).
 
@@ -35,9 +35,10 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 
 ## Tech
 
-**Frontend:** TypeScript, React, Next.js, React Native, Expo, Redux
-**Tooling:** Panda CSS, Radix UI, Playwright, Cypress, Vitest, CI/CD, AI-assisted development (Claude Code, Codex)
-**Server-side:** Node.js, Express, Python, Ruby
+**Front-End:** TypeScript, React, Next.js, React Native, Expo, Redux, HTML5, CSS3, Panda CSS, Radix UI
+**Server-side:** Node.js, Express, Python, Ruby, Shell scripting
+**Web3 & Crypto:** Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect, Wagmi
+**Tooling:** CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, AI-assisted development (Claude Code, Codex)
 
 ## Previously
 
@@ -50,6 +51,6 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 ## Links
 
 - [petewatters.ie](https://petewatters.ie) — Portfolio & blog
-- [petewatters.ie/cv/frontend](https://petewatters.ie/cv/frontend) — CV
+- [petewatters.ie/cv/full-stack](https://petewatters.ie/cv/full-stack) — CV
 - [LinkedIn](https://www.linkedin.com/in/pete-watters/)
 - [StackOverflow](https://stackoverflow.com/users/1365580/peadar)

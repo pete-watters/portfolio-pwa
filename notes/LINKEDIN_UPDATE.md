@@ -2,14 +2,14 @@
 
 LinkedIn uses plain text. Copy each section below directly into the corresponding LinkedIn field.
 
-Mirrors the Senior Frontend Engineer CV variant at `src/content/cv/frontend.md`. When that file changes, update this one too.
+Mirrors the Senior Software Engineer CV variant at `src/content/cv/full-stack.md`. When that file changes, update this one too.
 
 ---
 
 ## Headline
 
 ```
-Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland
+Senior Software Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland
 ```
 
 ---
@@ -17,14 +17,18 @@ Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Du
 ## About
 
 ```
-Senior Frontend Engineer with 15+ years of experience across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Deep expertise in React, TypeScript, Next.js and React Native, with a track record of leading product launches, design systems and architecture decisions in high-stakes environments where security, performance and user trust matter. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
+Senior Software Engineer with 15+ years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
+
+Currently building the Leather Bitcoin wallet at Trust Machines — an open-source Web3 wallet serving 60,000+ users across browser extension and mobile. Previously at Kraken/Cryptowatch, Xapo, Qredo and Fidelity.
+
+Specialised in crypto product engineering: wallet architecture, DeFi integrations, trading interfaces, design systems and cross-platform mobile. C4 Certified Bitcoin Professional.
 
 Front-End: TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Panda CSS, Radix UI
 Server-side: Node.js, Express, Python, Ruby, Shell scripting
-Web3 & Crypto: Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect
-Tooling: CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix, AI-assisted development (Claude Code, Codex)
+Web3 & Crypto: Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect, Wagmi
+Tooling: CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, AI-assisted development (Claude Code, Codex)
 
-petewatters.ie · petewatters.ie/cv/frontend
+petewatters.ie · petewatters.ie/cv/full-stack
 ```
 
 ---
@@ -156,4 +160,4 @@ Bitcoin protocol, cryptographic security, wallets and ecosystem.
 
 ## Skills (add these as LinkedIn skills)
 
-TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Claude Code, Codex
+TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Bitcoin, Stacks, MetaMask, WalletConnect, Wagmi, Claude Code, Codex
