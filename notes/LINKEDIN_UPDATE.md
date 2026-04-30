@@ -105,7 +105,7 @@ Jun 2015 — Apr 2016 · Remote
 ```
 Ocean freight platform serving major global shipping brands. Later acquired by Descartes.
 
-• Recruited by the co-founder and CTO to lead the frontend product from inception to production (JavaScript, Ember.js, Ruby, CI/CD), establishing the engineering culture at the seed stage.
+• Recruited by the co-founder and CTO to lead the frontend product from inception to production (JavaScript, Ember.js, Ruby, CI/CD).
 ```
 
 ### Fidelity Investments — UX Developer
@@ -114,7 +114,7 @@ Jun 2014 — Jun 2015 · On-site
 ```
 Global financial services corporation managing $11+ trillion in assets under management.
 
-• Served as technical lead for an offshore development team, providing hands-on direction in the UK and India. Represented the engineering team during Enterprise Ireland R&D accreditation.
+• Responsible for building prototype fintech applications. Technical lead for an offshore development team, providing hands-on direction in the UK and India. Represented the engineering team during Enterprise Ireland R&D accreditation.
 ```
 
 ### Earlier Career
