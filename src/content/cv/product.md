@@ -1,5 +1,5 @@
 ---
-tagline: "Senior Product Engineer · Bitcoin & Web3 · React / TypeScript / Next.js · Dublin, Ireland"
+tagline: "Senior Product Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland"
 description: "Pete Watters — Senior Product Engineer CV"
 ---
 
@@ -8,12 +8,12 @@ Senior Product Engineer with over 15 years of experience taking products from in
 ## Skills
 
 <dl>
-<dt>Front-End</dt>
-<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI</dd>
-<dt>Server-side</dt>
-<dd>Node.js, Express, PHP, Python, Java, Ruby, Shell scripting</dd>
-<dt>General</dt>
-<dd>CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix, AI-assisted development (Claude Code, Codex)</dd>
+<dt>Languages & Frameworks</dt>
+<dd>TypeScript, JavaScript, React, React Native, Next.js, Node.js, Express, Redux, Ember.js, Python, Ruby</dd>
+<dt>Web3 & Crypto</dt>
+<dd>Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect</dd>
+<dt>Tooling & Infrastructure</dt>
+<dd>CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, Cucumber, Unix, AI-assisted development (Claude Code, Codex)</dd>
 </dl>
 
 ## Work Experience
