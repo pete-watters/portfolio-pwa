@@ -40,7 +40,7 @@ test.describe('Navigation', () => {
   });
 
   test('blog post shows breadcrumbs', async ({ page }) => {
-    await page.goto('/blog/hello-world');
+    await page.goto('/blog/utxo-consolidation-six-lines');
     const breadcrumbs = page.locator('.breadcrumbs');
     await expect(breadcrumbs).toBeVisible();
     await expect(breadcrumbs.locator('a[href="/"]')).toHaveText('Home');
