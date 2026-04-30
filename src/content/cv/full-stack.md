@@ -9,7 +9,7 @@ Senior Software Engineer with 15+ years of experience delivering full-stack web 
 
 <dl>
 <dt>Front-End</dt>
-<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux</dd>
+<dd>TypeScript, React, Next.js, React Native, Redux</dd>
 <dt>Server-side</dt>
 <dd>Node.js, Express, Python, Ruby, Shell scripting</dd>
 <dt>Web3 & Crypto</dt>
