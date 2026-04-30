@@ -3,7 +3,7 @@ tagline: "Senior Product Engineer · Bitcoin & Web3 · React / TypeScript / Node
 description: "Pete Watters — Senior Product Engineer CV"
 ---
 
-Senior Product Engineer with 15+ years of experience taking products from inception to scale across fintech, crypto and Web3 — most recently building the Leather Bitcoin wallet at Trust Machines. Frontend-first by background (React, TypeScript, Next.js, React Native) with the full-stack range and product judgment to own features end-to-end, ship quickly and stay close to the user. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
+Senior Product Engineer with 15+ years of experience taking products from inception to scale across fintech, crypto and Web3. Frontend-first by background (React, TypeScript, Next.js, React Native) with the full-stack range and product judgment to own features end-to-end, ship quickly and stay close to the user. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
 
 ## Skills
 

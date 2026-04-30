@@ -17,7 +17,7 @@ Senior Software Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Du
 ## About
 
 ```
-Senior Software Engineer with 15+ years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
+Senior Software Engineer with 15+ years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
 
 Currently building the Leather Bitcoin wallet at Trust Machines — an open-source Web3 wallet serving 60,000+ users across browser extension and mobile. Previously at Kraken/Cryptowatch, Xapo, Qredo and Fidelity.
 
@@ -25,7 +25,7 @@ Specialised in crypto product engineering: wallet architecture, DeFi integration
 
 Front-End: TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Panda CSS, Radix UI
 Server-side: Node.js, Express, Python, Ruby, Shell scripting
-Web3 & Crypto: Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect, Wagmi
+Web3 & Crypto: Bitcoin, Stacks, sBTC, wallet integration, MetaMask, WalletConnect
 Tooling: CI/CD, Docker, Git, Cypress, Playwright, Maestro, Vitest, TDD, AI-assisted development (Claude Code, Codex)
 
 petewatters.ie · petewatters.ie/cv/full-stack
@@ -160,4 +160,4 @@ Bitcoin protocol, cryptographic security, wallets and ecosystem.
 
 ## Skills (add these as LinkedIn skills)
 
-TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Bitcoin, Stacks, MetaMask, WalletConnect, Wagmi, Claude Code, Codex
+TypeScript, React, Next.js, React Native, Redux, HTML5, CSS3, Node.js, Express, Python, CI/CD, TDD, Cypress, Playwright, Git, Panda CSS, Radix UI, Bitcoin, Stacks, MetaMask, WalletConnect, Claude Code, Codex
