@@ -7,9 +7,9 @@ test.describe('Blog', () => {
   });
 
   test('blog post page renders markdown', async ({ page }) => {
-    await page.goto('/blog/hello-world');
+    await page.goto('/blog/utxo-consolidation-six-lines');
     await expect(page.locator('.blog-post h2').first()).toBeVisible();
-    await expect(page.locator('.blog-post')).toContainText('Astro');
+    await expect(page.locator('.blog-post')).toContainText('UTXO');
   });
 
   test('listing links to individual posts', async ({ page }) => {
@@ -82,13 +82,13 @@ test.describe('Blog', () => {
   });
 
   test('blog post shows date and tags', async ({ page }) => {
-    await page.goto('/blog/hello-world');
+    await page.goto('/blog/utxo-consolidation-six-lines');
     await expect(page.locator('.blog-post time')).toBeVisible();
     await expect(page.locator('.blog-post .tags li').first()).toBeVisible();
   });
 
   test('blog post has breadcrumbs with Home and Blog links', async ({ page }) => {
-    await page.goto('/blog/hello-world');
+    await page.goto('/blog/utxo-consolidation-six-lines');
     const breadcrumbs = page.locator('.breadcrumbs');
     await expect(breadcrumbs).toBeVisible();
     await expect(breadcrumbs.locator('a[href="/"]')).toHaveText('Home');

@@ -1,19 +1,19 @@
 ---
-tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland"
+tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Next.js · Dublin, Ireland"
 description: "Pete Watters — Senior Frontend Engineer CV"
 ---
 
-Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner, specialised in React, TypeScript and React Native, with expertise in building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
+Senior Frontend Engineer with over 15 years of experience leading frontend development for high-traffic fintech, crypto and Web3 applications. Clean code practitioner specialised in React, TypeScript and Next.js, with deep React Native experience and a focus on building scalable, user-focused solutions. Demonstrated success in major product launches, optimising engineering workflows and promoting cross-team collaboration.
 
 ## Skills
 
 <dl>
 <dt>Front-End</dt>
-<dd>JavaScript, TypeScript, React, React Native, Next.js, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI</dd>
+<dd>TypeScript, React, Next.js, React Native, JavaScript, Redux, Ember.js, HTML5, CSS3, Panda CSS, Radix UI</dd>
 <dt>Server-side</dt>
 <dd>Node.js, Express, PHP, Python, Java, Ruby, Shell scripting</dd>
 <dt>General</dt>
-<dd>CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix</dd>
+<dd>CI/CD, TDD, Cucumber, Cypress.io, Playwright, Maestro, CasperJS, Git, Unix, AI-assisted development (Claude Code, Codex)</dd>
 </dl>
 
 ## Work Experience
@@ -23,9 +23,11 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 > Contribute to the largest ecosystem of Bitcoin applications on the Stacks network. Actively maintain and enhance the [Leather](https://leather.io/) Web3 Bitcoin wallet as an open-source contributor.
 
 - Worked on the Hiro Wallet to Leather rebrand as a core team member, delivering a redesigned experience for over **8,400 monthly active extension users** (62,000+ over six months).
-- Architected the mono-repo, developed a shared Panda UI component library package, implemented BIP key validation on the mnemonic login form, added UTXO consolidation support and improved NFT support, including supporting multimedia Stacks NFTs and Bitcoin ordinals.
+- Architected the mono-repo, developed a shared Panda UI component library package, implemented BIP key validation on the mnemonic login form and added UTXO consolidation support.
+- Shipped the **multi-chain NFT gallery** in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
 - Managed the end-to-end launch of the **Leather mobile app** (React Native and Expo), representing the team at the **Bitcoin Conference 2025 in Las Vegas**. Achieved over **1,850 monthly active users within three months** on iOS and Android.
 - Leather serves as a signer for BTC DeFi protocols and integrates with **Granite and Zest**. Developed the **Leather DeFi Portfolio table UI**, offering users a unified view of their on-chain DeFi positions.
+- Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
 
 ### [Qredo](https://www.qredo.com) · Senior Frontend Engineer *Jan — Jun 2023 · Remote*
 
@@ -46,7 +48,7 @@ Senior Frontend Engineer with over 15 years of experience leading frontend devel
 
 > Fully remote global FinTech providing multi-currency digital wallets and Bitcoin custody services, serving over 1.5 million customers worldwide.
 
-- Designed a **full-stack application blueprint** using React, Next.js and Express, which was adopted across multiple product teams as the company standard.
+- Designed a **React, Next.js and Express full-stack application blueprint**, adopted across multiple product teams as the company standard.
 - Led the core product squad responsible for a comprehensive web platform redesign.
 - Built **CI/CD infrastructure and E2E testing standards** from the ground up, reducing manual QA overhead and accelerating release cycles.
 - Mentored engineers on testing practices and architecture patterns. Served as a technical bar-raiser during hiring across the engineering organisation and developed the hiring process.
