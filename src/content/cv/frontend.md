@@ -1,5 +1,5 @@
 ---
-tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / React Native · Dublin, Ireland"
+tagline: "Senior Frontend Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
 description: "Pete Watters — Senior Frontend Engineer CV"
 ---
 
