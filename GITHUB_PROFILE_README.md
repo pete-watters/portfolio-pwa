@@ -9,8 +9,8 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 **Leather Wallet** — Bitcoin & Stacks wallet serving 8,400+ monthly active extension users
 
 - Core team on the Hiro Wallet → Leather rebrand — architected the mono-repo, built the shared Panda UI component library, implemented BIP key validation on the mnemonic login form
-- Shipped the **Leather mobile app** from scratch (React Native + Expo), growing to 1,850+ MAU in three months on iOS and Android
-- Shipped the **multi-chain NFT gallery** (Stacks SIP-9 + Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow
+- Shipped the Leather mobile app from scratch (React Native + Expo), growing to 1,850+ MAU in three months on iOS and Android
+- Shipped the multi-chain NFT gallery (Stacks SIP-9 + Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow
 - Early AI-tooling adopter on the team — established working patterns with Claude Code and Codex, contributed to CLAUDE.md and reusable skills
 
 ## Notable open-source contributions
@@ -35,7 +35,7 @@ Currently at [Trust Machines](https://trustmachines.co), building [Leather](http
 
 ## Tech
 
-**Frontend:** TypeScript, React, Next.js, React Native, Expo, Redux, Ember.js
+**Frontend:** TypeScript, React, Next.js, React Native, Expo, Redux
 **Tooling:** Panda CSS, Radix UI, Playwright, Cypress, Vitest, CI/CD, AI-assisted development (Claude Code, Codex)
 **Server-side:** Node.js, Express, Python, Ruby
 
