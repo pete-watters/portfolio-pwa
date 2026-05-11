@@ -1,7 +1,7 @@
 ---
 title: "Building a Server-Rendered Email Verification Flow at Xapo"
 description: "How we orchestrated a conditional API fetch on the Express side, server-rendered the result into a Next.js 9 page, and avoided the loading flash on email-link landings — and why the same instinct points to Server Components today."
-pubDate: 2019-09-01
+pubDate: 2026-05-11
 tags: ["nextjs", "ssr", "architecture", "xapo"]
 draft: false
 ---
@@ -14,7 +14,7 @@ This is the story of how I built that flow with Next.js 9 and a custom Express s
 
 ## The constraint
 
-Xapo's main product was a mobile crypto wallet. The app handled most of what users needed. But certain flows — identity verification, account freezing, password recovery — couldn't live inside it. They were triggered by email links, often opened on a different device than the one with the app installed. They needed standalone web endpoints.
+Xapo's product surface spanned a mobile wallet and a web banking interface. Certain flows — identity verification, account freezing, password recovery — needed standalone web endpoints, triggered by email links and often opened on a different device than the one the user was signed in on.
 
 That meant a separate frontend application. Lightweight, single-purpose, and able to do real work the moment the page loaded.
 
@@ -123,9 +123,11 @@ Three things mattered.
 
 This wasn't a one-off. The pattern — custom Express server, Next.js as the catch-all, named routes for server-side data fetching, `app.render` to hand off to a page — turned out to fit several other lightweight web apps at Xapo. Account freeze flows, password recovery, internal support tooling: the small standalone things that lived outside the mobile app and needed real server-side logic.
 
-It also became the skeleton for a much larger project: the rewrite of Xapo's legacy banking-style web application. Same architecture, same custom server pattern, much bigger feature surface.
+It also became the skeleton for a much larger project: the rewrite of Xapo's main customer-facing web application. Same architecture, same custom server pattern, much bigger feature surface.
 
-I'd joined as a senior engineer without prior React experience. Within the first year, the application framework I'd put together for this app was the one the rest of the frontend org forked from. The team grew from a pair to eight engineers over that period, and I wasn't the one telling people what to use — they picked it up because it fit. That was satisfying in a quiet way. Nothing about the code was groundbreaking. It just matched the problem.
+I'd joined Xapo as a senior engineer without prior React experience. Within a year, the application framework I'd put together for this project was the one the rest of the frontend org forked from — not because anyone mandated it, but because it fit. The team grew from a pair to eight engineers over that period.
+
+Nothing about the code was groundbreaking. It just matched the problem. That was satisfying in a quiet way.
 
 ## Would I build it the same way today?
 
