@@ -1,12 +1,55 @@
 ---
 import Nav from './Nav.astro';
+
+const FALLBACK_AVATAR = '/img/apple-touch-icon.png';
+
+const HELIUS_KEY = import.meta.env.HELIUS_KEY;
+const NFT_MINT = import.meta.env.NFT_MINT;
+
+let avatarUrl = FALLBACK_AVATAR;
+let avatarSource: 'fallback' | 'on-chain' = 'fallback';
+
+if (HELIUS_KEY && NFT_MINT) {
+  try {
+    const res = await fetch(`https://mainnet.helius-rpc.com/?api-key=${HELIUS_KEY}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 'nft-avatar',
+        method: 'getAsset',
+        params: { id: NFT_MINT },
+      }),
+    });
+
+    if (res.ok) {
+      const payload = await res.json();
+      const image = payload?.result?.content?.links?.image;
+      if (typeof image === 'string' && image.startsWith('http')) {
+        avatarUrl = image;
+        avatarSource = 'on-chain';
+      }
+    } else {
+      console.warn(`[Header] Helius DAS returned ${res.status} ${res.statusText} — using fallback avatar`);
+    }
+  } catch (err) {
+    console.warn('[Header] Helius DAS fetch failed — using fallback avatar', err);
+  }
+}
 ---
 
 <header>
   <div class="header-inner">
     <div class="header-left">
       <a href="/" class="profile-link">
-        <img src="/img/apple-touch-icon.png" alt="Pete Watters" class="profile-avatar" width="40" height="40" />
+        <img
+          src={avatarUrl}
+          alt="Pete Watters"
+          class="profile-avatar"
+          width="40"
+          height="40"
+          data-avatar-source={avatarSource}
+        />
       </a>
       <h1><a href="/">Pete Watters</a></h1>
     </div>
