@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+const order = ['full-stack', 'frontend', 'product'];
+
+const variants = (await getCollection('cv'))
+  .map((entry: CollectionEntry<'cv'>) => ({
+    slug: entry.id.replace(/\.md$/, ''),
+    data: entry.data,
+  }))
+  .sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
+
+const descriptions: Record<string, { label: string; pitch: string }> = {
+  'full-stack': {
+    label: 'Full-stack',
+    pitch: 'For senior software engineering roles spanning frontend, backend and tooling. Leads with React, TypeScript, Node.js, Express and CI/CD across the stack.',
+  },
+  'frontend': {
+    label: 'Frontend',
+    pitch: 'For senior frontend engineering roles. Leads with React, design systems, component architecture and shipping web and mobile UIs.',
+  },
+  'product': {
+    label: 'Product',
+    pitch: 'For product-leaning engineering roles. Leads with user-facing decisions, product launches, and cross-functional delivery.',
+  },
+};
+---
+
+<BaseLayout title="CV" description="Pete Watters — three CV variants targeted at different audiences">
+  <article class="cv-index">
+    <header class="cv-index-header">
+      <p class="cv-index-eyebrow">CV</p>
+      <h1 class="cv-index-title">Three CVs, one career</h1>
+      <p class="cv-index-intro">
+        Same fifteen years of work, framed for different audiences. Pick the one closest to the
+        role.
+      </p>
+    </header>
+
+    <ul class="cv-variant-list">
+      {variants.map(({ slug, data }) => {
+        const d = descriptions[slug] ?? { label: slug, pitch: data.description };
+        return (
+          <li>
+            <a class="cv-variant-card" href={`/cv/${slug}/`}>
+              <p class="cv-variant-meta">{d.label}</p>
+              <h2 class="cv-variant-tagline">{data.tagline}</h2>
+              <p class="cv-variant-pitch">{d.pitch}</p>
+              <span class="cv-variant-link">View CV <span class="arrow" aria-hidden="true">→</span></span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </article>
+</BaseLayout>
+
+<style>
+  .cv-index {
+    --color-accent: #F7931A;
+    --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .cv-index-header {
+    margin: 1.5rem 0 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cv-index-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-faint);
+    margin: 0 0 0.5rem;
+  }
+
+  .cv-index-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 600;
+    margin: 0 0 0.75rem;
+    line-height: 1.2;
+    color: var(--color-text);
+  }
+
+  .cv-index-intro {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin: 0;
+    max-width: 38em;
+  }
+
+  .cv-variant-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .cv-variant-card {
+    display: block;
+    padding: 1.5rem 1.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    text-decoration: none;
+    transition:
+      border-color 0.25s var(--ease-out-soft),
+      transform 0.25s var(--ease-out-soft);
+  }
+
+  .cv-variant-card:hover {
+    border-color: var(--color-faint);
+    transform: translateY(-2px);
+  }
+
+  .cv-variant-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin: 0 0 0.5rem;
+  }
+
+  .cv-variant-tagline {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 0.75rem;
+    line-height: 1.4;
+  }
+
+  .cv-variant-pitch {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+    margin: 0 0 1rem;
+  }
+
+  .cv-variant-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-text);
+  }
+
+  .cv-variant-card:hover .cv-variant-link .arrow {
+    transform: translateX(4px);
+  }
+
+  .cv-variant-link .arrow {
+    transition: transform 0.25s var(--ease-out-soft);
+  }
+</style>

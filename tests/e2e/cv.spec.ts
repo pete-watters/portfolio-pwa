@@ -1,9 +1,14 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('CV page', () => {
-  test('/cv redirects to full-stack variant', async ({ page }) => {
+  test('/cv shows a landing page linking to all three variants', async ({ page }) => {
     await page.goto('/cv');
-    await expect(page).toHaveURL('/cv/full-stack');
+    await expect(page).toHaveURL(/\/cv\/?$/);
+    const cards = page.locator('.cv-variant-card');
+    await expect(cards).toHaveCount(3);
+    await expect(page.locator('.cv-variant-card[href="/cv/full-stack/"]')).toBeVisible();
+    await expect(page.locator('.cv-variant-card[href="/cv/frontend/"]')).toBeVisible();
+    await expect(page.locator('.cv-variant-card[href="/cv/product/"]')).toBeVisible();
   });
 
   test.describe('full-stack variant', () => {
