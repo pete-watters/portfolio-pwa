@@ -5,7 +5,9 @@ export default defineConfig({
   output: 'static',
   site: 'https://petewatters.ie',
   redirects: {
-    '/cv': '/cv/full-stack',
+    '/cv/full-stack': '/cv/',
+    '/cv/frontend': '/cv/',
+    '/cv/product': '/cv/',
   },
   integrations: [
     AstroPWA({
