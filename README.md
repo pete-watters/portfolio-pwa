@@ -38,10 +38,14 @@ src/
     blog/        # Blog posts (markdown)
     cv/          # CV content collection
   layouts/       # Astro layouts (BaseLayout, CvLayout)
-  pages/         # Routes (/, /about, /blog, /cv)
+  pages/         # Routes (/, /blog, /cv)
   components/    # Astro components
 public/
   docs/          # PDFs (thesis, certifications)
 tests/
   e2e/           # Playwright tests
 ```
+
+## License
+
+MIT — see [LICENSE](./LICENSE).
