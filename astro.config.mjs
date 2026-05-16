@@ -4,6 +4,11 @@ import AstroPWA from '@vite-pwa/astro';
 export default defineConfig({
   output: 'static',
   site: 'https://petewatters.ie',
+  redirects: {
+    '/cv/full-stack': '/cv/',
+    '/cv/frontend': '/cv/',
+    '/cv/product': '/cv/',
+  },
   integrations: [
     AstroPWA({
       registerType: 'autoUpdate',
