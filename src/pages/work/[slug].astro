@@ -55,7 +55,7 @@ const data = entry.data;
       <h2 class="case-study-section-title">Outcome</h2>
       {data.outcomeStats && data.outcomeStats.length > 0 && (
         <dl class="outcome-grid">
-          {data.outcomeStats.map((stat) => (
+          {data.outcomeStats.map((stat: { number: string; label: string }) => (
             <div class="outcome-stat">
               <dt class="outcome-number">{stat.number}</dt>
               <dd class="outcome-label">{stat.label}</dd>
@@ -71,7 +71,7 @@ const data = entry.data;
     <section class="case-study-tech">
       <h2 class="case-study-section-title">Tech</h2>
       <ul class="tags case-study-tech-list">
-        {data.tech.map((t) => <li>{t}</li>)}
+        {data.tech.map((t: string) => <li>{t}</li>)}
       </ul>
     </section>
 
