@@ -1,67 +1,60 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Home page', () => {
-  test('loads and shows intro', async ({ page }) => {
-    await page.goto('/');
-    await expect(page.locator('.intro').first()).toContainText('Senior Frontend Engineer');
-  });
-
   test('has correct title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle('Pete Watters');
   });
 
-  test('shows OSS contributions section', async ({ page }) => {
+  test('hero shows availability badge', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.oss-section h3')).toHaveText('Open Source');
-    const cards = page.locator('.oss-card');
-    await expect(cards).toHaveCount(2);
+    await expect(page.locator('.availability-badge')).toContainText('Available September 2026');
   });
 
-  test('displays repo links with full org/repo names', async ({ page }) => {
+  test('hero shows name and the three words', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('a.oss-repo-name[href*="leather-io/extension"]')).toHaveText('leather-io/extension');
-    await expect(page.locator('a.oss-repo-name[href*="leather-io/mono"]')).toHaveText('leather-io/mono');
+    await expect(page.locator('.hero-name')).toHaveText('Pete Watters');
+    const words = page.locator('.hero-word');
+    await expect(words).toHaveCount(3);
+    await expect(words.nth(0)).toHaveText('Builder');
+    await expect(words.nth(1)).toHaveText('Engineer');
+    await expect(words.nth(2)).toHaveText('Shipper');
   });
 
-  test('OSS PR counts link to filtered GitHub pulls page', async ({ page }) => {
+  test('hero shows sub-tagline and bio', async ({ page }) => {
     await page.goto('/');
-    const prLink = page.locator('.oss-stat a[href*="/pulls?q="]').first();
-    await expect(prLink).toBeVisible();
-    await expect(prLink).toHaveAttribute('href', /\/pulls\?q=is:pr\+is:merged\+author:pete-watters/);
+    await expect(page.locator('.hero-subtagline')).toContainText('PLAN IT');
+    await expect(page.locator('.hero-bio')).toContainText('crypto products');
   });
 
-  test('OSS commit counts link to filtered GitHub commits page', async ({ page }) => {
+  test('logo strip lists all six companies', async ({ page }) => {
     await page.goto('/');
-    const commitLink = page.locator('.oss-stat a[href*="/commits?author="]').first();
-    await expect(commitLink).toBeVisible();
-    await expect(commitLink).toHaveAttribute('href', /\/commits\?author=pete-watters/);
+    const items = page.locator('.logo-strip-list li');
+    await expect(items).toHaveCount(6);
+    await expect(items.nth(0)).toHaveText('Kraken');
+    await expect(items.nth(5)).toHaveText('Qredo');
   });
 
-  test('shows fallback PR and commit numbers', async ({ page }) => {
+  test('shows four case study cards', async ({ page }) => {
     await page.goto('/');
-    const numbers = page.locator('.oss-number');
-    await expect(numbers).toHaveCount(4);
-    for (const el of await numbers.all()) {
-      const text = await el.textContent();
-      expect(Number(text)).toBeGreaterThan(0);
-    }
+    await expect(page.locator('.case-card')).toHaveCount(4);
   });
 
-  test('shows recent blog posts', async ({ page }) => {
+  test('case study cards link to /work/<slug>/', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.recent-posts > h3')).toHaveText('Writing');
-    await expect(page.locator('.recent-posts .blog-card').first()).toBeVisible();
+    const links = page.locator('.case-card-link');
+    await expect(links).toHaveCount(4);
+    await expect(links.nth(0)).toHaveAttribute('href', '/work/leather/');
+    await expect(links.nth(1)).toHaveAttribute('href', '/work/cryptowatch/');
+    await expect(links.nth(2)).toHaveAttribute('href', '/work/xapo/');
+    await expect(links.nth(3)).toHaveAttribute('href', '/work/qredo/');
   });
 
-  test('has view all posts link', async ({ page }) => {
+  test('timeline lists every role from Trust Machines back to Earlier', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.view-all a[href="/blog"]')).toBeVisible();
-  });
-
-  test('view all posts link navigates to blog', async ({ page }) => {
-    await page.goto('/');
-    await page.click('.view-all a[href="/blog"]');
-    await expect(page).toHaveURL('/blog');
+    const rows = page.locator('.timeline-row');
+    await expect(rows).toHaveCount(9);
+    await expect(rows.first().locator('.timeline-company')).toHaveText('Trust Machines');
+    await expect(rows.last().locator('.timeline-company')).toHaveText('Earlier');
   });
 });
