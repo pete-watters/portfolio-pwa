@@ -1,0 +1,49 @@
+# Visual regression guardrail — runs the prod-routes-render BDD suite on
+# every PR and on push to main/dev. Catches total-app-crash regressions
+# (pageerror events) and rendering diffs (toHaveScreenshot) on every primary
+# route in one suite.
+
+name: Visual Regression
+
+on:
+  pull_request:
+    branches: [main, dev]
+  push:
+    branches: [main, dev]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-regression:
+    name: Prod routes render guardrail
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium --with-deps
+      - run: npm run build
+      - run: npx bddgen --config playwright.bdd.config.ts
+      - run: npx playwright test --config playwright.bdd.config.ts
+        env:
+          CI: 'true'
+      - name: Upload report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-bdd
+          path: playwright-report-bdd
+          retention-days: 7
+      - name: Upload actual snapshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: actual-snapshots
+          path: test-results
+          retention-days: 7
