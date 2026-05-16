@@ -17,7 +17,7 @@ tech:
   - styled-components
   - Architecture
   - CI/CD
-order: 3
+order: 5
 outcomeText: "Blueprint adopted as company-wide engineering standard · CI/CD and E2E testing built from zero · Core product redesign squad led to delivery · Private blockchain training with Andreas Antonopoulos and Jimmy Song."
 ---
 
