@@ -1,12 +1,10 @@
-import { createBdd } from 'playwright-bdd';
-import { expect, test as base, type Page } from '@playwright/test';
+import { test, createBdd } from 'playwright-bdd';
+import { expect, type Page } from '@playwright/test';
 
 type ErrorBag = { errors: Error[] };
 
 // Per-page error tracking — pageerror events captured into a bag keyed by page.
 const pageErrors = new WeakMap<Page, ErrorBag>();
-
-const test = base.extend({});
 
 const { When, Then } = createBdd(test);
 
