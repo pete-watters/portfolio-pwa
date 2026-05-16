@@ -1,0 +1,310 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work', ({ data }: CollectionEntry<'work'>) => !data.draft);
+  return entries.map((entry: CollectionEntry<'work'>) => ({
+    params: { slug: entry.id.replace(/\.md$/, '') },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const data = entry.data;
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.subtitle ?? data.headline}
+>
+  <article class="case-study">
+    <a href="/" class="case-study-back" data-position="top">← All work</a>
+
+    <header class="case-study-hero">
+      <p class="case-study-meta">
+        <span class="meta-company">{data.company}</span>
+        {data.project && <span class="meta-sep" aria-hidden="true">·</span>}
+        {data.project && <span class="meta-project">{data.project}</span>}
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span class="meta-role">{data.role}</span>
+        <span class="meta-sep" aria-hidden="true">·</span>
+        <span class="meta-period">{data.period}</span>
+      </p>
+      {data.stat && <p class="case-study-stat">{data.stat}</p>}
+      <h1 class="case-study-headline">{data.headline}</h1>
+      {data.subtitle && <p class="case-study-subtitle">{data.subtitle}</p>}
+    </header>
+
+    <aside class="case-study-notice">
+      <span class="notice-icon" aria-hidden="true">⚠</span>
+      <span>{data.confidentiality}</span>
+    </aside>
+
+    <div class="case-study-body">
+      <Content />
+    </div>
+
+    <section class="case-study-outcome">
+      <h2 class="case-study-section-title">Outcome</h2>
+      {data.outcomeStats && data.outcomeStats.length > 0 && (
+        <dl class="outcome-grid">
+          {data.outcomeStats.map((stat: { number: string; label: string }) => (
+            <div class="outcome-stat">
+              <dt class="outcome-number">{stat.number}</dt>
+              <dd class="outcome-label">{stat.label}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+      {data.outcomeText && (
+        <p class="outcome-text">{data.outcomeText}</p>
+      )}
+    </section>
+
+    <section class="case-study-tech">
+      <h2 class="case-study-section-title">Tech</h2>
+      <ul class="tags case-study-tech-list">
+        {data.tech.map((t: string) => <li>{t}</li>)}
+      </ul>
+    </section>
+
+    <a href="/" class="case-study-back case-study-back--end">← All work</a>
+  </article>
+</BaseLayout>
+
+<style>
+  main:has(> .case-study) {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+
+  .case-study {
+    --color-accent: #F7931A;
+    --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 4rem;
+    text-align: left;
+  }
+
+  .case-study-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-muted);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s var(--ease-out-soft), border-color 0.25s var(--ease-out-soft);
+  }
+  .case-study-back:hover {
+    color: var(--color-text);
+    border-bottom-color: var(--color-text);
+  }
+  .case-study-back--end { margin: 4rem 0 0; }
+
+  /* HERO */
+  .case-study-hero {
+    padding: 1rem 0 2.5rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 2.5rem;
+  }
+
+  .case-study-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.6rem;
+    align-items: center;
+    margin: 0 0 1rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--color-muted);
+  }
+  .meta-company { color: var(--color-accent); font-weight: 600; }
+  .meta-project { color: var(--color-text); }
+  .meta-role    { color: var(--color-muted); }
+  .meta-period  { color: var(--color-faint); }
+  .meta-sep     { color: var(--color-faint); }
+
+  .case-study-stat {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-accent);
+    margin: 0 0 1.5rem;
+    letter-spacing: 0.02em;
+  }
+
+  .case-study-headline {
+    font-family: var(--font-sans);
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 1rem;
+    color: var(--color-text);
+  }
+
+  .case-study-subtitle {
+    font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin: 0;
+    max-width: 38em;
+  }
+
+  /* CONFIDENTIALITY NOTICE */
+  .case-study-notice {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.9rem 1.1rem;
+    margin: 0 0 3rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: rgba(247, 147, 26, 0.03);
+    font-family: var(--font-sans);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--color-muted);
+  }
+  .notice-icon {
+    color: var(--color-accent);
+    font-size: 14px;
+    line-height: 1.6;
+    flex-shrink: 0;
+  }
+
+  /* BODY */
+  .case-study-body {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+  }
+
+  .case-study-body :global(h2) {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-faint);
+    margin: 3.5rem 0 0.75rem;
+  }
+
+  .case-study-body :global(h3) {
+    font-family: var(--font-sans);
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    font-weight: 600;
+    margin: 2.5rem 0 0.75rem;
+    color: var(--color-text);
+  }
+
+  .case-study-body :global(p) {
+    margin: 0 0 1.1rem;
+    max-width: 38em;
+  }
+
+  .case-study-body :global(p em) {
+    color: var(--color-muted);
+    font-size: 0.95em;
+  }
+
+  .case-study-body :global(a) {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-faint);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .case-study-body :global(a:hover) {
+    text-decoration-color: var(--color-text);
+  }
+
+  .case-study-body :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    color: var(--color-text);
+    background-color: var(--color-border);
+    padding: 0.1em 0.35em;
+    border-radius: 0.25rem;
+  }
+
+  /* OUTCOME */
+  .case-study-outcome { margin: 4rem 0 0; }
+  .case-study-tech    { margin: 3rem 0 0; }
+
+  .case-study-section-title {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-faint);
+    margin: 0 0 1.5rem;
+  }
+
+  .outcome-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .outcome-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .outcome-number {
+    font-family: var(--font-mono);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .outcome-label {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .outcome-text {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text);
+    margin: 0;
+    max-width: 42em;
+  }
+
+  /* TECH TAG LIST — reuses .tags base */
+  .case-study-tech-list { margin-top: 0; }
+
+  @media (max-width: 720px) {
+    .case-study { padding: 1rem 1.25rem 3rem; }
+    .case-study-hero { padding: 0.5rem 0 1.5rem; }
+    .case-study-notice { padding: 0.75rem 0.9rem; font-size: 12.5px; }
+    .case-study-body :global(h2) { margin-top: 2.5rem; }
+    .case-study-body :global(h3) { margin-top: 2rem; }
+    .outcome-grid { grid-template-columns: 1fr 1fr; gap: 1rem 1.5rem; }
+  }
+
+  @media (max-width: 460px) {
+    .outcome-grid { grid-template-columns: 1fr; }
+  }
+</style>
