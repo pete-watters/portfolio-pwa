@@ -5,12 +5,15 @@ import type { CollectionEntry } from 'astro:content';
 
 const order = ['full-stack', 'frontend', 'product'];
 
-const variants = (await getCollection('cv'))
+type CvVariantData = CollectionEntry<'cv'>['data'];
+type CvVariantEntry = { slug: string; data: CvVariantData };
+
+const variants: CvVariantEntry[] = (await getCollection('cv'))
   .map((entry: CollectionEntry<'cv'>) => ({
     slug: entry.id.replace(/\.md$/, ''),
     data: entry.data,
   }))
-  .sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
+  .sort((a: CvVariantEntry, b: CvVariantEntry) => order.indexOf(a.slug) - order.indexOf(b.slug));
 
 const descriptions: Record<string, { label: string; pitch: string }> = {
   'full-stack': {
@@ -40,7 +43,7 @@ const descriptions: Record<string, { label: string; pitch: string }> = {
     </header>
 
     <ul class="cv-variant-list">
-      {variants.map(({ slug, data }) => {
+      {variants.map(({ slug, data }: CvVariantEntry) => {
         const d = descriptions[slug] ?? { label: slug, pitch: data.description };
         return (
           <li>
