@@ -38,23 +38,60 @@ if (HELIUS_KEY && NFT_MINT) {
 }
 ---
 
-<header>
+<header class="site-header">
   <div class="header-inner">
-    <div class="header-left">
+    <div class="header-brand">
       <a href="/" class="profile-link">
         <img
           src={avatarUrl}
           alt="Pete Watters"
           class="profile-avatar"
-          width="40"
-          height="40"
+          width="36"
+          height="36"
           data-avatar-source={avatarSource}
         />
       </a>
       <h1><a href="/">Pete Watters</a></h1>
     </div>
-    <div class="header-right">
-      <Nav />
+
+    <Nav />
+
+    <div class="header-end">
+      <a class="header-availability" href="/#contact" aria-label="Available September 2026 — open to roles">
+        <span class="header-availability-dot" aria-hidden="true"></span>
+        <span class="header-availability-text">Available Sep 2026</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
     </div>
   </div>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.querySelector<HTMLElement>('header.site-header nav.primary-nav');
+
+  toggle?.addEventListener('click', () => {
+    const expanded = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!expanded));
+    nav?.classList.toggle('is-open', !expanded);
+  });
+
+  // Close mobile nav when a link is tapped
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      nav?.classList.remove('is-open');
+    });
+  });
+</script>
