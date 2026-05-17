@@ -6,10 +6,12 @@ type ErrorBag = { errors: Error[] };
 // Per-page error tracking — pageerror events captured into a bag keyed by page.
 const pageErrors = new WeakMap<Page, ErrorBag>();
 
-const { When, Then } = createBdd(test);
+const { Before, When, Then } = createBdd(test);
 
 // Register pageerror listener on every test's page before scenarios run.
-test.beforeEach(async ({ page }) => {
+// Use playwright-bdd's `Before` hook, not Playwright's `test.beforeEach` —
+// the latter can't be called at module scope in a step-defs file.
+Before(async ({ page }) => {
   const bag: ErrorBag = { errors: [] };
   pageErrors.set(page, bag);
   page.on('pageerror', (err) => bag.errors.push(err));
