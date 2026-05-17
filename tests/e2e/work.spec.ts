@@ -1,10 +1,12 @@
 import { test, expect } from '@playwright/test';
 
 const cases = [
-  { slug: 'leather',     title: 'Leather Bitcoin Wallet', company: 'Trust Machines' },
-  { slug: 'cryptowatch', title: 'Cryptowatch',            company: 'Kraken' },
-  { slug: 'xapo',        title: 'Xapo',                   company: 'Xapo' },
-  { slug: 'qredo',       title: 'Qredo',                  company: 'Qredo' },
+  { slug: 'leather-mobile', title: 'Leather Mobile — Bitcoin Wallet on iOS and Android', company: 'Trust Machines' },
+  { slug: 'leather-nfts',   title: 'Leather NFT Gallery — Two Chains, Multimedia, AI-Assisted Build', company: 'Trust Machines' },
+  { slug: 'cryptowatch',    title: 'Cryptowatch Trading Surface — Real Money, Millions of Users', company: 'Kraken' },
+  { slug: 'coderunner',     title: "Coderunner — Kraken's Greenfield Trading Automation", company: 'Kraken' },
+  { slug: 'xapo',           title: 'Xapo', company: 'Xapo' },
+  { slug: 'qredo',          title: 'Qredo', company: 'Qredo' },
 ];
 
 test.describe('Case study pages', () => {
@@ -42,17 +44,28 @@ test.describe('Case study pages', () => {
     });
   }
 
-  test('Leather page shows outcome stat grid (not text)', async ({ page }) => {
-    await page.goto('/work/leather/');
+  test('Leather Mobile page shows outcome stat grid', async ({ page }) => {
+    await page.goto('/work/leather-mobile/');
     await expect(page.locator('.outcome-grid')).toBeVisible();
-    await expect(page.locator('.outcome-stat')).toHaveCount(5);
+    await expect(page.locator('.outcome-stat')).toHaveCount(4);
   });
 
-  test('stub pages show outcome text (not stat grid)', async ({ page }) => {
-    for (const slug of ['cryptowatch', 'xapo', 'qredo']) {
+  test('Leather NFTs page shows outcome stat grid', async ({ page }) => {
+    await page.goto('/work/leather-nfts/');
+    await expect(page.locator('.outcome-grid')).toBeVisible();
+    await expect(page.locator('.outcome-stat')).toHaveCount(3);
+  });
+
+  test('Pages with outcomeText show outcome text (not stat grid)', async ({ page }) => {
+    for (const slug of ['cryptowatch', 'coderunner', 'xapo', 'qredo']) {
       await page.goto(`/work/${slug}/`);
       await expect(page.locator('.outcome-text')).toBeVisible();
       await expect(page.locator('.outcome-grid')).toHaveCount(0);
     }
+  });
+
+  test('Old /work/leather redirects to /work/leather-mobile', async ({ page }) => {
+    await page.goto('/work/leather');
+    await expect(page).toHaveURL(/\/work\/leather-mobile\/?$/);
   });
 });
