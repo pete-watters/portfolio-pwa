@@ -28,6 +28,27 @@ Concretely:
 
 ---
 
+## Decision tree
+
+Reach for these defaults before going deeper into the rules table. If
+you can answer the four questions below, you have your easing.
+
+1. **Is the element entering or exiting the screen?** → **`ease-out`**
+   (mount, reveal, dismiss, scroll-into-view)
+2. **Is an on-screen element moving from one position to another?** → **`ease-in-out`**
+   (drag, repositioning, slider thumb, accordion expand)
+3. **Is this a hover or colour transition?** → **`ease`**
+   (button hover, link colour, focus ring)
+4. **Will users see this 100+ times a day?** → **don't animate it**
+   (nav links, scrollbar, cursor itself)
+
+The current implementation predates this tree and uses
+`cubic-bezier(0.16, 1, 0.3, 1)` (a strong ease-out) for hovers too —
+acceptable for now, but new animations should follow the tree, and the
+existing hovers are a follow-up to align.
+
+---
+
 ## Hard rules
 
 | Rule | Value | Why |
@@ -36,8 +57,9 @@ Concretely:
 | Duration — medium (mount, reveal) | **0.5 – 0.6s** | Long enough to read the motion, short enough to not delay reading |
 | Duration — ambient loops (pulse, etc) | **2 – 3s** | Slow enough to register as "background life", not as something demanding attention |
 | Duration — hard cap on one-shots | **0.7s** | Above this, the user is waiting for animation to finish before they can interact |
-| Easing — default | **`cubic-bezier(0.16, 1, 0.3, 1)`** | Smooth ease-out. Available in CSS as `var(--ease-out-soft)`. Used for enters, hovers, reveals |
-| Easing — loops | **`ease-in-out`** | Natural for back-and-forth (pulse) |
+| Easing — entering / exiting | **`ease-out`** (or `var(--ease-out-soft)` for the smoother variant) | Matches the decision tree |
+| Easing — on-screen movement | **`ease-in-out`** | Natural for back-and-forth (pulse, slider, drag) |
+| Easing — hover / colour transitions | **`ease`** | The plain default — soft on both ends, not overly opinionated |
 | Properties allowed | `opacity`, `transform`, `filter`, `box-shadow` | GPU-composited; no layout cost |
 | `prefers-reduced-motion` | **Required** on every animation | Honour user setting |
 | No JS animation libraries | Pure CSS + `IntersectionObserver` | Bundle size, no runtime overhead |
