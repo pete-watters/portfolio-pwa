@@ -1,0 +1,47 @@
+---
+import { SOCIAL } from '../consts';
+
+// Public-facing alias — set up forwarding (hello@petewatters.ie → real inbox)
+// in DNS/email provider before site goes live with this section.
+const EMAIL = 'hello@petewatters.ie';
+---
+
+<section class="contact-section" id="contact" aria-labelledby="contact-label">
+  <p class="section-label" id="contact-label">Contact</p>
+  <p class="contact-bio">
+    Available from September 2026 for senior frontend or full-stack engineering work.
+    Ping me on <a href={`mailto:${EMAIL}`}>{EMAIL}</a>, or find me on
+    <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>,
+    <a href={SOCIAL.X} target="_blank" rel="noopener noreferrer">X</a>,
+    or <a href={SOCIAL.STACKOVERFLOW} target="_blank" rel="noopener noreferrer">Stack Overflow</a>.
+  </p>
+  <!-- PGP key fingerprint will live here once hardware-backed GPG is set up (see issue tracking) -->
+</section>
+
+<style>
+  .contact-section {
+    --ease-hover: ease;
+    text-align: left;
+    margin-top: 2rem;
+  }
+
+  .contact-bio {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: 38em;
+    margin: 0.75rem 0 0;
+  }
+
+  .contact-bio a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-faint);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .contact-bio a:hover {
+    text-decoration-color: var(--color-text);
+  }
+</style>
