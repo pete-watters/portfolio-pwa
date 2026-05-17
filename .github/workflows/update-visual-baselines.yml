@@ -1,0 +1,53 @@
+# Bootstrap or refresh visual-regression baselines on Linux CI, where the
+# main `Visual Regression` workflow runs. Snapshots are platform-specific —
+# Mac-generated PNGs won't match Linux Chromium output, so they must be
+# generated in CI to be the canonical baseline.
+#
+# Trigger manually from the Actions tab → "Update visual baselines" →
+# Run workflow → pick the branch. The job runs Playwright with
+# --update-snapshots, then commits and pushes any new/changed PNGs in
+# e2e/__screenshots__ back to the branch.
+#
+# Use when:
+#   - First-run bootstrap (no baselines exist yet)
+#   - Intentional design change — current renders are correct, baselines stale
+
+name: Update visual baselines
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-baselines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium --with-deps
+      - run: npm run build
+      - run: npx bddgen --config playwright.bdd.config.ts
+      - name: Regenerate snapshots
+        run: npx playwright test --config playwright.bdd.config.ts --update-snapshots
+        env:
+          CI: 'true'
+      - name: Commit + push updated baselines
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add e2e/__screenshots__
+          if git diff --staged --quiet; then
+            echo "No baseline changes."
+          else
+            git commit -m "chore(e2e): refresh visual-regression baselines [skip ci]"
+            git push
+          fi
