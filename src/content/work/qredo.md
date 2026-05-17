@@ -16,7 +16,7 @@ tech:
   - MetaMask
   - WalletConnect
   - Ethereum
-order: 4
+order: 6
 outcomeText: "Full institutional trading interface built from zero · MetaMask and WalletConnect integration live · Node.js ETH transaction parser delivered for compliance."
 ---
 

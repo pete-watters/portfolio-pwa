@@ -8,6 +8,9 @@ export default defineConfig({
     '/cv/full-stack': '/cv/',
     '/cv/frontend': '/cv/',
     '/cv/product': '/cv/',
+    // Old case-study slugs from the pre-split structure → new detail pages.
+    // Keeps existing homepage card links resolving.
+    '/work/leather': '/work/leather-mobile',
   },
   integrations: [
     AstroPWA({
