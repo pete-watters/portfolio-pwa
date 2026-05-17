@@ -29,15 +29,21 @@ test.describe('Home page', () => {
     await expect(page.locator('header.site-header h1 a')).toHaveText('Pete Watters');
   });
 
-  test('hero shows the three words, sub-tagline and bio', async ({ page }) => {
+  test('hero shows Engineer headline + plan/build/ship rhythm + bio', async ({ page }) => {
     await page.goto('/');
-    const words = page.locator('.hero-word');
-    await expect(words).toHaveCount(3);
-    await expect(words.nth(0)).toHaveText('Builder');
-    await expect(words.nth(1)).toHaveText('Engineer');
-    await expect(words.nth(2)).toHaveText('Shipper');
-    await expect(page.locator('.hero-subtagline')).toContainText('PLAN IT');
+    await expect(page.locator('.hero-headline')).toHaveText('Engineer');
+    const items = page.locator('.rhythm-item');
+    await expect(items).toHaveCount(3);
+    await expect(items.nth(0)).toContainText('plan');
+    await expect(items.nth(1)).toContainText('build');
+    await expect(items.nth(2)).toContainText('ship');
     await expect(page.locator('.hero-bio')).toContainText('crypto products');
+  });
+
+  test('rhythm items each have an inline monoline glyph SVG', async ({ page }) => {
+    await page.goto('/');
+    const glyphs = page.locator('.rhythm-item .rhythm-glyph');
+    await expect(glyphs).toHaveCount(3);
   });
 
   test('logo strip lists all six companies', async ({ page }) => {
