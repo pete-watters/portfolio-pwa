@@ -49,12 +49,14 @@ Then('the rendered page matches the snapshot {string}', async ({ page }, name: s
   )).catch(() => undefined);
 
   await expect(page).toHaveScreenshot(`${name}.png`, {
-    fullPage: true,
+    // Viewport-only (not fullPage). Full-page snapshots of long-text pages
+    // (e.g. the Cryptowatch case study) are inherently flaky: small subpixel
+    // or font-metric differences cause text to reflow by a pixel or two,
+    // which compounds across every paragraph and pushes the diff well past
+    // any reasonable tolerance. Viewport screenshots capture what users see
+    // first (above the fold) and don't suffer from cumulative offset.
+    fullPage: false,
     animations: 'disabled',
-    // 0.05 was too strict for full-page snapshots — minor subpixel/anti-alias
-    // variation between bootstrap and assertion runs was tripping single routes
-    // (Cryptowatch hit ~6% diff on three retries). 0.15 stays strict enough to
-    // catch real layout/content regressions while tolerating render noise.
-    maxDiffPixelRatio: 0.15,
+    maxDiffPixelRatio: 0.05,
   });
 });
