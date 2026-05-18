@@ -7,14 +7,23 @@ import ContactSection from '../components/ContactSection.astro';
   <article class="homepage">
 
     <section class="hero">
-      <p class="hero-words" aria-label="Builder, Engineer, Shipper">
-        <span class="hero-word hero-word--accent">Builder</span>
-        <span class="hero-word-sep" aria-hidden="true">·</span>
-        <span class="hero-word">Engineer</span>
-        <span class="hero-word-sep" aria-hidden="true">·</span>
-        <span class="hero-word hero-word--accent">Shipper</span>
+      <h2 class="hero-headline" data-reveal>Engineer</h2>
+      <p class="hero-rhythm" aria-label="plan, build, ship">
+        <span class="rhythm-item">
+          <span class="rhythm-verb">plan</span>
+          <span class="rhythm-caption" aria-hidden="true">think</span>
+        </span>
+        <span class="rhythm-sep" aria-hidden="true">·</span>
+        <span class="rhythm-item">
+          <span class="rhythm-verb">build</span>
+          <span class="rhythm-caption" aria-hidden="true">write</span>
+        </span>
+        <span class="rhythm-sep" aria-hidden="true">·</span>
+        <span class="rhythm-item">
+          <span class="rhythm-verb">ship</span>
+          <span class="rhythm-caption" aria-hidden="true">land</span>
+        </span>
       </p>
-      <p class="hero-subtagline" data-reveal>PLAN IT · BUILD IT · SHIP IT</p>
       <p class="hero-bio" data-reveal>
         Ten years shipping crypto products people actually use — wallets, trading terminals,
         institutional interfaces — across Bitcoin, Stacks, Solana and EVM chains. I take a brief
@@ -333,81 +342,60 @@ import ContactSection from '../components/ContactSection.astro';
   /* HERO */
   .hero { padding: 3rem 0 2rem; }
 
-  .availability-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  .hero-headline {
     font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.05em;
-    color: var(--color-muted);
-    background: rgba(247, 147, 26, 0.06);
-    border: 1px solid rgba(247, 147, 26, 0.25);
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-    margin-bottom: 2rem;
-  }
-
-  .badge-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-accent);
-    animation: badge-pulse 2.5s ease-in-out infinite;
-  }
-  @keyframes badge-pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(247, 147, 26, 0.4); }
-    50%      { opacity: 0.6; box-shadow: 0 0 0 6px rgba(247, 147, 26, 0); }
-  }
-
-  .hero-name {
-    font-family: 'Monoton', cursive;
-    font-weight: 400;
-    font-size: clamp(2.2rem, 7vw, 4.5rem);
+    font-size: clamp(2.6rem, 7vw, 4.5rem);
+    font-weight: 600;
     line-height: 1.05;
-    margin: 0 0 1.5rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 1.25rem;
     color: var(--color-text);
   }
 
-  .hero-words {
-    font-family: var(--font-mono);
-    font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-    font-weight: 500;
-    margin: 0 0 1rem;
+  .hero-rhythm {
+    margin: 0 0 2.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
-    align-items: baseline;
+    gap: 0.6rem 0.9rem;
+    align-items: flex-start;
+    font-family: var(--font-mono);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    color: var(--color-muted);
   }
 
-  .hero-word,
-  .hero-word-sep {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: hero-word-up 0.6s var(--ease-out-soft) forwards;
-    display: inline-block;
+  .rhythm-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    cursor: default;
+  }
+
+  .rhythm-verb {
     color: var(--color-text);
   }
-  .hero-word--accent { color: var(--color-accent); }
-  .hero-word-sep    { color: var(--color-faint); }
 
-  .hero-words > *:nth-child(1) { animation-delay: 0.35s; }
-  .hero-words > *:nth-child(2) { animation-delay: 0.45s; }
-  .hero-words > *:nth-child(3) { animation-delay: 0.55s; }
-  .hero-words > *:nth-child(4) { animation-delay: 0.65s; }
-  .hero-words > *:nth-child(5) { animation-delay: 0.75s; }
-
-  @keyframes hero-word-up {
-    to { opacity: 1; transform: translateY(0); }
+  .rhythm-caption {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    opacity: 0;
+    transform: translateY(4px);
+    transition:
+      opacity 0.25s ease,
+      transform 0.25s ease;
   }
 
-  .hero-subtagline {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.3em;
+  .rhythm-item:hover .rhythm-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .rhythm-sep {
     color: var(--color-faint);
-    text-transform: uppercase;
-    margin: 0 0 2.5rem;
+    opacity: 0.7;
+    align-self: flex-start;
+    padding-top: 0.1em;
   }
 
   .hero-bio {
@@ -663,19 +651,18 @@ import ContactSection from '../components/ContactSection.astro';
     .homepage { padding: 1rem 1.25rem 3rem; }
     .homepage section { margin-bottom: 3.5rem; }
     .hero { padding: 1.5rem 0 1rem; }
-    .hero-words { gap: 0.4rem; }
     .logo-strip-list { gap: 0.9rem 1.5rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-reveal],
-    .hero-word,
-    .hero-word-sep,
-    .badge-dot {
+    [data-reveal] {
       animation: none !important;
       transition: none !important;
       opacity: 1;
       transform: none;
+    }
+    .rhythm-caption {
+      transition: none;
     }
   }
 </style>
