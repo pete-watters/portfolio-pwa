@@ -1,0 +1,32 @@
+# Auto-request a CodeRabbit deep audit on every newly-opened PR.
+#
+# Why: CodeRabbit's auto-review is disabled on PRs whose base branch isn't
+# the repo's default (main). Our feature PRs target `dev`, so CodeRabbit
+# silently skips them. The @coderabbitai mention triggers a manual audit
+# regardless of base branch — this workflow automates that mention.
+#
+# If you don't want an audit on a specific PR, edit the comment after it's
+# posted (CodeRabbit only acts on mentions, so a deleted/edited mention
+# won't re-trigger).
+
+name: Request CodeRabbit audit on PR open
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  request-audit:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '@coderabbitai please audit this',
+            });
