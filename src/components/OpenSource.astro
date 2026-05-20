@@ -19,8 +19,8 @@ stats.weeks.forEach((week, i) => {
 
 const fmt = (n: number) => n.toLocaleString('en-US');
 
-// Curated landmark contributions (verified real PRs). Edit this list freely.
-// `post` links a matching blog write-up when one exists.
+// Curated landmark contributions — all verified merged PRs, each with a
+// matching blog write-up. `meta` is kept short for the compact grid.
 const notable: {
   repo: string;
   num: number;
@@ -30,41 +30,59 @@ const notable: {
 }[] = [
   {
     repo: 'leather-io/mono',
+    num: 161,
+    title: 'Monorepo & shared UI packages',
+    meta: 'Set up packages/ui · 31 files',
+    post: 'designing-a-monorepo',
+  },
+  {
+    repo: 'leather-io/mono',
     num: 1837,
-    title: 'Cross-platform Activity — one shared feature package across mobile + extension',
-    meta: '+4,796 / 152 files',
+    title: 'Cross-platform feature packages',
+    meta: 'One package, two surfaces · 152 files',
+    post: 'cross-platform-monorepo',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4655,
+    title: 'Full-page view & container system rebuild',
+    meta: 'Radix Dialog · 358 files',
+    post: 'extension-containers',
   },
   {
     repo: 'leather-io/mono',
     num: 885,
-    title: 'Branded Types for Bitcoin addresses — compile-time address safety',
-    meta: '+1,002 / 47 files',
+    title: 'Branded types for Bitcoin addresses',
+    meta: 'Compile-time address safety · 47 files',
     post: 'branded-types-crypto-wallet',
   },
   {
     repo: 'leather-io/extension',
+    num: 4243,
+    title: 'Secret-key redesign + BIP-39 validation',
+    meta: 'Word-by-word mnemonic input · 27 files',
+    post: 'mnemonic-validation',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4113,
+    title: 'Spam & scam token filtering',
+    meta: 'Phishing names out of the asset list',
+    post: 'spam-token-filtering',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4325,
+    title: 'Modal routing refactor',
+    meta: 'Overlay + nested route state · 30 files',
+    post: 'modal-routing-browser-extension',
+  },
+  {
+    repo: 'leather-io/extension',
     num: 6085,
-    title: 'UTXO consolidation — removed validation blocking self-sends',
-    meta: '+6 / −10 · the best code is the code you delete',
+    title: 'UTXO consolidation — the 6-line fix',
+    meta: '+6 / −10 · the best code you delete',
     post: 'utxo-consolidation-six-lines',
-  },
-  {
-    repo: 'leather-io/mono',
-    num: 2067,
-    title: 'Multimedia collectibles gallery brought to the browser extension',
-    meta: 'Stacks SIP-9 + Bitcoin Ordinals',
-  },
-  {
-    repo: 'leather-io/mono',
-    num: 1130,
-    title: 'App-wide loading & error states — no flash of "$0" balances',
-    meta: '121 files',
-  },
-  {
-    repo: 'leather-io/mono',
-    num: 915,
-    title: 'Sanctions screening on mobile — compliance for a self-custodial wallet',
-    meta: '+592 / 67 files',
   },
 ];
 ---
@@ -145,7 +163,7 @@ const notable: {
               </span>
             </a>
             {pr.post && (
-              <a class="oss-story" href={`/blog/${pr.post}/`}>Read the story →</a>
+              <a class="oss-story" href={`/blog/${pr.post}/`}>Write-up →</a>
             )}
           </li>
         ))}
@@ -309,15 +327,15 @@ const notable: {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
   }
   .oss-notable-item {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    padding: 0.75rem 1rem;
+    gap: 0.3rem;
+    padding: 0.7rem 0.9rem;
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     transition: border-color 0.2s, background 0.2s;
@@ -334,8 +352,9 @@ const notable: {
   }
   .oss-pr-title {
     color: var(--color-text);
-    font-size: 0.95rem;
-    line-height: 1.4;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.35;
   }
   .oss-pr-meta {
     font-family: var(--font-mono);
@@ -353,6 +372,7 @@ const notable: {
 
   @media (max-width: 600px) {
     .oss-overview { grid-template-columns: 1fr; }
+    .oss-notable { grid-template-columns: 1fr; }
     .oss-top { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     .oss-bigstats > div { align-items: flex-start; }
   }
