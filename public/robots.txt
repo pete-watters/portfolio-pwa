@@ -1,1 +1,4 @@
 User-agent: *
+Allow: /
+
+Sitemap: https://petewatters.ie/sitemap-index.xml

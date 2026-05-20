@@ -3,7 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactSection from '../components/ContactSection.astro';
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Senior Web3 Frontend Engineer"
+  description="Pete Watters — senior frontend engineer with ten years shipping crypto products across Bitcoin, Stacks, Solana and EVM chains. Wallets, trading terminals, institutional interfaces, on web and mobile."
+>
   <article class="homepage">
 
     <section class="hero">
@@ -342,7 +345,9 @@ import ContactSection from '../components/ContactSection.astro';
 
   .homepage section { margin-bottom: 5rem; }
 
-  [data-reveal] {
+  /* Content is visible by default so the page survives no-JS and pre-hydration.
+     The `js` class (set synchronously in <head>) opts into the reveal animation. */
+  .js [data-reveal] {
     opacity: 0;
     transform: translateY(12px);
     transition:
@@ -350,9 +355,16 @@ import ContactSection from '../components/ContactSection.astro';
       transform 0.6s var(--ease-out-soft);
     will-change: opacity, transform;
   }
-  [data-reveal].is-visible {
+  .js [data-reveal].is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 
   /* HERO */
