@@ -1,5 +1,6 @@
 export const SITE_TITLE = 'Pete Watters';
-export const SITE_DESCRIPTION = 'Pete Watters Portfolio';
+export const SITE_DESCRIPTION =
+  'Senior frontend engineer with ten years shipping crypto products — wallets, trading terminals and institutional interfaces across Bitcoin, Stacks, Solana and EVM chains.';
 
 export const ROUTES = {
   HOME: '/',

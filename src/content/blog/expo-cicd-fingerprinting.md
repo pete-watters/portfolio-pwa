@@ -20,7 +20,7 @@ We went from 20+ minute builds on every PR to under 6 minutes for most changes -
 
 Cryptocurrency wallets face a unique challenge: we need the security rigor of a bank with the iteration speed of a startup. Our mobile app handles seed phrase generation, transaction signing, QR code scanning, biometric authentication and push notifications. Every feature touches sensitive code paths. We can't ship bugs. But we also can't wait 20 minutes to find out if a PR is safe to merge.
 
-This tension was sharpest in the lead-up to our BTC Vegas launch in December 2024. The whole team was shipping multiple PRs per day, each targeting a specific launch blocker. If every PR had required a full 20-minute native build before we could validate it, we'd have been queueing builds all day and merging on faith. That's not acceptable when you're handling people's money.
+This tension was sharpest in the lead-up to our BTC Vegas launch in May 2025. The whole team was shipping multiple PRs per day, each targeting a specific launch blocker. If every PR had required a full 20-minute native build before we could validate it, we'd have been queueing builds all day and merging on faith. That's not acceptable when you're handling people's money.
 
 I set up the core CI pipeline before launch, which turned out to be one of the better decisions we made under pressure. Having fast, reliable feedback on every PR meant we could ship confidently at pace. The fingerprinting strategy came together slightly later as I learned more about EAS, but even the initial setup -- automating builds and running basic checks -- removed a huge amount of friction during the most intense shipping period.
 
