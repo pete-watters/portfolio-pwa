@@ -68,9 +68,24 @@ The mobile UI shares business logic and UI primitives with the extension through
 
 Wallet integration on mobile is its own discipline. The mnemonic-handling, key derivation, and transaction signing all had to survive low-end Android devices, intermittent connectivity, and the OS-specific quirks of secure storage. Every flow that touched a private key got extra scrutiny.
 
+<figure>
+  <video src="/videos/work/leather-mobile/accounts-widget.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <figcaption>The accounts widget — one of the first real features on mobile, assembled from shared monorepo components.</figcaption>
+</figure>
+
+<figure>
+  <video src="/videos/work/leather-mobile/loading-states.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <figcaption>Loading and error states across the app — no flash of "$0" balances while data resolves.</figcaption>
+</figure>
+
 ### Chapter 3 — App Store, Play Store, BTC Vegas
 
 App Store submission for a self-custodial Bitcoin wallet is harder than for a regular app. Reviewers ask about KYC, financial-services compliance, and whether the app facilitates transactions Apple wants to see in their own payment rails. The answer for a self-custodial wallet is "no, the user holds the keys" — but that conversation has to happen in writing, with screenshots and policy citations, before approval lands.
+
+<figure>
+  <img src="/img/work/leather-mobile/compliance.png" alt="Mobile sanctions-screening compliance flow shown during a transaction" loading="lazy" />
+  <figcaption>Sanctions screening on mobile — part of the compliance story App Store review wanted documented.</figcaption>
+</figure>
 
 We shipped to both stores in time for the Bitcoin Conference 2025 in Las Vegas. I represented the team there for the launch.
 
