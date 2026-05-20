@@ -43,11 +43,31 @@ The multi-exchange trading form was the primary trade-execution surface. Users c
 
 The form's hardest problem wasn't the UI. It was making 25 different exchange APIs feel like one consistent interface to the user, without leaking the underlying inconsistencies. Asset-precision rules vary per exchange. Order minimums vary. Some support post-only flags, some don't. The form's job was to normalise all of that into a single confident UX.
 
+<figure>
+  <img src="/img/work/cryptowatch/order-form.png" alt="Cryptowatch multi-exchange order form with buy/sell toggle, order type, funds field, and advanced conditional-close options" loading="lazy" />
+  <figcaption>The multi-exchange order form — one confident interface fronting 25 exchanges' APIs.</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/work/cryptowatch/buy-limit-review.png" alt="Order review showing a Buy Limit for 500 STX at 0.9300 with estimated fee, total, and a Take Profit conditional close" loading="lazy" />
+  <figcaption>Order review — fees, totals, and conditional-close logic surfaced before the user commits.</figcaption>
+</figure>
+
 ### Chapter 2 — The cockpit redesign
 
 The cockpit was the trader's command center — multiple charts, an order book, recent trades, account balances, open positions. The redesign reorganised the layout for higher information density on widescreen and a sensible collapse pattern on narrower viewports.
 
 The trickiest part was the realtime data fan-out. With multiple panels subscribing to overlapping WebSocket streams, naive component-level subscriptions burned both bandwidth and CPU. The redesign moved subscriptions up to a shared layer with reference counting, so opening a fourth chart on the same pair didn't open a fourth WebSocket.
+
+<figure>
+  <video src="/videos/work/cryptowatch/walkthrough.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <figcaption>The cockpit in action — live chart, order book, holdings, trade history, and order form in one command center.</figcaption>
+</figure>
+
+<figure>
+  <img src="/img/work/cryptowatch/holdings.png" alt="Cockpit holdings panel showing multi-asset balances with 24-hour change and per-asset allocation" loading="lazy" />
+  <figcaption>The holdings panel — multi-asset balances with realtime 24h change. (Test-account data.)</figcaption>
+</figure>
 
 ### Chapter 3 — The leverage slider
 
