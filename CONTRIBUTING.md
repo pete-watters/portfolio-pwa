@@ -184,6 +184,27 @@ npm run test:e2e:headless   # Playwright chromium
 
 ---
 
+## Project structure
+
+```
+src/
+  components/    # Astro components (BaseHead, Header, Nav, …)
+  content/
+    blog/        # Blog posts (markdown)
+    work/        # Case studies (markdown)
+    cv/          # CV content collection
+  layouts/       # BaseLayout, CvLayout
+  pages/         # Routes — /, /blog, /work/<slug>, /cv, rss.xml
+  styles/        # global.css
+public/
+  docs/          # PDFs (thesis, certifications)
+  img/ videos/   # Static media
+e2e/             # Playwright-BDD visual regression
+tests/           # Vitest unit tests
+```
+
+---
+
 ## Verified commits
 
 The `main` branch ruleset requires signed commits. GitHub squash-merges
