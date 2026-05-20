@@ -57,11 +57,26 @@ The refactor itself was substantial: ~5,800 lines added across the monorepo, com
 
 This is the kind of refactor that's easy to get wrong. Touching collectibles in a wallet means touching code that displays — and lets users send — assets worth real money. Tests, type safety, and incremental rollout did the heavy lifting.
 
+<figure>
+  <video src="/videos/work/leather-nfts/cross-platform-activity.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <figcaption>Shared feature packages in action — the same logic driving identical UI on both mobile and the extension.</figcaption>
+</figure>
+
 ### Chapter 2 — Bitcoin Ordinals and multimedia
 
 With the shared architecture in place, adding Bitcoin Ordinals became a matter of plugging a new chain adapter into the shared `CollectibleView` interface. The Ordinals data layer is meaningfully more complex than SIP-9 — inscriptions can carry arbitrary content types, including video and audio.
 
 Supporting multimedia in a wallet UI raises questions that don't exist for static images. Auto-play behaviour. Bandwidth on mobile. Audio that fires unexpectedly when a user opens a gallery. Each got resolved with care for the user-money-at-stake context — playback gated behind explicit interaction, mobile-aware bandwidth handling, audio muted by default.
+
+<figure>
+  <video src="/videos/work/leather-nfts/collectibles-mobile.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <figcaption>The collectibles gallery on mobile — Stacks SIP-9 and Bitcoin Ordinals in one unified view.</figcaption>
+</figure>
+
+<figure>
+  <video src="/videos/work/leather-nfts/collectibles-extension.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <figcaption>The same gallery on the browser extension — one feature package, two surfaces.</figcaption>
+</figure>
 
 ### Chapter 3 — The agentic AI workflow
 
