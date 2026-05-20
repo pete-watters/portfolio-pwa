@@ -60,7 +60,7 @@ The cockpit was the trader's command center — multiple charts, an order book, 
 The trickiest part was the realtime data fan-out. With multiple panels subscribing to overlapping WebSocket streams, naive component-level subscriptions burned both bandwidth and CPU. The redesign moved subscriptions up to a shared layer with reference counting, so opening a fourth chart on the same pair didn't open a fourth WebSocket.
 
 <figure>
-  <video src="/videos/work/cryptowatch/walkthrough.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <video src="/videos/work/cryptowatch/walkthrough.mp4" aria-label="Demo: the Cryptowatch cockpit trading interface — chart, order book, holdings and order form" autoplay loop muted playsinline preload="metadata"></video>
   <figcaption>The cockpit in action — live chart, order book, holdings, trade history, and order form in one command center.</figcaption>
 </figure>
 

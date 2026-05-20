@@ -69,12 +69,12 @@ The mobile UI shares business logic and UI primitives with the extension through
 Wallet integration on mobile is its own discipline. The mnemonic-handling, key derivation, and transaction signing all had to survive low-end Android devices, intermittent connectivity, and the OS-specific quirks of secure storage. Every flow that touched a private key got extra scrutiny.
 
 <figure>
-  <video src="/videos/work/leather-mobile/accounts-widget.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <video src="/videos/work/leather-mobile/accounts-widget.mp4" aria-label="Demo: the Leather mobile accounts widget" autoplay loop muted playsinline preload="metadata"></video>
   <figcaption>The accounts widget — one of the first real features on mobile, assembled from shared monorepo components.</figcaption>
 </figure>
 
 <figure>
-  <video src="/videos/work/leather-mobile/loading-states.mp4" autoplay loop muted playsinline preload="metadata"></video>
+  <video src="/videos/work/leather-mobile/loading-states.mp4" aria-label="Demo: loading and error states across the Leather mobile app" autoplay loop muted playsinline preload="metadata"></video>
   <figcaption>Loading and error states across the app — no flash of "$0" balances while data resolves.</figcaption>
 </figure>
 

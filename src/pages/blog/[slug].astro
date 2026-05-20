@@ -26,7 +26,7 @@ const { Content } = await render(post);
     <a href="/">Home</a> <span class="breadcrumb-sep">&rsaquo;</span> <a href="/blog">Blog</a> <span class="breadcrumb-sep">&rsaquo;</span> <span class="breadcrumb-current">{post.data.title}</span>
   </nav>
   <article class="blog-post" data-pagefind-body>
-    <h2 data-pagefind-meta="title">{post.data.title}</h2>
+    <h1 data-pagefind-meta="title">{post.data.title}</h1>
     <time datetime={post.data.pubDate.toISOString()}>
       {post.data.pubDate.toLocaleDateString('en-IE', { year: 'numeric', month: 'long', day: 'numeric' })}
     </time>
