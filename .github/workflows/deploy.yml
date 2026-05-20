@@ -26,6 +26,10 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       HELIUS_KEY: ${{ secrets.HELIUS_KEY }}
       NFT_MINT: ${{ secrets.NFT_MINT }}
+      # PAT (classic, read:user) for the Open Source contribution section.
+      # Stored as the GH_CONTRIB_TOKEN repo secret — `GITHUB_TOKEN` can't be a
+      # secret name (reserved by Actions), so it's mapped to the env var here.
+      GITHUB_TOKEN: ${{ secrets.GH_CONTRIB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
