@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import AstroPWA from '@vite-pwa/astro';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   output: 'static',
@@ -13,6 +14,7 @@ export default defineConfig({
     '/work/leather': '/work/leather-mobile',
   },
   integrations: [
+    sitemap(),
     AstroPWA({
       registerType: 'autoUpdate',
       manifest: {
