@@ -8,7 +8,7 @@ const { isHome = false } = Astro.props;
 const Title = isHome ? 'h1' : 'p';
 ---
 
-<aside class="app-sidebar">
+<aside class:list={["app-sidebar", { "is-home": isHome }]}>
   <div class="rail-top">
     <a class="rail-avatar-link" href="/" aria-label="Pete Watters — home">
       <img
@@ -260,13 +260,49 @@ const Title = isHome ? 'h1' : 'p';
   .rail-social a:hover img { opacity: 1; }
 
   @media (max-width: 860px) {
-    .app-sidebar {
+    /* Homepage keeps the full identity stacked on top. */
+    .app-sidebar.is-home {
       position: static;
       height: auto;
       overflow: visible;
       flex-basis: auto;
       align-self: stretch;
     }
+
+    /* Inner pages collapse to a compact sticky top bar so content is
+       immediately visible — avatar, name and nav only. */
+    .app-sidebar:not(.is-home) {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: auto;
+      overflow: visible;
+      flex-basis: auto;
+      align-self: stretch;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .app-sidebar:not(.is-home) .rail-top {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .app-sidebar:not(.is-home) .rail-avatar { width: 32px; height: 32px; margin: 0; }
+    .app-sidebar:not(.is-home) .rail-name { margin: 0; font-size: 0.85rem; color: #fff; }
+    .app-sidebar:not(.is-home) .rail-title,
+    .app-sidebar:not(.is-home) .rail-rhythm,
+    .app-sidebar:not(.is-home) .rail-bio,
+    .app-sidebar:not(.is-home) .rail-shipped,
+    .app-sidebar:not(.is-home) .rail-bottom { display: none; }
+    .app-sidebar:not(.is-home) .rail-nav {
+      flex-direction: row;
+      gap: 1.1rem;
+      margin-left: auto;
+    }
+    .app-sidebar:not(.is-home) .rail-nav a { font-size: 0.9rem; padding: 0; }
   }
   @media print {
     .app-sidebar { display: none; }
