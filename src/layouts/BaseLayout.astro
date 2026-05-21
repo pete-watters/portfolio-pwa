@@ -1,5 +1,5 @@
 ---
-import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
 import '../styles/global.css';
 
@@ -12,6 +12,7 @@ interface Props {
 }
 
 const { title, description, image, type, publishedDate } = Astro.props;
+const isHome = Astro.url.pathname === '/';
 ---
 
 <!doctype html>
@@ -26,9 +27,11 @@ const { title, description, image, type, publishedDate } = Astro.props;
     />
   </head>
   <body>
-    <Header />
-    <main>
-      <slot />
-    </main>
+    <div class="app-shell">
+      <Sidebar isHome={isHome} />
+      <main>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
