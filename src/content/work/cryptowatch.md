@@ -5,7 +5,7 @@ project: "Cryptowatch"
 role: "Senior Frontend Engineer"
 period: "August 2020 — November 2022"
 stat: "Millions of traders · 25 exchanges · 4,000+ markets · Codebashing security champion 2020"
-headline: "High-impact frontend work on Cryptowatch's trading surface — multi-exchange trading form, cockpit redesign, and the leverage slider that fronted real money on real positions."
+headline: "Frontend for a crypto trading terminal used by millions."
 subtitle: "Cryptowatch was a widely-used real-time charting and trading terminal, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and 4,000+ markets."
 confidentiality: "This case study describes my personal contributions. Cryptowatch has since been integrated into Kraken Pro. Details reflect my own experience and do not represent official Kraken communications."
 tech:
