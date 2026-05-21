@@ -2,28 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OpenSource from '../components/OpenSource.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { SOCIAL } from '../consts';
 ---
 
 <BaseLayout
   title="Web3 Frontend Engineer"
   description="Pete Watters — Web3 frontend engineer with ten years shipping crypto products across Bitcoin, Stacks, Solana and EVM chains. Wallets, trading terminals, institutional interfaces, on web and mobile."
 >
-  <article class="homepage">
+  <div class="home-shell">
 
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-lead">
-          <img
-            class="hero-avatar"
-            src="https://github.com/pete-watters.png"
-            alt="Pete Watters"
-            width="76"
-            height="76"
-            loading="eager"
-            data-reveal
-          />
-          <h1 class="hero-headline" data-reveal><span class="hl-accent">Web3</span> Frontend Engineer</h1>
-          <p class="hero-rhythm" aria-label="plan, build, ship">
+    <aside class="home-rail">
+      <div class="rail-top">
+        <img
+          class="rail-avatar"
+          src="https://github.com/pete-watters.png"
+          alt="Pete Watters"
+          width="92"
+          height="92"
+          loading="eager"
+        />
+        <p class="rail-name">Pete Watters</p>
+        <h1 class="rail-title"><span class="hl-accent">Web3</span> Frontend Engineer</h1>
+          <p class="hero-rhythm rail-rhythm" aria-label="plan, build, ship">
             <span class="rhythm-item">
               <svg class="rhythm-glyph" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                 <path d="m12.99 6.74 1.93 3.44" />
@@ -55,13 +55,21 @@ import ContactSection from '../components/ContactSection.astro';
               <span>ship</span>
             </span>
           </p>
-          <p class="hero-bio" data-reveal>
+          <p class="rail-bio">
             Front end specialist with an eye for design. Passionate about UX and comfortable
             delivering products across the stack. Building for the web for nearly 20 years —
             the last decade in crypto.
           </p>
-        </div>
-        <div class="hero-coins" aria-hidden="true" data-reveal>
+      </div>
+
+      <nav class="rail-nav" aria-label="Primary">
+        <a href="/#work">Work</a>
+        <a href="/blog">Writing</a>
+        <a href="/cv">CV</a>
+      </nav>
+
+      <div class="rail-bottom">
+        <div class="hero-coins rail-coins" aria-hidden="true">
           <div class="coin-col">
             <span class="coin coin--btc">₿</span>
             <span class="coin coin--eth">Ξ</span>
@@ -71,8 +79,19 @@ import ContactSection from '../components/ContactSection.astro';
             <span class="coin coin--sol">◎</span>
           </div>
         </div>
+        <a class="rail-availability" href="#contact">
+          <span class="rail-availability-dot" aria-hidden="true"></span>
+          Available Sep 2026
+        </a>
+        <div class="rail-social">
+          <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={SOCIAL.X} target="_blank" rel="noopener noreferrer">X</a>
+          <a href={SOCIAL.LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
       </div>
-    </section>
+    </aside>
+
+    <article class="homepage home-body">
 
     <section class="logo-strip">
       <p class="section-label">Shipped at</p>
@@ -316,7 +335,8 @@ import ContactSection from '../components/ContactSection.astro';
 
     <ContactSection />
 
-  </article>
+    </article>
+  </div>
 </BaseLayout>
 
 <script>
@@ -352,20 +372,33 @@ import ContactSection from '../components/ContactSection.astro';
 </script>
 
 <style>
-  main:has(> .homepage) {
+  :global(body:has(.home-shell) header.site-header) { display: none; }
+
+  :global(main:has(> .home-shell)) {
     max-width: none;
     padding: 0;
     text-align: left;
   }
 
-  .homepage {
+  .home-shell {
     --color-accent: #F7931A;
-    --homepage-max: 1080px;
     --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
-    max-width: var(--homepage-max);
-    margin: 0 auto;
-    padding: 0 1.5rem 4rem;
+    display: flex;
+    align-items: stretch;
     text-align: left;
+  }
+
+  .home-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 3.25rem clamp(1.5rem, 5vw, 4rem) 4rem;
+  }
+
+  .home-body > section,
+  .home-body > :global(*) {
+    max-width: 780px;
   }
 
   .homepage section { margin-bottom: 5rem; }
@@ -392,47 +425,112 @@ import ContactSection from '../components/ContactSection.astro';
     }
   }
 
-  /* HERO */
-  .hero {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    background:
-      radial-gradient(900px 460px at 82% -25%, rgba(247, 147, 26, 0.13), transparent 60%),
-      linear-gradient(165deg, #161616 0%, #1f1f1f 100%);
+  /* SIDEBAR RAIL */
+  .home-rail {
+    flex: 0 0 clamp(264px, 24vw, 340px);
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 3rem 2rem;
     color: #fff;
-    padding: 4.5rem 0;
-    margin-bottom: 3.5rem;
+    background:
+      radial-gradient(620px 340px at 25% 0%, rgba(247, 147, 26, 0.16), transparent 62%),
+      linear-gradient(170deg, #161616 0%, #1d1d1d 100%);
   }
-  .hero-inner {
-    max-width: var(--homepage-max);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 3rem;
-    align-items: center;
-  }
-  .hero-avatar {
-    width: 76px;
-    height: 76px;
+  .rail-top { display: flex; flex-direction: column; }
+  .rail-avatar {
+    width: 92px;
+    height: 92px;
     border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.14);
     object-fit: cover;
     display: block;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
   }
-  .hero-headline {
+  .rail-name {
     font-family: 'Space Grotesk', var(--font-sans);
-    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #9a9a9a;
+    margin: 0 0 0.35rem;
+  }
+  .rail-title {
+    font-family: 'Space Grotesk', var(--font-sans);
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
     font-weight: 700;
-    line-height: 1.04;
-    letter-spacing: -0.03em;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
     margin: 0 0 1.1rem;
     color: #fff;
   }
-  .hero-headline .hl-accent { color: var(--color-accent); }
-  .hero .hero-rhythm { color: #c4c4c4; }
-  .hero .hero-bio { color: #d0d0d0; }
+  .hl-accent { color: var(--color-accent); }
+  .rail-rhythm { margin: 0 0 1.1rem; font-size: 0.82rem; color: #c2c2c2; }
+  .rail-bio {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #cfcfcf;
+  }
+  .rail-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-family: 'Space Grotesk', var(--font-sans);
+  }
+  .rail-nav a {
+    color: #e6e6e6;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.15rem 0;
+    width: max-content;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .rail-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+  .rail-bottom { display: flex; flex-direction: column; gap: 1.5rem; }
+  .rail-coins { justify-content: flex-start; }
+  .rail-coins .coin { width: 54px; height: 54px; font-size: 18px; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
+  .rail-coins .coin--stx { font-size: 13px; }
+  .rail-coins .coin-col { gap: 0.85rem; }
+  .rail-coins .coin-col--offset { margin-top: 1.6rem; }
+  .rail-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: #d6d6d6;
+    text-decoration: none;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+  }
+  .rail-availability:hover { border-color: rgba(247, 147, 26, 0.5); }
+  .rail-availability-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.18);
+  }
+  .rail-social {
+    display: flex;
+    gap: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+  .rail-social a {
+    color: #9a9a9a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .rail-social a:hover { color: #fff; }
 
   .hero-coins { display: flex; gap: 1.1rem; }
   .coin-col { display: flex; flex-direction: column; gap: 1.1rem; }
@@ -467,8 +565,12 @@ import ContactSection from '../components/ContactSection.astro';
   @media (prefers-reduced-motion: reduce) {
     .coin { animation: none; }
   }
+  @media (max-width: 860px) {
+    .home-shell { flex-direction: column; }
+    .home-rail { flex-basis: auto; align-self: stretch; }
+    .home-body { padding-top: 2.5rem; }
+  }
   @media (max-width: 760px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
     .coin { width: 58px; height: 58px; font-size: 20px; }
     .coin--stx { font-size: 14px; }
     .coin-col--offset { margin-top: 1.5rem; }
