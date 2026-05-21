@@ -1,0 +1,79 @@
+---
+import { SOCIAL } from '../consts';
+
+// Public-facing alias — set up forwarding (hello@petewatters.ie → real inbox)
+// in DNS/email provider before site goes live with this section.
+const EMAIL = 'hello@petewatters.ie';
+---
+
+<section class="contact-section" id="contact" aria-labelledby="contact-label">
+  <p class="section-label" id="contact-label">Contact</p>
+  <p class="contact-bio">
+    Contact me at <a href={`mailto:${EMAIL}`}>{EMAIL}</a>, or find me on
+    <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>,
+    <a href={SOCIAL.X} target="_blank" rel="noopener noreferrer">X</a>,
+    or <a href={SOCIAL.LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+  </p>
+  <div class="contact-pgp">
+    <span class="contact-pgp-label">PGP</span>
+    <a class="contact-pgp-key" href="/pgp.asc">030C 8DB6 C41D F87C 6EA1 964E C723 EA1A 8C81 132B</a>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    --ease-hover: ease;
+    text-align: left;
+    margin-top: 2rem;
+  }
+
+  .contact-bio {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    max-width: 38em;
+    margin: 0.75rem 0 0;
+  }
+
+  .contact-bio a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-faint);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .contact-bio a:hover {
+    text-decoration-color: var(--color-text);
+  }
+
+  .contact-pgp {
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .contact-pgp-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-faint);
+  }
+  .contact-pgp-key {
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    color: var(--color-muted);
+    text-decoration: none;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.4rem;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-pgp-key:hover {
+    border-color: var(--color-faint);
+    color: var(--color-text);
+  }
+</style>

@@ -1,52 +1,896 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import OssContributions from '../components/OssContributions.astro';
-import BlogPostCard from '../components/BlogPostCard.astro';
-import { getCollection } from 'astro:content';
-
-const featuredPosts = (await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft && data.featured))
-  .sort((a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+import OpenSource from '../components/OpenSource.astro';
+import ContactSection from '../components/ContactSection.astro';
 ---
 
-<BaseLayout>
+<BaseLayout
+  title="Web3 Engineer"
+  description="Pete Watters — Web3 engineer with a decade in crypto across Bitcoin, Stacks, Solana and EVM chains. Wallets, trading terminals, institutional interfaces, on web and mobile."
+>
   <article class="homepage">
-    <section class="intro">
-      <p class="tagline">Senior Frontend Engineer — Bitcoin, Web3 and high-stakes fintech.</p>
-      <p>
-        Senior Frontend Engineer with over 15 years of experience leading frontend development
-        for high-traffic fintech, crypto and Web3 applications. Clean code practitioner, specialised
-        in React, TypeScript and React Native, with expertise in building scalable, user-focused
-        solutions. Demonstrated success in major product launches, optimising engineering workflows
-        and promoting cross-team collaboration.
-      </p>
-      <p>
-        At <a href="https://trustmachines.co" target="_blank" rel="noopener noreferrer">Trust Machines</a>,
-        I am building <a href="https://leather.io" target="_blank" rel="noopener noreferrer">Leather Wallet</a> —
-        the most popular Bitcoin and Stacks wallet for DeFi, NFTs and BRC-20 tokens. I work on the
-        browser extension and React Native mobile app, which serves hundreds of thousands of users
-        across multiple Bitcoin layers.
-      </p>
+
+    <section class="case-studies" id="work">
+      <p class="section-label">Case Studies</p>
+
+      <div class="case-grid">
+      <article class="case-card" data-reveal>
+        <div class="case-card-visual case-card-visual--leather">
+          <img src="/img/work/leather-mobile/compliance.png" alt="Leather mobile wallet — send screen" width="463" height="879" loading="lazy" />
+        </div>
+        <div class="case-card-content">
+          <p class="case-card-meta">
+            <span class="case-card-client">Trust Machines · Leather</span>
+            <span class="case-card-period">Jul 2023 — Present</span>
+          </p>
+          <h3 class="case-card-headline">
+            Leather wallet rebrand and shipped the first mobile app.
+          </h3>
+          <p class="case-card-body">
+            Worked on the Hiro → Leather rebrand as a core team member — monorepo, Panda UI
+            component library, and BIP39 mnemonic validation. Managed the end-to-end launch
+            of the Leather mobile app from scratch in React Native. Hit 1,850+ MAU in three
+            months; extension serves 8,400+ MAU.
+          </p>
+          <ul class="tags case-card-tags">
+            <li>Bitcoin</li>
+            <li>Stacks</li>
+            <li>React Native</li>
+            <li>Design System</li>
+            <li>AI Tooling</li>
+          </ul>
+          <a class="case-card-link" href="/work/leather-mobile/">
+            View case study <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="case-card" data-reveal>
+        <div class="case-card-visual case-card-visual--cryptowatch" aria-hidden="true">
+          <div class="terminal-mock">
+            <div class="terminal-bar">
+              <span class="terminal-dot terminal-dot--red"></span>
+              <span class="terminal-dot terminal-dot--amber"></span>
+              <span class="terminal-dot terminal-dot--green"></span>
+              <span class="terminal-title">Cryptowatch — BTC/USD</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="t-dim">exchange</span><span class="t-blue">kraken</span></div>
+              <div><span class="t-dim">pair    </span><span class="t-white">BTC / USD</span></div>
+              <div><span class="t-dim">price   </span><span class="t-green">$42,150.00</span></div>
+              <div><span class="t-dim">side    </span><span class="t-orange">buy</span></div>
+              <div><span class="t-dim">amount  </span><span class="t-white">0.1 BTC</span></div>
+              <div><span class="t-dim">leverage</span><span class="t-orange">——•—— 3×</span></div>
+              <div>&nbsp;</div>
+              <div><span class="t-green">› Order placed ✓</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="case-card-content">
+          <p class="case-card-meta">
+            <span class="case-card-client">Kraken · Cryptowatch</span>
+            <span class="case-card-period">Aug 2020 — Nov 2022</span>
+          </p>
+          <h3 class="case-card-headline">
+            Rebuilt a crypto trading-automation tool.
+          </h3>
+          <p class="case-card-body">
+            Cryptowatch served millions of traders across 25 exchanges and 4,000+ markets.
+            I took over Coderunner from another engineer and rebuilt its frontend — replacing
+            JSON-schema forms with a custom form generator, working alongside a backend dev.
+            Also shipped the multi-exchange trading form, cockpit redesign, and leverage slider
+            for the wider platform.
+          </p>
+          <ul class="tags case-card-tags">
+            <li>Kraken</li>
+            <li>TypeScript</li>
+            <li>Trading</li>
+            <li>Security</li>
+          </ul>
+          <a class="case-card-link" href="/work/cryptowatch/">
+            View case study <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="case-card" data-reveal>
+        <div class="case-card-visual case-card-visual--xapo">
+          <img src="/img/work/xapo/account.png" alt="Xapo wallet — multi-currency balances and debit card" width="1200" height="1200" loading="lazy" />
+        </div>
+        <div class="case-card-content">
+          <p class="case-card-meta">
+            <span class="case-card-client">Xapo</span>
+            <span class="case-card-period">Nov 2017 — Apr 2020</span>
+          </p>
+          <h3 class="case-card-headline">
+            At the forefront of Bitcoin wallet tech — back in 2017.
+          </h3>
+          <p class="case-card-body">
+            At a Bitcoin custody company serving 1.5M+ customers, I designed the full-stack
+            React, Next.js and Express blueprint adopted as the company standard, and built
+            CI/CD and E2E testing from the ground up. Completed private blockchain training
+            with Andreas Antonopoulos and Jimmy Song.
+          </p>
+          <ul class="tags case-card-tags">
+            <li>Bitcoin</li>
+            <li>Architecture</li>
+            <li>Next.js</li>
+            <li>CI/CD</li>
+          </ul>
+          <a class="case-card-link" href="/work/xapo/">
+            View case study <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="case-card" data-reveal>
+        <div class="case-card-visual case-card-visual--qredo">
+          <img src="/img/work/qredo/eth-hrt-landing.png" alt="Human-readable Ethereum transactions — decode a tx like English" width="1400" height="984" loading="lazy" />
+        </div>
+        <div class="case-card-content">
+          <p class="case-card-meta">
+            <span class="case-card-client">Qredo</span>
+            <span class="case-card-period">Jan — Jun 2023</span>
+          </p>
+          <h3 class="case-card-headline">
+            Led Web3 wallet integration into a rebranded DeFi platform.
+          </h3>
+          <p class="case-card-body">
+            Layer 2 institutional custodian protocol for private-key management. As lead
+            frontend developer, I drove the Web3 wallet integration (MetaMask, WalletConnect)
+            into the rebranded UI — React, Redux Toolkit — plus a Node.js parser that turns
+            raw ETH transactions into human-readable history for compliance teams.
+          </p>
+          <ul class="tags case-card-tags">
+            <li>Ethereum</li>
+            <li>DeFi</li>
+            <li>Institutional</li>
+            <li>MetaMask</li>
+            <li>Node.js</li>
+          </ul>
+          <a class="case-card-link" href="/work/qredo/">
+            View case study <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+      </div>
     </section>
 
-    <OssContributions />
+    <section class="case-studies projects">
+      <p class="section-label">Projects</p>
 
-    {featuredPosts.length > 0 && (
-      <section class="recent-posts">
-        <h3>Writing</h3>
-        <ul class="blog-list">
-          {featuredPosts.map((post: CollectionEntry<'blog'>) => (
-            <BlogPostCard
-              title={post.data.title}
-              description={post.data.description}
-              pubDate={post.data.pubDate}
-              slug={post.id.replace(/\.md$/, '')}
-              tags={post.data.tags}
-            />
-          ))}
-        </ul>
-        <p class="view-all"><a href="/blog">View all posts &rarr;</a></p>
-      </section>
-    )}
+      <div class="case-grid">
+        <article class="case-card" data-reveal>
+          <div class="case-card-visual">
+            <img src="/img/work/stackr/a-terminal.png" alt="Stackr — cross-chain portfolio terminal" width="1200" height="800" loading="lazy" />
+          </div>
+          <div class="case-card-content">
+            <p class="case-card-meta">
+              <span class="case-card-client">Independent · Stackr</span>
+              <span class="case-card-period">2026 — Present</span>
+            </p>
+            <h3 class="case-card-headline">A self-custodial cross-chain portfolio terminal.</h3>
+            <p class="case-card-body">
+              Track balances, allocation and activity across Bitcoin, Ethereum, Solana and
+              Stacks in one view — connect a wallet or watch any address. Computed entirely
+              client-side from public RPCs. No backend, no accounts, custom SVG charts.
+            </p>
+            <ul class="tags case-card-tags">
+              <li>Next.js 15</li>
+              <li>Multi-chain</li>
+              <li>Cloudflare</li>
+              <li>Design</li>
+            </ul>
+            <a class="case-card-link" href="/work/stackr/">
+              View project <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="case-card" data-reveal>
+          <div class="case-card-visual">
+            <img src="/img/work/simplyfpl/after-C-web-dashboard.png" alt="SimplyFPL — real-time Fantasy Premier League dashboard" width="1200" height="750" loading="lazy" />
+          </div>
+          <div class="case-card-content">
+            <p class="case-card-meta">
+              <span class="case-card-client">Independent · SimplyFPL</span>
+              <span class="case-card-period">2025 — Present</span>
+            </p>
+            <h3 class="case-card-headline">A real-time Fantasy Premier League product, built solo.</h3>
+            <p class="case-card-body">
+              A faster, calmer alternative to the incumbent live-rank trackers — edge-served
+              from Cloudflare with Durable Objects, tested like a team product, and built by
+              steering AI across architecture, infra, design and ops.
+            </p>
+            <ul class="tags case-card-tags">
+              <li>Next.js 15</li>
+              <li>Cloudflare Workers</li>
+              <li>Real-time</li>
+              <li>AI workflow</li>
+            </ul>
+            <a class="case-card-link" href="/work/simplyfpl/">
+              View project <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="case-card" data-reveal>
+          <div class="case-card-visual">
+            <img src="/img/og.png" alt="petewatters.ie — this portfolio site" width="1200" height="630" loading="lazy" />
+          </div>
+          <div class="case-card-content">
+            <p class="case-card-meta">
+              <span class="case-card-client">Independent · petewatters.ie</span>
+              <span class="case-card-period">2026</span>
+            </p>
+            <h3 class="case-card-headline">This site — an Astro PWA with build-time on-chain data.</h3>
+            <p class="case-card-body">
+              The portfolio you're reading. Astro, static-rendered and offline-capable, with a
+              live GitHub contribution graph and a Solana-NFT avatar both fetched at build time —
+              real and current, at zero runtime cost.
+            </p>
+            <ul class="tags case-card-tags">
+              <li>Astro</li>
+              <li>PWA</li>
+              <li>TypeScript</li>
+              <li>Cloudflare</li>
+            </ul>
+            <a class="case-card-link" href="https://github.com/pete-watters/portfolio-pwa" target="_blank" rel="noopener noreferrer">
+              View source <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <OpenSource />
+
+    <section class="timeline">
+      <p class="section-label">Resume 2014 → 2026</p>
+      <ol class="timeline-rows">
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Trust Machines</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Senior Frontend Engineer</span>
+            <span class="timeline-role-blurb">Leather wallet · rebrand · mobile · AI workflow</span>
+          </div>
+          <div class="timeline-period">Jul 2023 — Present</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Qredo</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Senior Frontend Engineer</span>
+            <span class="timeline-role-blurb">Institutional DeFi · MetaMask · WalletConnect</span>
+          </div>
+          <div class="timeline-period">Jan — Jun 2023</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Kraken</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Senior Frontend Engineer</span>
+            <span class="timeline-role-blurb">Trading terminal · Coderunner · Codebashing champion</span>
+          </div>
+          <div class="timeline-period">Aug 2020 — Nov 2022</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Xapo</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Senior Frontend Engineer</span>
+            <span class="timeline-role-blurb">Architecture standard · CI/CD · 1.5M customers</span>
+          </div>
+          <div class="timeline-period">Nov 2017 — Apr 2020</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Bank of America</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Senior Frontend Engineer</span>
+            <span class="timeline-role-blurb">Investment tracking · TDD/BDD · Python/Django</span>
+          </div>
+          <div class="timeline-period">May — Oct 2017</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Rocksteady</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Lead JavaScript Developer</span>
+            <span class="timeline-role-blurb">Rescued failing app · first stable release in 7 months</span>
+          </div>
+          <div class="timeline-period">Apr 2016 — Mar 2017</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Kontainers</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Full-Stack Developer</span>
+            <span class="timeline-role-blurb">Seed-stage · inception to production · acquired by Descartes</span>
+          </div>
+          <div class="timeline-period">Jun 2015 — Apr 2016</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Fidelity</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">UX Developer</span>
+            <span class="timeline-role-blurb">Offshore team lead · R&amp;D accreditation</span>
+          </div>
+          <div class="timeline-period">Jun 2014 — Jun 2015</div>
+        </li>
+        <li class="timeline-row" data-reveal>
+          <div class="timeline-company">Earlier</div>
+          <div class="timeline-role">
+            <span class="timeline-role-name">Yahoo! · eSpatial · The Now Factory · IBM · HP</span>
+            <span class="timeline-role-blurb">From graduate to senior, building front-ends for enterprise</span>
+          </div>
+          <div class="timeline-period">2006 — 2014</div>
+        </li>
+      </ol>
+    </section>
+
+    <ContactSection />
+
   </article>
 </BaseLayout>
+
+<script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = Number(entry.target.getAttribute('data-stagger') || 0);
+          setTimeout(() => entry.target.classList.add('is-visible'), delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    const groups = [
+      { selector: '.logo-strip-list [data-reveal]', step: 80 },
+      { selector: '.case-card[data-reveal]',        step: 120 },
+      { selector: '.timeline-row[data-reveal]',     step: 60 },
+    ];
+
+    groups.forEach(({ selector, step }) => {
+      document.querySelectorAll(selector).forEach((el, i) => {
+        el.setAttribute('data-stagger', String(i * step));
+      });
+    });
+
+    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+  } else {
+    document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+  }
+</script>
+
+<style>
+  .homepage {
+    --color-accent: #F7931A;
+    --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+    max-width: 1180px;
+    text-align: left;
+  }
+
+  .homepage section { margin-bottom: 5rem; }
+
+  /* Content is visible by default so the page survives no-JS and pre-hydration.
+     The `js` class (set synchronously in <head>) opts into the reveal animation. */
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+      opacity 0.6s var(--ease-out-soft),
+      transform 0.6s var(--ease-out-soft);
+    will-change: opacity, transform;
+  }
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* SIDEBAR RAIL */
+  .home-rail {
+    flex: 0 0 clamp(264px, 24vw, 340px);
+    align-self: flex-start;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    color: #fff;
+    background:
+      radial-gradient(620px 340px at 25% 0%, rgba(247, 147, 26, 0.16), transparent 62%),
+      linear-gradient(170deg, #161616 0%, #1d1d1d 100%);
+  }
+  .rail-top { display: flex; flex-direction: column; }
+  .rail-avatar {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    object-fit: cover;
+    display: block;
+    margin: 0 0 1.25rem;
+  }
+  .rail-name {
+    font-family: 'Space Grotesk', var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #9a9a9a;
+    margin: 0 0 0.35rem;
+  }
+  .rail-title {
+    font-family: 'Space Grotesk', var(--font-sans);
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.1rem;
+    color: #fff;
+  }
+  .hl-accent { color: var(--color-accent); }
+  .rail-rhythm { margin: 0 0 1.1rem; font-size: 0.82rem; color: #ededed; }
+  .rail-rhythm .rhythm-item > span { color: #ededed; }
+  .rail-rhythm .rhythm-sep { color: #8a8a8a; opacity: 1; }
+  .rail-bio {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #cfcfcf;
+  }
+  .rail-shipped { margin-top: 1.5rem; }
+  .rail-shipped-label {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    margin: 0 0 0.55rem;
+  }
+  .rail-shipped-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: #bdbdbd;
+  }
+  .rail-shipped-list li { white-space: nowrap; }
+  .rail-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-family: 'Space Grotesk', var(--font-sans);
+  }
+  .rail-nav a {
+    color: #e6e6e6;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.15rem 0;
+    width: max-content;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .rail-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+  .rail-bottom { display: flex; flex-direction: column; gap: 1.5rem; }
+  .rail-coins { display: flex; gap: 0.7rem; justify-content: flex-start; }
+  .rail-coins .coin-face { width: 46px; height: 46px; box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35); }
+  .rail-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: #d6d6d6;
+    text-decoration: none;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+  }
+  .rail-availability:hover { border-color: rgba(247, 147, 26, 0.5); }
+  .rail-availability-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.18);
+  }
+  .rail-social {
+    display: flex;
+    gap: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+  .rail-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #9a9a9a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .rail-social img {
+    width: 15px;
+    height: 15px;
+    filter: brightness(0) invert(1);
+    opacity: 0.65;
+    transition: opacity 0.2s ease;
+  }
+  .rail-social a:hover { color: #fff; }
+  .rail-social a:hover img { opacity: 1; }
+
+  .hero-coins { display: flex; gap: 1.2rem; }
+  .coin-col { display: flex; flex-direction: column; gap: 1.2rem; }
+  .coin-col--offset { margin-top: 2.4rem; }
+  .coin {
+    display: block;
+  }
+  .coin-face {
+    display: block;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  }
+  .coin--btc { --fd: 4.2s; --dl: 0s; }
+  .coin--eth { --fd: 4.8s; --dl: -1.4s; }
+  .coin--stx { --fd: 5.2s; --dl: -0.7s; }
+  .coin--sol { --fd: 4.5s; --dl: -2.1s; }
+  @keyframes coin-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-11px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .coin { animation: none; }
+  }
+  @media (max-width: 860px) {
+    .home-shell { flex-direction: column; }
+    .home-rail { flex-basis: auto; align-self: stretch; }
+    .home-body { padding-top: 2.5rem; }
+  }
+  @media (max-width: 760px) {
+    .coin-face { width: 58px; height: 58px; }
+    .coin-col--offset { margin-top: 1.5rem; }
+  }
+
+  .hero-rhythm {
+    margin: 0 0 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 0.9rem;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    color: var(--color-muted);
+  }
+
+  .rhythm-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: rhythm-fade-up 0.5s var(--ease-out-soft) forwards;
+  }
+
+  .rhythm-glyph {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .rhythm-sep {
+    color: var(--color-faint);
+    opacity: 0.7;
+  }
+
+  .hero-rhythm > .rhythm-item:nth-of-type(1) { animation-delay: 0.35s; }
+  .hero-rhythm > .rhythm-item:nth-of-type(2) { animation-delay: 0.50s; }
+  .hero-rhythm > .rhythm-item:nth-of-type(3) { animation-delay: 0.65s; }
+
+  @keyframes rhythm-fade-up {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rhythm-item { animation: none; opacity: 1; transform: none; }
+  }
+
+  .hero-bio {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    line-height: 1.65;
+    color: var(--color-text);
+    max-width: 38em;
+    margin: 0;
+  }
+
+  /* LOGO STRIP */
+  .logo-strip { padding-top: 1rem; }
+
+  .logo-strip-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem 2.5rem;
+    align-items: center;
+  }
+
+  .logo-strip-list li {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-faint);
+    transition:
+      color 0.3s var(--ease-out-soft),
+      transform 0.3s var(--ease-out-soft);
+    cursor: default;
+  }
+
+  .logo-strip-list li:hover {
+    color: var(--color-text);
+    transform: translateY(-1px);
+  }
+
+  /* CASE STUDY CARDS */
+  .case-studies .section-label { margin-bottom: 2rem; }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.75rem 2.25rem;
+  }
+  @media (max-width: 1000px) {
+    .case-grid { grid-template-columns: 1fr; }
+  }
+
+  .case-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin: 0;
+  }
+  .case-card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .case-card-visual {
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #fafafa;
+    transition: transform 0.4s var(--ease-out-soft), border-color 0.3s var(--ease-out-soft);
+  }
+  .case-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .case-card:hover .case-card-visual {
+    transform: translateY(-3px);
+    border-color: var(--color-faint);
+  }
+
+  .visual-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f5f5 0%, #eaeaea 100%);
+  }
+
+  .visual-placeholder--quiet {
+    background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+  }
+
+  .placeholder-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-faint);
+    letter-spacing: 0.05em;
+  }
+
+  /* terminal mock — Cryptowatch */
+  .terminal-mock {
+    width: 100%;
+    height: 100%;
+    background: #0D1117;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+
+  .terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.55rem 0.8rem;
+    background: #161B22;
+    border-bottom: 1px solid #21262D;
+  }
+
+  .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  .terminal-dot--red   { background: #FF5F56; }
+  .terminal-dot--amber { background: #FFBD2E; }
+  .terminal-dot--green { background: #27C93F; }
+
+  .terminal-title {
+    margin-left: 0.5rem;
+    font-size: 11px;
+    color: #8B949E;
+  }
+
+  .terminal-body {
+    padding: 0.85rem 1rem;
+    color: #C9D1D9;
+    flex: 1;
+  }
+  .terminal-body > div { display: flex; gap: 1.25rem; line-height: 1.55; }
+  .t-dim    { color: #8B949E; min-width: 5rem; display: inline-block; }
+  .t-white  { color: #F0F6FC; }
+  .t-blue   { color: #79C0FF; }
+  .t-green  { color: #56D364; }
+  .t-orange { color: #F7931A; }
+
+  .case-card-meta {
+    margin: 0 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .case-card-client { color: var(--color-muted); font-weight: 600; }
+  .case-card-period { color: var(--color-faint); }
+
+  .case-card-headline {
+    margin: 0 0 1rem;
+    font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+
+  .case-card-body {
+    margin: 0 0 1.25rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-muted);
+  }
+
+  .case-card-tags { margin-bottom: 1.25rem; }
+
+  .case-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-text);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.25s var(--ease-out-soft);
+  }
+  .case-card-link:hover { border-bottom-color: var(--color-text); }
+  .case-card-link .arrow {
+    display: inline-block;
+    transition: transform 0.3s var(--ease-out-soft);
+  }
+  .case-card-link:hover .arrow { transform: translateX(4px); }
+
+  /* TIMELINE */
+  .timeline .section-label { margin-bottom: 1.5rem; }
+
+  .timeline-rows {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 1.4fr 2.6fr 1.2fr;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid var(--color-border);
+    align-items: baseline;
+  }
+
+  .timeline-company {
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .timeline-role {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .timeline-role-name {
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .timeline-role-blurb {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .timeline-period {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-faint);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .case-card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+    .case-card:nth-of-type(odd) .case-card-visual { order: 0; }
+    .case-card-visual { aspect-ratio: 16 / 10; }
+
+    .timeline-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+      padding: 1rem 0;
+    }
+    .timeline-period { text-align: left; }
+  }
+
+  @media (max-width: 540px) {
+    .homepage { padding: 1rem 1.25rem 3rem; }
+    .homepage section { margin-bottom: 3.5rem; }
+    .hero { padding: 3rem 0; margin-bottom: 2.5rem; }
+    .logo-strip-list { gap: 0.9rem 1.5rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    .badge-dot {
+      animation: none !important;
+      transition: none !important;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

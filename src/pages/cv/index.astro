@@ -1,0 +1,16 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
+import CvLayout from '../../layouts/CvLayout.astro';
+
+const entry = (await getEntry('cv', 'main')) as CollectionEntry<'cv'>;
+const { Content } = await render(entry);
+---
+
+<CvLayout
+  title="CV"
+  description={entry.data.description}
+  tagline={entry.data.tagline}
+>
+  <Content />
+</CvLayout>

@@ -1,0 +1,385 @@
+---
+import { getGitHubStats } from '../lib/github';
+import { GITHUB, SOCIAL } from '../consts';
+
+const stats = await getGitHubStats(GITHUB.USERNAME);
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const monthLabels: { label: string; col: number }[] = [];
+let lastMonth = -1;
+stats.weeks.forEach((week, i) => {
+  const first = week[0];
+  if (!first) return;
+  const m = new Date(first.date + 'T00:00:00Z').getUTCMonth();
+  if (m !== lastMonth) {
+    monthLabels.push({ label: MONTHS[m], col: i + 1 });
+    lastMonth = m;
+  }
+});
+
+const fmt = (n: number) => n.toLocaleString('en-US');
+
+// Curated landmark contributions — all verified merged PRs, each with a
+// matching blog write-up. `meta` is kept short for the compact grid.
+const notable: {
+  repo: string;
+  num: number;
+  title: string;
+  meta: string;
+  post?: string;
+}[] = [
+  {
+    repo: 'leather-io/mono',
+    num: 161,
+    title: 'Monorepo & shared UI packages',
+    meta: 'Set up packages/ui · 31 files',
+    post: 'designing-a-monorepo',
+  },
+  {
+    repo: 'leather-io/mono',
+    num: 1837,
+    title: 'Cross-platform feature packages',
+    meta: 'One package, two surfaces · 152 files',
+    post: 'cross-platform-monorepo',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4655,
+    title: 'Full-page view & container system rebuild',
+    meta: 'Radix Dialog · 358 files',
+    post: 'extension-containers',
+  },
+  {
+    repo: 'leather-io/mono',
+    num: 885,
+    title: 'Branded types for Bitcoin addresses',
+    meta: 'Compile-time address safety · 47 files',
+    post: 'branded-types-crypto-wallet',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4243,
+    title: 'Secret-key redesign + BIP-39 validation',
+    meta: 'Word-by-word mnemonic input · 27 files',
+    post: 'mnemonic-validation',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4113,
+    title: 'Spam & scam token filtering',
+    meta: 'Phishing names out of the asset list',
+    post: 'spam-token-filtering',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 4325,
+    title: 'Modal routing refactor',
+    meta: 'Overlay + nested route state · 30 files',
+    post: 'modal-routing-browser-extension',
+  },
+  {
+    repo: 'leather-io/extension',
+    num: 6085,
+    title: 'UTXO consolidation — the 6-line fix',
+    meta: '+6 / −10 · the best code you delete',
+    post: 'utxo-consolidation-six-lines',
+  },
+];
+---
+
+{
+  stats.available && (
+    <section class="oss" id="open-source">
+      <div class="oss-head">
+        <p class="section-label">Open source</p>
+        <a class="oss-github" href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">
+          @{GITHUB.USERNAME} on GitHub →
+        </a>
+      </div>
+
+      <div class="oss-top">
+        <h2 class="oss-title">Contribution activity</h2>
+        <div class="oss-bigstats">
+          <div>
+            <span class="oss-big">{fmt(stats.totalContributions)}</span>
+            <span class="oss-big-label">contributions this year</span>
+          </div>
+          <div>
+            <span class="oss-big">{stats.currentStreak}</span>
+            <span class="oss-big-label">day streak</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="oss-calendar" role="img" aria-label={`${fmt(stats.totalContributions)} GitHub contributions in the last year`}>
+        <div class="oss-months">
+          {monthLabels.map((m) => (
+            <span style={`grid-column: ${m.col}`}>{m.label}</span>
+          ))}
+        </div>
+        <div class="oss-grid">
+          {stats.weeks.map((week) => (
+            <div class="oss-week">
+              {week.map((day) => (
+                <span class="oss-day" data-level={day.level} title={`${day.count} on ${day.date}`} />
+              ))}
+            </div>
+          ))}
+        </div>
+        <div class="oss-legend">
+          <span>Less</span>
+          <span class="oss-day" data-level="0" />
+          <span class="oss-day" data-level="1" />
+          <span class="oss-day" data-level="2" />
+          <span class="oss-day" data-level="3" />
+          <span class="oss-day" data-level="4" />
+          <span>More</span>
+        </div>
+      </div>
+
+      <dl class="oss-overview">
+        <div class="oss-stat">
+          <dt>Pull requests</dt>
+          <dd>{fmt(stats.pullRequests)}</dd>
+        </div>
+        <div class="oss-stat">
+          <dt>Code reviews</dt>
+          <dd>{fmt(stats.reviews)}</dd>
+        </div>
+        <div class="oss-stat">
+          <dt>Commits</dt>
+          <dd>{fmt(stats.commits)}</dd>
+        </div>
+      </dl>
+
+      <p class="oss-notable-label">Landmark contributions</p>
+      <ul class="oss-notable">
+        {notable.map((pr) => (
+          <li class="oss-notable-item">
+            <a class="oss-pr-link" href={`https://github.com/${pr.repo}/pull/${pr.num}`} target="_blank" rel="noopener noreferrer">
+              <span class="oss-pr-title">{pr.title}</span>
+              <span class="oss-pr-meta">
+                {pr.repo}#{pr.num} · {pr.meta}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .oss {
+    --color-accent: #f7931a;
+    margin: 4rem 0 0;
+  }
+
+  .oss-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .oss-github {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-muted);
+    text-decoration: none;
+  }
+  .oss-github:hover { color: var(--color-accent); }
+
+  .oss-top {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin: 0.5rem 0 1.5rem;
+  }
+  .oss-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    margin: 0;
+  }
+  .oss-bigstats {
+    display: flex;
+    gap: 2rem;
+  }
+  .oss-bigstats > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1.1;
+  }
+  .oss-big {
+    font-family: var(--font-mono);
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .oss-big-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-faint);
+    margin-top: 0.2rem;
+  }
+
+  /* CALENDAR */
+  /* Calendar scales to fit the container — 53 equal columns, square cells.
+     No horizontal scroll at any width; cells shrink on narrow screens. */
+  .oss-calendar {
+    border: 1px solid var(--color-border);
+    border-radius: 0.6rem;
+    padding: 1rem;
+  }
+  .oss-months,
+  .oss-grid {
+    display: grid;
+    grid-template-columns: repeat(53, minmax(0, 1fr));
+    gap: 2px;
+    width: 100%;
+    max-width: 760px;
+  }
+  .oss-months {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-faint);
+    margin-bottom: 4px;
+  }
+  .oss-months span {
+    grid-row: 1;
+    white-space: nowrap;
+  }
+  .oss-week {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .oss-day {
+    border-radius: 2px;
+    background: #ebedf0;
+  }
+  .oss-grid .oss-day {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+  .oss-legend .oss-day {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+  }
+  .oss-day[data-level='1'] { background: #ffd9a0; }
+  .oss-day[data-level='2'] { background: #ffb454; }
+  .oss-day[data-level='3'] { background: #f7931a; }
+  .oss-day[data-level='4'] { background: #b8690c; }
+
+  .oss-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--color-faint);
+  }
+
+  /* OVERVIEW */
+  .oss-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+  .oss-stat {
+    border: 1px solid var(--color-border);
+    border-radius: 0.6rem;
+    padding: 1rem 1.25rem;
+  }
+  .oss-stat dt {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-faint);
+  }
+  .oss-stat dd {
+    font-family: var(--font-mono);
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0.3rem 0 0;
+  }
+
+  /* NOTABLE */
+  .oss-notable-label {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-faint);
+    margin: 2rem 0 0.75rem;
+  }
+  .oss-notable {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+  .oss-notable-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .oss-notable-item:hover {
+    border-color: var(--color-accent);
+    background: rgba(247, 147, 26, 0.04);
+  }
+  .oss-pr-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    text-decoration: none;
+  }
+  .oss-pr-title {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .oss-pr-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-faint);
+  }
+  .oss-story {
+    width: fit-content;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 2px;
+  }
+  .oss-story:hover { text-decoration-color: var(--color-text); }
+
+  @media (max-width: 600px) {
+    .oss-overview { grid-template-columns: 1fr; }
+    .oss-notable { grid-template-columns: 1fr; }
+    .oss-top { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+    .oss-bigstats > div { align-items: flex-start; }
+  }
+</style>
