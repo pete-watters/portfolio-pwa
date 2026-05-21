@@ -29,11 +29,11 @@ Engineer building for the web for nearly 20 years, the last decade in crypto —
 - Shipped the multi-chain NFT gallery in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
 - Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
 
-### [Qredo](https://www.qredo.com) · Senior Frontend Engineer *Jan — Jun 2023 · Remote*
+### [Qredo](https://www.qredo.com) · Web3 Lead Developer *Jan — Jun 2023 · Remote*
 
 > Layer 2 decentralised custodian protocol for institutional private key management on a blockchain network.
 
-- Directed Web3 wallet integration and developed a new institutional trading interface using React, Redux Toolkit, Material UI and styled-components. Integrated MetaMask, WalletConnect and WebAPI to support secure client transactions on the Qredo network.
+- Lead frontend developer for the Web3 wallet integration into Qredo's rebranded institutional UI, using React, Redux Toolkit, Material UI and styled-components. Integrated MetaMask, WalletConnect and WebAPI to support secure client transactions on the Qredo network.
 - Developed a Node.js ETH transaction parser to present on-chain history in a human-readable format, improving compliance and operational transparency.
 
 ### [Kraken](https://www.kraken.com) · Cryptowatch · Senior Frontend Engineer *Aug 2020 — Nov 2022 · Remote*
