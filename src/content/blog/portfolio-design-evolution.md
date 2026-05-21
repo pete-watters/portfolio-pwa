@@ -3,7 +3,7 @@ title: "Redesigning My Portfolio: From a React PWA to an Astro Sidebar"
 description: "Three rebuilds of my personal site -- the tooling, the positioning, and the visual identity -- and the decision behind each one."
 pubDate: 2026-05-21
 tags: ["code", "design"]
-draft: true
+draft: false
 ---
 
 I've rebuilt this site three times now. Each rebuild changed the code, but looking back at the screenshots, the more interesting story is how the words changed. The way I described myself on the homepage tracked exactly where I was in my career -- and the first version got it badly wrong.
@@ -36,7 +36,7 @@ The positioning improved, but only halfway. *"Senior Frontend Engineer -- Bitcoi
 
 The third rebuild started with the words, not the design.
 
-I've spent the last decade working in crypto -- wallets, trading terminals, institutional custody interfaces -- across Bitcoin, Stacks, Solana and EVM chains. That's the specific thing. So the headline became **Web3 Frontend Engineer**, with "Web3" picked out in Bitcoin orange.
+I've spent the last decade working in crypto -- wallets, trading terminals, institutional custody interfaces -- across Bitcoin, Stacks, Solana and EVM chains. That's the specific thing. So the headline became **Web3 Engineer**, with "Web3" picked out in Bitcoin orange.
 
 It's a narrower claim, and that's the point. A narrow, accurate title is easier to find, easier to remember, and easier to believe than a broad one. I dropped "Senior" from the headline entirely -- the work history carries that signal better than the adjective does.
 
@@ -46,7 +46,7 @@ Here's how the self-description changed across the three versions:
 |---|---|
 | 2021 (CRA) | Full stack developer, UX specialist and JavaScript enthusiast |
 | Astro v1 | Senior Frontend Engineer -- Bitcoin, Web3 and high-stakes fintech, 15+ years |
-| Astro v2 | Web3 Frontend Engineer -- building for the web for nearly 20 years, the last decade in crypto |
+| Astro v2 | Web3 Engineer -- building for the web for nearly 20 years, the last decade in crypto |
 
 The years line is also more honest. "Nearly 20 years, the last decade in crypto" maps to my actual history; "15+ years of experience" was a number I'd stopped thinking about.
 
@@ -76,7 +76,7 @@ Neither was bad enough to outweigh how distinctive the layout is, and the compar
 ## What I'd tell the 2021 version
 
 - **Write the headline before the CSS.** Two of three rebuilds were really about fixing the words. The design was downstream of getting those right.
-- **A narrow title beats a broad one.** "Web3 Frontend Engineer" is a smaller claim than "full stack developer," and it does far more work.
+- **A narrow title beats a broad one.** "Web3 Engineer" is a smaller claim than "full stack developer," and it does far more work.
 - **Pick a tool that matches the content.** A mostly-text site rendering on the client was the wrong call; static output was the right fix once I stopped defaulting to React for everything.
 - **Compare in the browser, not in your head.** Shipping both layouts as preview deployments turned a debate into a decision.
 
