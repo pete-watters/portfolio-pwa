@@ -3,7 +3,7 @@ tagline: "Engineer · Bitcoin & Web3 · Dublin, Ireland"
 description: "Pete Watters — Engineer CV"
 ---
 
-Engineer with 15+ years delivering web and mobile applications across fintech, crypto and Web3. Plan it, build it, ship it. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
+Engineer building for the web for nearly 20 years, the last decade in crypto — delivering web and mobile applications across fintech and Web3. Plan it, build it, ship it. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
 
 ## Skills
 
