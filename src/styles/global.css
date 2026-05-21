@@ -113,6 +113,28 @@ main {
   text-align: center;
 }
 
+/* App shell — persistent sidebar + content column */
+.app-shell {
+  display: flex;
+  align-items: flex-start;
+}
+.app-shell > main {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2.75rem clamp(1.5rem, 4vw, 3rem) 4rem;
+  text-align: left;
+}
+.app-shell > main:has(> .homepage) {
+  max-width: none;
+  margin: 0;
+}
+@media (max-width: 860px) {
+  .app-shell { flex-direction: column; }
+  .app-shell > main { max-width: none; margin: 0; }
+}
+
 /* Site header — sticky, full-width dark bar */
 header.site-header {
   position: sticky;
