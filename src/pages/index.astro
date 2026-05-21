@@ -2,54 +2,96 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OpenSource from '../components/OpenSource.astro';
 import ContactSection from '../components/ContactSection.astro';
+import { SOCIAL } from '../consts';
 ---
 
 <BaseLayout
   title="Web3 Frontend Engineer"
-  description="Pete Watters — Web3 frontend engineer with ten years shipping crypto products across Bitcoin, Stacks, Solana and EVM chains. Wallets, trading terminals, institutional interfaces, on web and mobile."
+  description="Pete Watters — Web3 frontend engineer with a decade in crypto across Bitcoin, Stacks, Solana and EVM chains. Wallets, trading terminals, institutional interfaces, on web and mobile."
 >
-  <article class="homepage">
+  <div class="home-shell">
 
-    <section class="hero">
-      <h1 class="hero-headline" data-reveal>Engineer</h1>
-      <p class="hero-rhythm" aria-label="plan, build, ship">
-        <span class="rhythm-item">
-          <svg class="rhythm-glyph" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="m12.99 6.74 1.93 3.44" />
-            <path d="M19.136 12a10 10 0 0 1-14.271 0" />
-            <path d="m21 21-2.16-3.84" />
-            <path d="m3 21 8.02-14.26" />
-            <circle cx="12" cy="5" r="2" />
-          </svg>
-          <span>plan</span>
-        </span>
-        <span class="rhythm-sep" aria-hidden="true">·</span>
-        <span class="rhythm-item">
-          <svg class="rhythm-glyph" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" />
-            <path d="m18 15 4-4" />
-            <path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" />
-          </svg>
-          <span>build</span>
-        </span>
-        <span class="rhythm-sep" aria-hidden="true">·</span>
-        <span class="rhythm-item">
-          <svg class="rhythm-glyph" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M12 10.189V14" />
-            <path d="M12 2v3" />
-            <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" />
-            <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-8.188-3.639a2 2 0 0 0-1.624 0L3 14a11.6 11.6 0 0 0 2.81 7.76" />
-            <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
-          </svg>
-          <span>ship</span>
-        </span>
-      </p>
-      <p class="hero-bio" data-reveal>
-        Ten years shipping crypto products people actually use — wallets, trading terminals,
-        institutional interfaces — across Bitcoin, Stacks, Solana and EVM chains. I take a brief
-        and turn it into production code, on web and mobile, faster than most teams.
-      </p>
-    </section>
+    <aside class="home-rail">
+      <div class="rail-top">
+        <img
+          class="rail-avatar"
+          src="https://github.com/pete-watters.png"
+          alt="Pete Watters"
+          width="92"
+          height="92"
+          loading="eager"
+        />
+        <p class="rail-name">Pete Watters</p>
+        <h1 class="rail-title"><span class="hl-accent">Web3</span> Frontend Engineer</h1>
+          <p class="hero-rhythm rail-rhythm" aria-label="plan, build, ship">
+            <span class="rhythm-item">
+              <svg class="rhythm-glyph" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="m12.99 6.74 1.93 3.44" />
+                <path d="M19.136 12a10 10 0 0 1-14.271 0" />
+                <path d="m21 21-2.16-3.84" />
+                <path d="m3 21 8.02-14.26" />
+                <circle cx="12" cy="5" r="2" />
+              </svg>
+              <span>plan</span>
+            </span>
+            <span class="rhythm-sep" aria-hidden="true">·</span>
+            <span class="rhythm-item">
+              <svg class="rhythm-glyph" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="m15 12-9.373 9.373a1 1 0 0 1-3.001-3L12 9" />
+                <path d="m18 15 4-4" />
+                <path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172v-.344a2 2 0 0 0-.586-1.414l-1.657-1.657A6 6 0 0 0 12.516 3H9l1.243 1.243A6 6 0 0 1 12 8.485V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5" />
+              </svg>
+              <span>build</span>
+            </span>
+            <span class="rhythm-sep" aria-hidden="true">·</span>
+            <span class="rhythm-item">
+              <svg class="rhythm-glyph" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M12 10.189V14" />
+                <path d="M12 2v3" />
+                <path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6" />
+                <path d="M19.38 20A11.6 11.6 0 0 0 21 14l-8.188-3.639a2 2 0 0 0-1.624 0L3 14a11.6 11.6 0 0 0 2.81 7.76" />
+                <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1s1.2 1 2.5 1c2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+              </svg>
+              <span>ship</span>
+            </span>
+          </p>
+          <p class="rail-bio">
+            Front end specialist with an eye for design. Passionate about UX and comfortable
+            delivering products across the stack. Building for the web for nearly 20 years —
+            the last decade in crypto.
+          </p>
+      </div>
+
+      <nav class="rail-nav" aria-label="Primary">
+        <a href="/#work">Work</a>
+        <a href="/blog">Writing</a>
+        <a href="/cv">CV</a>
+      </nav>
+
+      <div class="rail-bottom">
+        <div class="hero-coins rail-coins" aria-hidden="true">
+          <div class="coin-col">
+            <span class="coin coin--btc"><img class="coin-face" src="/img/tokens/btc.svg" alt="" width="54" height="54" loading="lazy" /></span>
+            <span class="coin coin--eth"><img class="coin-face" src="/img/tokens/eth.svg" alt="" width="54" height="54" loading="lazy" /></span>
+          </div>
+          <div class="coin-col coin-col--offset">
+            <span class="coin coin--stx"><img class="coin-face" src="/img/tokens/stx.svg" alt="" width="54" height="54" loading="lazy" /></span>
+            <span class="coin coin--sol"><img class="coin-face" src="/img/tokens/sol.svg" alt="" width="54" height="54" loading="lazy" /></span>
+          </div>
+        </div>
+        <a class="rail-availability" href="#contact">
+          <span class="rail-availability-dot" aria-hidden="true"></span>
+          Available for remote work 09/26
+        </a>
+        <div class="rail-social">
+          <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href={SOCIAL.X} target="_blank" rel="noopener noreferrer">X</a>
+          <a href={SOCIAL.LINKEDIN} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </aside>
+
+    <article class="homepage home-body">
 
     <section class="logo-strip">
       <p class="section-label">Shipped at</p>
@@ -64,13 +106,11 @@ import ContactSection from '../components/ContactSection.astro';
     </section>
 
     <section class="case-studies" id="work">
-      <p class="section-label">Selected work</p>
+      <p class="section-label">Case Studies</p>
 
       <article class="case-card" data-reveal>
-        <div class="case-card-visual case-card-visual--leather" aria-hidden="true">
-          <div class="visual-placeholder">
-            <span class="placeholder-label">Leather Mobile</span>
-          </div>
+        <div class="case-card-visual case-card-visual--leather">
+          <img src="/img/work/leather-mobile/compliance.png" alt="Leather mobile wallet — send screen" width="463" height="879" loading="lazy" />
         </div>
         <div class="case-card-content">
           <p class="case-card-meta">
@@ -179,10 +219,8 @@ import ContactSection from '../components/ContactSection.astro';
       </article>
 
       <article class="case-card" data-reveal>
-        <div class="case-card-visual case-card-visual--qredo" aria-hidden="true">
-          <div class="visual-placeholder visual-placeholder--quiet">
-            <span class="placeholder-label">Qredo · 2023</span>
-          </div>
+        <div class="case-card-visual case-card-visual--qredo">
+          <img src="/img/work/qredo/eth-hrt-landing.png" alt="Human-readable Ethereum transactions — decode a tx like English" width="1400" height="984" loading="lazy" />
         </div>
         <div class="case-card-content">
           <p class="case-card-meta">
@@ -293,7 +331,8 @@ import ContactSection from '../components/ContactSection.astro';
 
     <ContactSection />
 
-  </article>
+    </article>
+  </div>
 </BaseLayout>
 
 <script>
@@ -329,21 +368,33 @@ import ContactSection from '../components/ContactSection.astro';
 </script>
 
 <style>
-  main:has(> .homepage) {
+  :global(body:has(.home-shell) header.site-header) { display: none; }
+
+  :global(main:has(> .home-shell)) {
     max-width: none;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
     text-align: left;
   }
 
-  .homepage {
+  .home-shell {
     --color-accent: #F7931A;
-    --homepage-max: 1080px;
     --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
-    max-width: var(--homepage-max);
-    margin: 0 auto;
-    padding: 1.5rem 1.5rem 4rem;
+    display: flex;
+    align-items: stretch;
     text-align: left;
+  }
+
+  .home-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 3.25rem clamp(1.5rem, 5vw, 4rem) 4rem;
+  }
+
+  .home-body > section,
+  .home-body > :global(*) {
+    max-width: 780px;
   }
 
   .homepage section { margin-bottom: 5rem; }
@@ -370,17 +421,147 @@ import ContactSection from '../components/ContactSection.astro';
     }
   }
 
-  /* HERO */
-  .hero { padding: 3rem 0 2rem; }
-
-  .hero-headline {
-    font-family: var(--font-mono);
-    font-size: clamp(2.6rem, 7vw, 4.5rem);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+  /* SIDEBAR RAIL */
+  .home-rail {
+    flex: 0 0 clamp(264px, 24vw, 340px);
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    padding: 3rem 2rem;
+    color: #fff;
+    background:
+      radial-gradient(620px 340px at 25% 0%, rgba(247, 147, 26, 0.16), transparent 62%),
+      linear-gradient(170deg, #161616 0%, #1d1d1d 100%);
+  }
+  .rail-top { display: flex; flex-direction: column; }
+  .rail-avatar {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    object-fit: cover;
+    display: block;
     margin: 0 0 1.25rem;
-    color: var(--color-text);
+  }
+  .rail-name {
+    font-family: 'Space Grotesk', var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #9a9a9a;
+    margin: 0 0 0.35rem;
+  }
+  .rail-title {
+    font-family: 'Space Grotesk', var(--font-sans);
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.1rem;
+    color: #fff;
+  }
+  .hl-accent { color: var(--color-accent); }
+  .rail-rhythm { margin: 0 0 1.1rem; font-size: 0.82rem; color: #c2c2c2; }
+  .rail-bio {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #cfcfcf;
+  }
+  .rail-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-family: 'Space Grotesk', var(--font-sans);
+  }
+  .rail-nav a {
+    color: #e6e6e6;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.15rem 0;
+    width: max-content;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .rail-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); }
+  .rail-bottom { display: flex; flex-direction: column; gap: 1.5rem; }
+  .rail-coins { justify-content: flex-start; gap: 0.9rem; }
+  .rail-coins .coin-face { width: 54px; height: 54px; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
+  .rail-coins .coin-col { gap: 0.9rem; }
+  .rail-coins .coin-col--offset { margin-top: 1.6rem; }
+  .rail-availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: #d6d6d6;
+    text-decoration: none;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 999px;
+  }
+  .rail-availability:hover { border-color: rgba(247, 147, 26, 0.5); }
+  .rail-availability-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #3fb950;
+    box-shadow: 0 0 0 3px rgba(63, 185, 80, 0.18);
+  }
+  .rail-social {
+    display: flex;
+    gap: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+  .rail-social a {
+    color: #9a9a9a;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .rail-social a:hover { color: #fff; }
+
+  .hero-coins { display: flex; gap: 1.2rem; }
+  .coin-col { display: flex; flex-direction: column; gap: 1.2rem; }
+  .coin-col--offset { margin-top: 2.4rem; }
+  .coin {
+    display: block;
+    animation: coin-float var(--fd, 4.4s) ease-in-out infinite;
+    animation-delay: var(--dl, 0s);
+    will-change: transform;
+  }
+  .coin-face {
+    display: block;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  }
+  .coin--btc { --fd: 4.2s; --dl: 0s; }
+  .coin--eth { --fd: 4.8s; --dl: -1.4s; }
+  .coin--stx { --fd: 5.2s; --dl: -0.7s; }
+  .coin--sol { --fd: 4.5s; --dl: -2.1s; }
+  @keyframes coin-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-11px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .coin { animation: none; }
+  }
+  @media (max-width: 860px) {
+    .home-shell { flex-direction: column; }
+    .home-rail { flex-basis: auto; align-self: stretch; }
+    .home-body { padding-top: 2.5rem; }
+  }
+  @media (max-width: 760px) {
+    .coin-face { width: 58px; height: 58px; }
+    .coin-col--offset { margin-top: 1.5rem; }
   }
 
   .hero-rhythm {
@@ -485,6 +666,13 @@ import ContactSection from '../components/ContactSection.astro';
     background: #fafafa;
     transition: transform 0.4s var(--ease-out-soft), border-color 0.3s var(--ease-out-soft);
   }
+  .case-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
 
   .case-card:hover .case-card-visual {
     transform: translateY(-3px);
@@ -552,7 +740,7 @@ import ContactSection from '../components/ContactSection.astro';
     flex: 1;
   }
   .terminal-body > div { display: flex; gap: 1.25rem; line-height: 1.55; }
-  .t-dim    { color: #6E7681; min-width: 5rem; display: inline-block; }
+  .t-dim    { color: #8B949E; min-width: 5rem; display: inline-block; }
   .t-white  { color: #F0F6FC; }
   .t-blue   { color: #79C0FF; }
   .t-green  { color: #56D364; }
@@ -568,7 +756,7 @@ import ContactSection from '../components/ContactSection.astro';
     letter-spacing: 0.05em;
   }
 
-  .case-card-client { color: var(--color-accent); font-weight: 600; }
+  .case-card-client { color: var(--color-muted); font-weight: 600; }
   .case-card-period { color: var(--color-faint); }
 
   .case-card-headline {
@@ -677,15 +865,12 @@ import ContactSection from '../components/ContactSection.astro';
   @media (max-width: 540px) {
     .homepage { padding: 1rem 1.25rem 3rem; }
     .homepage section { margin-bottom: 3.5rem; }
-    .hero { padding: 1.5rem 0 1rem; }
-    .hero-words { gap: 0.4rem; }
+    .hero { padding: 3rem 0; margin-bottom: 2.5rem; }
     .logo-strip-list { gap: 0.9rem 1.5rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     [data-reveal],
-    .hero-word,
-    .hero-word-sep,
     .badge-dot {
       animation: none !important;
       transition: none !important;

@@ -372,10 +372,12 @@ const notable: {
     width: fit-content;
     font-family: var(--font-mono);
     font-size: 11px;
-    color: var(--color-accent);
-    text-decoration: none;
+    color: var(--color-text);
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 2px;
   }
-  .oss-story:hover { text-decoration: underline; }
+  .oss-story:hover { text-decoration-color: var(--color-text); }
 
   @media (max-width: 600px) {
     .oss-overview { grid-template-columns: 1fr; }
