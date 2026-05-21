@@ -25,6 +25,31 @@ outcomeText: "Blueprint adopted as company-wide engineering standard · CI/CD an
 
 Xapo was a fully remote global fintech providing multi-currency digital wallets and Bitcoin custody to over 1.5 million customers worldwide. I joined as a senior frontend engineer in November 2017 and stayed through April 2020.
 
+## Inside the product
+
+Xapo packed a lot of wallet into one app, built for a global audience — English, Spanish and Portuguese — with bitcoin and local currencies sitting side by side.
+
+![Xapo account view showing bitcoin and fiat balances, the debit card, and rewards.](/img/work/xapo/account.png)
+*Bitcoin, US dollars, Brazilian reais and Argentine pesos in one account — with the Xapo debit card and rewards built in.*
+
+**Multi-currency, multi-language.** Customers in Argentina and Brazil held pesos and reais next to their bitcoin, in their own language, with every balance converted to a reference currency in real time.
+
+**A bitcoin-native debit card.** A Visa debit card funded straight from the wallet, so a balance held in bitcoin or local currency could be spent anywhere.
+
+**Send money any way.** A bitcoin address, a bank transfer, a phone contact, or stablecoins — one Send flow handled them all.
+
+![Xapo payments — choosing how to send: bitcoin address, bank account, contact, or stablecoin.](/img/work/xapo/payments.png)
+*One Send flow, several rails: bitcoin, bank account, a saved contact, and stablecoins.*
+
+**The Vault.** Beyond the everyday wallet, the Vault moved bitcoin into deep cold storage — kept offline in a former Swiss military bunker, the feature Xapo was best known for.
+
+![Xapo Vault — bitcoin moved into deep cold storage.](/img/work/xapo/vault.png)
+*The Vault: long-term bitcoin storage, held offline and kept apart from the spending wallet.*
+
+**Chat, and People Nearby.** An in-app chat let people send payments inside a conversation, and a People Nearby tab helped users find each other to swap cash for bitcoin and back — peer-to-peer, well before that was common.
+
+**Rewards.** Small in-product rewards paid out free bitcoin for everyday actions, nudging people to get more from the wallet.
+
 ## The problem
 
 The frontend teams were building product against different stacks, with no shared architecture, no shared CI, and no shared testing baseline. Every new product surface meant re-deciding the basics. That slowed delivery and made cross-team review difficult.
