@@ -5,7 +5,7 @@ project: "Leather Mobile App"
 role: "Senior Frontend Engineer"
 period: "July 2023 — Present"
 stat: "1,850+ MAU within three months · launched at BTC Vegas 2025"
-headline: "Shipped the first Leather mobile app from scratch — monorepo greenfield to App Store at BTC Vegas in three months."
+headline: "Shipped Leather's first mobile app — zero to App Store in 3 months."
 subtitle: "Leather (formerly Hiro Wallet) is an open-source, self-custodial Bitcoin and Stacks wallet. Before this work it lived only as a browser extension; the mobile app was net-new."
 confidentiality: "This case study describes my personal contributions as a contractor at Trust Machines. The Leather wallet is open source — my work is publicly visible at github.com/leather-io. Technical details reflect my own experience and do not represent official Trust Machines communications."
 tech:

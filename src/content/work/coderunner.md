@@ -5,7 +5,7 @@ project: "Cryptowatch · Coderunner"
 role: "Senior Frontend Engineer (sole frontend)"
 period: "2021 — 2022"
 stat: "Sole frontend · 8 months blank repo to MVP · dynamic form-generation backbone"
-headline: "Sole frontend engineer on a greenfield trading automation tool — eight months from blank repo to a polished MVP."
+headline: "Rebuilt a crypto trading-automation tool from the ground up."
 subtitle: "Coderunner was a new Cryptowatch product letting traders author and run automated strategies. It needed one engineer who could take a brief and turn it into a shipped product."
 confidentiality: "This case study describes my personal contributions. Cryptowatch was acquired by Kraken and later integrated into Kraken Pro. Details reflect my own experience and do not represent official Kraken communications."
 tech:
