@@ -25,7 +25,7 @@ outcomeText: "Multi-exchange trading form delivered to a millions-of-users surfa
 
 Cryptowatch was Kraken's real-time charting and trading terminal — millions of active traders, 25 exchanges, 4,000+ markets. I joined as a senior frontend engineer in August 2020 and stayed through November 2022.
 
-This case study covers the high-impact work on the trading surface itself: the multi-exchange trading form, the cockpit redesign, the leverage slider, and the security work that came alongside it. For my work on Coderunner — the greenfield trading-automation product inside Cryptowatch — see [the Coderunner case study](/work/coderunner/).
+This case study covers the high-impact work on the trading surface itself: the multi-exchange trading form, the cockpit redesign, the leverage slider, and the security work that came alongside it. For my work on Coderunner — the trading-automation product inside Cryptowatch whose frontend I took over and rebuilt — see [the Coderunner case study](/work/coderunner/).
 
 ## The problem
 
