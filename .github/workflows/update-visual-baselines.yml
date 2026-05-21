@@ -33,7 +33,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npx playwright install chromium --with-deps
+      - uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Install Playwright system deps (always)
+        run: npx playwright install-deps chromium
+      - name: Install Playwright Chromium binary (skip if cached)
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install chromium
       - run: npm run build
       - run: npx bddgen --config playwright.bdd.config.ts
       - name: Regenerate snapshots
@@ -48,6 +57,11 @@ jobs:
           if git diff --staged --quiet; then
             echo "No baseline changes."
           else
-            git commit -m "chore(e2e): refresh visual-regression baselines [skip ci]"
-            git push
+            # No [skip ci]: let the regular Visual Regression workflow assert
+            # against the new baselines on this same commit. If it passes, the
+            # bootstrap actually worked; no need for a manual empty commit to
+            # validate.
+            git commit -m "chore(e2e): refresh visual-regression baselines"
+            # Explicit ref to avoid detached-HEAD / upstream-tracking ambiguity.
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
