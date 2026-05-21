@@ -352,7 +352,7 @@ import ContactSection from '../components/ContactSection.astro';
 </script>
 
 <style>
-  main:has(> .homepage) {
+  :global(main:has(> .homepage)) {
     max-width: none;
     padding: 0;
     text-align: left;
