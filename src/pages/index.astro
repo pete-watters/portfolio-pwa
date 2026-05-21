@@ -71,12 +71,12 @@ import { SOCIAL } from '../consts';
       <div class="rail-bottom">
         <div class="hero-coins rail-coins" aria-hidden="true">
           <div class="coin-col">
-            <span class="coin coin--btc">₿</span>
-            <span class="coin coin--eth">Ξ</span>
+            <span class="coin coin--btc"><img class="coin-face" src="/img/tokens/btc.svg" alt="" width="54" height="54" loading="lazy" /></span>
+            <span class="coin coin--eth"><img class="coin-face" src="/img/tokens/eth.svg" alt="" width="54" height="54" loading="lazy" /></span>
           </div>
           <div class="coin-col coin-col--offset">
-            <span class="coin coin--stx">STX</span>
-            <span class="coin coin--sol">◎</span>
+            <span class="coin coin--stx"><img class="coin-face" src="/img/tokens/stx.svg" alt="" width="54" height="54" loading="lazy" /></span>
+            <span class="coin coin--sol"><img class="coin-face" src="/img/tokens/sol.svg" alt="" width="54" height="54" loading="lazy" /></span>
           </div>
         </div>
         <a class="rail-availability" href="#contact">
@@ -106,7 +106,7 @@ import { SOCIAL } from '../consts';
     </section>
 
     <section class="case-studies" id="work">
-      <p class="section-label">Selected work</p>
+      <p class="section-label">Case Studies</p>
 
       <article class="case-card" data-reveal>
         <div class="case-card-visual case-card-visual--leather" aria-hidden="true">
@@ -492,10 +492,9 @@ import { SOCIAL } from '../consts';
   }
   .rail-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); }
   .rail-bottom { display: flex; flex-direction: column; gap: 1.5rem; }
-  .rail-coins { justify-content: flex-start; }
-  .rail-coins .coin { width: 54px; height: 54px; font-size: 18px; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
-  .rail-coins .coin--stx { font-size: 13px; }
-  .rail-coins .coin-col { gap: 0.85rem; }
+  .rail-coins { justify-content: flex-start; gap: 0.9rem; }
+  .rail-coins .coin-face { width: 54px; height: 54px; box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4); }
+  .rail-coins .coin-col { gap: 0.9rem; }
   .rail-coins .coin-col--offset { margin-top: 1.6rem; }
   .rail-availability {
     display: inline-flex;
@@ -532,35 +531,29 @@ import { SOCIAL } from '../consts';
   }
   .rail-social a:hover { color: #fff; }
 
-  .hero-coins { display: flex; gap: 1.1rem; }
-  .coin-col { display: flex; flex-direction: column; gap: 1.1rem; }
-  .coin-col--offset { margin-top: 2.25rem; }
+  .hero-coins { display: flex; gap: 1.2rem; }
+  .coin-col { display: flex; flex-direction: column; gap: 1.2rem; }
+  .coin-col--offset { margin-top: 2.4rem; }
   .coin {
+    display: block;
+    animation: coin-float var(--fd, 4.4s) ease-in-out infinite;
+    animation-delay: var(--dl, 0s);
+    will-change: transform;
+  }
+  .coin-face {
+    display: block;
     width: 74px;
     height: 74px;
     border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 25px;
-    color: #fff;
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
-    animation:
-      coin-wobble var(--cs, 4.6s) ease-in-out infinite,
-      coin-float 3.6s ease-in-out infinite;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
   }
-  .coin--btc { background: #f7931a; --cs: 4.2s; }
-  .coin--eth { background: #627eea; --cs: 4.7s; animation-delay: -1.6s; }
-  .coin--stx { background: #5546ff; --cs: 5.1s; animation-delay: -0.8s; font-size: 18px; }
-  .coin--sol { background: linear-gradient(135deg, #9945ff, #14f195); --cs: 5.6s; animation-delay: -0.4s; }
-  @keyframes coin-wobble {
-    0%, 100% { transform: perspective(520px) rotateY(-20deg); }
-    50% { transform: perspective(520px) rotateY(20deg); }
-  }
+  .coin--btc { --fd: 4.2s; --dl: 0s; }
+  .coin--eth { --fd: 4.8s; --dl: -1.4s; }
+  .coin--stx { --fd: 5.2s; --dl: -0.7s; }
+  .coin--sol { --fd: 4.5s; --dl: -2.1s; }
   @keyframes coin-float {
-    0%, 100% { margin-top: 0; }
-    50% { margin-top: -14px; }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-11px); }
   }
   @media (prefers-reduced-motion: reduce) {
     .coin { animation: none; }
@@ -571,8 +564,7 @@ import { SOCIAL } from '../consts';
     .home-body { padding-top: 2.5rem; }
   }
   @media (max-width: 760px) {
-    .coin { width: 58px; height: 58px; font-size: 20px; }
-    .coin--stx { font-size: 14px; }
+    .coin-face { width: 58px; height: 58px; }
     .coin-col--offset { margin-top: 1.5rem; }
   }
 
