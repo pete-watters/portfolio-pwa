@@ -8,7 +8,7 @@ draft: false
 
 At Cryptowatch (owned by Kraken), we had power users who wanted more than the standard order types exchanges offered. Things like "cancel all my orders on this pair" or trailing take-profit orders -- synthetic order types that didn't exist natively on most exchanges. Coderunner was the answer: let users write and schedule custom Python scripts that executed trades through the Cryptowatch trading API.
 
-A single developer had built an initial prototype using a "jailed" Python instance that could safely run custom code within the browser. When he left, I joined as the sole frontend engineer responsible for rearchitecting the UI and taking it to MVP.
+A single developer had built an initial prototype using a "jailed" Python instance that could safely run custom code within the browser. When he left, I took over the frontend -- rearchitecting the UI and, alongside a backend engineer, taking it to MVP.
 
 ## The Team
 
