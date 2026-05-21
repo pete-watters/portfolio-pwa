@@ -14,15 +14,15 @@ const remainingPosts = allPosts.filter((post: CollectionEntry<'blog'>) => !post.
 const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => post.data.tags))].sort();
 ---
 
-<BaseLayout title="Writing" description="Essays and engineering notes by Pete Watters — crypto wallets, trading UIs, React Native, and shipping web3 products.">
+<BaseLayout title="Writing" description="Essays and engineering notes by Pete Watters — crypto wallets, trading UIs, React Native, and shipping Web3 products.">
   <article>
     <h1 class="blog-index-title">Writing</h1>
     <Search />
 
     <div class="tag-filters" role="toolbar" aria-label="Filter by tag">
-      <button aria-selected="true" data-tag="all">All</button>
+      <button aria-pressed="true" data-tag="all">All</button>
       {allTags.map((tag) => (
-        <button aria-selected="false" data-tag={tag}>{tag}</button>
+        <button aria-pressed="false" data-tag={tag}>{tag}</button>
       ))}
     </div>
 
@@ -64,7 +64,7 @@ const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => 
     const featuredSection = document.querySelector<HTMLElement>('.featured-section');
 
     function filterByTag(tag: string) {
-      buttons.forEach((btn) => btn.setAttribute('aria-selected', String(btn.dataset.tag === tag)));
+      buttons.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.tag === tag)));
 
       if (tag === 'all') {
         cards.forEach((card) => card.removeAttribute('hidden'));
