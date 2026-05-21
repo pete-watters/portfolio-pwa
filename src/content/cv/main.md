@@ -1,9 +1,9 @@
 ---
-tagline: "Senior Software Engineer · Bitcoin & Web3 · React / TypeScript / Node.js · Dublin, Ireland"
-description: "Pete Watters — Senior Software Engineer CV"
+tagline: "Engineer · Bitcoin & Web3 · Dublin, Ireland"
+description: "Pete Watters — Engineer CV"
 ---
 
-Senior Software Engineer with 15+ years of experience delivering full-stack web and mobile applications across fintech, crypto and Web3. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
+Engineer building for the web for nearly 20 years, the last decade in crypto — delivering web and mobile applications across fintech and Web3. Plan it, build it, ship it. Deep expertise in React, TypeScript, Next.js and React Native, with hands-on production experience across the stack — Node.js, Express, CI/CD, architecture and developer tooling. Custodian of engineering quality, with a clear sense of what matters most — shipping products people use.
 
 ## Skills
 
@@ -29,11 +29,11 @@ Senior Software Engineer with 15+ years of experience delivering full-stack web 
 - Shipped the multi-chain NFT gallery in Leather (Stacks SIP-9 and Bitcoin ordinals, including video and audio playback) using an AI-assisted development workflow — accelerating delivery while maintaining the wallet's review and testing standards.
 - Early AI-tooling adopter on the engineering team: established working patterns with Claude Code and Codex, contributing to CLAUDE.md and reusable skills that extended AI fluency across the team.
 
-### [Qredo](https://www.qredo.com) · Senior Frontend Engineer *Jan — Jun 2023 · Remote*
+### [Qredo](https://www.qredo.com) · Web3 Lead Developer *Jan — Jun 2023 · Remote*
 
 > Layer 2 decentralised custodian protocol for institutional private key management on a blockchain network.
 
-- Directed Web3 wallet integration and developed a new institutional trading interface using React, Redux Toolkit, Material UI and styled-components. Integrated MetaMask, WalletConnect and WebAPI to support secure client transactions on the Qredo network.
+- Lead frontend developer for the Web3 wallet integration into Qredo's rebranded institutional UI, using React, Redux Toolkit, Material UI and styled-components. Integrated MetaMask, WalletConnect and WebAPI to support secure client transactions on the Qredo network.
 - Developed a Node.js ETH transaction parser to present on-chain history in a human-readable format, improving compliance and operational transparency.
 
 ### [Kraken](https://www.kraken.com) · Cryptowatch · Senior Frontend Engineer *Aug 2020 — Nov 2022 · Remote*
@@ -41,7 +41,7 @@ Senior Software Engineer with 15+ years of experience delivering full-stack web 
 > Cryptowatch was a widely used real-time charting and trading terminal in the crypto community, acquired by Kraken and later integrated into Kraken Pro. Supported millions of active traders across 25 exchanges and over 4,000 markets.
 
 - Developed the multi-exchange trading form, cockpit redesign and custom trade table and leverage slider components for the Cryptowatch trading team. Built high-traffic, mission-critical infrastructure with direct visibility to executive leadership.
-- Served as the sole frontend engineer on Coderunner, a greenfield trading automation tool. Delivered the complete frontend in eight months using React, TypeScript and PostCSS with a custom dynamic form-generation system supporting consistent field types such as market picker, asset-aware amount input and precision-aware currency handling.
+- Took over and rebuilt the frontend of Coderunner, a trading-automation tool, working alongside a backend developer — delivering an MVP in eight months using React, TypeScript and PostCSS with a custom dynamic form-generation system (replacing the prototype's JSON-schema forms) supporting consistent field types such as market picker, asset-aware amount input and precision-aware currency handling.
 - Initiated a Cypress E2E testing framework for Cryptowatch as a side project. Won the company-wide Codebashing security challenge in 2020, placing first for expertise in client-side vulnerabilities and OWASP mitigations.
 
 ### [Xapo](https://www.xapo.com) · Senior Frontend Engineer *Nov 2017 — Apr 2020 · Remote*

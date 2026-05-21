@@ -12,9 +12,9 @@ Honestly, part of the appeal was the challenge. I'd never written a line of Reac
 
 I'd never used React Native or Expo before. I'd been working on the browser extension -- design system migration, containers, routing -- and was about to tackle something completely new. The monorepo (`leather-io/mono`) was set up by the team, with the foundational packages and architecture already in place. Other team members were building the data layer, queries, and API integrations. My focus would be the mobile UI and features. My first PR was [#417](https://github.com/leather-io/mono/pull/417) -- adding a native Skeleton Loader to the UI library in September 2024.
 
-By December 2024, the team shipped to the App Store. At BTC Vegas.
+By May 2025, the team shipped to the App Store. At BTC Vegas.
 
-BTC Vegas in December 2024 was the target from the start. The team had committed to launching the mobile app at the conference, which meant we had an immovable deadline and thousands of crypto enthusiasts ready to try our product. I wasn't onsite -- I was working remotely, shipping PRs alongside team members who were on the ground in Las Vegas. The time zone difference meant I was fixing bugs while they were demoing the app to users at the booth.
+BTC Vegas in May 2025 was the target from the start. The team had committed to launching the mobile app at the conference, which meant we had an immovable deadline and thousands of crypto enthusiasts ready to try our product. I wasn't onsite -- I was working remotely, shipping PRs alongside team members who were on the ground in Las Vegas. The time zone difference meant I was fixing bugs while they were demoing the app to users at the booth.
 
 There's a particular intensity to shipping software that people are going to download and use _that day_. Every PR felt urgent. Every code review had real stakes. The Slack channel was buzzing around the clock with bug reports from the conference floor, and we were triaging and fixing in near real-time. It was chaotic, exhausting and one of the best shipping experiences of my career.
 
@@ -50,7 +50,7 @@ That moment -- seeing real blockchain data render in a UI I'd built -- was genui
 
 The mobile app was a proper team effort. Other engineers were building the shared query layer, API integrations and the data models that powered the whole thing. My focus was the mobile-specific UI: screens, navigation, components and the integration layer that wired the data into the interface. We worked mostly async across different time zones, with PRs as the primary communication mechanism. Code reviews were thorough -- sometimes frustratingly so when you wanted to ship fast -- but that rigour is what kept the quality bar high. We'd occasionally jump on calls to hash out architectural decisions, but day to day it was PRs, Slack threads and well-written commit messages.
 
-## Phase 3: "Leatherhood" at BTC Vegas (Dec 2024)
+## Phase 3: "Leatherhood" at BTC Vegas (May 2025)
 
 The push to production was a team effort. In the final weeks, everyone was focused on launch blockers. My contributions included:
 

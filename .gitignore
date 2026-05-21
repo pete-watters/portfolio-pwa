@@ -28,3 +28,7 @@ yarn-error.log*
 
 # private working notes — never push
 .private/
+
+# playwright-bdd
+/.features-gen/
+/playwright-report-bdd/
