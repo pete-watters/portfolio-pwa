@@ -5,7 +5,7 @@ project: "Stackr"
 role: "Design + Engineering (solo)"
 period: "2026 — present"
 stat: "4 chains · Bitcoin · Ethereum · Solana · Stacks — wallet-connect + watch-only · live on Cloudflare Workers"
-headline: "A cross-chain portfolio terminal for self-custodial holders — connect MetaMask, Phantom, or Leather, or watch any address, with a hand-built trading-terminal aesthetic and custom SVG charts. No dashboard libraries, no backend, no accounts."
+headline: "A self-custodial cross-chain portfolio terminal."
 subtitle: "Stackr tracks balances, allocation, and activity across Bitcoin, Ethereum, Solana, and Stacks in one view — computed entirely client-side from public chain RPCs."
 confidentiality: "Stackr is my own product — built in the open on a public repo, but proprietary (all rights reserved). All figures and addresses shown here are mock data."
 tech:
