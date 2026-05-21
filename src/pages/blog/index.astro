@@ -14,7 +14,7 @@ const remainingPosts = allPosts.filter((post: CollectionEntry<'blog'>) => !post.
 const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => post.data.tags))].sort();
 ---
 
-<BaseLayout title="Writing" description="Essays and engineering notes by Pete Watters — crypto wallets, trading UIs, React Native, and shipping web3 products.">
+<BaseLayout title="Writing" description="Essays and engineering notes by Pete Watters — crypto wallets, trading UIs, React Native, and shipping Web3 products.">
   <article>
     <h1 class="blog-index-title">Writing</h1>
     <Search />
