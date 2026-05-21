@@ -13,7 +13,7 @@
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
   --color-text: #171717;
   --color-muted: #525252;
-  --color-faint: #a3a3a3;
+  --color-faint: #6b6b6b;
   --color-border: #e5e5e5;
   --color-dark: #2B2B2B;
 }
@@ -555,7 +555,7 @@ summary {
 }
 
 .tag-filters button:hover,
-.tag-filters button[aria-selected="true"] {
+.tag-filters button[aria-pressed="true"] {
   background: var(--color-dark);
   border-color: var(--color-dark);
   color: white;

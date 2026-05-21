@@ -81,7 +81,7 @@ import { SOCIAL } from '../consts';
         </div>
         <a class="rail-availability" href="#contact">
           <span class="rail-availability-dot" aria-hidden="true"></span>
-          Available Sep 2026
+          Available for remote work 09/26
         </a>
         <div class="rail-social">
           <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -109,10 +109,8 @@ import { SOCIAL } from '../consts';
       <p class="section-label">Case Studies</p>
 
       <article class="case-card" data-reveal>
-        <div class="case-card-visual case-card-visual--leather" aria-hidden="true">
-          <div class="visual-placeholder">
-            <span class="placeholder-label">Leather Mobile</span>
-          </div>
+        <div class="case-card-visual case-card-visual--leather">
+          <img src="/img/work/leather-mobile/compliance.png" alt="Leather mobile wallet — send screen" width="463" height="879" loading="lazy" />
         </div>
         <div class="case-card-content">
           <p class="case-card-meta">
@@ -221,10 +219,8 @@ import { SOCIAL } from '../consts';
       </article>
 
       <article class="case-card" data-reveal>
-        <div class="case-card-visual case-card-visual--qredo" aria-hidden="true">
-          <div class="visual-placeholder visual-placeholder--quiet">
-            <span class="placeholder-label">Qredo · 2023</span>
-          </div>
+        <div class="case-card-visual case-card-visual--qredo">
+          <img src="/img/work/qredo/eth-hrt-landing.png" alt="Human-readable Ethereum transactions — decode a tx like English" width="1400" height="984" loading="lazy" />
         </div>
         <div class="case-card-content">
           <p class="case-card-meta">
@@ -670,6 +666,13 @@ import { SOCIAL } from '../consts';
     background: #fafafa;
     transition: transform 0.4s var(--ease-out-soft), border-color 0.3s var(--ease-out-soft);
   }
+  .case-card-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
 
   .case-card:hover .case-card-visual {
     transform: translateY(-3px);
@@ -737,7 +740,7 @@ import { SOCIAL } from '../consts';
     flex: 1;
   }
   .terminal-body > div { display: flex; gap: 1.25rem; line-height: 1.55; }
-  .t-dim    { color: #6E7681; min-width: 5rem; display: inline-block; }
+  .t-dim    { color: #8B949E; min-width: 5rem; display: inline-block; }
   .t-white  { color: #F0F6FC; }
   .t-blue   { color: #79C0FF; }
   .t-green  { color: #56D364; }
@@ -753,7 +756,7 @@ import { SOCIAL } from '../consts';
     letter-spacing: 0.05em;
   }
 
-  .case-card-client { color: var(--color-accent); font-weight: 600; }
+  .case-card-client { color: var(--color-muted); font-weight: 600; }
   .case-card-period { color: var(--color-faint); }
 
   .case-card-headline {
