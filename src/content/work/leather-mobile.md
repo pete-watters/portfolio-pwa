@@ -34,9 +34,11 @@ outcomeStats:
 
 ## Overview
 
-When I joined Trust Machines in July 2023, Leather existed only as a browser extension. A significant portion of the Bitcoin user base — especially in emerging markets — needed a native mobile experience. The job was to ship one. From nothing.
+[Trust Machines](https://trustmachines.co/) is a venture studio backing teams that build Web3 on Bitcoin. Leather — formerly Hiro Wallet — was its flagship product alongside Granite; together they brought Web3 to Bitcoin. Leather itself is an open-source, self-custodial wallet for Bitcoin and Stacks.
 
-This case study covers the path from blank slate to App Store: the monorepo foundation that made cross-platform sharing possible, the greenfield mobile build, and the launch at the 2025 Bitcoin Conference in Las Vegas.
+I joined in July 2023, when Leather still lived only as a browser extension. I played a key role in the Hiro → Leather rebrand and the push on quality that came with it. From there I set up a monorepo and moved shared code into it to pave the way for a mobile app — then, when it was time to ship, did whatever it took to launch on time for the Bitcoin Conference in Las Vegas, including self-funding my own trip to be there for it.
+
+This case study covers that arc: the rebrand and quality work, the monorepo foundation that made cross-platform sharing possible, the first mobile build, and the launch.
 
 The NFT gallery and AI-assisted workflow that grew out of this work has [its own case study](/work/leather-nfts/).
 
@@ -52,7 +54,13 @@ And the launch had a hard external deadline — the Bitcoin Conference in Las Ve
 
 ## What I built
 
-### Chapter 1 — The mono-repo foundation
+### Chapter 1 — The Hiro → Leather rebrand
+
+Before any of the mobile work, the product itself was changing. Hiro Wallet was becoming Leather, and I played a key role in that transition — not just the rename, but the quality bar a flagship rebrand demands: tightening the UI, fixing rough edges, and getting the extension into the shape a relaunch needed.
+
+That work set the stage for everything after. A cleaner, more consistent codebase is what made it realistic to extract shared packages and point them at a second platform.
+
+### Chapter 2 — The mono-repo foundation
 
 Before a mobile app could ship, there needed to be shared infrastructure. As a core team member, I worked on a mono-repo to house the extension, mobile app, and shared packages under one roof.
 
@@ -60,7 +68,7 @@ The centrepiece was Panda UI — a shared component library built with Panda CSS
 
 This wasn't just a technical decision. Every hour saved on component maintenance is an hour that goes into shipping product. For a small team building across multiple surfaces, that compounded quickly.
 
-### Chapter 2 — The greenfield mobile app
+### Chapter 3 — The first mobile app
 
 The first Leather mobile app was built with React Native and Expo. I managed the end-to-end launch: architecture, component implementation, navigation, wallet connection, end-to-end testing with Maestro, and App Store submission.
 
@@ -78,7 +86,7 @@ Wallet integration on mobile is its own discipline. The mnemonic-handling, key d
   <figcaption>Loading and error states across the app — no flash of "$0" balances while data resolves.</figcaption>
 </figure>
 
-### Chapter 3 — App Store, Play Store, BTC Vegas
+### Chapter 4 — App Store, Play Store, BTC Vegas
 
 App Store submission for a self-custodial Bitcoin wallet is harder than for a regular app. Reviewers ask about KYC, financial-services compliance, and whether the app facilitates transactions Apple wants to see in their own payment rails. The answer for a self-custodial wallet is "no, the user holds the keys" — but that conversation has to happen in writing, with screenshots and policy citations, before approval lands.
 
@@ -91,6 +99,8 @@ We shipped to both stores in time for the Bitcoin Conference 2025 in Las Vegas. 
 
 ## Outcome
 
-1,850+ monthly active users in the first three months. Two platforms running on one design system. One mobile app where there was nothing a year before.
+1,850+ monthly active users in the first three months. Two platforms running on one design system. Leather's first-ever mobile app — taken from a rebrand and a monorepo all the way to the App Store.
+
+I also helped shape the team: I headhunted Leather's engineering manager, a former Kraken colleague, who was promoted to GM after the mobile launch.
 
 The mono-repo and the AI-assisted workflow that came out of this work are now load-bearing infrastructure for everything that ships at Leather.
