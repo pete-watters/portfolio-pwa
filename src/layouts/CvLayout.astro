@@ -1,8 +1,7 @@
 ---
-import Icon from '../components/Icon.astro';
+import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
 import '../styles/global.css';
-import { SOCIAL } from '../consts';
 
 interface Props {
   title?: string;
@@ -19,27 +18,17 @@ const { title, description, tagline } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body>
-    <header>
-      <div class="header-inner">
-        <h1 class="brand-name"><a href="https://petewatters.ie">Pete Watters</a></h1>
-        <nav class="cv-nav">
-          <a href={SOCIAL.GITHUB} target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-            <Icon name="github" />
-          </a>
-          <a href={SOCIAL.STACKOVERFLOW} target="_blank" rel="noopener noreferrer" aria-label="StackOverflow" title="StackOverflow">
-            <Icon name="stackoverflow" />
-          </a>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <div class="cv">
-        <div class="cv-intro">
-          <p class="tagline">{tagline}</p>
+    <div class="app-shell">
+      <Sidebar />
+      <main>
+        <div class="cv">
+          <div class="cv-intro">
+            <p class="tagline">{tagline}</p>
+          </div>
+          <slot />
         </div>
-        <slot />
-      </div>
-    </main>
+      </main>
+    </div>
     <script>
       document.querySelectorAll('.cv a[href]').forEach(a => {
         const href = a.getAttribute('href');
