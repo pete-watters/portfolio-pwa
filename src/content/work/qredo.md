@@ -4,7 +4,7 @@ company: "Qredo"
 role: "Senior Frontend Engineer"
 period: "January — June 2023"
 stat: "Greenfield to shipped in six months"
-headline: "A greenfield institutional DeFi trading interface, blank repo to shipped in six months."
+headline: "Institutional DeFi trading interface, shipped in six months."
 subtitle: "Qredo was a Layer 2 decentralised custodian protocol for institutional private key management on a blockchain network."
 confidentiality: "This case study describes my personal contributions as a contractor at Qredo. Some details have been omitted to respect confidentiality obligations. Details reflect my own experience and do not represent official Qredo communications."
 tech:

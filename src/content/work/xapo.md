@@ -4,7 +4,7 @@ company: "Xapo"
 role: "Senior Frontend Engineer"
 period: "November 2017 — April 2020"
 stat: "1.5M+ customers · Blueprint adopted company-wide"
-headline: "Designed the React + Next.js + Express blueprint adopted across every product team at a 1.5M-customer Bitcoin company."
+headline: "Set the frontend standard at a 1.5M-user Bitcoin wallet."
 subtitle: "Xapo was a global Bitcoin custody and multi-currency wallet platform. The architecture and tooling I introduced became the company's frontend standard."
 confidentiality: "Xapo has since rebranded to Xapo Bank. This case study describes work on the original Xapo wallet product. Details reflect my personal contributions and do not represent official Xapo communications."
 tech:
@@ -25,30 +25,32 @@ outcomeText: "Blueprint adopted as company-wide engineering standard · CI/CD an
 
 Xapo was a fully remote global fintech providing multi-currency digital wallets and Bitcoin custody to over 1.5 million customers worldwide. I joined as a senior frontend engineer in November 2017 and stayed through April 2020.
 
-## Inside the product
+## What I worked on
 
-Xapo packed a lot of wallet into one app, built for a global audience — English, Spanish and Portuguese — with bitcoin and local currencies sitting side by side.
+I worked across the wallet's layout and several of its core surfaces — the account view, the debit card, settings, and the send-money flow — in a product built for a global audience in English, Spanish and Portuguese.
 
 ![Xapo account view showing bitcoin and fiat balances, the debit card, and rewards.](/img/work/xapo/account.png)
-*Bitcoin, US dollars, Brazilian reais and Argentine pesos in one account — with the Xapo debit card and rewards built in.*
+*The account layout: bitcoin, US dollars, Brazilian reais and Argentine pesos in one place, with the debit card and rewards inline.*
 
-**Multi-currency, multi-language.** Customers in Argentina and Brazil held pesos and reais next to their bitcoin, in their own language, with every balance converted to a reference currency in real time.
+**The account layout.** The home of the wallet — bitcoin and local currencies side by side, each converting to a reference currency in real time, with the debit card and rewards surfaced where people would see them.
 
 **A bitcoin-native debit card.** A Visa debit card funded straight from the wallet, so a balance held in bitcoin or local currency could be spent anywhere.
 
-**Send money any way.** A bitcoin address, a bank transfer, a phone contact, or stablecoins — one Send flow handled them all.
+**Send money, any way.** I built the Send flow that handled every rail from one screen — a bitcoin address, a bank transfer, a saved contact, or stablecoins.
 
-![Xapo payments — choosing how to send: bitcoin address, bank account, contact, or stablecoin.](/img/work/xapo/payments.png)
+![Xapo send money — choosing a method: bitcoin address, bank account, contact, or stablecoin.](/img/work/xapo/payments.png)
 *One Send flow, several rails: bitcoin, bank account, a saved contact, and stablecoins.*
 
-**The Vault.** Beyond the everyday wallet, the Vault moved bitcoin into deep cold storage — kept offline in a former Swiss military bunker, the feature Xapo was best known for.
-
-![Xapo Vault — bitcoin moved into deep cold storage.](/img/work/xapo/vault.png)
-*The Vault: long-term bitcoin storage, held offline and kept apart from the spending wallet.*
+**Settings and profile.** Identity-verification status, account management, notifications and security — the unglamorous surfaces a money app lives or dies on.
 
 **Chat, and People Nearby.** An in-app chat let people send payments inside a conversation, and a People Nearby tab helped users find each other to swap cash for bitcoin and back — peer-to-peer, well before that was common.
 
-**Rewards.** Small in-product rewards paid out free bitcoin for everyday actions, nudging people to get more from the wallet.
+![Xapo chat and People Nearby — conversations and peer-to-peer swaps, names blurred.](/img/work/xapo/chat.png)
+*Chat and People Nearby: send money in a conversation, or find someone to swap cash for bitcoin. Names blurred.*
+
+**Multi-currency, multi-language.** Customers in Argentina and Brazil held pesos and reais next to their bitcoin, in their own language.
+
+**The Vault.** Beyond the everyday wallet, the Vault moved bitcoin into deep cold storage — kept offline in a former Swiss military bunker, the feature Xapo was best known for.
 
 ## The problem
 
