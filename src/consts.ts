@@ -16,5 +16,6 @@ export const GITHUB = {
 export const SOCIAL = {
   GITHUB: 'https://github.com/pete-watters',
   X: 'https://x.com/petew_btc',
+  LINKEDIN: 'https://www.linkedin.com/in/pete-watters/',
   STACKOVERFLOW: 'https://stackoverflow.com/users/1365580/peadar',
 } as const;
