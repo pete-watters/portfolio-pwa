@@ -66,8 +66,6 @@ const Title = isHome ? 'h1' : 'p';
         <li>Kraken</li>
         <li>Xapo</li>
         <li>Bank of America</li>
-        <li>Rocksteady</li>
-        <li>Kontainers</li>
         <li>Fidelity</li>
       </ul>
     </div>
@@ -81,10 +79,11 @@ const Title = isHome ? 'h1' : 'p';
 
   <div class="rail-bottom">
     <div class="rail-coins" aria-hidden="true">
-      <span class="coin"><img class="coin-face" src="/img/tokens/btc.svg" alt="" width="46" height="46" loading="lazy" /></span>
-      <span class="coin"><img class="coin-face" src="/img/tokens/eth.svg" alt="" width="46" height="46" loading="lazy" /></span>
-      <span class="coin"><img class="coin-face" src="/img/tokens/stx.svg" alt="" width="46" height="46" loading="lazy" /></span>
-      <span class="coin"><img class="coin-face" src="/img/tokens/sol.svg" alt="" width="46" height="46" loading="lazy" /></span>
+      <span class="coin"><img class="coin-face" src="/img/tokens/btc.svg" alt="" width="42" height="42" loading="lazy" /></span>
+      <span class="coin"><img class="coin-face" src="/img/tokens/eth.svg" alt="" width="42" height="42" loading="lazy" /></span>
+      <span class="coin"><img class="coin-face" src="/img/tokens/stx.svg" alt="" width="42" height="42" loading="lazy" /></span>
+      <span class="coin"><img class="coin-face" src="/img/tokens/sol.svg" alt="" width="42" height="42" loading="lazy" /></span>
+      <span class="coin"><img class="coin-face" src="/img/tokens/sui.svg" alt="" width="42" height="42" loading="lazy" /></span>
     </div>
     <a class="rail-availability" href="/#contact">
       <span class="rail-availability-dot" aria-hidden="true"></span>
@@ -205,12 +204,12 @@ const Title = isHome ? 'h1' : 'p';
   .rail-nav a:hover { color: var(--color-accent); border-color: var(--color-accent); }
 
   .rail-bottom { display: flex; flex-direction: column; gap: 1.5rem; margin-top: auto; }
-  .rail-coins { display: flex; gap: 0.7rem; }
+  .rail-coins { display: flex; flex-wrap: wrap; gap: 0.55rem; }
   .coin { display: block; }
   .coin-face {
     display: block;
-    width: 46px;
-    height: 46px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
   }
