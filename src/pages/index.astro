@@ -821,12 +821,47 @@ import ContactSection from '../components/ContactSection.astro';
   }
 
   .timeline-row {
+    position: relative;
     display: grid;
     grid-template-columns: 1.4fr 2.6fr 1.2fr;
     gap: 1.5rem;
-    padding: 1.1rem 0;
+    padding: 1.1rem 0 1.1rem 1.9rem;
     border-bottom: 1px solid var(--color-border);
     align-items: baseline;
+  }
+
+  .timeline-row::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.55s var(--ease-out-soft);
+  }
+  .timeline-row::after {
+    content: '';
+    position: absolute;
+    left: 0.5px;
+    top: 1.55rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.12);
+    transform: scale(1);
+    transition: transform 0.45s var(--ease-out-soft) 0.1s;
+  }
+  .js .timeline-row::before { transform: scaleY(0); }
+  .js .timeline-row::after { transform: scale(0); }
+  .timeline-row.is-visible::before { transform: scaleY(1); }
+  .timeline-row.is-visible::after { transform: scale(1); }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-row::before { transform: scaleY(1); transition: none; }
+    .timeline-row::after { transform: scale(1); transition: none; }
   }
 
   .timeline-company {
@@ -872,7 +907,7 @@ import ContactSection from '../components/ContactSection.astro';
     .timeline-row {
       grid-template-columns: 1fr;
       gap: 0.25rem;
-      padding: 1rem 0;
+      padding: 1rem 0 1rem 1.9rem;
     }
     .timeline-period { text-align: left; }
   }
