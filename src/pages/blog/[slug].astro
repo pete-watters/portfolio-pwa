@@ -40,11 +40,14 @@ const { Content } = await render(post);
 </BaseLayout>
 
 <script>
-  document.querySelectorAll('.blog-post a[href]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && (href.startsWith('http') || href.startsWith('//'))) {
-      a.setAttribute('target', '_blank');
-      a.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
+  function markPostExternalLinks() {
+    document.querySelectorAll('.blog-post a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (href && (href.startsWith('http') || href.startsWith('//'))) {
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener noreferrer');
+      }
+    });
+  }
+  document.addEventListener('astro:page-load', markPostExternalLinks);
 </script>
