@@ -41,13 +41,16 @@ const { title, description, tagline } = Astro.props;
       </main>
     </div>
     <script>
-      document.querySelectorAll('.cv a[href]').forEach(a => {
-        const href = a.getAttribute('href');
-        if (href && (href.startsWith('http') || href.startsWith('//'))) {
-          a.setAttribute('target', '_blank');
-          a.setAttribute('rel', 'noopener noreferrer');
-        }
-      });
+      function markCvExternalLinks() {
+        document.querySelectorAll('.cv a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && (href.startsWith('http') || href.startsWith('//'))) {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+          }
+        });
+      }
+      document.addEventListener('astro:page-load', markCvExternalLinks);
     </script>
   </body>
 </html>
