@@ -13,6 +13,27 @@ interface Props {
 
 const { title, description, image, type, publishedDate } = Astro.props;
 const isHome = Astro.url.pathname === '/';
+
+const splashScript = `(function(){
+  try {
+    if (sessionStorage.getItem('pw-splash-seen')) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    sessionStorage.setItem('pw-splash-seen', '1');
+    var html = document.documentElement;
+    html.classList.add('pw-splash-active');
+    function dismiss(){
+      var s = document.querySelector('.pw-splash');
+      if (!s) { html.classList.remove('pw-splash-active'); return; }
+      setTimeout(function(){
+        s.classList.add('is-done');
+        setTimeout(function(){ html.classList.remove('pw-splash-active'); }, 600);
+      }, 1500);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', dismiss);
+    } else { dismiss(); }
+  } catch (e) {}
+})();`;
 ---
 
 <!doctype html>
@@ -25,8 +46,14 @@ const isHome = Astro.url.pathname === '/';
       type={type}
       publishedDate={publishedDate}
     />
+    {isHome && <script is:inline set:html={splashScript} />}
   </head>
   <body>
+    {isHome && (
+      <div class="pw-splash" aria-hidden="true">
+        <img class="pw-splash-avatar" src="/img/icon.png" alt="" width="156" height="156" fetchpriority="high" />
+      </div>
+    )}
     <div class="app-shell">
       <Sidebar isHome={isHome} />
       <main>
