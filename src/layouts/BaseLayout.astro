@@ -1,6 +1,7 @@
 ---
 import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -27,6 +28,7 @@ const isHome = Astro.url.pathname === '/';
     />
   </head>
   <body>
+    <ScrollProgress />
     <div class="app-shell">
       <Sidebar isHome={isHome} />
       <main>
