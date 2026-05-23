@@ -39,14 +39,24 @@ Then('no page error should have occurred', async ({ page }) => {
 Then('the rendered page matches the snapshot {string}', async ({ page }, name: string) => {
   // Wait for web fonts AND images before snapshotting to avoid loading-state diffs.
   await page.evaluate(() => document.fonts.ready).catch(() => undefined);
-  await page.evaluate(() => Promise.all(
-    Array.from(document.images)
+  await page.evaluate(() => {
+    const pending = Array.from(document.images)
       .filter((img) => !img.complete)
       .map((img) => new Promise<void>((resolve) => {
         img.addEventListener('load',  () => resolve(), { once: true });
         img.addEventListener('error', () => resolve(), { once: true });
-      })),
-  )).catch(() => undefined);
+      }));
+    const cap = new Promise<void>((resolve) => setTimeout(resolve, 3000));
+    return Promise.race([Promise.all(pending).then(() => undefined), cap]);
+  }).catch(() => undefined);
+
+  await page.evaluate(() => {
+    document.querySelectorAll('video').forEach((video) => {
+      video.pause();
+      video.loop = false;
+      video.currentTime = 0;
+    });
+  }).catch(() => undefined);
 
   await expect(page).toHaveScreenshot(`${name}.png`, {
     // Viewport-only (not fullPage). Full-page snapshots of long-text pages
