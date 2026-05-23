@@ -35,9 +35,9 @@ Feature: Prod routes render guardrail
     And the rendered page matches the snapshot "cv"
 
   Scenario: Leather case study renders
-    When I visit "/work/leather/"
+    When I visit "/work/leather-mobile/"
     Then no page error should have occurred
-    And the rendered page matches the snapshot "work-leather"
+    And the rendered page matches the snapshot "work-leather-mobile"
 
   Scenario: Cryptowatch case study renders
     When I visit "/work/cryptowatch/"
