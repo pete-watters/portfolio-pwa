@@ -16,6 +16,7 @@ const isHome = Astro.url.pathname === '/';
 
 const splashScript = `(function(){
   try {
+    if (navigator.webdriver) return;
     if (sessionStorage.getItem('pw-splash-seen')) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     sessionStorage.setItem('pw-splash-seen', '1');
