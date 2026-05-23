@@ -329,35 +329,39 @@ import ContactSection from '../components/ContactSection.astro';
 </BaseLayout>
 
 <script>
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function initReveal() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = Number(entry.target.getAttribute('data-stagger') || 0);
-          setTimeout(() => entry.target.classList.add('is-visible'), delay);
-          observer.unobserve(entry.target);
-        }
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = Number(entry.target.getAttribute('data-stagger') || 0);
+            setTimeout(() => entry.target.classList.add('is-visible'), delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      const groups = [
+        { selector: '.logo-strip-list [data-reveal]', step: 80 },
+        { selector: '.case-card[data-reveal]',        step: 120 },
+        { selector: '.timeline-row[data-reveal]',     step: 60 },
+      ];
+
+      groups.forEach(({ selector, step }) => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+          el.setAttribute('data-stagger', String(i * step));
+        });
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    const groups = [
-      { selector: '.logo-strip-list [data-reveal]', step: 80 },
-      { selector: '.case-card[data-reveal]',        step: 120 },
-      { selector: '.timeline-row[data-reveal]',     step: 60 },
-    ];
-
-    groups.forEach(({ selector, step }) => {
-      document.querySelectorAll(selector).forEach((el, i) => {
-        el.setAttribute('data-stagger', String(i * step));
-      });
-    });
-
-    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+    }
   }
+
+  document.addEventListener('astro:page-load', initReveal);
 </script>
 
 <style>
