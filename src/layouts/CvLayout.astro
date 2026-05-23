@@ -1,6 +1,7 @@
 ---
 import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
+import { SOCIAL } from '../consts';
 import '../styles/global.css';
 
 interface Props {
@@ -22,6 +23,16 @@ const { title, description, tagline } = Astro.props;
       <Sidebar />
       <main>
         <div class="cv">
+          <header class="cv-print-header">
+            <p class="cv-print-name">Pete Watters</p>
+            <p class="cv-print-title">Senior Software Engineer · React / TypeScript / Next.js · Bitcoin & Web3 · Dublin, Ireland</p>
+            <p class="cv-print-links">
+              <a href="https://petewatters.ie">petewatters.ie</a> ·
+              <a href={SOCIAL.LINKEDIN}>linkedin.com/in/pete-watters</a> ·
+              <a href={SOCIAL.GITHUB}>github.com/pete-watters</a> ·
+              <a href="mailto:pete@cteic.ie">pete@cteic.ie</a>
+            </p>
+          </header>
           <div class="cv-intro">
             <p class="tagline">{tagline}</p>
           </div>
@@ -30,54 +41,23 @@ const { title, description, tagline } = Astro.props;
       </main>
     </div>
     <script>
-      document.querySelectorAll('.cv a[href]').forEach(a => {
-        const href = a.getAttribute('href');
-        if (href && (href.startsWith('http') || href.startsWith('//'))) {
-          a.setAttribute('target', '_blank');
-          a.setAttribute('rel', 'noopener noreferrer');
-        }
-      });
+      function markCvExternalLinks() {
+        document.querySelectorAll('.cv a[href]').forEach(a => {
+          const href = a.getAttribute('href');
+          if (href && (href.startsWith('http') || href.startsWith('//'))) {
+            a.setAttribute('target', '_blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+          }
+        });
+      }
+      document.addEventListener('astro:page-load', markCvExternalLinks);
     </script>
   </body>
 </html>
 
 <style>
-  header {
-    display: block;
-    padding: 1rem 2rem;
-    background-color: #2B2B2B;
-    color: white;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  header :global(a) {
-    color: white;
-  }
-
-  .header-inner {
-    max-width: 52rem;
-    margin: 0 auto;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .header-inner :global(h1) {
-    margin: 0;
-    text-align: left;
-  }
-
-  .cv-nav {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .cv-nav :global(svg) {
-    width: 18px;
-    height: 18px;
+  .cv-print-header {
+    display: none;
   }
 
   main {
@@ -202,23 +182,42 @@ const { title, description, tagline } = Astro.props;
 
   /* Print styles */
   @media print {
-    header {
-      padding: 0.5rem 1rem;
-      background-color: #2B2B2B !important;
-      color: white !important;
+    .cv-print-header {
+      display: block;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #111111;
     }
 
-    header :global(a) {
-      color: white !important;
-    }
-
-    header :global(h1) {
+    .cv-print-header .cv-print-name {
+      font-family: 'Space Grotesk', var(--font-sans);
       font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #111111;
+      margin: 0 0 0.15rem;
     }
 
-    .cv-nav :global(svg) {
-      width: 14px;
-      height: 14px;
+    .cv-print-header .cv-print-title {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: #333333;
+      margin: 0 0 0.2rem;
+    }
+
+    .cv-print-header .cv-print-links {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      line-height: 1.4;
+      color: #555555;
+      margin: 0;
+    }
+
+    .cv-print-header .cv-print-links a {
+      color: #555555;
+      text-decoration: none;
     }
 
     main {
@@ -226,8 +225,7 @@ const { title, description, tagline } = Astro.props;
     }
 
     .cv-intro {
-      margin-bottom: 0.5rem;
-      padding-bottom: 0.5rem;
+      display: none;
     }
 
     .tagline {
