@@ -3,5 +3,12 @@
 <script>
   // @ts-ignore — no type declarations for pagefind
   import { PagefindUI } from '@pagefind/default-ui';
-  new PagefindUI({ element: '#search', showSubResults: true });
+  function initSearch() {
+    const el = document.querySelector('#search');
+    if (el instanceof HTMLElement && !el.dataset.pagefindReady) {
+      new PagefindUI({ element: '#search', showSubResults: true });
+      el.dataset.pagefindReady = 'true';
+    }
+  }
+  document.addEventListener('astro:page-load', initSearch);
 </script>

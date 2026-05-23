@@ -39,6 +39,25 @@ test.describe('CV page', () => {
     expect(response.status()).toBe(200);
   });
 
+  test.describe('print header', () => {
+    test('identity header is hidden on screen', async ({ page }) => {
+      await page.goto('/cv');
+      await expect(page.locator('.cv-print-header')).toBeHidden();
+    });
+
+    test('identity header appears when printing with name, title and contacts', async ({ page }) => {
+      await page.goto('/cv');
+      await page.emulateMedia({ media: 'print' });
+      const header = page.locator('.cv-print-header');
+      await expect(header).toBeVisible();
+      await expect(header).toContainText('Pete Watters');
+      await expect(header).toContainText('Senior Software Engineer');
+      await expect(header).toContainText('petewatters.ie');
+      await expect(header).toContainText('github.com/pete-watters');
+      await expect(header.locator('a[href="mailto:pete@cteic.ie"]')).toBeVisible();
+    });
+  });
+
   test.describe('old variant URLs redirect to /cv/', () => {
     for (const variant of ['full-stack', 'frontend', 'product']) {
       test(`/cv/${variant} redirects to /cv/`, async ({ page }) => {
