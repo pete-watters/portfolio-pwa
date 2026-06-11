@@ -765,6 +765,40 @@ import ContactSection from '../components/ContactSection.astro';
   .t-green  { color: #56D364; }
   .t-orange { color: #F7931A; }
 
+  .js .case-card-visual--cryptowatch .terminal-body > div { opacity: 0; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div {
+    animation: terminal-print 0.34s steps(14, end) both;
+  }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(1) { animation-delay: 0.15s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(2) { animation-delay: 0.31s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(3) { animation-delay: 0.47s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(4) { animation-delay: 0.63s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(5) { animation-delay: 0.79s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(6) { animation-delay: 0.95s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(7) { animation-delay: 1.05s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(8) { animation-delay: 1.18s; }
+  .case-card-visual--cryptowatch .terminal-body > div:last-child { position: relative; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:last-child::after {
+    content: '▋';
+    margin-left: 0.4ch;
+    color: #56D364;
+    opacity: 0;
+    animation: terminal-caret 1.05s steps(1, end) 1.5s infinite;
+  }
+  @keyframes terminal-print {
+    from { opacity: 1; clip-path: inset(0 100% 0 0); }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); }
+  }
+  @keyframes terminal-caret {
+    0%, 45% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .case-card-visual--cryptowatch .terminal-body > div { opacity: 1; }
+    .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div { animation: none; clip-path: none; }
+    .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:last-child::after { content: none; }
+  }
+
   .case-card-meta {
     margin: 0 0 1rem;
     display: flex;
