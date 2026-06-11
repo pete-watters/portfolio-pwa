@@ -873,7 +873,7 @@ import ContactSection from '../components/ContactSection.astro';
     top: -2px;
     bottom: -2px;
     width: 2px;
-    background: var(--color-border);
+    background: #d6d6d6;
     transform: scaleY(1);
     transform-origin: top;
     transition: transform 0.55s var(--ease-out-soft);
@@ -883,18 +883,17 @@ import ContactSection from '../components/ContactSection.astro';
   .timeline-row::after {
     content: '';
     position: absolute;
-    left: 0.5px;
-    top: 1.45rem;
-    width: 11px;
-    height: 11px;
+    left: 1.5px;
+    top: 1.5rem;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--color-accent);
-    box-shadow: 0 0 0 3px #fff, 0 0 0 4px rgba(247, 147, 26, 0.35);
     transform: scale(1);
     transition: transform 0.45s var(--ease-out-soft) 0.1s, box-shadow 0.3s var(--ease-out-soft);
   }
   .timeline-row:hover::after {
-    box-shadow: 0 0 0 3px #fff, 0 0 0 5px rgba(247, 147, 26, 0.7);
+    box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.18);
   }
   .js .timeline-row::before { transform: scaleY(0); }
   .js .timeline-row::after { transform: scale(0); }
