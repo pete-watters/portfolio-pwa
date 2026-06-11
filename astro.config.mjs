@@ -1,10 +1,15 @@
 import { defineConfig } from 'astro/config';
 import AstroPWA from '@vite-pwa/astro';
 import sitemap from '@astrojs/sitemap';
+import rehypeMermaid from 'rehype-mermaid';
 
 export default defineConfig({
   output: 'static',
   site: 'https://petewatters.ie',
+  markdown: {
+    syntaxHighlight: { type: 'shiki', excludeLangs: ['mermaid'] },
+    rehypePlugins: [[rehypeMermaid, { strategy: 'img-svg' }]],
+  },
   redirects: {
     '/cv/full-stack': '/cv/',
     '/cv/frontend': '/cv/',
