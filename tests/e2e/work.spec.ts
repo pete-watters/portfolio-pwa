@@ -7,7 +7,16 @@ const cases = [
   { slug: 'coderunner',     title: "Coderunner — Kraken's Trading Automation Tool", company: 'Kraken' },
   { slug: 'xapo',           title: 'Xapo', company: 'Xapo' },
   { slug: 'qredo',          title: 'Qredo', company: 'Qredo' },
+  { slug: 'portfolio-pwa',  title: 'petewatters.ie — An Astro PWA With Build-Time On-Chain Data', company: 'Independent' },
 ];
+
+const reposBySlug = {
+  'leather-mobile': 'https://github.com/leather-io',
+  'leather-nfts': 'https://github.com/leather-io',
+  'stackr': 'https://github.com/pete-watters/stackr',
+  'simplyfpl': 'https://github.com/pete-watters/simply-fpl',
+  'portfolio-pwa': 'https://github.com/pete-watters/portfolio-pwa',
+};
 
 test.describe('Case study pages', () => {
   for (const { slug, title, company } of cases) {
@@ -63,6 +72,24 @@ test.describe('Case study pages', () => {
       await expect(page.locator('.outcome-grid')).toHaveCount(0);
     }
   });
+
+  for (const [slug, repo] of Object.entries(reposBySlug)) {
+    test(`/work/${slug} shows a prominent source link in the hero`, async ({ page }) => {
+      await page.goto(`/work/${slug}/`);
+      const repoLink = page.locator('.case-study-repo');
+      await expect(repoLink).toBeVisible();
+      await expect(repoLink).toHaveAttribute('href', repo);
+      await expect(repoLink).toHaveAttribute('target', '_blank');
+      await expect(repoLink).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+  }
+
+  for (const slug of ['cryptowatch', 'coderunner', 'xapo', 'qredo']) {
+    test(`/work/${slug} has no source link`, async ({ page }) => {
+      await page.goto(`/work/${slug}/`);
+      await expect(page.locator('.case-study-repo')).toHaveCount(0);
+    });
+  }
 
   test('Old /work/leather redirects to /work/leather-mobile', async ({ page }) => {
     await page.goto('/work/leather');

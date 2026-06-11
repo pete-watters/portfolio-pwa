@@ -8,6 +8,7 @@ stat: "4 chains · Bitcoin · Ethereum · Solana · Stacks — wallet-connect + 
 headline: "A self-custodial cross-chain portfolio terminal."
 subtitle: "Stackr tracks balances, allocation, and activity across Bitcoin, Ethereum, Solana, and Stacks in one view — computed entirely client-side from public chain RPCs."
 confidentiality: "Stackr is my own product — built in the open on a public repo, but proprietary (all rights reserved). All figures and addresses shown here are mock data."
+repo: "https://github.com/pete-watters/stackr"
 tech:
   - Next.js 15
   - React 19
