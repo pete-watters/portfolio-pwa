@@ -1,6 +1,7 @@
 ---
 import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
+import ScrollProgress from '../components/ScrollProgress.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -50,6 +51,7 @@ const splashScript = `(function(){
     {isHome && <script is:inline set:html={splashScript} />}
   </head>
   <body>
+    <ScrollProgress />
     {isHome && (
       <div class="pw-splash" aria-hidden="true">
         <img class="pw-splash-avatar" src="/img/icon.png" alt="" width="156" height="156" fetchpriority="high" />
