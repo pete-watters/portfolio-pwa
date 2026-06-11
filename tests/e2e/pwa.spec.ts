@@ -5,9 +5,9 @@ test.describe('PWA', () => {
     const response = await request.get('/manifest.webmanifest');
     expect(response.status()).toBe(200);
     const manifest = await response.json();
-    expect(manifest.name).toBe("Pete's Progressive Web App Portfolio");
-    expect(manifest.short_name).toBe("Pete's PWA");
-    expect(manifest.display).toBe('fullscreen');
+    expect(manifest.name).toBe('Pete Watters — Senior Web3 Frontend Engineer');
+    expect(manifest.short_name).toBe('Pete Watters');
+    expect(manifest.display).toBe('standalone');
     expect(manifest.icons).toHaveLength(2);
   });
 
