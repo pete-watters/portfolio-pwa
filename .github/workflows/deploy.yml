@@ -59,7 +59,7 @@ jobs:
             DEPLOY_OUTPUT=$(npx wrangler pages deploy dist --project-name=portfolio --commit-dirty=true 2>&1)
           fi
           echo "$DEPLOY_OUTPUT"
-          URL=$(echo "$DEPLOY_OUTPUT" | grep 'alias URL' | grep -oE 'https://[^ ]+')
+          URL=$(echo "$DEPLOY_OUTPUT" | grep 'alias URL' | grep -oE 'https://[^ ]+' || true)
           echo "url=$URL" >> "$GITHUB_OUTPUT"
       - name: Comment preview URL on PR
         if: github.event_name == 'pull_request' && steps.deploy.outputs.url
