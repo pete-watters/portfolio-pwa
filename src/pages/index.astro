@@ -249,6 +249,7 @@ import ContactSection from '../components/ContactSection.astro';
       <p class="section-label">Resume 2014 → 2026</p>
       <ol class="timeline-rows">
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2023</span>
           <div class="timeline-company">Trust Machines</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Senior Frontend Engineer</span>
@@ -257,6 +258,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Jul 2023 — Present</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2023</span>
           <div class="timeline-company">Qredo</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Senior Frontend Engineer</span>
@@ -265,6 +267,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Jan — Jun 2023</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2020</span>
           <div class="timeline-company">Kraken</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Senior Frontend Engineer</span>
@@ -273,6 +276,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Aug 2020 — Nov 2022</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2017</span>
           <div class="timeline-company">Xapo</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Senior Frontend Engineer</span>
@@ -281,6 +285,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Nov 2017 — Apr 2020</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2017</span>
           <div class="timeline-company">Bank of America</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Senior Frontend Engineer</span>
@@ -289,6 +294,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">May — Oct 2017</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2016</span>
           <div class="timeline-company">Rocksteady</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Lead JavaScript Developer</span>
@@ -297,6 +303,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Apr 2016 — Mar 2017</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2015</span>
           <div class="timeline-company">Kontainers</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Full-Stack Developer</span>
@@ -305,6 +312,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Jun 2015 — Apr 2016</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2014</span>
           <div class="timeline-company">Fidelity</div>
           <div class="timeline-role">
             <span class="timeline-role-name">UX Developer</span>
@@ -313,6 +321,7 @@ import ContactSection from '../components/ContactSection.astro';
           <div class="timeline-period">Jun 2014 — Jun 2015</div>
         </li>
         <li class="timeline-row" data-reveal>
+          <span class="timeline-year" aria-hidden="true">2006</span>
           <div class="timeline-company">Earlier</div>
           <div class="timeline-role">
             <span class="timeline-role-name">Yahoo! · eSpatial · The Now Factory · IBM · HP</span>
@@ -855,59 +864,59 @@ import ContactSection from '../components/ContactSection.astro';
     list-style: none;
     padding: 0;
     margin: 0;
-    border-top: 1px solid var(--color-border);
   }
 
   .timeline-row {
     position: relative;
     display: grid;
-    grid-template-columns: 1.4fr 2.6fr 1.2fr;
-    gap: 1.5rem;
-    padding: 1.1rem 0 1.1rem 1.9rem;
-    border-bottom: 1px solid var(--color-border);
+    grid-template-columns: 7rem 1fr auto;
+    grid-template-areas:
+      'year company period'
+      'year role    role';
+    gap: 0.4rem 2.25rem;
+    padding: 1.7rem 0;
     align-items: baseline;
   }
+  .timeline-row + .timeline-row { border-top: 1px solid var(--color-border); }
 
-  .timeline-row::before {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: var(--color-border);
-    transform: scaleY(1);
-    transform-origin: top;
-    transition: transform 0.55s var(--ease-out-soft);
+  .timeline-year {
+    grid-area: year;
+    position: relative;
+    align-self: start;
+    padding-left: 1rem;
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-faint);
+    transition: color 0.3s var(--ease-out-soft);
   }
-  .timeline-row::after {
+  .timeline-year::before {
     content: '';
     position: absolute;
-    left: 0.5px;
-    top: 1.55rem;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
+    left: 0;
+    top: 0.12em;
+    width: 3px;
+    height: 0.8em;
+    border-radius: 2px;
     background: var(--color-accent);
-    box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.12);
-    transform: scale(1);
-    transition: transform 0.45s var(--ease-out-soft) 0.1s;
+    transform: scaleY(0.4);
+    transform-origin: top;
+    transition: transform 0.3s var(--ease-out-soft);
   }
-  .js .timeline-row::before { transform: scaleY(0); }
-  .js .timeline-row::after { transform: scale(0); }
-  .timeline-row.is-visible::before { transform: scaleY(1); }
-  .timeline-row.is-visible::after { transform: scale(1); }
-  @media (prefers-reduced-motion: reduce) {
-    .timeline-row::before { transform: scaleY(1); transition: none; }
-    .timeline-row::after { transform: scale(1); transition: none; }
-  }
+  .timeline-row:hover .timeline-year { color: var(--color-text); }
+  .timeline-row:hover .timeline-year::before { transform: scaleY(1); }
 
   .timeline-company {
+    grid-area: company;
     font-weight: 600;
+    font-size: 1.05rem;
     color: var(--color-text);
   }
 
   .timeline-role {
+    grid-area: role;
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
@@ -925,6 +934,7 @@ import ContactSection from '../components/ContactSection.astro';
   }
 
   .timeline-period {
+    grid-area: period;
     font-family: var(--font-mono);
     font-size: 13px;
     color: var(--color-faint);
@@ -943,10 +953,15 @@ import ContactSection from '../components/ContactSection.astro';
     .case-card-visual { aspect-ratio: 16 / 10; }
 
     .timeline-row {
-      grid-template-columns: 1fr;
-      gap: 0.25rem;
-      padding: 1rem 0 1rem 1.9rem;
+      grid-template-columns: 4.5rem 1fr;
+      grid-template-areas:
+        'year company'
+        'year role'
+        'year period';
+      gap: 0.25rem 1.25rem;
+      padding: 1.25rem 0;
     }
+    .timeline-year { font-size: 1.25rem; padding-left: 0.75rem; }
     .timeline-period { text-align: left; }
   }
 
