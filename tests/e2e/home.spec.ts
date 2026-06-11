@@ -3,41 +3,41 @@ import { test, expect } from '@playwright/test';
 test.describe('Home page', () => {
   test('has correct title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle('Pete Watters');
+    await expect(page).toHaveTitle('Web3 Engineer | Pete Watters');
   });
 
-  test('header shows availability badge (not hero)', async ({ page }) => {
+  test('rail shows availability badge (not hero)', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.header-availability')).toContainText('Available Sep 2026');
+    await expect(page.locator('.rail-availability')).toContainText('Available for remote work');
     // Hero-scale availability badge is gone — should not exist
     await expect(page.locator('.hero .availability-badge')).toHaveCount(0);
   });
 
-  test('header has the primary nav links', async ({ page }) => {
+  test('rail has the primary nav links', async ({ page }) => {
     await page.goto('/');
-    const links = page.locator('header.site-header .primary-nav a');
+    const links = page.locator('.rail-nav a');
     await expect(links).toHaveCount(3);
     await expect(links.nth(0)).toHaveText('Work');
-    await expect(links.nth(1)).toHaveText('Blog');
+    await expect(links.nth(1)).toHaveText('Writing');
     await expect(links.nth(2)).toHaveText('CV');
   });
 
   test('hero no longer duplicates the Pete Watters wordmark', async ({ page }) => {
     await page.goto('/');
-    // .hero-name was removed; the header h1 a is the only wordmark
+    // .hero-name was removed; the rail name is the only wordmark
     await expect(page.locator('.hero-name')).toHaveCount(0);
-    await expect(page.locator('header.site-header h1 a')).toHaveText('Pete Watters');
+    await expect(page.locator('.rail-name')).toHaveText('Pete Watters');
   });
 
-  test('hero shows Engineer headline + plan/build/ship rhythm + bio', async ({ page }) => {
+  test('rail shows Web3 Engineer headline + plan/build/ship rhythm + bio', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.hero-headline')).toHaveText('Engineer');
+    await expect(page.locator('.rail-title')).toContainText('Web3 Engineer');
     const items = page.locator('.rhythm-item');
     await expect(items).toHaveCount(3);
     await expect(items.nth(0)).toContainText('plan');
     await expect(items.nth(1)).toContainText('build');
     await expect(items.nth(2)).toContainText('ship');
-    await expect(page.locator('.hero-bio')).toContainText('crypto products');
+    await expect(page.locator('.rail-bio')).toContainText('Building for the web');
   });
 
   test('rhythm items each have an inline monoline glyph SVG', async ({ page }) => {
@@ -46,12 +46,12 @@ test.describe('Home page', () => {
     await expect(glyphs).toHaveCount(3);
   });
 
-  test('logo strip lists all six companies', async ({ page }) => {
+  test('shipped-at strip lists all six companies', async ({ page }) => {
     await page.goto('/');
-    const items = page.locator('.logo-strip-list li');
+    const items = page.locator('.rail-shipped-list li');
     await expect(items).toHaveCount(6);
-    await expect(items.nth(0)).toHaveText('Kraken');
-    await expect(items.nth(5)).toHaveText('Qredo');
+    await expect(items.nth(0)).toHaveText('Leather');
+    await expect(items.nth(5)).toHaveText('Fidelity');
   });
 
   test('case studies section has id="work" so /#work anchor scrolls correctly', async ({ page }) => {
@@ -59,19 +59,23 @@ test.describe('Home page', () => {
     await expect(page.locator('section.case-studies#work')).toBeVisible();
   });
 
-  test('shows four case study cards', async ({ page }) => {
+  test('shows seven case study cards', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('.case-card')).toHaveCount(4);
+    await expect(page.locator('.case-card')).toHaveCount(7);
   });
 
-  test('case study cards link to /work/<slug>/', async ({ page }) => {
+  test('case study cards link to /work/<slug>/ plus the repo', async ({ page }) => {
     await page.goto('/');
     const links = page.locator('.case-card-link');
-    await expect(links).toHaveCount(4);
-    await expect(links.nth(0)).toHaveAttribute('href', '/work/leather/');
+    await expect(links).toHaveCount(7);
+    await expect(links.nth(0)).toHaveAttribute('href', '/work/leather-mobile/');
     await expect(links.nth(1)).toHaveAttribute('href', '/work/cryptowatch/');
     await expect(links.nth(2)).toHaveAttribute('href', '/work/xapo/');
     await expect(links.nth(3)).toHaveAttribute('href', '/work/qredo/');
+    await expect(links.nth(4)).toHaveAttribute('href', '/work/stackr/');
+    await expect(links.nth(5)).toHaveAttribute('href', '/work/simplyfpl/');
+    await expect(links.nth(6)).toHaveAttribute('href', 'https://github.com/pete-watters/portfolio-pwa');
+    await expect(links.nth(6)).toHaveAttribute('target', '_blank');
   });
 
   test('timeline lists every role from Trust Machines back to Earlier', async ({ page }) => {
@@ -91,9 +95,9 @@ test.describe('Home page', () => {
     await expect(contact.locator('a[href*="x.com/petew_btc"]')).toBeVisible();
   });
 
-  test('header has no social icons (they moved to contact section)', async ({ page }) => {
+  test('rail nav has no social icons (they moved to contact section)', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('header.site-header a[href*="github.com"]')).toHaveCount(0);
-    await expect(page.locator('header.site-header a[href*="x.com"]')).toHaveCount(0);
+    await expect(page.locator('.rail-nav a[href*="github.com"]')).toHaveCount(0);
+    await expect(page.locator('.rail-nav a[href*="x.com"]')).toHaveCount(0);
   });
 });
