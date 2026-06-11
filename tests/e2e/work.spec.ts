@@ -73,23 +73,23 @@ test.describe('Case study pages', () => {
     }
   });
 
-  test('open-source case studies show a prominent source link in the hero', async ({ page }) => {
-    for (const [slug, repo] of Object.entries(reposBySlug)) {
+  for (const [slug, repo] of Object.entries(reposBySlug)) {
+    test(`/work/${slug} shows a prominent source link in the hero`, async ({ page }) => {
       await page.goto(`/work/${slug}/`);
       const repoLink = page.locator('.case-study-repo');
       await expect(repoLink).toBeVisible();
       await expect(repoLink).toHaveAttribute('href', repo);
       await expect(repoLink).toHaveAttribute('target', '_blank');
       await expect(repoLink).toHaveAttribute('rel', 'noopener noreferrer');
-    }
-  });
+    });
+  }
 
-  test('proprietary case studies have no source link', async ({ page }) => {
-    for (const slug of ['cryptowatch', 'coderunner', 'xapo', 'qredo']) {
+  for (const slug of ['cryptowatch', 'coderunner', 'xapo', 'qredo']) {
+    test(`/work/${slug} has no source link`, async ({ page }) => {
       await page.goto(`/work/${slug}/`);
       await expect(page.locator('.case-study-repo')).toHaveCount(0);
-    }
-  });
+    });
+  }
 
   test('Old /work/leather redirects to /work/leather-mobile', async ({ page }) => {
     await page.goto('/work/leather');
