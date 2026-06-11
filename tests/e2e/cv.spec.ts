@@ -4,7 +4,7 @@ test.describe('CV page', () => {
   test('/cv renders the unified CV', async ({ page }) => {
     await page.goto('/cv');
     await expect(page).toHaveTitle('CV | Pete Watters');
-    await expect(page.locator('.cv')).toContainText('Engineer with 15+ years');
+    await expect(page.locator('.cv')).toContainText('Engineer building for the web for nearly 20 years');
   });
 
   test('skills section renders with frontend groupings', async ({ page }) => {
@@ -37,6 +37,25 @@ test.describe('CV page', () => {
     await expect(page.locator('text=C4 Certified Bitcoin Professional')).toBeVisible();
     const response = await request.get('/docs/bitcoin-certified-professional.pdf');
     expect(response.status()).toBe(200);
+  });
+
+  test.describe('print header', () => {
+    test('identity header is hidden on screen', async ({ page }) => {
+      await page.goto('/cv');
+      await expect(page.locator('.cv-print-header')).toBeHidden();
+    });
+
+    test('identity header appears when printing with name, title and contacts', async ({ page }) => {
+      await page.goto('/cv');
+      await page.emulateMedia({ media: 'print' });
+      const header = page.locator('.cv-print-header');
+      await expect(header).toBeVisible();
+      await expect(header).toContainText('Pete Watters');
+      await expect(header).toContainText('Senior Software Engineer');
+      await expect(header).toContainText('petewatters.ie');
+      await expect(header).toContainText('github.com/pete-watters');
+      await expect(header.locator('a[href="mailto:pete@cteic.ie"]')).toBeVisible();
+    });
   });
 
   test.describe('old variant URLs redirect to /cv/', () => {

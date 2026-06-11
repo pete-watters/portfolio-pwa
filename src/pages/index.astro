@@ -329,35 +329,39 @@ import ContactSection from '../components/ContactSection.astro';
 </BaseLayout>
 
 <script>
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function initReveal() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = Number(entry.target.getAttribute('data-stagger') || 0);
-          setTimeout(() => entry.target.classList.add('is-visible'), delay);
-          observer.unobserve(entry.target);
-        }
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const delay = Number(entry.target.getAttribute('data-stagger') || 0);
+            setTimeout(() => entry.target.classList.add('is-visible'), delay);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      const groups = [
+        { selector: '.logo-strip-list [data-reveal]', step: 80 },
+        { selector: '.case-card[data-reveal]',        step: 120 },
+        { selector: '.timeline-row[data-reveal]',     step: 60 },
+      ];
+
+      groups.forEach(({ selector, step }) => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+          el.setAttribute('data-stagger', String(i * step));
+        });
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    const groups = [
-      { selector: '.logo-strip-list [data-reveal]', step: 80 },
-      { selector: '.case-card[data-reveal]',        step: 120 },
-      { selector: '.timeline-row[data-reveal]',     step: 60 },
-    ];
-
-    groups.forEach(({ selector, step }) => {
-      document.querySelectorAll(selector).forEach((el, i) => {
-        el.setAttribute('data-stagger', String(i * step));
-      });
-    });
-
-    document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
-  } else {
-    document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+      document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-visible'));
+    }
   }
+
+  document.addEventListener('astro:page-load', initReveal);
 </script>
 
 <style>
@@ -761,6 +765,40 @@ import ContactSection from '../components/ContactSection.astro';
   .t-green  { color: #56D364; }
   .t-orange { color: #F7931A; }
 
+  .js .case-card-visual--cryptowatch .terminal-body > div { opacity: 0; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div {
+    animation: terminal-print 0.34s steps(14, end) both;
+  }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(1) { animation-delay: 0.15s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(2) { animation-delay: 0.31s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(3) { animation-delay: 0.47s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(4) { animation-delay: 0.63s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(5) { animation-delay: 0.79s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(6) { animation-delay: 0.95s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(7) { animation-delay: 1.05s; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:nth-child(8) { animation-delay: 1.18s; }
+  .case-card-visual--cryptowatch .terminal-body > div:last-child { position: relative; }
+  .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:last-child::after {
+    content: '▋';
+    margin-left: 0.4ch;
+    color: #56D364;
+    opacity: 0;
+    animation: terminal-caret 1.05s steps(1, end) 1.5s infinite;
+  }
+  @keyframes terminal-print {
+    from { opacity: 1; clip-path: inset(0 100% 0 0); }
+    to   { opacity: 1; clip-path: inset(0 0 0 0); }
+  }
+  @keyframes terminal-caret {
+    0%, 45% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .case-card-visual--cryptowatch .terminal-body > div { opacity: 1; }
+    .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div { animation: none; clip-path: none; }
+    .case-card.is-visible .case-card-visual--cryptowatch .terminal-body > div:last-child::after { content: none; }
+  }
+
   .case-card-meta {
     margin: 0 0 1rem;
     display: flex;
@@ -821,12 +859,47 @@ import ContactSection from '../components/ContactSection.astro';
   }
 
   .timeline-row {
+    position: relative;
     display: grid;
     grid-template-columns: 1.4fr 2.6fr 1.2fr;
     gap: 1.5rem;
-    padding: 1.1rem 0;
+    padding: 1.1rem 0 1.1rem 1.9rem;
     border-bottom: 1px solid var(--color-border);
     align-items: baseline;
+  }
+
+  .timeline-row::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.55s var(--ease-out-soft);
+  }
+  .timeline-row::after {
+    content: '';
+    position: absolute;
+    left: 0.5px;
+    top: 1.55rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 4px rgba(247, 147, 26, 0.12);
+    transform: scale(1);
+    transition: transform 0.45s var(--ease-out-soft) 0.1s;
+  }
+  .js .timeline-row::before { transform: scaleY(0); }
+  .js .timeline-row::after { transform: scale(0); }
+  .timeline-row.is-visible::before { transform: scaleY(1); }
+  .timeline-row.is-visible::after { transform: scale(1); }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline-row::before { transform: scaleY(1); transition: none; }
+    .timeline-row::after { transform: scale(1); transition: none; }
   }
 
   .timeline-company {
@@ -872,7 +945,7 @@ import ContactSection from '../components/ContactSection.astro';
     .timeline-row {
       grid-template-columns: 1fr;
       gap: 0.25rem;
-      padding: 1rem 0;
+      padding: 1rem 0 1rem 1.9rem;
     }
     .timeline-period { text-align: left; }
   }
