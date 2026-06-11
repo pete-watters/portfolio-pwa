@@ -8,6 +8,7 @@ stat: "Stacks SIP-9 + Bitcoin Ordinals · video + audio playback · ~5,800-line 
 headline: "A multi-chain NFT gallery for a Bitcoin wallet."
 subtitle: "Two very different on-chain data models — Stacks SIP-9 and Bitcoin Ordinals — collapsed into a single coherent gallery UI, shared across the Leather extension and mobile app."
 confidentiality: "This case study describes my personal contributions as a contractor at Trust Machines. The Leather wallet is open source — my work is publicly visible at github.com/leather-io. Technical details reflect my own experience and do not represent official Trust Machines communications."
+repo: "https://github.com/leather-io"
 tech:
   - TypeScript
   - React
