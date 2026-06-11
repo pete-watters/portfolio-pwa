@@ -4,7 +4,7 @@ test.describe('CV page', () => {
   test('/cv renders the unified CV', async ({ page }) => {
     await page.goto('/cv');
     await expect(page).toHaveTitle('CV | Pete Watters');
-    await expect(page.locator('.cv')).toContainText('Engineer with 15+ years');
+    await expect(page.locator('.cv')).toContainText('Engineer building for the web for nearly 20 years');
   });
 
   test('skills section renders with frontend groupings', async ({ page }) => {

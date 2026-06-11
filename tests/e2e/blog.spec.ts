@@ -21,7 +21,7 @@ test.describe('Blog', () => {
 
   test('blog listing has correct title', async ({ page }) => {
     await page.goto('/blog');
-    await expect(page).toHaveTitle('Blog | Pete Watters');
+    await expect(page).toHaveTitle('Writing | Pete Watters');
   });
 
   test('has search element', async ({ page }) => {
@@ -37,7 +37,7 @@ test.describe('Blog', () => {
 
   test('tag filter "All" is selected by default', async ({ page }) => {
     await page.goto('/blog');
-    await expect(page.locator('.tag-filters button[data-tag="all"]')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('.tag-filters button[data-tag="all"]')).toHaveAttribute('aria-pressed', 'true');
   });
 
   test('clicking a tag filters posts', async ({ page }) => {
@@ -51,8 +51,8 @@ test.describe('Blog', () => {
     await firstTagButton.click();
 
     // The tag should now be selected
-    await expect(firstTagButton).toHaveAttribute('aria-selected', 'true');
-    await expect(page.locator('.tag-filters button[data-tag="all"]')).toHaveAttribute('aria-selected', 'false');
+    await expect(firstTagButton).toHaveAttribute('aria-pressed', 'true');
+    await expect(page.locator('.tag-filters button[data-tag="all"]')).toHaveAttribute('aria-pressed', 'false');
 
     // At least one card should be visible
     const visibleCards = page.locator('.blog-card:not([hidden])');
@@ -75,7 +75,7 @@ test.describe('Blog', () => {
 
     // Reset
     await page.locator('.tag-filters button[data-tag="all"]').click();
-    await expect(page.locator('.tag-filters button[data-tag="all"]')).toHaveAttribute('aria-selected', 'true');
+    await expect(page.locator('.tag-filters button[data-tag="all"]')).toHaveAttribute('aria-pressed', 'true');
 
     const visibleCards = page.locator('.blog-card:not([hidden])');
     expect(await visibleCards.count()).toBe(totalBefore);
@@ -92,7 +92,7 @@ test.describe('Blog', () => {
     const breadcrumbs = page.locator('.breadcrumbs');
     await expect(breadcrumbs).toBeVisible();
     await expect(breadcrumbs.locator('a[href="/"]')).toHaveText('Home');
-    await expect(breadcrumbs.locator('a[href="/blog"]')).toHaveText('Blog');
+    await expect(breadcrumbs.locator('a[href="/blog"]')).toHaveText('Writing');
   });
 
   test('blog cards have data-tags attribute', async ({ page }) => {
