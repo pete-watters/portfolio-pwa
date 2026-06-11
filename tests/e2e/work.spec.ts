@@ -4,7 +4,7 @@ const cases = [
   { slug: 'leather-mobile', title: 'Leather Mobile — Bitcoin Wallet on iOS and Android', company: 'Trust Machines' },
   { slug: 'leather-nfts',   title: 'Leather NFT Gallery — Two Chains, Multimedia, AI-Assisted Build', company: 'Trust Machines' },
   { slug: 'cryptowatch',    title: 'Cryptowatch Trading Surface — Real Money, Millions of Users', company: 'Kraken' },
-  { slug: 'coderunner',     title: "Coderunner — Kraken's Greenfield Trading Automation", company: 'Kraken' },
+  { slug: 'coderunner',     title: "Coderunner — Kraken's Trading Automation Tool", company: 'Kraken' },
   { slug: 'xapo',           title: 'Xapo', company: 'Xapo' },
   { slug: 'qredo',          title: 'Qredo', company: 'Qredo' },
 ];
