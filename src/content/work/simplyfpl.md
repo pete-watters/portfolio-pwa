@@ -8,6 +8,7 @@ stat: "One-person company: real-time, edge-served, crash-proof — built by dire
 headline: "A real-time Fantasy Premier League product, built solo."
 subtitle: "SimplyFPL is a faster, calmer, never-crashes alternative to the incumbent live-rank trackers. Edge-served from Cloudflare, tested like a team product, and built by steering AI across architecture, infra, design, and ops — with me reviewing and signing off every commit."
 confidentiality: "SimplyFPL is my own independent product. All architecture decisions, code, screenshots, and technical details here are my own work."
+repo: "https://github.com/pete-watters/simply-fpl"
 tech:
   - Next.js 15
   - TypeScript

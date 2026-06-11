@@ -64,7 +64,7 @@ test.describe('Home page', () => {
     await expect(page.locator('.case-card')).toHaveCount(7);
   });
 
-  test('case study cards link to /work/<slug>/ plus the repo', async ({ page }) => {
+  test('every case study card links to its /work/<slug>/ page', async ({ page }) => {
     await page.goto('/');
     const links = page.locator('.case-card-link');
     await expect(links).toHaveCount(7);
@@ -74,8 +74,21 @@ test.describe('Home page', () => {
     await expect(links.nth(3)).toHaveAttribute('href', '/work/qredo/');
     await expect(links.nth(4)).toHaveAttribute('href', '/work/stackr/');
     await expect(links.nth(5)).toHaveAttribute('href', '/work/simplyfpl/');
-    await expect(links.nth(6)).toHaveAttribute('href', 'https://github.com/pete-watters/portfolio-pwa');
-    await expect(links.nth(6)).toHaveAttribute('target', '_blank');
+    await expect(links.nth(6)).toHaveAttribute('href', '/work/portfolio-pwa/');
+  });
+
+  test('open-source project cards show GitHub repo links opening in new tabs', async ({ page }) => {
+    await page.goto('/');
+    const repoLinks = page.locator('.case-card-repo');
+    await expect(repoLinks).toHaveCount(4);
+    await expect(repoLinks.nth(0)).toHaveAttribute('href', 'https://github.com/leather-io');
+    await expect(repoLinks.nth(1)).toHaveAttribute('href', 'https://github.com/pete-watters/stackr');
+    await expect(repoLinks.nth(2)).toHaveAttribute('href', 'https://github.com/pete-watters/simply-fpl');
+    await expect(repoLinks.nth(3)).toHaveAttribute('href', 'https://github.com/pete-watters/portfolio-pwa');
+    for (const link of await repoLinks.all()) {
+      await expect(link).toHaveAttribute('target', '_blank');
+      await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    }
   });
 
   test('timeline lists every role from Trust Machines back to Earlier', async ({ page }) => {
