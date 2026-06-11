@@ -2,7 +2,7 @@ name: Integration Tests
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, dev]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -23,7 +23,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
       - uses: actions/cache@v4
         id: playwright-cache
         with:
@@ -34,6 +33,7 @@ jobs:
       - name: Install Playwright browser binaries (skip if cached)
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install
+      - run: npm run build
       - run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}

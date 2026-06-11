@@ -58,52 +58,48 @@ const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => 
 </BaseLayout>
 
 <script>
-  function initTagFilter() {
+  function filterByTag(tag: string) {
     const buttons = document.querySelectorAll<HTMLButtonElement>('.tag-filters button');
     const cards = document.querySelectorAll<HTMLElement>('.blog-card');
     const featuredSection = document.querySelector<HTMLElement>('.featured-section');
 
-    function filterByTag(tag: string) {
-      buttons.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.tag === tag)));
+    buttons.forEach((btn) => btn.setAttribute('aria-pressed', String(btn.dataset.tag === tag)));
 
-      if (tag === 'all') {
-        cards.forEach((card) => card.removeAttribute('hidden'));
-        if (featuredSection) featuredSection.removeAttribute('hidden');
-      } else {
-        let anyFeaturedVisible = false;
-        cards.forEach((card) => {
-          const cardTags = card.dataset.tags?.split(',') ?? [];
-          const matches = cardTags.includes(tag);
-          if (matches) {
-            card.removeAttribute('hidden');
-            if (featuredSection?.contains(card)) anyFeaturedVisible = true;
-          } else {
-            card.setAttribute('hidden', '');
-          }
-        });
-        if (featuredSection) {
-          if (anyFeaturedVisible) {
-            featuredSection.removeAttribute('hidden');
-          } else {
-            featuredSection.setAttribute('hidden', '');
-          }
+    if (tag === 'all') {
+      cards.forEach((card) => card.removeAttribute('hidden'));
+      if (featuredSection) featuredSection.removeAttribute('hidden');
+    } else {
+      let anyFeaturedVisible = false;
+      cards.forEach((card) => {
+        const cardTags = card.dataset.tags?.split(',') ?? [];
+        const matches = cardTags.includes(tag);
+        if (matches) {
+          card.removeAttribute('hidden');
+          if (featuredSection?.contains(card)) anyFeaturedVisible = true;
+        } else {
+          card.setAttribute('hidden', '');
+        }
+      });
+      if (featuredSection) {
+        if (anyFeaturedVisible) {
+          featuredSection.removeAttribute('hidden');
+        } else {
+          featuredSection.setAttribute('hidden', '');
         }
       }
-
-      window.history.replaceState(null, '', tag === 'all' ? window.location.pathname : `#${tag}`);
     }
 
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => filterByTag(btn.dataset.tag!));
-    });
+    window.history.replaceState(null, '', tag === 'all' ? window.location.pathname : `#${tag}`);
+  }
 
-    document.addEventListener('click', (e) => {
-      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('[data-filter-tag]');
-      if (link) {
-        e.preventDefault();
-        const tag = link.textContent?.trim();
+  function initTagFilter() {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.tag-filters button');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tag = btn.dataset.tag;
         if (tag) filterByTag(tag);
-      }
+      });
     });
 
     const hash = window.location.hash.slice(1);
@@ -114,7 +110,17 @@ const allTags = [...new Set(allPosts.flatMap((post: CollectionEntry<'blog'>) => 
     }
   }
 
-  initTagFilter();
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    const link = target instanceof Element ? target.closest<HTMLAnchorElement>('[data-filter-tag]') : null;
+    if (link) {
+      e.preventDefault();
+      const tag = link.textContent?.trim();
+      if (tag) filterByTag(tag);
+    }
+  });
+
+  document.addEventListener('astro:page-load', initTagFilter);
 </script>
 
 <style>
