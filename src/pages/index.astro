@@ -39,9 +39,14 @@ import ContactSection from '../components/ContactSection.astro';
             <li>Design System</li>
             <li>AI Tooling</li>
           </ul>
-          <a class="case-card-link" href="/work/leather-mobile/">
-            View case study <span class="arrow" aria-hidden="true">→</span>
-          </a>
+          <div class="case-card-links">
+            <a class="case-card-link" href="/work/leather-mobile/">
+              View case study <span class="arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="case-card-repo" href="https://github.com/leather-io" target="_blank" rel="noopener noreferrer">
+              GitHub <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
       </article>
 
@@ -181,9 +186,14 @@ import ContactSection from '../components/ContactSection.astro';
               <li>Cloudflare</li>
               <li>Design</li>
             </ul>
-            <a class="case-card-link" href="/work/stackr/">
-              View project <span class="arrow" aria-hidden="true">→</span>
-            </a>
+            <div class="case-card-links">
+              <a class="case-card-link" href="/work/stackr/">
+                View project <span class="arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="case-card-repo" href="https://github.com/pete-watters/stackr" target="_blank" rel="noopener noreferrer">
+                GitHub <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -208,9 +218,14 @@ import ContactSection from '../components/ContactSection.astro';
               <li>Real-time</li>
               <li>AI workflow</li>
             </ul>
-            <a class="case-card-link" href="/work/simplyfpl/">
-              View project <span class="arrow" aria-hidden="true">→</span>
-            </a>
+            <div class="case-card-links">
+              <a class="case-card-link" href="/work/simplyfpl/">
+                View project <span class="arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="case-card-repo" href="https://github.com/pete-watters/simply-fpl" target="_blank" rel="noopener noreferrer">
+                GitHub <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </article>
 
@@ -235,9 +250,14 @@ import ContactSection from '../components/ContactSection.astro';
               <li>TypeScript</li>
               <li>Cloudflare</li>
             </ul>
-            <a class="case-card-link" href="https://github.com/pete-watters/portfolio-pwa" target="_blank" rel="noopener noreferrer">
-              View source <span class="arrow" aria-hidden="true">→</span>
-            </a>
+            <div class="case-card-links">
+              <a class="case-card-link" href="/work/portfolio-pwa/">
+                View case study <span class="arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="case-card-repo" href="https://github.com/pete-watters/portfolio-pwa" target="_blank" rel="noopener noreferrer">
+                GitHub <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
           </div>
         </article>
       </div>
@@ -847,6 +867,30 @@ import ContactSection from '../components/ContactSection.astro';
     transition: transform 0.3s var(--ease-out-soft);
   }
   .case-card-link:hover .arrow { transform: translateX(4px); }
+
+  .case-card-links {
+    display: flex;
+    align-items: baseline;
+    gap: 1.75rem;
+  }
+  .case-card-repo {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-muted);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color 0.25s var(--ease-out-soft), border-color 0.25s var(--ease-out-soft);
+  }
+  .case-card-repo:hover {
+    color: var(--color-text);
+    border-bottom-color: var(--color-text);
+  }
+  .case-card-repo .arrow {
+    display: inline-block;
+    transition: transform 0.3s var(--ease-out-soft);
+  }
+  .case-card-repo:hover .arrow { transform: translate(2px, -2px); }
 
   /* TIMELINE */
   .timeline .section-label { margin-bottom: 1.5rem; }

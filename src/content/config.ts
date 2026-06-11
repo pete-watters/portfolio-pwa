@@ -32,6 +32,7 @@ const work = defineCollection({
     headline: z.string(),
     subtitle: z.string().optional(),
     confidentiality: z.string(),
+    repo: z.string().url().optional(),
     tech: z.array(z.string()),
     order: z.number(),
     outcomeText: z.string().optional(),
