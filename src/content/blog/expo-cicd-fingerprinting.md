@@ -8,6 +8,8 @@ draft: false
 
 *This is Part 1 of the "Building a Crypto Wallet with Expo" series.*
 
+> This post reflects Leather's mobile CI as it stood in mid-2025. The setup has since evolved — treat it as a point-in-time account rather than the current state.
+
 Before joining the Leather mobile project, I'd never touched React Native, Expo or EAS. My CI experience was entirely web-focused -- GitHub Actions running lint, type checks and Playwright tests for the browser extension. Mobile CI was a different beast entirely. You're not just building JavaScript; you're compiling native binaries for two platforms, managing signing certificates, provisioning profiles and dealing with build times that make webpack look instant.
 
 I approached EAS the way I approach most new tooling: read the docs cover to cover, then start breaking things. The Expo documentation is genuinely excellent, and the EAS Workflows feature was still relatively new when we adopted it. I spent the first week just running builds locally, understanding what the different profiles did and getting a feel for what changed the native fingerprint versus what didn't. That investment paid off enormously -- once I understood the fingerprint concept, our entire CI strategy clicked into place.
