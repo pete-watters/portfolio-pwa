@@ -1,0 +1,48 @@
+---
+---
+
+<script>
+  import { SEARCH_SITE_TOOL, runSearchSite } from '../lib/mcp-tools';
+  import { createPagefindBackend } from '../lib/pagefind-search';
+
+  interface ModelContext {
+    registerTool: (tool: Record<string, unknown>) => Promise<unknown>;
+  }
+
+  const REGISTERED_FLAG = '__pwWebMcpRegistered';
+
+  function isModelContext(value: unknown): value is ModelContext {
+    if (typeof value !== 'object' || value === null) return false;
+    return typeof Reflect.get(value, 'registerTool') === 'function';
+  }
+
+  function alreadyRegistered(): boolean {
+    return Reflect.get(window, REGISTERED_FLAG) === true;
+  }
+
+  async function registerSiteTools() {
+    if (alreadyRegistered()) return;
+    if (!('modelContext' in document)) return;
+
+    const context: unknown = Reflect.get(document, 'modelContext');
+    if (!isModelContext(context)) return;
+
+    Reflect.set(window, REGISTERED_FLAG, true);
+    const search = createPagefindBackend(window.location.origin);
+
+    try {
+      await context.registerTool({
+        name: SEARCH_SITE_TOOL.name,
+        title: SEARCH_SITE_TOOL.title,
+        description: SEARCH_SITE_TOOL.description,
+        inputSchema: SEARCH_SITE_TOOL.inputSchema,
+        execute: (args: unknown) => runSearchSite(search, args),
+      });
+    } catch {
+      Reflect.set(window, REGISTERED_FLAG, false);
+    }
+  }
+
+  registerSiteTools();
+  document.addEventListener('astro:page-load', registerSiteTools);
+</script>

@@ -2,6 +2,11 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  buildBreadcrumbList,
+  buildCaseStudy,
+  countWords,
+} from '../../lib/structured-data';
 
 export async function getStaticPaths() {
   const entries = await getCollection('work', ({ data }: CollectionEntry<'work'>) => !data.draft);
@@ -18,13 +23,41 @@ interface Props {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const data = entry.data;
+
+const slug = entry.id.replace(/\.md$/, '');
+const siteUrl = Astro.site?.href;
+const description = data.subtitle ?? data.headline;
+const jsonLd = [
+  buildCaseStudy({
+    title: data.title,
+    description,
+    path: `/work/${slug}/`,
+    headline: data.headline,
+    company: data.company,
+    project: data.project,
+    tech: data.tech,
+    repo: data.repo,
+    wordCount: countWords(entry.body ?? ''),
+    siteUrl,
+  }),
+  buildBreadcrumbList(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Work', path: '/#work' },
+      { name: data.title, path: `/work/${slug}/` },
+    ],
+    siteUrl,
+  ),
+];
 ---
 
 <BaseLayout
   title={data.title}
-  description={data.subtitle ?? data.headline}
+  description={description}
+  markdownPath={`/work/${slug}.md`}
+  jsonLd={jsonLd}
 >
-  <article class="case-study">
+  <article class="case-study" data-pagefind-body data-pagefind-meta={`title:${data.title}`}>
     <a href="/" class="case-study-back" data-position="top">← All work</a>
 
     <header class="case-study-hero">

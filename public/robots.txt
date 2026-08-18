@@ -1,4 +1,16 @@
+# Content Signals Policy — https://developers.cloudflare.com/ai-crawl-control/
+# search:   building a search index and showing links or short excerpts
+# ai-input: real-time use in generative answers (RAG, grounding)
+# ai-train: use as training or fine-tuning data
+#
+# This site is a public portfolio. It is meant to be found and cited, so
+# search and ai-input are granted. Training rights are not.
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 Sitemap: https://petewatters.ie/sitemap-index.xml
+
+# Agent-readable index of the site, linking plain-Markdown copies of every
+# page. Not a robots.txt standard field — see https://llmstxt.org/
+Llms-Txt: https://petewatters.ie/llms.txt

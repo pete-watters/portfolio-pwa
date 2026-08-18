@@ -6,8 +6,12 @@
   function initSearch() {
     const el = document.querySelector('#search');
     if (el instanceof HTMLElement && !el.dataset.pagefindReady) {
-      new PagefindUI({ element: '#search', showSubResults: true });
+      const ui = new PagefindUI({ element: '#search', showSubResults: true });
       el.dataset.pagefindReady = 'true';
+      const query = new URLSearchParams(window.location.search).get('q');
+      if (query && typeof ui.triggerSearch === 'function') {
+        ui.triggerSearch(query);
+      }
     }
   }
   document.addEventListener('astro:page-load', initSearch);

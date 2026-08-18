@@ -2,6 +2,11 @@
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import {
+  buildBlogPosting,
+  buildBreadcrumbList,
+  countWords,
+} from '../../lib/structured-data';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }: CollectionEntry<'blog'>) => !data.draft);
@@ -14,6 +19,29 @@ export async function getStaticPaths() {
 type Props = { post: CollectionEntry<'blog'> };
 const { post } = Astro.props as Props;
 const { Content } = await render(post);
+
+const slug = post.id.replace(/\.md$/, '');
+const siteUrl = Astro.site?.href;
+const jsonLd = [
+  buildBlogPosting({
+    title: post.data.title,
+    description: post.data.description,
+    path: `/blog/${slug}/`,
+    publishedDate: post.data.pubDate,
+    updatedDate: post.data.updatedDate,
+    tags: post.data.tags,
+    wordCount: countWords(post.body ?? ''),
+    siteUrl,
+  }),
+  buildBreadcrumbList(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Writing', path: '/blog/' },
+      { name: post.data.title, path: `/blog/${slug}/` },
+    ],
+    siteUrl,
+  ),
+];
 ---
 
 <BaseLayout
@@ -21,6 +49,9 @@ const { Content } = await render(post);
   description={post.data.description}
   type="article"
   publishedDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  markdownPath={`/blog/${slug}.md`}
+  jsonLd={jsonLd}
 >
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href="/">Home</a> <span class="breadcrumb-sep">&rsaquo;</span> <a href="/blog">Writing</a> <span class="breadcrumb-sep">&rsaquo;</span> <span class="breadcrumb-current">{post.data.title}</span>
