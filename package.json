@@ -11,6 +11,7 @@
     "astro": "astro",
     "check": "astro check",
     "lint": "eslint .",
+    "lint:prose": "vale --minAlertLevel=error src/content/blog",
     "test:unit": "vitest run",
     "test:e2e": "playwright test",
     "test:e2e:headless": "playwright test --project chromium",
