@@ -2,8 +2,8 @@
 #
 # Branch strategy:
 #   main → production (petewatters.ie)
-#   dev  → stable staging at dev.portfolio.pages.dev
-#   PR   → ephemeral per-PR preview at <branch>.portfolio.pages.dev
+#   dev  → stable staging at dev.portfolio-m2q.pages.dev
+#   PR   → ephemeral per-PR preview at <branch>.portfolio-m2q.pages.dev
 #
 # Workflow: feature branches → PR into dev → merge dev → main when releasing.
 
@@ -53,7 +53,7 @@ jobs:
             # Ephemeral per-PR preview
             DEPLOY_OUTPUT=$(pnpm dlx wrangler pages deploy dist --project-name=portfolio --branch="${{ github.head_ref }}" --commit-dirty=true 2>&1)
           elif [ "${{ github.ref_name }}" = "dev" ]; then
-            # Stable staging deploy: dev.portfolio.pages.dev
+            # Stable staging deploy: dev.portfolio-m2q.pages.dev
             DEPLOY_OUTPUT=$(pnpm dlx wrangler pages deploy dist --project-name=portfolio --branch=dev --commit-dirty=true 2>&1)
           else
             # Production (main branch)

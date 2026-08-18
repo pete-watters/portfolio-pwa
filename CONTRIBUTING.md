@@ -82,9 +82,12 @@ State signals that change a triage decision.
 | Branch | Role | Auto-deploys to |
 |---|---|---|
 | `main` | Production. Protected. Squash-merge only from PRs targeting `main`. | `petewatters.ie` |
-| `dev` | Staging / integration. Light protection (block force-pushes + deletions). Feature PRs land here. | `dev.portfolio.pages.dev` |
+| `dev` | Staging / integration. Light protection (block force-pushes + deletions). Feature PRs land here. | `dev.portfolio-m2q.pages.dev` |
 | `feat/*`, `fix/*`, `chore/*`, `ci/*`, `docs/*` | Short-lived working branches. PR into `dev`. | Ephemeral per-PR preview |
 | `release/*` | Optional, only used when batching dev → main needs review surface | n/a |
+
+The Pages project serves from `portfolio-m2q.pages.dev`. Note the suffix —
+`portfolio.pages.dev` belongs to an unrelated Pages project and is not ours.
 
 Release flow: when `dev` is stable, open a single `dev → main` PR. Merging
 that promotes to production. Tag the resulting commit on main with the

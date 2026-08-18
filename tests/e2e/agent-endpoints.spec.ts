@@ -81,6 +81,17 @@ test.describe('Agent endpoints', () => {
     expect(body).toContain('Content-Signal: search=yes, ai-input=yes, ai-train=no');
     expect(body).toContain('Sitemap: https://petewatters.ie/sitemap-index.xml');
     expect(body).toContain('https://petewatters.ie/llms.txt');
+    expect(body).toContain('EXPRESS RESERVATIONS OF');
+  });
+
+  test('the deployed robots.txt still refuses the training-only crawlers', async ({ request }) => {
+    const body = await (await request.get('/robots.txt')).text();
+    ['CCBot', 'Bytespider', 'Amazonbot', 'meta-externalagent', 'Applebot-Extended'].forEach(
+      (agent) => expect(body).toContain(`User-agent: ${agent}\nDisallow: /`),
+    );
+    ['ClaudeBot', 'Google-Extended', 'GPTBot', 'OAI-SearchBot', 'PerplexityBot'].forEach((agent) =>
+      expect(body).not.toContain(`User-agent: ${agent}\nDisallow: /`),
+    );
   });
 
   test('every page carries a Person and WebSite graph', async ({ page }) => {
