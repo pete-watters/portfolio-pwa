@@ -28,8 +28,8 @@ importers:
         specifier: ^1.4.0
         version: 1.5.2
       '@playwright/test':
-        specifier: ^1.49.0
-        version: 1.62.1
+        specifier: ~1.58.2
+        version: 1.58.2
       '@typescript-eslint/parser':
         specifier: ^8.55.0
         version: 8.67.0(eslint@9.39.5)(typescript@5.9.3)
@@ -44,7 +44,7 @@ importers:
         version: 1.7.0(eslint@9.39.5)
       playwright-bdd:
         specifier: ^8.5.1
-        version: 8.5.1(@playwright/test@1.62.1)
+        version: 8.5.1(@playwright/test@1.58.2)
       rehype-mermaid:
         specifier: ^3.0.0
         version: 3.0.0(playwright@1.62.1)
@@ -1418,9 +1418,9 @@ packages:
     resolution: {integrity: sha512-SEeaJLb3qBNF/OaXnaR1NmmBbFYk1zC0ZH/52fATcRPLFg/p791YrcyFFy44Bo9sLaGuSuLp5Q6axbb/O+v/RA==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.62.1':
-    resolution: {integrity: sha512-DTcUc8qii+cpHvtOwggMtBRMjKZHXYWdw8syRYu2vtzuq4Wxphqq4NfCs5Zt44L6mA8rfDfj+PHnxFc/FeK6mQ==}
-    engines: {node: '>=20'}
+  '@playwright/test@1.58.2':
+    resolution: {integrity: sha512-akea+6bHYBBfA9uQqSYmlJXn61cTa+jbO87xVLCWbTqbWadRVmhxlXATaOjOgcBaWU4ePo0wB41KMFv3o35IXA==}
+    engines: {node: '>=18'}
     hasBin: true
 
   '@rollup/plugin-babel@6.1.0':
@@ -3569,9 +3569,19 @@ packages:
     peerDependencies:
       '@playwright/test': '>=1.44'
 
+  playwright-core@1.58.2:
+    resolution: {integrity: sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   playwright-core@1.62.1:
     resolution: {integrity: sha512-wPYSwEBJY9GHraISXqyqtx0na0LpO3XEX7jNDhntbex7tzUS7kLnZsOlFruFJB4Hi/rhDMjXGqHewDZ68nYZVw==}
     engines: {node: '>=20'}
+    hasBin: true
+
+  playwright@1.58.2:
+    resolution: {integrity: sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==}
+    engines: {node: '>=18'}
     hasBin: true
 
   playwright@1.62.1:
@@ -5984,9 +5994,9 @@ snapshots:
 
   '@pkgr/core@0.3.6': {}
 
-  '@playwright/test@1.62.1':
+  '@playwright/test@1.58.2':
     dependencies:
-      playwright: 1.62.1
+      playwright: 1.58.2
 
   '@rollup/plugin-babel@6.1.0(@babel/core@7.29.7)(rollup@4.62.4)':
     dependencies:
@@ -8602,7 +8612,7 @@ snapshots:
 
   picomatch@4.0.5: {}
 
-  playwright-bdd@8.5.1(@playwright/test@1.62.1):
+  playwright-bdd@8.5.1(@playwright/test@1.58.2):
     dependencies:
       '@cucumber/cucumber-expressions': 18.0.1
       '@cucumber/gherkin': 32.2.0
@@ -8611,20 +8621,30 @@ snapshots:
       '@cucumber/junit-xml-formatter': 0.7.1(@cucumber/messages@27.2.0)
       '@cucumber/messages': 27.2.0
       '@cucumber/tag-expressions': 6.2.0
-      '@playwright/test': 1.62.1
+      '@playwright/test': 1.58.2
       cli-table3: 0.6.5
       commander: 13.1.0
       fast-glob: 3.3.3
       mime-types: 3.0.2
       xmlbuilder: 15.1.1
 
-  playwright-core@1.62.1: {}
+  playwright-core@1.58.2: {}
+
+  playwright-core@1.62.1:
+    optional: true
+
+  playwright@1.58.2:
+    dependencies:
+      playwright-core: 1.58.2
+    optionalDependencies:
+      fsevents: 2.3.2
 
   playwright@1.62.1:
     dependencies:
       playwright-core: 1.62.1
     optionalDependencies:
       fsevents: 2.3.2
+    optional: true
 
   points-on-curve@0.2.0: {}
 
