@@ -167,19 +167,19 @@ For prod incidents (broken deploy, regression, security issue):
 ## Local development
 
 ```bash
-npm install
-npm run dev          # Start Astro dev server
-npm run build        # Production build
-npm run preview      # Preview production build locally
+pnpm install
+pnpm dev          # Start Astro dev server
+pnpm build        # Production build
+pnpm preview      # Preview production build locally
 ```
 
 Tests + lint:
 
 ```bash
-npm run lint                # ESLint
-npm run check               # Astro type-check
-npm run test:unit           # Vitest
-npm run test:e2e:headless   # Playwright chromium
+pnpm lint                # ESLint
+pnpm check               # Astro type-check
+pnpm test:unit           # Vitest
+pnpm test:e2e:headless   # Playwright chromium
 ```
 
 ---

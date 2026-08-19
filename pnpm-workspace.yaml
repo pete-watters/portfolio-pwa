@@ -1,0 +1,5 @@
+# esbuild and sharp ship prebuilt binaries that their install scripts link.
+# pnpm blocks dependency build scripts by default, so both are allowed here.
+allowBuilds:
+  esbuild: true
+  sharp: true
