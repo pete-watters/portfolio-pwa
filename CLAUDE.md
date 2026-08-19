@@ -32,11 +32,11 @@ Personal portfolio and blog for Pete Watters, a solo maintainer. Single Astro pa
 
 ## Stack
 
-- **Package manager**: npm (`package-lock.json` present). Do not switch to pnpm, yarn, or bun.
+- **Package manager**: pnpm (`pnpm-lock.yaml` present). Do not switch to npm, yarn, or bun.
 - **Framework**: Astro v5, `output: 'static'`
 - **TypeScript**: strict (`astro/tsconfigs/strict`)
 - **PWA**: `@vite-pwa/astro` — Workbox, `registerType: 'autoUpdate'`, manifest defined in `astro.config.mjs`
-- **Search**: Pagefind — build runs `astro build && npx pagefind --site dist`
+- **Search**: Pagefind — build runs `astro build && pnpm dlx pagefind --site dist`
 - **Styling**: plain CSS in `src/styles/global.css`. No CSS framework. Do not add one without asking.
 - **Prose linting**: Vale (`.vale.ini`) — runs write-good, alex, and a custom AISpeak style on `src/content/blog/*.md` to catch AI-sounding writing. Keep prose human; the site is interview-facing.
 - **Hosting**: Cloudflare Pages — `main` → production (petewatters.ie), `dev` → staging (dev.portfolio.pages.dev), PRs → ephemeral preview (`<branch>.portfolio.pages.dev`)
@@ -86,10 +86,10 @@ Do not add AGPL headers to content files or treat content prose as relicensable 
 ## Development commands
 
 ```bash
-npm install
-npm run dev          # astro dev
-npm run build        # astro build && npx pagefind --site dist
-npm run preview      # astro preview (serves on port 4321)
+pnpm install
+pnpm dev          # astro dev
+pnpm build        # astro build && pnpm dlx pagefind --site dist
+pnpm preview      # astro preview (serves on port 4321)
 ```
 
 ## Code style
@@ -118,8 +118,8 @@ npm run preview      # astro preview (serves on port 4321)
 
 ## What NOT to do
 
-- Don't switch package managers. npm only.
-- Don't run `npm install` inside an agent worktree if `node_modules` is symlinked from the main checkout.
+- Don't switch package managers. pnpm only.
+- Don't run `pnpm install` inside an agent worktree if `node_modules` is symlinked from the main checkout.
 - Don't commit to `main` directly. Don't force-push `main` or `dev`.
 - Don't commit `.private/` (gitignored, never push) or `.env`/`.env.*` (only `*.example` is tracked). Don't quote `.private/` contents in any artifact.
 - Don't relicense content files as AGPL.
@@ -131,16 +131,16 @@ npm run preview      # astro preview (serves on port 4321)
 Run after any code changes before reporting done:
 
 ```bash
-npm run lint         # ESLint
-npm run check        # astro type-check
-npm run test:unit    # Vitest unit tests
+pnpm lint         # ESLint
+pnpm check        # astro type-check
+pnpm test:unit    # Vitest unit tests
 ```
 
 For UI or route changes, also run:
 
 ```bash
-npm run test:e2e:headless   # Playwright (chromium) against npm run preview on port 4321
-npm run e2e:bdd             # playwright-bdd: BDD + visual regression suite
+pnpm test:e2e:headless   # Playwright (chromium) against pnpm preview on port 4321
+pnpm e2e:bdd             # playwright-bdd: BDD + visual regression suite
 ```
 
 Do not report done until lint, check, and test:unit all pass. Regenerate visual-regression baselines deliberately via the `update-visual-baselines` workflow — never blindly commit new screenshots.
@@ -148,7 +148,7 @@ Do not report done until lint, check, and test:unit all pass. Regenerate visual-
 ## Testing
 
 - **Unit**: Vitest — `tests/unit/**/*.test.ts`
-- **E2E functional**: Playwright — `tests/e2e/*.spec.ts`, runs on chromium/firefox/webkit against `npm run preview` (port 4321)
+- **E2E functional**: Playwright — `tests/e2e/*.spec.ts`, runs on chromium/firefox/webkit against `pnpm preview` (port 4321)
 - **BDD + visual regression**: playwright-bdd — `.feature` files in `e2e/features/`, step definitions in `e2e/steps/`, baselines in `e2e/__screenshots__/` (builds production first via `playwright.bdd.config.ts`)
 
 New user-facing behaviour needs a test. Bug fixes need a regression test. The PR author writes the tests.

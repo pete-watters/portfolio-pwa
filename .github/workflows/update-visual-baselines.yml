@@ -28,25 +28,26 @@ jobs:
         with:
           ref: ${{ github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
       - uses: actions/cache@v4
         id: playwright-cache
         with:
           path: ~/.cache/ms-playwright
-          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          key: playwright-chromium-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Install Playwright system deps (always)
-        run: npx playwright install-deps chromium
+        run: pnpm exec playwright install-deps chromium
       - name: Install Playwright Chromium binary (skip if cached)
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install chromium
-      - run: npm run build
-      - run: npx bddgen --config playwright.bdd.config.ts
+        run: pnpm exec playwright install chromium
+      - run: pnpm build
+      - run: pnpm exec bddgen --config playwright.bdd.config.ts
       - name: Regenerate snapshots
-        run: npx playwright test --config playwright.bdd.config.ts --update-snapshots
+        run: pnpm exec playwright test --config playwright.bdd.config.ts --update-snapshots
         env:
           CI: 'true'
       - name: Commit + push updated baselines
