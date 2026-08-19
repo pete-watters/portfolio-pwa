@@ -36,27 +36,28 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GH_PAT }}
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx playwright install --with-deps chromium
-      - run: npm run build
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm build
       - name: Create Pages project if needed
-        run: npx wrangler pages project create portfolio --production-branch main 2>/dev/null || true
+        run: pnpm dlx wrangler pages project create portfolio --production-branch main 2>/dev/null || true
       - name: Deploy to Cloudflare Pages
         id: deploy
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             # Ephemeral per-PR preview
-            DEPLOY_OUTPUT=$(npx wrangler pages deploy dist --project-name=portfolio --branch="${{ github.head_ref }}" --commit-dirty=true 2>&1)
+            DEPLOY_OUTPUT=$(pnpm dlx wrangler pages deploy dist --project-name=portfolio --branch="${{ github.head_ref }}" --commit-dirty=true 2>&1)
           elif [ "${{ github.ref_name }}" = "dev" ]; then
             # Stable staging deploy: dev.portfolio.pages.dev
-            DEPLOY_OUTPUT=$(npx wrangler pages deploy dist --project-name=portfolio --branch=dev --commit-dirty=true 2>&1)
+            DEPLOY_OUTPUT=$(pnpm dlx wrangler pages deploy dist --project-name=portfolio --branch=dev --commit-dirty=true 2>&1)
           else
             # Production (main branch)
-            DEPLOY_OUTPUT=$(npx wrangler pages deploy dist --project-name=portfolio --commit-dirty=true 2>&1)
+            DEPLOY_OUTPUT=$(pnpm dlx wrangler pages deploy dist --project-name=portfolio --commit-dirty=true 2>&1)
           fi
           echo "$DEPLOY_OUTPUT"
           URL=$(echo "$DEPLOY_OUTPUT" | grep 'alias URL' | grep -oE 'https://[^ ]+' || true)

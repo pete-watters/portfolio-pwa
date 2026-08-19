@@ -32,7 +32,7 @@ export default defineConfig({
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   webServer: {
     // Build then serve the production output — closer to CI than dev server.
-    command: 'npm run build && npm run preview',
+    command: 'pnpm build && pnpm preview',
     url: baseURL,
     reuseExistingServer: !process.env['CI'],
     timeout: 180_000,
