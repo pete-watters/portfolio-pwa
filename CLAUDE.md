@@ -1,34 +1,20 @@
-DO NOT ADD, REMOVE, OR MODIFY COMMENTS IN CODE — including punctuation and formatting in existing comments. Only touch comments if explicitly asked.
-
-NEVER reference, name, or describe any OTHER project, client, or repository in this repo's artifacts — commits, PR titles/bodies/comments, issues, code, or docs. Pete may work for multiple clients on the same machine, so leaking one project into another's history is a confidentiality breach. If you observe cross-environment interference (e.g. a port already in use, a stray process, a conflicting global tool), describe it generically — "another local process is using port 4321" — never by name or purpose. This applies in every execution context: interactive sessions, scheduled agents, and subagents.
-
-After ANY code changes, you MUST run verification (see Verification section). Do not report a task as complete until all checks pass.
-
-## Personal preferences
-
-- **PRs**: title + summary bullets only. No "Generated with Claude Code" footer, no Test Plan section unless human-written. No AI attribution anywhere.
-- **Commits**: no `Co-Authored-By` trailer, no AI attribution. This is a public, interview-facing portfolio — authorship matters.
-- **Commit authorship**: every commit must be authored as `Pete Watters <2938440+pete-watters@users.noreply.github.com>`. Remote agents MUST run `git config user.name "Pete Watters"` and `git config user.email "2938440+pete-watters@users.noreply.github.com"` at the start of every run.
-- **Branches**: short kebab-case with scoped prefix (`feat/`, `fix/`, `chore/`, `ci/`, `docs/`).
-- **Tone**: terse. The diff speaks for itself.
-
-### After opening a PR
-
-Immediately after the PR is created, do both of these:
-
-1. **Assign Pete**: `gh pr edit <N> --add-assignee pete-watters` (or the equivalent MCP tool call). GitHub rejects review requests on self-authored PRs — assignee is the visibility signal.
-
-2. **Post a status comment** that opens with `@pete-watters` and has three sections:
-
-   ## Shipped
-   ## Pending
-   ## Verification
-
-   Also include the Cloudflare Pages preview URL for this PR (format: `https://<branch>.portfolio.pages.dev`).
-
 # petewatters.ie — Claude Instructions
 
 Personal portfolio and blog for Pete Watters, a solo maintainer. Single Astro package, deployed to Cloudflare Pages. CONTRIBUTING.md is the authoritative source for branching rules, label taxonomy, and release process — defer to it when it conflicts with anything here.
+
+## Scoped instruction files
+
+This is the only instruction file in the repo. Never create a directory-scoped
+`CLAUDE.md` or `AGENTS.md` — this is a single Astro package with one set of
+rules, and a second file would only drift from this one. Anything narrower
+belongs in the PR description or the issue.
+
+`AGENTS.md` is a symlink to this file, so tools reading either name get the same
+rules.
+
+Standing rules that apply everywhere — attribution, commit authorship,
+confidentiality, secrets, verification before "done" — are global and are
+deliberately not repeated here.
 
 ## Stack
 
@@ -92,11 +78,10 @@ npm run build        # astro build && npx pagefind --site dist
 npm run preview      # astro preview (serves on port 4321)
 ```
 
-## Code style
+## Code style — repo-specific
 
-- TypeScript strict — no `as` casts, `!` non-null assertions, or `any`. Use runtime checks and type guards.
-- `function` declarations for top-level functions; arrow functions for callbacks only.
-- `prefer-const` everywhere. No nested ternaries. No `enum` — use `const` objects or union types.
+General TypeScript style is global; these are the Astro-specific rules.
+
 - Astro component filenames: PascalCase. Route slugs and non-component filenames: kebab-case.
 - ESLint flat config (`eslint.config.js`): `eslint-plugin-astro` recommended + `@typescript-eslint/parser`. Ignores `dist/`, `.astro/`, `node_modules/`.
 
