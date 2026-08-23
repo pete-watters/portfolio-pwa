@@ -1,4 +1,5 @@
 export const SITE_TITLE = 'Pete Watters';
+export const SITE_URL = 'https://petewatters.ie';
 export const SITE_DESCRIPTION =
   'Web3 frontend engineer with a decade in crypto — wallets, trading terminals and institutional interfaces across Bitcoin, Stacks, Solana and EVM chains.';
 

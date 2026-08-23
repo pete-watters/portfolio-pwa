@@ -1,28 +1,37 @@
 ---
 import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
+import WebMcp from '../components/WebMcp.astro';
 import { SOCIAL } from '../consts';
+import type { JsonLdNode } from '../lib/structured-data';
 import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
   tagline: string;
+  markdownPath?: string;
+  jsonLd?: JsonLdNode[];
 }
 
-const { title, description, tagline } = Astro.props;
+const { title, description, tagline, markdownPath, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead
+      title={title}
+      description={description}
+      markdownPath={markdownPath}
+      jsonLd={jsonLd}
+    />
   </head>
   <body>
     <div class="app-shell">
       <Sidebar />
       <main>
-        <div class="cv">
+        <div class="cv" data-pagefind-body data-pagefind-meta="title:Pete Watters — CV">
           <header class="cv-print-header">
             <p class="cv-print-name">Pete Watters</p>
             <p class="cv-print-title">Senior Software Engineer · React / TypeScript / Next.js · Bitcoin & Web3 · Dublin, Ireland</p>
@@ -52,6 +61,7 @@ const { title, description, tagline } = Astro.props;
       }
       document.addEventListener('astro:page-load', markCvExternalLinks);
     </script>
+    <WebMcp />
   </body>
 </html>
 

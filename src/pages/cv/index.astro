@@ -2,15 +2,28 @@
 import type { CollectionEntry } from 'astro:content';
 import { getEntry, render } from 'astro:content';
 import CvLayout from '../../layouts/CvLayout.astro';
+import { buildBreadcrumbList } from '../../lib/structured-data';
 
 const entry = (await getEntry('cv', 'main')) as CollectionEntry<'cv'>;
 const { Content } = await render(entry);
+
+const jsonLd = [
+  buildBreadcrumbList(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'CV', path: '/cv/' },
+    ],
+    Astro.site?.href,
+  ),
+];
 ---
 
 <CvLayout
   title="CV"
   description={entry.data.description}
   tagline={entry.data.tagline}
+  markdownPath="/cv.md"
+  jsonLd={jsonLd}
 >
   <Content />
 </CvLayout>

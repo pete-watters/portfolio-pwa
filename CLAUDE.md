@@ -24,7 +24,7 @@ Immediately after the PR is created, do both of these:
    ## Pending
    ## Verification
 
-   Also include the Cloudflare Pages preview URL for this PR (format: `https://<branch>.portfolio.pages.dev`).
+   Also include the Cloudflare Pages preview URL for this PR (format: `https://<branch>.portfolio-m2q.pages.dev`).
 
 # petewatters.ie — Claude Instructions
 
@@ -39,7 +39,7 @@ Personal portfolio and blog for Pete Watters, a solo maintainer. Single Astro pa
 - **Search**: Pagefind — build runs `astro build && pnpm dlx pagefind --site dist`
 - **Styling**: plain CSS in `src/styles/global.css`. No CSS framework. Do not add one without asking.
 - **Prose linting**: Vale (`.vale.ini`) — runs write-good, alex, and a custom AISpeak style on `src/content/blog/*.md` to catch AI-sounding writing. Keep prose human; the site is interview-facing.
-- **Hosting**: Cloudflare Pages — `main` → production (petewatters.ie), `dev` → staging (dev.portfolio.pages.dev), PRs → ephemeral preview (`<branch>.portfolio.pages.dev`)
+- **Hosting**: Cloudflare Pages — `main` → production (petewatters.ie), `dev` → staging (dev.portfolio-m2q.pages.dev), PRs → ephemeral preview (`<branch>.portfolio-m2q.pages.dev`)
 - **CI**: GitHub Actions (`.github/workflows/`)
 
 ## Project structure

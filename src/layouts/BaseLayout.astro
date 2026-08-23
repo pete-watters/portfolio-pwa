@@ -2,6 +2,8 @@
 import Sidebar from '../components/Sidebar.astro';
 import BaseHead from '../components/BaseHead.astro';
 import ScrollProgress from '../components/ScrollProgress.astro';
+import WebMcp from '../components/WebMcp.astro';
+import type { JsonLdNode } from '../lib/structured-data';
 import '../styles/global.css';
 
 interface Props {
@@ -10,9 +12,13 @@ interface Props {
   image?: string;
   type?: 'website' | 'article';
   publishedDate?: Date;
+  updatedDate?: Date;
+  markdownPath?: string;
+  jsonLd?: JsonLdNode[];
 }
 
-const { title, description, image, type, publishedDate } = Astro.props;
+const { title, description, image, type, publishedDate, updatedDate, markdownPath, jsonLd } =
+  Astro.props;
 const isHome = Astro.url.pathname === '/';
 
 const splashScript = `(function(){
@@ -47,6 +53,9 @@ const splashScript = `(function(){
       image={image}
       type={type}
       publishedDate={publishedDate}
+      updatedDate={updatedDate}
+      markdownPath={markdownPath}
+      jsonLd={jsonLd}
     />
     {isHome && <script is:inline set:html={splashScript} />}
   </head>
@@ -63,5 +72,6 @@ const splashScript = `(function(){
         <slot />
       </main>
     </div>
+    <WebMcp />
   </body>
 </html>
