@@ -22,6 +22,37 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
 
+  prose:
+    # Only the posts this PR touches. The blog carries pre-existing alex
+    # violations; gating the whole corpus would fail CI on day one and the
+    # check would be switched off within a week. New writing still has to pass.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Vale is a Go binary, not an npm package. Pinned to the version the
+      # styles under .vale/styles were authored against.
+      - name: Install Vale
+        env:
+          VALE_VERSION: 3.15.1
+        run: |
+          curl -sSfL "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" \
+            | sudo tar -xz -C /usr/local/bin vale
+      - name: Lint changed blog posts
+        env:
+          BASE: ${{ github.event.pull_request.base.ref }}
+        run: |
+          git fetch --no-tags --quiet origin "$BASE:refs/remotes/origin/$BASE"
+          files=$(git diff --name-only --diff-filter=ACM "origin/$BASE...HEAD" -- 'src/content/blog/*.md')
+          if [ -z "$files" ]; then
+            echo "No blog posts changed in this PR."
+            exit 0
+          fi
+          echo "$files"
+          vale --minAlertLevel=error $files
+
   typecheck:
     runs-on: ubuntu-latest
     steps:
