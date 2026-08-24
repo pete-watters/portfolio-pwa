@@ -27,12 +27,12 @@
   },
   "devDependencies": {
     "@pagefind/default-ui": "^1.4.0",
-    "@playwright/test": "~1.58.2",
+    "@playwright/test": "^1.62.1",
     "@typescript-eslint/parser": "^8.55.0",
     "@vite-pwa/astro": "^1.2.0",
     "eslint": "^9.0.0",
     "eslint-plugin-astro": "^1.0.0",
-    "playwright-bdd": "^8.5.1",
+    "playwright-bdd": "^9.2.0",
     "rehype-mermaid": "^3.0.0",
     "vitest": "^2.1.0",
     "workbox-window": "^7.0.0"
